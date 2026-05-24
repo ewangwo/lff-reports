@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大摩Cloud CapEx追踪器分析 · 2026-05-24</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; line-height: 1.8; color: #333; background: #fafafa; }
+  h1 { border-bottom: 3px solid #1a237e; padding-bottom: 12px; color: #1a237e; }
+  h2 { color: #283593; margin-top: 36px; border-left: 4px solid #5c6bc0; padding-left: 12px; }
+  h3 { color: #3949ab; margin-top: 24px; }
+  .meta-box { background: #e8eaf6; border-radius: 8px; padding: 14px 18px; margin: 16px 0; font-size: 0.9em; color: #283593; border-left: 4px solid #5c6bc0; }
+  .highlight { background: linear-gradient(135deg, #1a237e, #283593); color: #fff; padding: 20px 24px; border-radius: 10px; margin: 20px 0; }
+  .highlight h3 { color: #fff; margin-top: 0; }
+  .highlight .big-num { font-size: 2.2em; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9em; }
+  th { background: #e8eaf6; border: 1px solid #c5cae9; padding: 10px 12px; text-align: left; font-weight: 600; color: #1a237e; }
+  td { border: 1px solid #c5cae9; padding: 8px 12px; }
+  tr:hover { background: #f5f5f5; }
+  .bull { color: #2e7d32; font-weight: 600; }
+  .bear { color: #c62828; font-weight: 600; }
+  .neutral { color: #f57f17; font-weight: 600; }
+  .tag { display: inline-block; background: #e8eaf6; padding: 3px 10px; border-radius: 4px; font-size: 0.8em; margin-right: 4px; }
+  .signal-5 { background: #c8e6c9; color: #1b5e20; }
+  .signal-4 { background: #dcedc8; color: #2e7d32; }
+  .signal-3 { background: #fff9c4; color: #f57f17; }
+  .signal-2 { background: #ffecb3; color: #e65100; }
+  .footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; text-align: center; }
+  .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .action-card { border-radius: 8px; padding: 14px 16px; }
+  .action-1 { background: #e8f5e9; border-left: 4px solid #2e7d32; }
+  .action-2 { background: #fff3e0; border-left: 4px solid #e65100; }
+  .action-3 { background: #f3e5f5; border-left: 4px solid #7b1fa2; }
+  .action-card h4 { margin: 0 0 4px 0; }
+  .action-card p { margin: 4px 0 0 0; font-size: 0.85em; color: #555; }
+</style>
+</head>
+<body>
+
+<div class="meta-box">
+  <strong>报告来源：</strong> Morgan Stanley · Monthly Data Tracker: Cloud Capex (Erik Woodring) · May 22, 2026
+  <br><strong>文件：</strong> capex.pdf (68页) · <strong>分析师：</strong> Erik W Woodring / Dylan Liu / Maya Neuman / Rauf Ural
+</div>
+
+<h1>☁️ 大摩Cloud CapEx追踪器</h1>
+<p style="font-size: 1.1em; color: #555;">2026云CapEx再上调至$893B · +87%Y/Y · 一月内+24pts</p>
+
+<div class="highlight">
+  <h3>📌 一句话判断</h3>
+  <p style="font-size: 1.15em; line-height: 1.6;">
+    <strong>CapEx加速叙事不仅未被证伪，反而在加速强化。</strong>四大超大规模厂商一致表示算力受限，不但没有任何削减意向，还在因为memory通胀推高预算。<strong>这轮AI基础设施投资的时间线正在从"2026见顶"向"2027持续"延伸。</strong>
+  </p>
+</div>
+
+<h2>核心数据</h2>
+<table>
+  <tr><th>指标</th><th>数值</th><th>变化</th></tr>
+  <tr><td>2026 云 CapEx（追踪器）</td><td><strong>$893B</strong></td><td>+87% Y/Y</td></tr>
+  <tr><td>C1Q26后上调额</td><td colspan="2">+$85.6B（一月内+24个百分点）</td></tr>
+  <tr><td>MSFT上调</td><td>+$37.6B</td><td>最大贡献者</td></tr>
+  <tr><td>AMZN上调</td><td>+$20.7B</td><td></td></tr>
+  <tr><td>META上调</td><td>+$10.6B</td><td></td></tr>
+  <tr><td>GOOGL上调</td><td>+$10.4B</td><td></td></tr>
+  <tr><td>2027 Consensus</td><td>+14% Y/Y</td><td>vs MSe +37%</td></tr>
+  <tr><td>BABA 3年AI/云CapEx计划</td><td>RMB 380B</td><td>可能超支</td></tr>
+</table>
+
+<h2>四大厂商算力受限信号</h2>
+<ul>
+  <li><strong>MSFT + GOOGL</strong>：「有更多容量的话，云收入本可以更强」</li>
+  <li><strong>META</strong>：「一直低估了自己的算力需求」</li>
+  <li>以上三家均上调CY26 CapEx指引，原因：组件通胀（尤其memory）+ GPU/CPU供给无改善</li>
+  <li><strong>BABA</strong>：1Q26电话会暗示3年380B元CapEx计划可能超支</li>
+</ul>
+
+<h2>持仓映射</h2>
+<table>
+  <tr><th>持仓</th><th>信号方向</th><th>置信度</th><th>逻辑</th></tr>
+  <tr>
+    <td><strong>MSFT</strong></td>
+    <td class="bull">🟢 强利好</td>
+    <td><span class="tag signal-5">⭐⭐⭐⭐⭐</span></td>
+    <td>CapEx上调最大贡献者+$37.6B，算力受限暗示需求远超供给</td>
+  </tr>
+  <tr>
+    <td><strong>GOOGL</strong></td>
+    <td class="bull">🟢 强利好</td>
+    <td><span class="tag signal-5">⭐⭐⭐⭐⭐</span></td>
+    <td>+$10.4B CapEx上调+算力受限信号</td>
+  </tr>
+  <tr>
+    <td><strong>META</strong></td>
+    <td class="bull">🟢 强利好</td>
+    <td><span class="tag signal-4">⭐⭐⭐⭐</span></td>
+    <td>+$10.6B，"持续低估算力需求"</td>
+  </tr>
+  <tr>
+    <td><strong>MU</strong></td>
+    <td class="bull">🟢 强利好</td>
+    <td><span class="tag signal-5">⭐⭐⭐⭐⭐</span></td>
+    <td>报告明确提及memory通胀推高CapEx</td>
+  </tr>
+  <tr>
+    <td><strong>NVDA</strong></td>
+    <td class="bull">🟢 利好</td>
+    <td><span class="tag signal-4">⭐⭐⭐⭐</span></td>
+    <td>CapEx暴涨直接驱动GPU需求，2027预期差(cons+14% vs MSe+37%)</td>
+  </tr>
+  <tr>
+    <td><strong>AVGO</strong></td>
+    <td class="bull">🟢 利好</td>
+    <td><span class="tag signal-4">⭐⭐⭐⭐</span></td>
+    <td>云CapEx扩张→定制芯片+网络设备需求</td>
+  </tr>
+  <tr>
+    <td><strong>TSM</strong></td>
+    <td class="bull">🟢 利好</td>
+    <td><span class="tag signal-3">⭐⭐⭐</span></td>
+    <td>更多晶圆订单，但memory通胀可能挤压其他组件</td>
+  </tr>
+  <tr>
+    <td><strong>VRT</strong></td>
+    <td class="bull">🟢 利好</td>
+    <td><span class="tag signal-3">⭐⭐⭐</span></td>
+    <td>CapEx扩张→数据中心基建需求持续</td>
+  </tr>
+  <tr>
+    <td><strong>AAPL</strong></td>
+    <td class="neutral">🟡 中性偏弱</td>
+    <td><span class="tag signal-3">⭐⭐⭐</span></td>
+    <td>App Store增速放缓至+4%Y/Y，无AI催化剂</td>
+  </tr>
+  <tr>
+    <td><strong>QCOM</strong></td>
+    <td>⚪ 间接</td>
+    <td><span class="tag signal-2">⭐⭐</span></td>
+    <td>报告不直接覆盖，PC/移动侧数据偏弱</td>
+  </tr>
+</table>
+
+<h2>对LFF体系的启示</h2>
+<ol>
+  <li><strong>CapEx空头叙事被证伪</strong> — 加速仍在持续，并非"CapEx见顶"</li>
+  <li><strong>2027预期差机会</strong> — Consensus +14% vs MSe +37%，差距巨大可能成为H2上调催化</li>
+  <li><strong>MU的双刃剑</strong> — 短期memory涨价利好利润，但长期云厂商可能找替代方案</li>
+  <li><strong>AAPL不在本轮叙事中</strong> — 无AI驱动催化剂</li>
+</ol>
+
+<h2>行动清单</h2>
+<div class="action-grid">
+  <div class="action-card action-1">
+    <h4>🥇 维持MSFT/GOOGL/META重仓</h4>
+    <p>CapEx上调信号极强，算力受限逻辑坚挺</p>
+  </div>
+  <div class="action-card action-1">
+    <h4>🥇 关注MU — memory通胀叠加CapEx扩张</h4>
+    <p>双重利好，需监控memory价格周期拐点</p>
+  </div>
+  <div class="action-card action-2">
+    <h4>🥈 关注2027 CapEx consensus上修机会</h4>
+    <p>当前consensus +14% vs MSe +37%差距巨大</p>
+  </div>
+  <div class="action-card action-3">
+    <h4>🥉 AAPL保持观察</h4>
+    <p>无AI催化剂，App Store增速放缓</p>
+  </div>
+</div>
+
+<h2>同期相关文件</h2>
+<ul>
+  <li><code>Morgan Stanley-Asia Thematic Alpha：Asian Plays on the Capex SuperCycle-260513.pdf</code> — 亚洲CapEx超级周期主题</li>
+  <li><code>全面拥抱 AI --- All In on AI.pdf</code> — 中文AI专题</li>
+  <li><code>CITI-Yageo MLCC Supply Tightness on AI</code> — MLCC因AI挤兑导致供应紧张</li>
+</ul>
+
+<div class="footer">
+  <p>由 Hermes Agent 基于大摩报告生成 · 仅供个人投资研究参考 · 不构成投资建议</p>
+  <p>分析时间: 2026-05-24 · 来源: Morgan Stanley / Erik Woodring / Capex Tracker</p>
+</div>
+
+</body>
+</html>
