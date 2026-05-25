@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>算力租赁行业调研简报</title>
+  <style>
+    :root {
+      --ink: #152029;
+      --muted: #66727d;
+      --line: #dce3df;
+      --bg: #f7f8f4;
+      --navy: #102a3a;
+      --teal: #188a83;
+      --blue: #285c7d;
+      --orange: #e98230;
+      --red: #b84c43;
+      --green: #4a8a5e;
+      --purple: #6f5f9a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.68;
+    }
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 48px 24px 44px;
+    }
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 8px;
+      padding: 7px 12px;
+      background: var(--orange);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.15;
+      letter-spacing: 0;
+      font-weight: 750;
+    }
+    .lead {
+      margin: 16px 0 0;
+      color: #d6e8ea;
+      font-size: 20px;
+      max-width: 900px;
+    }
+    main { padding: 32px 24px 56px; }
+    section {
+      margin: 0 auto 28px;
+      max-width: 1080px;
+    }
+    .box, .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .box {
+      padding: 24px 28px;
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: 0;
+      color: var(--blue);
+    }
+    h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .metric {
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: white;
+      min-height: 128px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 42px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: 0;
+    }
+    .metric span { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .card {
+      padding: 22px 24px;
+      border-left: 7px solid var(--teal);
+      min-height: 240px;
+    }
+    .card ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+    .card li { margin: 8px 0; }
+    .teal { border-left-color: var(--teal); }
+    .blue { border-left-color: var(--blue); }
+    .orange { border-left-color: var(--orange); }
+    .green { border-left-color: var(--green); }
+    .red { border-left-color: var(--red); }
+    .purple { border-left-color: var(--purple); }
+    .teal h3 { color: var(--teal); }
+    .blue h3 { color: var(--blue); }
+    .orange h3 { color: var(--orange); }
+    .green h3 { color: var(--green); }
+    .red h3 { color: var(--red); }
+    .purple h3 { color: var(--purple); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      background: #edf3f2;
+      color: var(--blue);
+    }
+    tr:last-child td { border-bottom: 0; }
+    .flow {
+      background: var(--navy);
+      color: white;
+      border-radius: 8px;
+      padding: 22px;
+    }
+    .flow-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .flow-row span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      background: white;
+      color: var(--navy);
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 24px;
+    }
+    @media (max-width: 760px) {
+      .metrics, .grid, .flow-row { grid-template-columns: 1fr; }
+      header { padding-top: 36px; }
+      .lead { font-size: 17px; }
+      .box { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="tag">行业访谈简报</div>
+      <h1>算力租赁热：真需求、真缺卡，也是真周期</h1>
+      <p class="lead">一线访谈显示：推理需求拉动租赁价格，但高位入场也买下政策、折旧和残值风险。</p>
+    </div>
+  </header>
+  <main>
+    <section class="box">
+      <h2>核心判断</h2>
+      <p>最赚钱的是早期低成本持卡方；新入场者不是单纯买“AI 红利”，而是在高硬件成本下赌需求、供给和残值。算力租赁的本质，是把 GPU 卡源、IDC 上架、运维、模型 API 和 Token 分发串成一门资金周转生意。</p>
+    </section>
+
+    <section class="metrics">
+      <div class="metric"><strong style="color: var(--teal)">+30%</strong><span>春节后租赁/卡源价格上行</span></div>
+      <div class="metric"><strong style="color: var(--orange)">90-95%</strong><span>英伟达商业卡利用率口径</span></div>
+      <div class="metric"><strong style="color: var(--blue)">3-4x</strong><span>推理算力约为训练算力倍数</span></div>
+      <div class="metric"><strong style="color: var(--red)">5 年</strong><span>新入场更合理回本周期</span></div>
+    </section>
+
+    <section>
+      <h2>价格与供给</h2>
+      <table>
+        <thead><tr><th>项目</th><th>访谈口径</th></tr></thead>
+        <tbody>
+          <tr><td>整体涨价</td><td>春节后约上涨 30%，高端卡、低端卡和推理卡均有体现。</td></tr>
+          <tr><td>B300 现货</td><td>2T 约 640-660 万元，3T 约 680 万元，4T 约 700 万元。</td></tr>
+          <tr><td>H100 / H200 / H800</td><td>H100 约 6.7-6.8 万元，H200 8 万元以上，H800 约 6.3-6.4 万元。</td></tr>
+          <tr><td>供给变量</td><td>H200/H20 若放量，租赁价格短期可能下行 10-15%。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid">
+      <div class="card teal">
+        <h3>为什么涨价</h3>
+        <ul>
+          <li>国内高端英伟达卡源持续紧，成规模 H100/H200/A800 集群难找。</li>
+          <li>内存、硬盘涨价抬高整机成本，限制租赁价格下行空间。</li>
+          <li>价格上涨既有真实缺货，也有现货溢价和周期情绪。</li>
+        </ul>
+      </div>
+      <div class="card blue">
+        <h3>需求从哪里来</h3>
+        <ul>
+          <li>推理成为主线：编程、短视频生成、智能体、行业应用和 Token 调用共同拉动。</li>
+          <li>访谈口径：推理算力约为训练算力 3-4 倍，去年约 1.5-2 倍。</li>
+          <li>大厂/公有云仍是高端 GPU 主力消耗方，小型平台更多做租赁和 Token 分发。</li>
+        </ul>
+      </div>
+      <div class="card green">
+        <h3>谁更受益</h3>
+        <ul>
+          <li>早期低成本持卡方：享受租金上涨、资产重估和低折旧。</li>
+          <li>英伟达生态链：CUDA、整机、组网、运维仍是商业化首选。</li>
+          <li>内存、存储、IDC、电力和运维服务吃到二阶需求。</li>
+        </ul>
+      </div>
+      <div class="card red">
+        <h3>国产算力的分裂</h3>
+        <ul>
+          <li>政策订单与商业 ROI 是两套逻辑；信创项目能买，不等于商业客户自愿用。</li>
+          <li>访谈认为国产方案硬件成本更高、适配周期长、生态弱。</li>
+          <li>关键验证不是峰值算力，而是单位调用成本、稳定性和迁移成本。</li>
+        </ul>
+      </div>
+      <div class="card orange">
+        <h3>商业模式</h3>
+        <ul>
+          <li>买卡或拿卡源，上架 IDC，做压测交付和运维，再接模型/API。</li>
+          <li>纯租赁赚硬件周转，Token 聚合分发赚平台差价。</li>
+          <li>行业关键变量是卡源、利用率、合同期限和残值。</li>
+        </ul>
+      </div>
+      <div class="card purple">
+        <h3>最大风险</h3>
+        <ul>
+          <li>H200/H20 若放量，租赁价格短期可能下行 10-15%。</li>
+          <li>高价新设备需要五年回本；一旦需求降温或残值下修，利润会迅速压缩。</li>
+          <li>单一访谈偏乐观，必须用真实报价、长约比例和利用率交叉验证。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="flow">
+      <div class="flow-row">
+        <span>卡源</span>
+        <span>IDC 上架</span>
+        <span>模型/API</span>
+        <span>Token 分发</span>
+        <span>现金回收</span>
+      </div>
+      <p>本质：不是单点卖铲子，而是“卡源 + 利用率 + 合同期限 + 残值”的资金周转生意。</p>
+    </section>
+
+    <section class="box">
+      <h2>阅读时应保持的约束</h2>
+      <p>这份材料是一线行业访谈，强在细节和温度，弱在样本单一。后续需要用采购报价、IDC 合同、长约比例、真实利用率、H200/H20 到货节奏和 Token 消耗数据继续验证。它适合用于建立观察框架，不适合直接作为投资或经营决策依据。</p>
+      <p class="note">来源：算力租赁行业访谈纪要。公开分享版不包含个人持仓、账户信息或私人操作建议。报告仓库：ewangwo/lff-reports；Pages：https://ewangwo.github.io/lff-reports/</p>
+    </section>
+  </main>
+</body>
+</html>
