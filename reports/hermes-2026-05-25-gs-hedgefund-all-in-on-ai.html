@@ -6,7 +6,6 @@
 <meta name="robots" content="noindex, nofollow">
 <title>全面拥抱AI · 高盛对冲基金趋势监测</title>
 <style>
-/* ===== BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -23,8 +22,6 @@ body{
   background:linear-gradient(180deg,#060B2D 0%,#0A1040 100%);
   min-height:100vh
 }
-
-/* ===== HERO ===== */
 .hero{
   position:relative;
   background:linear-gradient(135deg,#060B2D 0%,#121A5D 50%,#0D1540 100%);
@@ -69,8 +66,6 @@ body{
   margin-top:16px;
   position:relative;z-index:1
 }
-
-/* ===== METRICS ===== */
 .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
 .metric-card{
   background:linear-gradient(135deg,#0D1540 0%,#0F1A50 100%);
@@ -84,8 +79,6 @@ body{
 .metric-num{font-size:32px;font-weight:800;color:#fff;line-height:1.1}
 .metric-num .u{font-size:13px;font-weight:600;color:#60A5FA}
 .metric-label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4}
-
-/* ===== COMPARISON CARD ===== */
 .comp-card{
   background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
   border:1px solid rgba(37,96,212,0.25);
@@ -112,8 +105,6 @@ body{
 .vs-col li{font-size:13px;padding:6px 0 6px 18px;position:relative;line-height:1.5;color:rgba(255,255,255,0.75)}
 .vs-col.old li::before{content:'✕';position:absolute;left:0;color:rgba(204,48,35,0.5)}
 .vs-col.new li::before{content:'✓';position:absolute;left:0;color:#60A5FA;font-weight:700}
-
-/* ===== SECTION CARD ===== */
 .sec-card{
   background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
   border:1px solid rgba(37,96,212,0.2);
@@ -127,15 +118,11 @@ body{
 }
 .sec-card p{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.8}
 .sec-card p:last-child{margin-bottom:0}
-
-/* ===== 2-COL DATA GRID ===== */
 .dg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
 .di{background:rgba(37,96,212,0.08);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:16px;text-align:center}
 .di .dn{font-size:24px;font-weight:800;color:#fff;line-height:1.2}
 .di .dn .u{font-size:12px;font-weight:600;color:#60A5FA}
 .di .dl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px}
-
-/* ===== LIST ===== */
 .dl-list{list-style:none;margin:12px 0}
 .dl-list li{
   padding:10px 0 10px 24px;position:relative;
@@ -150,8 +137,6 @@ body{
 .badge-strat{background:rgba(244,199,67,0.15);color:#F4C743}
 .badge-mem{background:rgba(99,102,241,0.2);color:#A5B4FC}
 .badge-eff{background:rgba(52,211,153,0.15);color:#6EE7B7}
-
-/* ===== 3-COL INFO ===== */
 .c3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
 .c3c{border-radius:12px;padding:18px 14px;border:1px solid}
 .c3c.blue{background:rgba(37,96,212,0.08);border-color:rgba(37,96,212,0.25)}
@@ -162,8 +147,6 @@ body{
 .c3c.green .c3t{color:#6EE7B7}
 .c3c.purple .c3t{color:#C4B5FD}
 .c3c p{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6}
-
-/* ===== IMPACT TABLE ===== */
 .tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
 .tbl th{background:rgba(37,96,212,0.1);color:#93C5FD;font-weight:700;padding:10px 12px;text-align:left;border-bottom:1px solid rgba(37,96,212,0.2)}
 .tbl th:first-child{border-radius:8px 0 0 0}
@@ -173,13 +156,9 @@ body{
 .tbl .up{color:#6EE7B7;font-weight:700}
 .tbl .down{color:#FCA5A5}
 .tbl .neutral{color:rgba(255,255,255,0.4)}
-
-/* ===== INSIGHT BOX ===== */
 .insight{background:rgba(244,199,67,0.06);border:1px solid rgba(244,199,67,0.2);border-radius:10px;padding:18px 20px;margin:12px 0}
 .insight .it{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#F4C743;font-weight:700;margin-bottom:6px}
 .insight p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:0}
-
-/* ===== SUMMARY ===== */
 .summary{
   background:linear-gradient(135deg,#060B2D 0%,#121A5D 100%);
   border:1px solid rgba(37,96,212,0.35);
@@ -189,12 +168,8 @@ body{
 .summary .st{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.3);font-weight:700;margin-bottom:10px}
 .summary .sm{font-size:20px;font-weight:700;line-height:1.5;color:#F4C743}
 .summary .ss{font-size:14px;color:rgba(255,255,255,0.55);margin-top:10px;line-height:1.7}
-
-/* ===== FOOTER ===== */
 .footer{text-align:center;padding:20px 16px;color:rgba(255,255,255,0.2);font-size:12px;line-height:1.8}
 .footer a{color:rgba(96,165,250,0.5);text-decoration:none}
-
-/* ===== RESPONSIVE ===== */
 @media(max-width:640px){
   .wrapper{padding:16px 10px 40px}
   .hero{padding:30px 18px 26px}
@@ -211,112 +186,57 @@ body{
 </head>
 <body>
 <div class="wrapper">
-
-<!-- ===== HERO ===== -->
 <div class="hero">
   <div class="badge">📊 高盛 · 对冲基金趋势监测</div>
   <h1>全面拥抱 <span class="hl-yellow">AI</span><br>All In on AI</h1>
   <div class="subtitle">1,059家对冲基金 · $4.6万亿持仓 · Q2 2026赛季全景</div>
   <div class="meta">Ben Snider et al. · Goldman Sachs · 2026年5月22日 · 59页</div>
 </div>
-
-<!-- ===== KEY METRICS ===== -->
 <div class="metrics">
-  <div class="metric-card">
-    <div class="metric-icon">🏭</div>
-    <div class="metric-num">10<span class="u">%</span></div>
-    <div class="metric-label">半导体持仓权重 · 历史最高</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-icon">📉</div>
-    <div class="metric-num">6<span class="u">%</span></div>
-    <div class="metric-label">软件持仓权重 · 2019年以来最低</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-icon">📈</div>
-    <div class="metric-num">+853<span class="u">bp</span></div>
-    <div class="metric-label">IT板块净偏好季度增幅 · 创纪录</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-icon">⚡</div>
-    <div class="metric-num">90<span class="u">%</span></div>
-    <div class="metric-label">动量因子暴露 · 2001年以来最高</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-icon">🛡️</div>
-    <div class="metric-num">94<span class="u">%</span></div>
-    <div class="metric-label">总杠杆率 · 5年最高</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-icon">⚠️</div>
-    <div class="metric-num">3.0<span class="u">%</span></div>
-    <div class="metric-label">标普500中位数空头比 · 15年最高</div>
-  </div>
+  <div class="metric-card"><div class="metric-icon">🏭</div><div class="metric-num">10<span class="u">%</span></div><div class="metric-label">半导体持仓权重 · 历史最高</div></div>
+  <div class="metric-card"><div class="metric-icon">📉</div><div class="metric-num">6<span class="u">%</span></div><div class="metric-label">软件持仓权重 · 2019年以来最低</div></div>
+  <div class="metric-card"><div class="metric-icon">📈</div><div class="metric-num">+853<span class="u">bp</span></div><div class="metric-label">IT板块净偏好季度增幅 · 创纪录</div></div>
+  <div class="metric-card"><div class="metric-icon">⚡</div><div class="metric-num">90<span class="u">%</span></div><div class="metric-label">动量因子暴露 · 2001年以来最高</div></div>
+  <div class="metric-card"><div class="metric-icon">🛡️</div><div class="metric-num">94<span class="u">%</span></div><div class="metric-label">总杠杆率 · 5年最高</div></div>
+  <div class="metric-card"><div class="metric-icon">⚠️</div><div class="metric-num">3.0<span class="u">%</span></div><div class="metric-label">标普500中位数空头比 · 15年最高</div></div>
 </div>
-
-<!-- ===== FINDING 1 ===== -->
 <div class="comp-card">
   <div class="comp-title">🔁 AI基础设施全面取代软件 <sub>持仓结构的历史性转折</sub></div>
   <div class="vs-row">
     <div class="vs-col old">
       <div class="vs-badge">📉 减持</div>
       <div class="vs-head">软件时代退潮</div>
-      <ul>
-        <li>软件权重仅 <span class="hl">6%</span>，2019年最低</li>
-        <li>MSFT 进入"陨落之星"名单</li>
-        <li>软件板块空头持续增加</li>
-        <li>CRM 连续第二季度 Falling Star</li>
-      </ul>
+      <ul><li>软件权重仅 <span class="hl">6%</span>，2019年最低</li><li>MSFT 进入"陨落之星"名单</li><li>软件板块空头持续增加</li><li>CRM 连续第二季度 Falling Star</li></ul>
     </div>
     <div class="vs-col new">
       <div class="vs-badge">📈 增持</div>
       <div class="vs-head">半导体创历史新高</div>
-      <ul>
-        <li>半导体权重 <span class="hl">10%</span> 创纪录</li>
-        <li>AVGO 贡献半导体净偏好增幅的 25%</li>
-        <li>META 净增持最多</li>
-        <li>LRCX 新入 VIP 名单</li>
-      </ul>
+      <ul><li>半导体权重 <span class="hl">10%</span> 创纪录</li><li>AVGO 贡献半导体净偏好增幅的 25%</li><li>META 净增持最多</li><li>LRCX 新入 VIP 名单</li></ul>
     </div>
   </div>
 </div>
-
-<!-- ===== FINDING 2 ===== -->
 <div class="sec-card">
   <div class="sec-title">📋 VIP名单：最受对冲基金欢迎的50只股票</div>
   <p><strong>Top 10</strong>（连续10季度 AMZN 居首）：</p>
   <div class="c3">
     <div class="c3c blue"><div class="c3t">1-5</div><p>AMZN · NVDA · GOOGL<br>MSFT · META</p></div>
-    <div class="c3c green"><div class="c3t">6-10</div><p>TSM · AAPL · AVGO · MU<br>（第10未在文本中显式列出）</p></div>
+    <div class="c3c green"><div class="c3t">6-10</div><p>TSM · AAPL · AVGO · MU<br>（第10未显式列出）</p></div>
     <div class="c3c purple"><div class="c3t">新进11家</div><p>BE · COHR · CTRI · HUT<br>LRCX · MRVL · MTZ · RVMD<br>SPGI · UNH · VST</p></div>
   </div>
-  <div style="margin-top:10px;font-size:13px;color:rgba(255,255,255,0.5);">
-    VIP篮子自2001年以来在<strong style="color:#F4C743;">59%</strong>的季度跑赢标普500，平均超额收益 <strong style="color:#F4C743;">53bp/季度</strong>
-  </div>
+  <p style="margin-top:10px;font-size:13px;color:rgba(255,255,255,0.5);">VIP篮子自2001年以来在<strong style="color:#F4C743;">59%</strong>的季度跑赢标普500，平均超额收益 <strong style="color:#F4C743;">53bp/季度</strong></p>
 </div>
-
-<!-- ===== FINDING 3: LEVERAGE PARADOX ===== -->
 <div class="comp-card">
   <div class="comp-title">🔁 杠杆悖论 <sub>All In 的同时也在对冲</sub></div>
   <div class="vs-row">
     <div class="vs-col new">
       <div class="vs-badge">📈 多头</div>
       <div class="vs-head">净杠杆85百分位</div>
-      <ul>
-        <li>IT板块净偏好单季+853bp</li>
-        <li>技术板块多头回报YTD <span class="hl">+62%</span></li>
-        <li>VIP篮子YTD回报+13%（vs标普等权+7%）</li>
-      </ul>
+      <ul><li>IT板块净偏好单季+853bp</li><li>技术板块多头回报YTD <span class="hl">+62%</span></li><li>VIP篮子YTD回报+13%（vs标普等权+7%）</li></ul>
     </div>
     <div class="vs-col old">
       <div class="vs-badge">⚠️ 对冲</div>
       <div class="vs-head">总杠杆94百分位 + 空头15年新高</div>
-      <ul>
-        <li>标普500中位数空头比3.0%市值</li>
-        <li>ETF多头仅占ETF总敞口35%</li>
-        <li>集中空头篮子YTD上涨<span class="hl">+27%</span></li>
-        <li>防御板块空头30年高位</li>
-      </ul>
+      <ul><li>标普500中位数空头比3.0%市值</li><li>ETF多头仅占ETF总敞口35%</li><li>集中空头篮子YTD上涨<span class="hl">+27%</span></li><li>防御板块空头30年高位</li></ul>
     </div>
   </div>
   <div class="insight" style="margin-top:16px;">
@@ -324,8 +244,6 @@ body{
     <p>这不是无条件的狂热。基金在做多AI<span style="color:#F4C743;">的同时</span>系统性做空其他所有板块。净杠杆85百分位+总杠杆94百分位的组合，意味着这个All In随时面临修正风险。</p>
   </div>
 </div>
-
-<!-- ===== FINDING 4: SECTOR ROTATION ===== -->
 <div class="sec-card">
   <div class="sec-title">🔄 板块轮动：一条腿的AI交易</div>
   <table class="tbl">
@@ -343,34 +261,21 @@ body{
     <p>在11个板块中，基金<strong style="color:#F4C743;">只</strong>增加了TMT和金融的净敞口——其余板块全面被减持。自2001年以来IT板块创纪录的季度转向，意味着"All In on AI"不仅是对AI的看多，更是对非AI的全面看空。</p>
   </div>
 </div>
-
-<!-- ===== RISING/FALLING STARS ===== -->
 <div class="comp-card">
   <div class="comp-title">⭐ Rising Stars & Falling Stars <sub>对冲基金用钱投票的方向</sub></div>
   <div class="vs-row">
     <div class="vs-col new">
       <div class="vs-badge">⭐ Rising</div>
       <div class="vs-head">明日之星（AI基建立场）</div>
-      <ul>
-        <li><span class="hl">AMAT</span> · <span class="hl">MU</span> — 连任</li>
-        <li>LRCX · NRG · ADI</li>
-        <li>7/12新进VIP = AI基础设施公司</li>
-        <li>SNDK · LRCX · AMAT 人气增幅最大</li>
-      </ul>
+      <ul><li><span class="hl">AMAT</span> · <span class="hl">MU</span> — 连任</li><li>LRCX · NRG · ADI</li><li>7/12新进VIP = AI基础设施公司</li><li>SNDK · LRCX · AMAT 人气增幅最大</li></ul>
     </div>
     <div class="vs-col old">
       <div class="vs-badge">💫 Falling</div>
       <div class="vs-head">陨落之星（减持信号）</div>
-      <ul>
-        <li><span class="hl">MSFT</span> — 净减持最大</li>
-        <li>CRM — 连续第二季度</li>
-        <li>软件和金融服务公司空头锐增</li>
-      </ul>
+      <ul><li><span class="hl">MSFT</span> — 净减持最大</li><li>CRM — 连续第二季度</li><li>软件和金融服务公司空头锐增</li></ul>
     </div>
   </div>
 </div>
-
-<!-- ===== PORTFOLIO MAPPING ===== -->
 <div class="comp-card">
   <div class="comp-title">🎯 持仓映射 <sub>你的持仓在这个报告中的位置</sub></div>
   <table class="tbl">
@@ -387,19 +292,15 @@ body{
     <tr><td class="neutral">三星电机</td><td>韩股超出本报告覆盖范围</td><td class="neutral">— 未覆盖</td></tr>
   </table>
 </div>
-
-<!-- ===== SECOND-ORDER READING ===== -->
 <div class="sec-card">
   <div class="sec-title">🧠 二阶解读</div>
   <ul class="dl-list">
     <li><span class="badge badge-strat">ALL IN ≠ 狂热</span> 杠杆94百分位+空头15年新高=基金在AI上重仓的同时在系统性地对冲其他板块。这不是全面看多，而是<strong style="color:#F4C743;">极端结构化分化</strong>。</li>
     <li><span class="badge badge-arch">卖铲人排序变化</span> <strong style="color:#F4C743;">MSFT被减持 + AVGO被增持</strong>：市场正在重新定价AI"卖铲人"的排序。云服务(Azure)的CapEx回收期问题正在被定价，定制芯片(AVGO)被认可为更高弹性的生态位。</li>
-    <li><span class="badge badge-mem">半导体 vs 软件</span> 10% vs 6%是AI将"软件吞噬世界"反转的标志性时刻。AI训练和推理硬件的价值份额正在超越应用层——英伟达的GPU被基金认定为比SaaS更具竞争优势。</li>
+    <li><span class="badge badge-mem">半导体 vs 软件</span> 10% vs 6%是AI将"软件吞噬世界"反转的标志性时刻。AI训练和推理硬件的价值份额正在超越应用层。</li>
     <li><span class="badge badge-eff">拥挤的前兆</span> 动量因子90百分位+换手率31%不是长线持仓信号。当所有人都拥挤在同一方向时，修正的烈度会更大。2021年的极端拥挤→2022年的回撤是前车之鉴。</li>
   </ul>
 </div>
-
-<!-- ===== COUNTER-SIGNALS ===== -->
 <div class="sec-card">
   <div class="sec-title">⚠️ 反证信号</div>
   <ul class="dl-list">
@@ -409,21 +310,16 @@ body{
     <li>标普500中位数空头比3.0%是15年最高——市场定价中隐含了大量负面预期</li>
   </ul>
 </div>
-
-<!-- ===== SUMMARY ===== -->
 <div class="summary">
   <div class="st">📌 一句话判断</div>
   <div class="sm">全球对冲基金以创纪录力度全面拥抱AI，半导体持仓10%达历史峰值——但总杠杆94百分位+空头15年新高意味着这不是无条件的狂热，而是极端结构化的分化交易。</div>
   <div class="ss">AI基础设施(芯片/存储/定制ASIC)全面取代软件成为最拥挤的多头表达；MSFT被系统性减持是最值得警惕的信号；动量因子90百分位提示修正风险不可忽视。</div>
 </div>
-
-<!-- ===== FOOTER ===== -->
 <div class="footer">
   <p>来源：Goldman Sachs Hedge Fund Trend Monitor · Ben Snider, Jenny Ma, Ryan Hammond, Daniel Chavez et al.</p>
   <p>报告日期：2026年5月22日 · 基于截至3月31日的13-F申报文件</p>
   <p>本文基于公开资料整理，仅作信息分享，不构成投资建议</p>
 </div>
-
 </div>
 </body>
 </html>
