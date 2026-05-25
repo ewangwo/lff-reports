@@ -4,686 +4,541 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>华为τ缩放理论 — 从"缩尺寸"到"压时间"</title>
+<title>华为τ缩放理论 · 从缩尺寸到压时间</title>
 <style>
-/* ===== Reset & Base ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
-  background: #f4f6f9;
-  color: #1a1a2e;
-  line-height: 1.6;
-  font-size: 15px;
+/* ===== BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+  background:#060B2D;
+  color:#e8edf5;
+  line-height:1.6;
+  font-size:15px
 }
 
-/* ===== TOP BANNER (Deep Blue) ===== */
-.banner {
-  background: linear-gradient(135deg, #0a1628 0%, #162d50 50%, #0d1f3c 100%);
-  color: #fff;
-  padding: 50px 20px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.banner::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6);
-}
-.banner .badge-top {
-  display: inline-block;
-  background: rgba(59,130,246,0.2);
-  border: 1px solid rgba(59,130,246,0.35);
-  color: #93c5fd;
-  font-size: 11px;
-  padding: 3px 14px;
-  border-radius: 20px;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-}
-.banner h1 {
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  line-height: 1.3;
-}
-.banner .subtitle {
-  font-size: 17px;
-  color: rgba(255,255,255,0.7);
-  margin-top: 10px;
-  font-weight: 400;
-}
-.banner .meta {
-  font-size: 13px;
-  color: rgba(255,255,255,0.35);
-  margin-top: 18px;
+/* ===== MAIN WRAPPER ===== */
+.wrapper{
+  max-width:920px;
+  margin:0 auto;
+  padding:24px 16px 60px;
+  background:linear-gradient(180deg,#060B2D 0%,#0A1040 100%);
+  min-height:100vh
 }
 
-/* ===== Container ===== */
-.container { max-width: 920px; margin: 0 auto; padding: 28px 16px 60px; }
-
-/* ===== JUDGMENT STRIP ===== */
-.judgment-strip {
-  background: #fff;
-  border-radius: 14px;
-  padding: 28px 30px;
-  margin-bottom: 28px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  border-left: 5px solid #3b82f6;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* ===== HERO BANNER ===== */
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 50%,#0D1540 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:18px;
+  padding:44px 30px 36px;
+  margin-bottom:28px;
+  text-align:center;
+  overflow:hidden;
+  box-shadow:0 0 24px rgba(37,96,212,0.25), inset 0 0 40px rgba(37,96,212,0.05)
 }
-.judgment-strip .tag {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #3b82f6;
-  font-weight: 700;
+.hero::before{
+  content:'';position:absolute;top:-60%;left:-30%;
+  width:160%;height:200%;
+  background:radial-gradient(ellipse at 30% 50%,rgba(37,96,212,0.08) 0%,transparent 60%);
+  pointer-events:none
 }
-.judgment-strip .main-thesis {
-  font-size: 24px;
-  font-weight: 800;
-  color: #0a1628;
-  line-height: 1.35;
+.hero .badge{
+  display:inline-block;
+  background:rgba(37,96,212,0.2);
+  border:1px solid rgba(37,96,212,0.4);
+  color:#60A5FA;
+  font-size:11px;padding:4px 16px;border-radius:20px;
+  letter-spacing:1.5px;font-weight:600;
+  margin-bottom:18px;
+  position:relative;z-index:1
 }
-.judgment-strip .sub-text {
-  font-size: 14px;
-  color: #6b7280;
-  line-height: 1.6;
+.hero h1{
+  font-size:32px;font-weight:800;
+  color:#fff;
+  letter-spacing:1px;
+  position:relative;z-index:1
 }
-
-/* ===== KEY METRICS ===== */
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-bottom: 28px;
+.hero h1 .hl-yellow{color:#F4C743}
+.hero .subtitle{
+  font-size:16px;color:rgba(255,255,255,0.55);
+  margin-top:10px;
+  position:relative;z-index:1
 }
-.metric-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 22px 14px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid #e8ecf0;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.metric-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.metric-card .icon { font-size: 22px; margin-bottom: 6px; }
-.metric-card .number {
-  font-size: 30px;
-  font-weight: 800;
-  color: #1e3a5f;
-  line-height: 1.1;
-}
-.metric-card .number .unit {
-  font-size: 14px;
-  font-weight: 600;
-  color: #3b82f6;
-}
-.metric-card .label {
-  font-size: 12px;
-  color: #6b7280;
-  margin-top: 5px;
-  line-height: 1.4;
+.hero .meta{
+  font-size:12px;color:rgba(255,255,255,0.25);
+  margin-top:16px;
+  position:relative;z-index:1
 }
 
-/* ===== COMPARISON BLOCK (core feature) ===== */
-.comparison-block {
-  background: #fff;
-  border-radius: 14px;
-  padding: 28px 24px;
-  margin-bottom: 28px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid #e8ecf0;
+/* ===== KEY METRICS ROW ===== */
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:28px
 }
-.comparison-block .block-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0a1628;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #eef2f6;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.metric-card{
+  background:linear-gradient(135deg,#0D1540 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.3);
+  border-radius:16px;
+  padding:22px 14px;
+  text-align:center;
+  box-shadow:0 0 14px rgba(37,96,212,0.12);
+  transition:transform .15s,box-shadow .15s
 }
-.comparison-block .block-title small {
-  font-size: 13px;
-  font-weight: 400;
-  color: #9ca3af;
+.metric-card:hover{transform:translateY(-3px);box-shadow:0 0 22px rgba(37,96,212,0.25)}
+.metric-icon{font-size:22px;margin-bottom:6px}
+.metric-num{
+  font-size:32px;font-weight:800;
+  color:#fff;line-height:1.1
+}
+.metric-num .u{
+  font-size:13px;font-weight:600;
+  color:#60A5FA
+}
+.metric-label{
+  font-size:12px;color:rgba(255,255,255,0.45);
+  margin-top:5px;line-height:1.4
 }
 
-/* Two-column comparison */
-.compare-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+/* ===== COMPARISON TABLE (deep style) ===== */
+.comp-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.25);
+  border-radius:16px;
+  padding:28px 24px;
+  margin-bottom:28px;
+  box-shadow:0 0 14px rgba(37,96,212,0.08)
 }
-.compare-col {
-  border-radius: 10px;
-  padding: 20px;
+.comp-title{
+  font-size:17px;font-weight:700;color:#fff;
+  margin-bottom:18px;
+  display:flex;align-items:center;gap:8px
 }
-.compare-col.old-way { background: #f8f9fb; border: 1px solid #e8ecf0; }
-.compare-col.new-way {
-  background: linear-gradient(135deg, #eef6ff 0%, #e0f2fe 100%);
-  border: 1px solid #bdd7f5;
-  position: relative;
+.comp-title sub{font-size:12px;font-weight:400;color:rgba(255,255,255,0.35)}
+
+/* VS Split */
+.vs-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vs-col{
+  border-radius:14px;padding:20px 18px;
+  position:relative
 }
-.compare-col.new-way::before {
-  content: '✦ 新范式';
-  position: absolute;
-  top: -10px;
-  right: 14px;
-  background: #3b82f6;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 10px;
-  border-radius: 10px;
-  letter-spacing: 1px;
+.vs-col.old{
+  background:rgba(204,48,35,0.08);
+  border:1px solid rgba(204,48,35,0.25)
 }
-.compare-col .col-title {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 12px;
+.vs-col.new{
+  background:rgba(37,96,212,0.1);
+  border:1px solid rgba(37,96,212,0.35)
 }
-.compare-col.old-way .col-title { color: #6b7280; }
-.compare-col.new-way .col-title { color: #1d4ed8; }
-.compare-col ul { list-style: none; }
-.compare-col li {
-  font-size: 13px;
-  color: #374151;
-  padding: 5px 0 5px 18px;
-  position: relative;
-  line-height: 1.5;
+.vs-col .vs-badge{
+  position:absolute;top:-10px;right:12px;
+  font-size:10px;font-weight:700;letter-spacing:1px;
+  padding:3px 12px;border-radius:10px
 }
-.compare-col.old-way li::before { content: '✕'; position: absolute; left: 0; color: #d1d5db; }
-.compare-col.new-way li::before { content: '✓'; position: absolute; left: 0; color: #3b82f6; font-weight: 700; }
+.vs-col.old .vs-badge{
+  background:rgba(204,48,35,0.2);
+  color:#FCA5A5;border:1px solid rgba(204,48,35,0.3)
+}
+.vs-col.new .vs-badge{
+  background:rgba(37,96,212,0.25);
+  color:#60A5FA;border:1px solid rgba(37,96,212,0.4)
+}
+.vs-col .vs-head{
+  font-size:14px;font-weight:700;margin-bottom:12px
+}
+.vs-col.old .vs-head{color:#FCA5A5}
+.vs-col.new .vs-head{color:#93C5FD}
+.vs-col ul{list-style:none}
+.vs-col li{
+  font-size:13px;padding:6px 0 6px 18px;
+  position:relative;line-height:1.5;
+  color:rgba(255,255,255,0.75)
+}
+.vs-col.old li::before{content:'✕';position:absolute;left:0;color:rgba(204,48,35,0.5)}
+.vs-col.new li::before{content:'✓';position:absolute;left:0;color:#60A5FA;font-weight:700}
 
 /* ===== SECTION CARD ===== */
-.section-card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 28px 24px;
-  margin-bottom: 28px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid #e8ecf0;
+.sec-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.2);
+  border-radius:16px;
+  padding:28px 24px;
+  margin-bottom:28px
 }
-.section-card .section-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0a1628;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #eef2f6;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.sec-card .sec-title{
+  font-size:17px;font-weight:700;color:#fff;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(37,96,212,0.15);
+  display:flex;align-items:center;gap:8px
 }
-.section-card .section-title .emoji { font-size: 20px; }
+.sec-card p{
+  font-size:14px;color:rgba(255,255,255,0.7);
+  margin-bottom:12px;line-height:1.8
+}
+.sec-card p:last-child{margin-bottom:0}
 
-/* ===== DATA GRID (2-col info) ===== */
-.data-grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 14px 0;
+/* ===== DATA GRID ===== */
+.dg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.di{
+  background:rgba(37,96,212,0.08);
+  border:1px solid rgba(37,96,212,0.15);
+  border-radius:10px;
+  padding:16px;text-align:center
 }
-.data-item {
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 14px 16px;
-  border: 1px solid #eef2f6;
+.di .dn{
+  font-size:24px;font-weight:800;color:#fff;line-height:1.2
 }
-.data-item .data-num {
-  font-size: 22px;
-  font-weight: 800;
-  color: #1e3a5f;
-}
-.data-item .data-num .u { font-size: 12px; font-weight: 600; color: #3b82f6; }
-.data-item .data-label {
-  font-size: 12px;
-  color: #6b7280;
-  margin-top: 3px;
+.di .dn .u{font-size:12px;font-weight:600;color:#60A5FA}
+.di .dl{
+  font-size:12px;color:rgba(255,255,255,0.45);
+  margin-top:4px
 }
 
-/* ===== INFO LIST ===== */
-.info-list { list-style: none; margin: 12px 0; }
-.info-list li {
-  padding: 10px 0 10px 24px;
-  position: relative;
-  font-size: 14px;
-  color: #374151;
-  border-bottom: 1px solid #f3f4f6;
-  line-height: 1.6;
+/* ===== INFO LIST (dark style) ===== */
+.dl-list{list-style:none;margin:12px 0}
+.dl-list li{
+  padding:10px 0 10px 24px;
+  position:relative;
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+  border-bottom:1px solid rgba(37,96,212,0.1);
+  line-height:1.6
 }
-.info-list li:last-child { border-bottom: none; }
-.info-list li::before {
-  content: '';
-  position: absolute;
-  left: 2px;
-  top: 17px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #3b82f6;
+.dl-list li:last-child{border-bottom:none}
+.dl-list li::before{
+  content:'';position:absolute;left:2px;top:17px;
+  width:7px;height:7px;border-radius:50%;
+  background:#60A5FA
 }
-.info-list li .hl { font-weight: 700; color: #1e3a5f; }
-.info-list li .badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 1px 7px;
-  border-radius: 4px;
-  margin-right: 4px;
+.dl-list li .hl{color:#F4C743;font-weight:700}
+.dl-list li .badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:1px 7px;border-radius:4px;margin-right:4px
 }
+.badge-arch{background:rgba(37,96,212,0.2);color:#93C5FD}
+.badge-strat{background:rgba(244,199,67,0.15);color:#F4C743}
+.badge-mem{background:rgba(99,102,241,0.2);color:#A5B4FC}
+.badge-eff{background:rgba(52,211,153,0.15);color:#6EE7B7}
 
-.info-list li .badge-eff { background: #dbeafe; color: #1d4ed8; }
-.info-list li .badge-mem { background: #e0e7ff; color: #4338ca; }
-.info-list li .badge-chip { background: #f3e8ff; color: #7c3aed; }
-.info-list li .badge-net { background: #ccfbf1; color: #0d9488; }
+/* ===== 3-COL INFO ===== */
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.c3c{
+  border-radius:12px;padding:18px 14px;
+  border:1px solid
+}
+.c3c.blue{background:rgba(37,96,212,0.08);border-color:rgba(37,96,212,0.25)}
+.c3c.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.2)}
+.c3c.purple{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)}
+.c3c .c3t{font-size:13px;font-weight:700;margin-bottom:8px}
+.c3c.blue .c3t{color:#93C5FD}
+.c3c.green .c3t{color:#6EE7B7}
+.c3c.purple .c3t{color:#C4B5FD}
+.c3c p{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6}
 
-/* ===== ARCHITECTURE TILES ===== */
-.arch-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin: 14px 0;
+/* ===== ARCH TILES ===== */
+.arch4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.at{
+  background:rgba(37,96,212,0.06);
+  border:1px solid rgba(37,96,212,0.15);
+  border-radius:10px;padding:14px 8px;text-align:center
 }
-.arch-tile {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 16px 10px;
-  text-align: center;
-}
-.arch-tile .a-icon { font-size: 20px; margin-bottom: 5px; }
-.arch-tile .a-title { font-size: 13px; font-weight: 700; color: #1e3a5f; }
-.arch-tile .a-desc { font-size: 11px; color: #6b7280; margin-top: 3px; }
+.at .ai{font-size:20px;margin-bottom:4px}
+.at .atn{font-size:13px;font-weight:700;color:#e8edf5}
+.at .atd{font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px}
 
 /* ===== IMPACT TABLE ===== */
-.impact-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 14px 0;
-  font-size: 13px;
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+.tbl th{
+  background:rgba(37,96,212,0.1);
+  color:#93C5FD;font-weight:700;
+  padding:10px 12px;text-align:left;
+  border-bottom:1px solid rgba(37,96,212,0.2)
 }
-.impact-table th {
-  background: #f0f4f8;
-  color: #374151;
-  font-weight: 700;
-  padding: 10px 12px;
-  text-align: left;
-  border-bottom: 2px solid #d1d9e6;
+.tbl th:first-child{border-radius:8px 0 0 0}
+.tbl th:last-child{border-radius:0 8px 0 0}
+.tbl td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(37,96,212,0.08);
+  color:rgba(255,255,255,0.65)
 }
-.impact-table th:first-child { border-radius: 8px 0 0 0; }
-.impact-table th:last-child { border-radius: 0 8px 0 0; }
-.impact-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #eef2f6;
-  color: #374151;
-}
-.impact-table tr:last-child td { border-bottom: none; }
-.impact-table .up { color: #059669; font-weight: 700; }
-.impact-table .down { color: #dc2626; }
-.impact-table .neutral { color: #6b7280; }
+.tbl tr:last-child td{border-bottom:none}
+.tbl .up{color:#6EE7B7;font-weight:700}
+.tbl .down{color:#FCA5A5}
+.tbl .neutral{color:rgba(255,255,255,0.4)}
 
-/* ===== 3-COLUMN INFO ===== */
-.info-3col {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 14px 0;
+/* ===== INSIGHT BOX (yellow glow) ===== */
+.insight{
+  background:rgba(244,199,67,0.06);
+  border:1px solid rgba(244,199,67,0.2);
+  border-radius:10px;padding:18px 20px;margin:12px 0
 }
-.col-card {
-  border-radius: 10px;
-  padding: 18px 14px;
+.insight .it{
+  font-size:10px;text-transform:uppercase;letter-spacing:2px;
+  color:#F4C743;font-weight:700;margin-bottom:6px
 }
-.col-card.blue { background: #eef6ff; border: 1px solid #bdd7f5; }
-.col-card.green { background: #ecfdf5; border: 1px solid #a7f3d0; }
-.col-card.purple { background: #f5f3ff; border: 1px solid #ddd6fe; }
-.col-card .cc-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
-.col-card.blue .cc-title { color: #1d4ed8; }
-.col-card.green .cc-title { color: #059669; }
-.col-card.purple .cc-title { color: #7c3aed; }
-.col-card p { font-size: 12px; color: #374151; line-height: 1.6; }
+.insight p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:0}
 
-/* ===== INSIGHT BOX ===== */
-.insight-box {
-  background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
-  border: 1px solid #fde68a;
-  border-radius: 10px;
-  padding: 18px 20px;
-  margin: 12px 0;
+/* ===== BOTTOM SUMMARY ===== */
+.summary{
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:16px;
+  padding:28px 30px;
+  margin-bottom:20px;
+  box-shadow:0 0 20px rgba(37,96,212,0.15)
 }
-.insight-box .insight-tag {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #a16207;
-  font-weight: 700;
-  margin-bottom: 6px;
+.summary .st{
+  font-size:10px;text-transform:uppercase;letter-spacing:2px;
+  color:rgba(255,255,255,0.3);font-weight:700;margin-bottom:10px
 }
-.insight-box p { font-size: 14px; color: #713f12; line-height: 1.7; margin-bottom: 0; }
-
-/* ===== BOTTOM SUMMARY BAR ===== */
-.summary-bar {
-  background: linear-gradient(135deg, #0a1628 0%, #162d50 50%, #0d1f3c 100%);
-  color: #fff;
-  border-radius: 14px;
-  padding: 28px 30px;
-  margin-bottom: 20px;
+.summary .sm{
+  font-size:20px;font-weight:700;line-height:1.5;color:#F4C743
 }
-.summary-bar .s-tag {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(255,255,255,0.35);
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.summary-bar .s-main {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.5;
-  color: #fff;
-}
-.summary-bar .s-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,0.65);
-  margin-top: 10px;
-  line-height: 1.7;
+.summary .ss{
+  font-size:14px;color:rgba(255,255,255,0.55);
+  margin-top:10px;line-height:1.7
 }
 
 /* ===== FOOTER ===== */
-.footer {
-  text-align: center;
-  padding: 20px 16px;
-  color: #9ca3af;
-  font-size: 12px;
-  line-height: 1.8;
-}
+.footer{text-align:center;padding:20px 16px;color:rgba(255,255,255,0.2);font-size:12px;line-height:1.8}
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 640px) {
-  .banner h1 { font-size: 22px; }
-  .metrics-grid { grid-template-columns: repeat(2,1fr); }
-  .compare-row { grid-template-columns: 1fr; }
-  .data-grid-2col { grid-template-columns: 1fr; }
-  .arch-row { grid-template-columns: repeat(2,1fr); }
-  .info-3col { grid-template-columns: 1fr; }
-  .judgment-strip .main-thesis { font-size: 18px; }
-  .comparison-block, .section-card { padding: 20px 16px; }
-  .summary-bar { padding: 22px 18px; }
-  .summary-bar .s-main { font-size: 17px; }
+@media(max-width:640px){
+  .wrapper{padding:16px 10px 40px}
+  .hero{padding:30px 18px 26px}
+  .hero h1{font-size:22px}
+  .metrics{grid-template-columns:repeat(2,1fr);gap:10px}
+  .vs-row{grid-template-columns:1fr}
+  .dg2{grid-template-columns:1fr}
+  .c3{grid-template-columns:1fr}
+  .arch4{grid-template-columns:repeat(2,1fr)}
+  .summary{padding:22px 18px}
+  .summary .sm{font-size:17px}
+  .comp-card,.sec-card{padding:20px 14px}
 }
 </style>
 </head>
 <body>
+<div class="wrapper">
 
-<!-- ===== BANNER ===== -->
-<div class="banner">
-  <div class="badge-top">⏱ 半导体范式革命</div>
-  <h1>华为τ缩放理论</h1>
-  <div class="subtitle">从"比谁更小"到"比谁更快"——全链路压缩时间的芯片新范式</div>
-  <div class="meta">来源：2030FY · 2026年5月25日 · 原文：mp.weixin.qq.com/s/yYzemcXQU469d2neYMnadA</div>
-</div>
-
-<div class="container">
-
-<!-- ===== JUDGMENT ===== -->
-<div class="judgment-strip">
-  <div class="tag">⚡ 核心判断</div>
-  <div class="main-thesis">摩尔定律的"尺寸"时代结束，"时间"时代开始。</div>
-  <div class="sub-text">华为6年、381款量产芯片验证——不拼特征尺寸，改拼全链路特征时间τ（皮秒→秒，覆盖12个数量级）。不是概念炒作，已在麒麟2026中实现3.1GHz主频，有量产数据支撑。</div>
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="badge">⏱ 半导体范式革命</div>
+  <h1>华为 <span class="hl-yellow">τ缩放</span> 理论</h1>
+  <div class="subtitle">从「比谁更小」到「比谁更快」——全链路压缩时间的芯片新范式</div>
+  <div class="meta">来源：2030FY · 2026.5.25</div>
 </div>
 
 <!-- ===== KEY METRICS ===== -->
-<div class="metrics-grid">
+<div class="metrics">
   <div class="metric-card">
-    <div class="icon">📦</div>
-    <div class="number">55<span class="unit">%</span></div>
-    <div class="label">LogicFolding一代<br>晶体管密度提升</div>
+    <div class="metric-icon">📦</div>
+    <div class="metric-num">55<span class="u">%</span></div>
+    <div class="metric-label">LogicFolding一代<br>晶体管密度提升</div>
   </div>
   <div class="metric-card">
-    <div class="icon">⚡</div>
-    <div class="number">41<span class="unit">%</span></div>
-    <div class="label">同代工艺<br>能效提升</div>
+    <div class="metric-icon">⚡</div>
+    <div class="metric-num">41<span class="u">%</span></div>
+    <div class="metric-label">同代工艺<br>能效提升</div>
   </div>
   <div class="metric-card">
-    <div class="icon">🚀</div>
-    <div class="number">3.1<span class="unit">GHz</span></div>
-    <div class="label">麒麟2026主频<br>（2029年目标4GHz）</div>
+    <div class="metric-icon">🚀</div>
+    <div class="metric-num">3.1<span class="u">GHz</span></div>
+    <div class="metric-label">麒麟2026主频<br><span style="color:rgba(255,255,255,0.25)">2029目标4GHz</span></div>
   </div>
   <div class="metric-card">
-    <div class="icon">⚡</div>
-    <div class="number">500<span class="unit">×</span></div>
-    <div class="label">远程访问延时<br>压缩（Unified Bus）</div>
+    <div class="metric-icon">⚡</div>
+    <div class="metric-num">500<span class="u">×</span></div>
+    <div class="metric-label">远程访问延时<br>压缩（Unified Bus）</div>
   </div>
   <div class="metric-card">
-    <div class="icon">🔗</div>
-    <div class="number">8<span class="unit">Tb/s</span></div>
-    <div class="label">Hi-ONE光互联<br>单模块带宽</div>
+    <div class="metric-icon">🔗</div>
+    <div class="metric-num">8<span class="u">Tb/s</span></div>
+    <div class="metric-label">Hi-ONE光互联<br>单模块带宽</div>
   </div>
   <div class="metric-card">
-    <div class="icon">📈</div>
-    <div class="number">100<span class="unit">×</span></div>
-    <div class="label">2035年AI硬件<br>集成度预测</div>
+    <div class="metric-icon">📈</div>
+    <div class="metric-num">100<span class="u">×</span></div>
+    <div class="metric-label">2035年AI硬件<br>集成度预测提升</div>
   </div>
 </div>
 
-<!-- ===== CONTRAST: Old vs New ===== -->
-<div class="comparison-block">
-  <div class="block-title">🔁 范式对比：尺寸缩放 vs 时间缩放</div>
-  <div class="compare-row">
-    <div class="compare-col old-way">
-      <div class="col-title">❌ 旧范式：尺寸缩小</div>
+<!-- ===== CORE COMPARISON ===== -->
+<div class="comp-card">
+  <div class="comp-title">🔁 范式对决 <sub>尺寸缩小 vs 时间压缩</sub></div>
+  <div class="vs-row">
+    <div class="vs-col old">
+      <div class="vs-badge">❌ 旧范式</div>
+      <div class="vs-head">尺寸缩小（摩尔定律）</div>
       <ul>
         <li>靠光刻机升级缩小晶体管</li>
-        <li>7nm以下收益暴跌</li>
-        <li>单颗芯片设计费超10亿美元</li>
-        <li>单个晶体管成本不降反升</li>
+        <li>7nm以下每代收益暴跌</li>
+        <li>单颗芯片设计费超<span class="hl">10亿美元</span></li>
+        <li>单晶体管成本<span class="hl">不降反升</span></li>
         <li>EUV光刻机成本天价</li>
-        <li>各层级各自优化、互不协同</li>
+        <li>各层级各自优化</li>
       </ul>
     </div>
-    <div class="compare-col new-way">
-      <div class="col-title">✅ 新范式：τ时间压缩</div>
+    <div class="vs-col new">
+      <div class="vs-badge">✦ 新范式</div>
+      <div class="vs-head">τ时间压缩</div>
       <ul>
-        <li>靠3D堆叠+架构+互联优化</li>
-        <li>全栈统一指标（τ特征时间）</li>
-        <li>工艺、电路、架构、系统协同</li>
-        <li>不依赖最先进光刻机</li>
+        <li>靠<span class="hl">3D堆叠+架构</span>优化</li>
+        <li>全栈统一指标τ特征时间</li>
+        <li>工艺·电路·架构·系统<span class="hl">协同</span></li>
+        <li><span class="hl">不依赖</span>最先进光刻机</li>
         <li>覆盖12个数量级（皮秒→秒）</li>
-        <li>381款量产芯片验证</li>
+        <li><span class="hl">381款</span>量产芯片验证</li>
       </ul>
     </div>
   </div>
 </div>
 
-<!-- ===== What is τ ===== -->
-<div class="comparison-block">
-  <div class="block-title">🔬 τ缩放的四层架构</div>
-  <p style="font-size:14px;color:#6b7280;margin-bottom:14px;">τ（特征时间）从晶体管到数据中心，层层压缩，目标统一</p>
-  <div class="arch-row">
-    <div class="arch-tile">
-      <div class="a-icon">🔌</div>
-      <div class="a-title">晶体管级</div>
-      <div class="a-desc">开关速度·皮秒</div>
+<!-- ===== τ四层架构 ===== -->
+<div class="comp-card">
+  <div class="comp-title">🔬 τ缩放四层架构</div>
+  <p style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:14px;">τ（特征时间）从晶体管到数据中心，层层压缩，目标统一</p>
+  <div class="arch4">
+    <div class="at">
+      <div class="ai">🔌</div>
+      <div class="atn">晶体管级</div>
+      <div class="atd">开关速度·皮秒</div>
     </div>
-    <div class="arch-tile">
-      <div class="a-icon">🔀</div>
-      <div class="a-title">电路级</div>
-      <div class="a-desc">信号传输延时</div>
+    <div class="at">
+      <div class="ai">🔀</div>
+      <div class="atn">电路级</div>
+      <div class="atd">信号传输延时</div>
     </div>
-    <div class="arch-tile">
-      <div class="a-icon">💠</div>
-      <div class="a-title">芯片级</div>
-      <div class="a-desc">计算/访存延时</div>
+    <div class="at">
+      <div class="ai">💠</div>
+      <div class="atn">芯片级</div>
+      <div class="atd">计算/访存延时</div>
     </div>
-    <div class="arch-tile">
-      <div class="a-icon">🌐</div>
-      <div class="a-title">系统级</div>
-      <div class="a-desc">端到端通信·秒</div>
+    <div class="at">
+      <div class="ai">🌐</div>
+      <div class="atn">系统级</div>
+      <div class="atd">端到端通信·秒</div>
     </div>
   </div>
 </div>
 
 <!-- ===== LogicFolding ===== -->
-<div class="comparison-block">
-  <div class="block-title">📱 手机端落地：LogicFolding（逻辑折叠）</div>
-  <p style="font-size:14px;color:#6b7280;margin-bottom:14px;">不升级工艺，垂直堆叠芯片——等效于1-2代工艺进步</p>
-  
-  <div class="data-grid-2col">
-    <div class="data-item">
-      <div class="data-num">155M → 238M <span class="u">/mm²</span></div>
-      <div class="data-label">晶体管密度 · 提升55%</div>
+<div class="sec-card">
+  <div class="sec-title">📱 LogicFolding（逻辑折叠）— 手机端落地</div>
+  <p>不升级工艺，芯片垂直堆叠——<span class="hl">等效1-2代工艺进步</span>。超精密混合键合把关键路径分到多层，相当于给芯片"叠楼层"。</p>
+  <div class="dg2">
+    <div class="di">
+      <div class="dn">155M→238M <span class="u">/mm²</span></div>
+      <div class="dl">晶体管密度 · 提升55%</div>
     </div>
-    <div class="data-item">
-      <div class="data-num">+41<span class="u">%</span></div>
-      <div class="data-label">能效提升</div>
+    <div class="di">
+      <div class="dn">+41<span class="u">%</span></div>
+      <div class="dl">能效提升</div>
     </div>
-    <div class="data-item">
-      <div class="data-num">+13<span class="u">%</span></div>
-      <div class="data-label">主频提升</div>
+    <div class="di">
+      <div class="dn">+13<span class="u">%</span></div>
+      <div class="dl">主频提升</div>
     </div>
-    <div class="data-item">
-      <div class="data-num">+40<span class="u">%</span></div>
-      <div class="data-label">SRAM频率提升</div>
+    <div class="di">
+      <div class="dn">+40<span class="u">%</span></div>
+      <div class="dl">SRAM频率提升</div>
     </div>
   </div>
-
-  <p style="font-size:14px;color:#374151;margin-top:10px;"><strong>麒麟2026主频3.1GHz，2029年目标4GHz</strong> — 不依赖EUV升级，仅靠3D堆叠混合键合实现。</p>
+  <p style="margin-top:8px;"><span style="color:#F4C743;font-weight:700;">麒麟2026主频3.1GHz</span> <span style="color:rgba(255,255,255,0.3);">→ 2029年目标4GHz</span></p>
 </div>
 
-<!-- ===== AI Data Center ===== -->
-<div class="comparison-block">
-  <div class="block-title">🖥️ AI数据中心：全链路压延时</div>
-  <p style="font-size:14px;color:#6b7280;margin-bottom:14px;">AI集群80%能耗、70%成本在数据搬运——这是最大的优化空间</p>
-  
-  <div class="info-3col">
-    <div class="col-card blue">
-      <div class="cc-title">① 统一总线 Unified Bus</div>
-      <p>砍掉多层协议栈<br>远程访问延时：<strong>几十μs → ~100ns</strong><br><span style="color:#1d4ed8;font-weight:700;">快500倍</span></p>
+<!-- ===== AI数据中心 ===== -->
+<div class="sec-card">
+  <div class="sec-title">🖥️ AI数据中心 — 全链路压延时</div>
+  <p>AI集群<span style="color:#F4C743;font-weight:700;">80%能耗、70%成本</span>在数据搬运——这是当前最大瓶颈也是最大优化空间。</p>
+  <div class="c3">
+    <div class="c3c blue">
+      <div class="c3t">① 统一总线 Unified Bus</div>
+      <p>砍掉多层协议栈<br>远程访问延时：几十μs → <span style="color:#93C5FD;font-weight:700;">~100ns</span><br><span style="color:#93C5FD;font-weight:700;">快500倍</span></p>
     </div>
-    <div class="col-card green">
-      <div class="cc-title">② Hi-ONE光互联</div>
-      <p>铜线→光纤<br>单模块带宽：<strong>8Tb/s</strong><br>传输距离：1m → 100m<br>适配万卡集群</p>
+    <div class="c3c green">
+      <div class="c3t">② Hi-ONE光互联</div>
+      <p>铜线→光纤<br>单模块带宽：<span style="color:#6EE7B7;font-weight:700;">8Tb/s</span><br>传输距离：1m→100m<br>适配万卡集群</p>
     </div>
-    <div class="col-card purple">
-      <div class="cc-title">③ 3D Folding</div>
-      <p>解决2.5D封装瓶颈<br>内存/供电/光口垂直集成<br>算力与存储<strong>同步扩容</strong></p>
+    <div class="c3c purple">
+      <div class="c3t">③ 3D Folding</div>
+      <p>解决2.5D封装瓶颈<br>内存/供电/光口垂直集成<br>算力与存储<span style="color:#C4B5FD;font-weight:700;">同步扩容</span></p>
     </div>
   </div>
 </div>
 
-<!-- ===== Logic + Memory ===== -->
-<div class="comparison-block">
-  <div class="block-title">🧠 逻辑与内存重新融合</div>
-  <p style="font-size:14px;color:#374151;line-height:1.8;">AI时代，<strong>数据搬运比计算更关键</strong>。内存和逻辑必须紧密3D集成，产业链话语权正在向<strong>内存、封装</strong>倾斜——不再只是"后端"工序，而是决定系统性能的核心环节。</p>
+<!-- ===== 逻辑+内存融合 ===== -->
+<div class="sec-card">
+  <div class="sec-title">🧠 逻辑与内存重新融合</div>
+  <p>AI时代，<span style="color:#F4C743;font-weight:700;">数据搬运比计算更关键。</span>内存和逻辑必须紧密3D集成，产业链话语权正在向<span style="color:#6EE7B7;font-weight:700;">内存、封装</span>倾斜——不再只是"后端"工序，而是决定系统性能的核心环节。</p>
 </div>
 
-<!-- ===== Challenges ===== -->
-<div class="comparison-block">
-  <div class="block-title">⚠️ 剩余挑战</div>
-  <div class="info-3col">
-    <div class="col-card blue" style="background:#f8f9fb;border-color:#d1d9e6;">
-      <div class="cc-title" style="color:#374151;">🛠 EDA工具</div>
+<!-- ===== 剩余挑战 ===== -->
+<div class="sec-card">
+  <div class="sec-title">⚠️ 剩余挑战</div>
+  <div class="c3">
+    <div class="c3c blue">
+      <div class="c3t">🛠 EDA工具</div>
       <p>需全面适配3D堆叠协同设计流程</p>
     </div>
-    <div class="col-card blue" style="background:#f8f9fb;border-color:#d1d9e6;">
-      <div class="cc-title" style="color:#374151;">🔬 工艺差异</div>
+    <div class="c3c blue">
+      <div class="c3t">🔬 工艺差异</div>
       <p>晶圆间差异+垂直互联损耗需优化</p>
     </div>
-    <div class="col-card blue" style="background:#f8f9fb;border-color:#d1d9e6;">
-      <div class="cc-title" style="color:#374151;">📊 新标准</div>
-      <p>需要配套新的能效/benchmark标准</p>
+    <div class="c3c blue">
+      <div class="c3t">📊 新标准</div>
+      <p>需要配套新能效/benchmark标准</p>
     </div>
   </div>
 </div>
 
-<!-- ===== Second-Order Insights ===== -->
-<div class="comparison-block">
-  <div class="block-title">🔍 二阶解读：多数人可能漏掉的</div>
-  <ul class="info-list">
-    <li><span class="badge badge-chip">架构</span> τ缩放是把<strong class="hl">时间维度作为统一优化指标</strong>——从EDA到工艺到系统架构需协同设计，对芯片设计方法论是根本性转变。</li>
-    <li><span class="badge badge-chip">战略</span> LogicFolding的55%密度提升<strong class="hl">在同一工艺节点实现</strong>——对光刻机升级依赖大幅降低，对国内半导体产业链有重大战略意义。</li>
-    <li><span class="badge badge-net">互联</span> Unified Bus把远程访问延时压到100ns，<strong class="hl">正在模糊"本地内存"与"远程内存"的边界</strong>——将改变AI集群架构设计范式。</li>
-    <li><span class="badge badge-mem">产业链</span> 产业话语权<strong class="hl">向内存和封装倾斜</strong>——SK海力士、三星、台积电的3D堆叠/混合键合布局将直接受益。</li>
-    <li><span class="badge badge-eff">能效</span> 华为<strong class="hl">不依赖先进制程</strong>靠架构创新实现能效提升41%——这对受制于工艺节点的国产芯片是一条已验证的可行路径。</li>
+<!-- ===== 二阶解读 ===== -->
+<div class="sec-card">
+  <div class="sec-title">🔍 二阶解读 <span style="font-size:12px;font-weight:400;color:rgba(255,255,255,0.3)">— 多数人漏掉的</span></div>
+  <ul class="dl-list">
+    <li><span class="badge badge-arch">架构</span> τ缩放是把<span class="hl">时间维度作为统一优化指标</span>——从EDA到工艺到系统架构需协同设计，对芯片设计方法论是根本性转变。</li>
+    <li><span class="badge badge-strat">战略</span> LogicFolding的55%密度提升<span class="hl">在同一工艺节点实现</span>——对光刻机升级依赖大幅降低，对国内半导体产业链有重大战略意义。</li>
+    <li><span class="badge badge-mem">互联</span> Unified Bus把远程访问延时压到100ns，<span class="hl">正在模糊"本地内存"与"远程内存"的边界</span>——将改变AI集群架构设计范式。</li>
+    <li><span class="badge badge-mem">产业链</span> 产业话语权<span class="hl">向内存和封装倾斜</span>——SK海力士、三星、台积电的3D堆叠/混合键合布局将直接受益。</li>
+    <li><span class="badge badge-eff">能效</span> 华为<span class="hl">不依赖先进制程</span>靠架构创新实现能效提升41%——这对受制于工艺节点的国产芯片是一条已验证的可行路径。</li>
   </ul>
-
-  <div class="insight-box">
-    <div class="insight-tag">💡 深层判断</div>
-    <p>τ缩放不仅是一个技术论文，更像一份<strong>产业路线图</strong>：暗示华为及其供应链在未来5-10年将走"不追先进制程、靠3D堆叠和系统优化"的路。这对所有半导体投资逻辑——ASML光刻机、台积电先进制程、国产替代路径——都需要重新审视。</p>
+  <div class="insight">
+    <div class="it">💡 深层判断</div>
+    <p>τ缩放不仅是一篇技术论文，更像一份<span style="color:#F4C743;font-weight:700;">产业路线图</span>：暗示华为在未来5-10年将走"不追先进制程、靠3D堆叠和系统优化"的路。这对所有半导体投资逻辑——ASML光刻机、台积电先进制程、国产替代路径——都需要重新审视。</p>
   </div>
 </div>
 
-<!-- ===== Industry Impact Table ===== -->
-<div class="comparison-block">
-  <div class="block-title">📊 产业影响矩阵</div>
-  <table class="impact-table">
-    <tr>
-      <th>产业链环节</th>
-      <th>τ缩放影响</th>
-      <th>受益/受损</th>
-    </tr>
-    <tr>
-      <td>先进光刻机（ASML）</td>
-      <td>依赖度降低——架构替代尺寸微缩</td>
-      <td class="down">⚠ 受损</td>
-    </tr>
-    <tr>
-      <td>先进封装（台积电3D Fabric、日月光）</td>
-      <td>成为核心制胜环节——混合键合、3D堆叠</td>
-      <td class="up">📈 核心受益</td>
-    </tr>
-    <tr>
-      <td>HBM/内存（SK海力士、三星、MU）</td>
-      <td>内存+逻辑3D集成——话语权上升</td>
-      <td class="up">📈 受益</td>
-    </tr>
-    <tr>
-      <td>EDA工具（Synopsys、Cadence）</td>
-      <td>需适配3D协同设计——新需求爆发</td>
-      <td class="up">📈 受益</td>
-    </tr>
-    <tr>
-      <td>光互联（CPO、硅光）</td>
-      <td>Hi-ONE验证了万卡集群光互联路线</td>
-      <td class="up">📈 受益</td>
-    </tr>
-    <tr>
-      <td>国内半导体设备</td>
-      <td>追赶窗口——不用死磕最先进节点</td>
-      <td class="neutral">🔄 结构性利好</td>
-    </tr>
+<!-- ===== 产业影响矩阵 ===== -->
+<div class="comp-card">
+  <div class="comp-title">📊 产业影响矩阵</div>
+  <table class="tbl">
+    <tr><th>产业链环节</th><th>τ缩放影响</th><th>受益/受损</th></tr>
+    <tr><td>先进光刻机（ASML）</td><td>依赖度降低——架构替代尺寸微缩</td><td class="down">⚠ 受损</td></tr>
+    <tr><td>先进封装（台积电3D Fabric、日月光）</td><td>成为核心制胜环节——混合键合、3D堆叠</td><td class="up">📈 核心受益</td></tr>
+    <tr><td>HBM/内存（SK海力士、三星、MU）</td><td>内存+逻辑3D集成——话语权上升</td><td class="up">📈 受益</td></tr>
+    <tr><td>EDA工具（Synopsys、Cadence）</td><td>需适配3D协同设计——新需求爆发</td><td class="up">📈 受益</td></tr>
+    <tr><td>光互联（CPO、硅光）</td><td>Hi-ONE验证了万卡集群光互联路线</td><td class="up">📈 受益</td></tr>
+    <tr><td>国内半导体设备</td><td>追赶窗口——不用死磕最先进节点</td><td class="neutral">🔄 结构性利好</td></tr>
   </table>
 </div>
 
-<!-- ===== SUMMARY BAR ===== -->
-<div class="summary-bar">
-  <div class="s-tag">📌 一句话总结</div>
-  <div class="s-main">不是比谁的光刻机更贵，而是比谁的时间压得更短<br>——τ缩放开辟了不依赖先进制程的半导体新赛道。</div>
-  <div class="s-sub">华为已用381款量产芯片验证：3D堆叠+全栈协同优化=等效1-2代工艺进步。未来10年半导体核心路线从"缩尺寸"转向"压时间"，对国内产业链是难得的换道机遇。</div>
-</div>
-
+<!-- ===== SUMMARY ===== -->
+<div class="summary">
+  <div class="st">📌 一句话总结</div>
+  <div class="sm">不是比谁的光刻机更贵，<br>而是比谁的时间压得更短。</div>
+  <div class="ss">华为已用381款量产芯片验证：3D堆叠+全栈协同优化=等效1-2代工艺进步。未来10年半导体核心路线从"缩尺寸"转向"压时间"，对国内产业链是难得的换道机遇。</div>
 </div>
 
 <!-- ===== FOOTER ===== -->
 <div class="footer">
   <p>来源：2030FY · 2026年5月25日</p>
-  <p>本文基于公开资料整理，仅作信息分享，不构成任何投资建议</p>
-  <p style="margin-top:6px;opacity:0.5;">© 2026 LFF Research · 全文可访问原文链接</p>
+  <p>本文基于公开资料整理，仅作信息分享，不构成投资建议</p>
 </div>
 
+</div>
 </body>
 </html>
