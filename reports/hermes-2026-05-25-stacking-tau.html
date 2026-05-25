@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>堆叠路线 vs τ缩放 · Bernstein+华为深度解读</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+  background:#060B2D;
+  color:#e8edf5;
+  line-height:1.6;
+  font-size:15px
+}
+.wrapper{
+  max-width:920px;
+  margin:0 auto;
+  padding:24px 16px 60px;
+  background:linear-gradient(180deg,#060B2D 0%,#0A1040 100%);
+  min-height:100vh
+}
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 50%,#0D1540 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:18px;
+  padding:44px 30px 36px;
+  margin-bottom:28px;
+  text-align:center;
+  overflow:hidden;
+  box-shadow:0 0 24px rgba(37,96,212,0.25), inset 0 0 40px rgba(37,96,212,0.05)
+}
+.hero::before{
+  content:'';position:absolute;top:-60%;left:-30%;
+  width:160%;height:200%;
+  background:radial-gradient(ellipse at 30% 50%,rgba(37,96,212,0.08) 0%,transparent 60%);
+  pointer-events:none
+}
+.hero .badge{
+  display:inline-block;
+  background:rgba(37,96,212,0.2);
+  border:1px solid rgba(37,96,212,0.4);
+  color:#60A5FA;
+  font-size:11px;padding:4px 16px;border-radius:20px;
+  letter-spacing:1.5px;font-weight:600;
+  margin-bottom:18px;
+  position:relative;z-index:1
+}
+.hero h1{
+  font-size:30px;font-weight:800;
+  color:#fff;
+  letter-spacing:1px;
+  position:relative;z-index:1;
+  line-height:1.3
+}
+.hero h1 .hl-yellow{color:#F4C743}
+.hero .subtitle{
+  font-size:16px;color:rgba(255,255,255,0.55);
+  margin-top:10px;
+  position:relative;z-index:1
+}
+.hero .meta{
+  font-size:12px;color:rgba(255,255,255,0.25);
+  margin-top:16px;
+  position:relative;z-index:1
+}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.metric-card{
+  background:linear-gradient(135deg,#0D1540 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.3);
+  border-radius:16px;padding:22px 14px;text-align:center;
+  box-shadow:0 0 14px rgba(37,96,212,0.12);
+  transition:transform .15s,box-shadow .15s
+}
+.metric-card:hover{transform:translateY(-3px);box-shadow:0 0 22px rgba(37,96,212,0.25)}
+.metric-icon{font-size:22px;margin-bottom:6px}
+.metric-num{font-size:32px;font-weight:800;color:#fff;line-height:1.1}
+.metric-num .u{font-size:13px;font-weight:600;color:#60A5FA}
+.metric-label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4}
+.comp-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.25);
+  border-radius:16px;padding:28px 24px;margin-bottom:28px;
+  box-shadow:0 0 14px rgba(37,96,212,0.08)
+}
+.comp-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.comp-title sub{font-size:12px;font-weight:400;color:rgba(255,255,255,0.35)}
+.vs-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vs-col{border-radius:14px;padding:20px 18px;position:relative}
+.vs-col.old{background:rgba(204,48,35,0.08);border:1px solid rgba(204,48,35,0.25)}
+.vs-col.new{background:rgba(37,96,212,0.1);border:1px solid rgba(37,96,212,0.35)}
+.vs-col .vs-badge{
+  position:absolute;top:-10px;right:12px;
+  font-size:10px;font-weight:700;letter-spacing:1px;
+  padding:3px 12px;border-radius:10px
+}
+.vs-col.old .vs-badge{background:rgba(204,48,35,0.2);color:#FCA5A5;border:1px solid rgba(204,48,35,0.3)}
+.vs-col.new .vs-badge{background:rgba(37,96,212,0.25);color:#60A5FA;border:1px solid rgba(37,96,212,0.4)}
+.vs-col .vs-head{font-size:14px;font-weight:700;margin-bottom:12px}
+.vs-col.old .vs-head{color:#FCA5A5}
+.vs-col.new .vs-head{color:#93C5FD}
+.vs-col ul{list-style:none}
+.vs-col li{font-size:13px;padding:6px 0 6px 18px;position:relative;line-height:1.5;color:rgba(255,255,255,0.75)}
+.vs-col.old li::before{content:'✕';position:absolute;left:0;color:rgba(204,48,35,0.5)}
+.vs-col.new li::before{content:'✓';position:absolute;left:0;color:#60A5FA;font-weight:700}
+.sec-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.2);
+  border-radius:16px;padding:28px 24px;margin-bottom:28px
+}
+.sec-card .sec-title{
+  font-size:17px;font-weight:700;color:#fff;
+  margin-bottom:14px;padding-bottom:12px;
+  border-bottom:1px solid rgba(37,96,212,0.15);
+  display:flex;align-items:center;gap:8px
+}
+.sec-card p{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.8}
+.sec-card p:last-child{margin-bottom:0}
+.dg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.di{background:rgba(37,96,212,0.08);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:16px;text-align:center}
+.di .dn{font-size:24px;font-weight:800;color:#fff;line-height:1.2}
+.di .dn .u{font-size:12px;font-weight:600;color:#60A5FA}
+.di .dl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px}
+.dl-list{list-style:none;margin:12px 0}
+.dl-list li{
+  padding:10px 0 10px 24px;position:relative;
+  font-size:13px;color:rgba(255,255,255,0.7);
+  border-bottom:1px solid rgba(37,96,212,0.1);line-height:1.6
+}
+.dl-list li:last-child{border-bottom:none}
+.dl-list li::before{content:'';position:absolute;left:2px;top:17px;width:7px;height:7px;border-radius:50%;background:#60A5FA}
+.dl-list li .hl{color:#F4C743;font-weight:700}
+.dl-list li .badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;margin-right:4px}
+.badge-arch{background:rgba(37,96,212,0.2);color:#93C5FD}
+.badge-strat{background:rgba(244,199,67,0.15);color:#F4C743}
+.badge-mem{background:rgba(99,102,241,0.2);color:#A5B4FC}
+.badge-eff{background:rgba(52,211,153,0.15);color:#6EE7B7}
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.c3c{border-radius:12px;padding:18px 14px;border:1px solid}
+.c3c.blue{background:rgba(37,96,212,0.08);border-color:rgba(37,96,212,0.25)}
+.c3c.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.2)}
+.c3c.purple{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)}
+.c3c .c3t{font-size:13px;font-weight:700;margin-bottom:8px}
+.c3c.blue .c3t{color:#93C5FD}
+.c3c.green .c3t{color:#6EE7B7}
+.c3c.purple .c3t{color:#C4B5FD}
+.c3c p{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+.tbl th{background:rgba(37,96,212,0.1);color:#93C5FD;font-weight:700;padding:10px 12px;text-align:left;border-bottom:1px solid rgba(37,96,212,0.2)}
+.tbl th:first-child{border-radius:8px 0 0 0}
+.tbl th:last-child{border-radius:0 8px 0 0}
+.tbl td{padding:10px 12px;border-bottom:1px solid rgba(37,96,212,0.08);color:rgba(255,255,255,0.65)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .up{color:#6EE7B7;font-weight:700}
+.tbl .down{color:#FCA5A5}
+.tbl .neutral{color:rgba(255,255,255,0.4)}
+.insight{background:rgba(244,199,67,0.06);border:1px solid rgba(244,199,67,0.2);border-radius:10px;padding:18px 20px;margin:12px 0}
+.insight .it{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#F4C743;font-weight:700;margin-bottom:6px}
+.insight p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:0}
+.summary{
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:16px;padding:28px 30px;margin-bottom:20px;
+  box-shadow:0 0 20px rgba(37,96,212,0.15)
+}
+.summary .st{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.3);font-weight:700;margin-bottom:10px}
+.summary .sm{font-size:20px;font-weight:700;line-height:1.5;color:#F4C743}
+.summary .ss{font-size:14px;color:rgba(255,255,255,0.55);margin-top:10px;line-height:1.7}
+.footer{text-align:center;padding:20px 16px;color:rgba(255,255,255,0.2);font-size:12px;line-height:1.8}
+@media(max-width:640px){
+  .wrapper{padding:16px 10px 40px}
+  .hero{padding:30px 18px 26px}
+  .hero h1{font-size:22px}
+  .metrics{grid-template-columns:repeat(2,1fr);gap:10px}
+  .vs-row{grid-template-columns:1fr}
+  .dg2{grid-template-columns:1fr}
+  .c3{grid-template-columns:1fr}
+  .summary{padding:22px 18px}
+  .summary .sm{font-size:17px}
+  .comp-card,.sec-card{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<div class="hero">
+  <div class="badge">📄 新文件深度分析</div>
+  <h1>堆叠路线 vs <span class="hl-yellow">τ缩放</span></h1>
+  <div class="subtitle">Bernstein研报 × 华为论文——两份独立来源在"后摩尔定律时代"方向上的完美互证</div>
+  <div class="meta">Bernstein 2025.12.11 · 华为ChinaXiv 2026.5.25</div>
+</div>
+
+<div class="metrics">
+  <div class="metric-card">
+    <div class="metric-icon">📦</div>
+    <div class="metric-num">37<span class="u">%</span></div>
+    <div class="metric-label">堆叠wafer渗透率<br>2030E（Bernstein预测）</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">📦</div>
+    <div class="metric-num">7<span class="u">×</span></div>
+    <div class="metric-label">堆叠wafer数量<br>5年增长</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">⚡</div>
+    <div class="metric-num">+55<span class="u">%</span></div>
+    <div class="metric-label">LogicFolding密度提升<br>（固定工艺节点）</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">🚀</div>
+    <div class="metric-num">500<span class="u">×</span></div>
+    <div class="metric-label">UB远程访问延时压缩<br>几十μs→100ns</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">💠</div>
+    <div class="metric-num">381</div>
+    <div class="metric-label">华为量产芯片验证<br>τ缩放理论</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">📈</div>
+    <div class="metric-num">100<span class="u">×</span></div>
+    <div class="metric-label">AI硬件集成度<br>2035年预测</div>
+  </div>
+</div>
+
+<div class="comp-card">
+  <div class="comp-title">🔁 两份文件对比 <sub>Bernstein外部买方 vs 华为内部技术发布</sub></div>
+  <div class="vs-row">
+    <div class="vs-col old">
+      <div class="vs-badge">📊 外部验证</div>
+      <div class="vs-head">Bernstein · 堆叠路线</div>
+      <ul>
+        <li>日期：<span class="hl">2025年12月</span>（早于华为论文5个月）</li>
+        <li>基于行业估算和供应链调研</li>
+        <li>HBM/CoWoS/NAND CBA/DRAM CBA/BSPDN 7大技术</li>
+        <li>2030年堆叠渗透率<span class="hl">37%</span></li>
+        <li>推荐标的：DISCO/TEL/Besi/Sumco</li>
+        <li>买方视角：设备公司受益</li>
+      </ul>
+    </div>
+    <div class="vs-col new">
+      <div class="vs-badge">🔬 内幕验证</div>
+      <div class="vs-head">华为 · τ缩放理论</div>
+      <ul>
+        <li>日期：<span class="hl">2026年5月</span>（ChinaXiv发布）</li>
+        <li>基于<span class="hl">381款</span>量产芯片实际数据</li>
+        <li>LogicFolding/Unified Bus/Hi-ONE/3D Folding</li>
+        <li>固定节点晶体管密度<span class="hl">+55%</span></li>
+        <li>麒麟2026主频3.1GHz→2029年4GHz</li>
+        <li>方法论：τ作为统一优化指标</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="comp-card">
+  <div class="comp-title">🔬 τ缩放全栈四层 <sub>皮秒→秒，12个数量级</sub></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0">
+    <div style="background:rgba(37,96,212,0.06);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:14px 8px;text-align:center">
+      <div style="font-size:20px;margin-bottom:4px">🔌</div>
+      <div style="font-size:13px;font-weight:700;color:#e8edf5">晶体管级</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px">开关速度·皮秒</div>
+    </div>
+    <div style="background:rgba(37,96,212,0.06);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:14px 8px;text-align:center">
+      <div style="font-size:20px;margin-bottom:4px">🔀</div>
+      <div style="font-size:13px;font-weight:700;color:#e8edf5">电路级</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px">信号传输延时</div>
+    </div>
+    <div style="background:rgba(37,96,212,0.06);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:14px 8px;text-align:center">
+      <div style="font-size:20px;margin-bottom:4px">💠</div>
+      <div style="font-size:13px;font-weight:700;color:#e8edf5">芯片级</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px">计算/访存延时</div>
+    </div>
+    <div style="background:rgba(37,96,212,0.06);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:14px 8px;text-align:center">
+      <div style="font-size:20px;margin-bottom:4px">🌐</div>
+      <div style="font-size:13px;font-weight:700;color:#e8edf5">系统级</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px">端到端通信·秒</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-card">
+  <div class="sec-title">📱 LogicFolding — Kirin 2026量产数据（华为论文原文）</div>
+  <p>在不升级工艺的前提下，芯片垂直堆叠——<span class="hl">等效1-2代工艺进步</span>。超精密混合键合（1.5μm pitch）把关键路径分到多层。</p>
+  <div class="dg2">
+    <div class="di"><div class="dn">155M→238M <span class="u">/mm²</span></div><div class="dl">晶体管密度 · +55%</div></div>
+    <div class="di"><div class="dn">+41<span class="u">%</span></div><div class="dl">能效提升</div></div>
+    <div class="di"><div class="dn">+13<span class="u">%</span></div><div class="dl">主频提升</div></div>
+    <div class="di"><div class="dn">+40<span class="u">%</span></div><div class="dl">SRAM频率提升</div></div>
+  </div>
+  <p style="margin-top:8px;"><span style="color:#F4C743;font-weight:700;">麒麟2026主频3.1GHz</span> → 2027: 3.39GHz → 2028: 3.71GHz → <span style="color:#F4C743;font-weight:700;">2029: 4GHz</span></p>
+  <div class="insight" style="margin-top:12px;">
+    <div class="it">💡 关键洞察</div>
+    <p>华为的密度提升（+55%在同一节点）和Bernstein报告的DRAM CBA面积节省（16-28%）指向同一个方向：<span style="color:#F4C743;font-weight:700;">3D堆叠正在替代尺寸缩小成为新的性能/成本驱动力。</span></p>
+  </div>
+</div>
+
+<div class="sec-card">
+  <div class="sec-title">🖥️ AI数据中心 — 三大τ压降技术</div>
+  <div class="c3">
+    <div class="c3c blue">
+      <div class="c3t">① Unified Bus</div>
+      <p>砍掉PCIe+NVLink+Eth多层协议<br>远程延时：几十μs→<span style="color:#93C5FD;font-weight:700;">~100ns</span><br><span style="color:#93C5FD;font-weight:700;">快500倍</span></p>
+    </div>
+    <div class="c3c green">
+      <div class="c3t">② Hi-ONE光互联</div>
+      <p>近封装光引擎<br>带宽：<span style="color:#6EE7B7;font-weight:700;">8Tb/s/模块</span><br>距离：1m→100m<br>适配万卡集群</p>
+    </div>
+    <div class="c3c purple">
+      <div class="c3t">③ 3D Folding</div>
+      <p>解决N²-vs-N困境<br>带宽/I/O/供电从周界→垂直面<br>算力与存储<span style="color:#C4B5FD;font-weight:700;">同步N²扩容</span></p>
+    </div>
+  </div>
+  <div class="insight">
+    <div class="it">🧠 N²-vs-N困境（论文第10章）</div>
+    <p>2.5D封装中：算力∝N²，但带宽/I/O/供电∝N。差距越来越大，晶体管进步无法弥补拓扑缺陷。<span style="color:#F4C743;font-weight:700;">3D Folding是唯一解。</span></p>
+  </div>
+</div>
+
+<div class="comp-card">
+  <div class="comp-title">📊 Bernstein 7大堆叠技术全景</div>
+  <div class="c3">
+    <div class="c3c blue">
+      <div class="c3t">HBM TSV</div>
+      <p>当前最大用量<br>390k→700k wpm<br>2025低点，2026加速</p>
+    </div>
+    <div class="c3c green">
+      <div class="c3t">CoWoS</div>
+      <p>AI GPU/ASIC标配<br>73k→142k wpm<br>台积电产能翻倍</p>
+    </div>
+    <div class="c3c purple">
+      <div class="c3t">InFO→WMCM</div>
+      <p>iPhone封装升级<br>2027年WMCM超越CoWoS<br>175kwpm</p>
+    </div>
+    <div class="c3c blue">
+      <div class="c3t">3D IC</div>
+      <p>AMD/Intel/Broadcom<br>AVGO 3.5D已宣布<br>NVDA潜在跟进</p>
+    </div>
+    <div class="c3c green">
+      <div class="c3t">NAND CBA</div>
+      <p>Kioxia BiCS8: <span class="hl">密度+50%</span><br>功耗-30%，速度+20%<br>2030: 1,057kwpm</p>
+    </div>
+    <div class="c3c purple">
+      <div class="c3t">DRAM CBA</div>
+      <p>三星/SK 2027量产<br>面积节省16-28%<br>2029渗透29%</p>
+    </div>
+  </div>
+  <div style="margin-top:14px;">
+    <div class="c3c blue" style="text-align:center;border-radius:12px;padding:14px;background:rgba(37,96,212,0.08);border-color:rgba(37,96,212,0.25)">
+      <div class="c3t">BSPDN（背面供电）</div>
+      <p>Intel 18A首发 → TSMC A16跟进 → 2030年285kwpm<br>速度+8-10% / 功耗-15-20% / 密度+7-10%</p>
+    </div>
+  </div>
+</div>
+
+<div class="comp-card">
+  <div class="comp-title">📊 持仓影响矩阵</div>
+  <table class="tbl">
+    <tr><th>持仓</th><th>相关性</th><th>影响说明</th><th>方向</th></tr>
+    <tr><td><span style="color:#6EE7B7;font-weight:700;">MU</span></td><td>🔥 核心</td><td>HBM扩产+DRAM CBA（2027起）+内存话语权上升</td><td class="up">📈 强受益</td></tr>
+    <tr><td><span style="color:#6EE7B7;font-weight:700;">TSM</span></td><td>🔥 核心</td><td>CoWoS+3D IC+BSPDN+A16，先进封装核心壁垒</td><td class="up">📈 强受益</td></tr>
+    <tr><td><span style="color:#6EE7B7;font-weight:700;">AVGO</span></td><td>🔥 核心</td><td>3.5D/3D IC已布局，XPU堆叠路线明确</td><td class="up">📈 强受益</td></tr>
+    <tr><td><span style="color:#6EE7B7;font-weight:700;">三星电机</span></td><td>🔥 核心</td><td>CBA-DRAM+HBM+先进封装，多重生态位</td><td class="up">📈 强受益</td></tr>
+    <tr><td><span style="color:#6EE7B7;font-weight:700;">NVDA</span></td><td>🔥 核心</td><td>Rubin Ultra: 4GPU+256HBM，堆叠深度持续扩大</td><td class="up">📈 强受益</td></tr>
+    <tr><td><span style="color:#93C5FD;font-weight:700;">VRT</span></td><td>📈 间接</td><td>AI集群功耗密度上升→液冷渗透加速</td><td class="up">📈 受益</td></tr>
+    <tr><td>MSFT/AAPL/GOOGL</td><td>📈 间接</td><td>CapEx不受影响，架构路线清晰</td><td class="up">📈 受益</td></tr>
+    <tr><td><span style="color:rgba(255,255,255,0.4);">QCOM</span></td><td>📊 中性</td><td>手机SoC受益LogicFolding，但非3D封装直接玩家</td><td class="neutral">🔄 中性</td></tr>
+  </table>
+</div>
+
+<div class="sec-card">
+  <div class="sec-title">🔍 跨源验证：两份文件的互补价值</div>
+  <ul class="dl-list">
+    <li><span class="badge badge-strat">战略一致</span> 两者都认为摩尔定律在7nm以下失效，<span class="hl">堆叠/3D集成是下一阶段主要驱动力</span></li>
+    <li><span class="badge badge-arch">时间线验证</span> Bernstein预测（2025.12）被华为论文（2026.5）的<span class="hl">实际量产数据直接验证</span>——5个月前的行业估算变成了实际数据</li>
+    <li><span class="badge badge-mem">DRAM CBA</span> Bernstein预测2027起量产、2029达29%渗透率；华为论文指出<span class="hl">内存话语权正在向封装/内存转移</span>——对MU、三星电机直接利好</li>
+    <li><span class="badge badge-eff">逻辑+内存融合</span> Bernstein从产业角度、华为从技术角度<span class="hl">同时指向同一结论</span>：AI时代数据搬运比计算更关键，内存和逻辑必须3D集成</li>
+    <li><span class="badge badge-arch">设备受益</span> Bernstein推荐DISCO/TEL/Besi；华为论文强调<span class="hl">EDA工具链需3D-native转型</span>——Synopsys/Cadence同样受益</li>
+  </ul>
+  <div class="insight">
+    <div class="it">💡 深层判断</div>
+    <p>这不是两个分开的论点——<span style="color:#F4C743;font-weight:700;">Bernstein的"堆叠路线图"和华为的"τ缩放理论"是一个硬币的两面。</span>前者从外部分析描述了"what"（7大堆叠技术的渗透曲线），后者从内部研发解释了"why"（τ作为统一优化指标的逻辑）。两份文件独立发布、互为验证，极大增强了产业方向的可信度。</p>
+  </div>
+</div>
+
+<div class="summary">
+  <div class="st">📌 一句话总结</div>
+  <div class="sm">"堆叠"不是替代方案——是唯一的方案。<br>Bernstein说了"怎么做"，华为说了"为什么这样做"。</div>
+  <div class="ss">两份独立来源指向同一方向：后摩尔时代，3D堆叠+系统架构优化取代尺寸缩小成为半导体进步的核心驱动力。受限于先进制程的公司（如华为）反而率先验证了这条路线——这对整体产业和你的持仓组合都有深远影响。</div>
+</div>
+
+<div class="footer">
+  <p>来源：Bernstein · David Dai 2025.12.11 / 华为 · 何庭波 ChinaXiv 2026.5.25</p>
+  <p>本文基于公开资料整理，仅作信息分享，不构成投资建议</p>
+</div>
+
+</div>
+</body>
+</html>
