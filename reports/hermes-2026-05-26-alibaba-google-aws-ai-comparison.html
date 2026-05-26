@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿里 v.s. 谷歌 v.s. AWS 全栈AI对比</title>
+<!-- noindex, nofollow -->
+<meta name="robots" content="noindex, nofollow">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #060B2D;
+  color: #E2E8F0;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #060B2D 0%, #0D1B4A 50%, #1A0A3E 100%);
+  padding: 60px 40px 40px;
+  text-align: center;
+  border-bottom: 2px solid rgba(55, 96, 212, 0.3);
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3760D4, #F4C743, #3760D4, transparent);
+}
+.hero h1 {
+  font-size: 2.4em;
+  font-weight: 700;
+  color: #F4C743;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.hero .subtitle {
+  font-size: 1.1em;
+  color: #93C5FD;
+  margin-bottom: 16px;
+}
+.hero .tagline {
+  display: inline-block;
+  background: rgba(244, 199, 67, 0.12);
+  border: 1px solid rgba(244, 199, 67, 0.3);
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  color: #F4C743;
+}
+.hero .meta {
+  margin-top: 12px;
+  font-size: 0.85em;
+  color: #64748B;
+}
+
+/* ===== CONTAINER ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+
+/* ===== SECTION ===== */
+.section {
+  background: linear-gradient(135deg, #0B1238, #0F1A50);
+  border: 1px solid rgba(37, 96, 212, 0.25);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 0 20px rgba(37, 96, 212, 0.1);
+  position: relative;
+}
+.section h2 {
+  font-size: 1.4em;
+  color: #93C5FD;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(37, 96, 212, 0.2);
+}
+.section h2 .badge {
+  display: inline-block;
+  background: rgba(55, 96, 212, 0.3);
+  font-size: 0.65em;
+  padding: 2px 10px;
+  border-radius: 8px;
+  color: #93C5FD;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.section h3 {
+  font-size: 1.1em;
+  color: #C4B5FD;
+  margin: 20px 0 10px;
+}
+.section p {
+  font-size: 0.95em;
+  color: #CBD5E1;
+  margin-bottom: 10px;
+}
+.section p strong, .section td strong { color: #F4C743; }
+
+/* ===== BADGE ===== */
+.label-badge {
+  display: inline-block;
+  font-size: 0.75em;
+  padding: 2px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.label-badge.gold { background: rgba(244,199,67,0.15); color: #F4C743; }
+.label-badge.blue { background: rgba(55,96,212,0.2); color: #93C5FD; }
+.label-badge.green { background: rgba(110,231,183,0.15); color: #6EE7B7; }
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 0.9em;
+}
+thead th {
+  background: rgba(55, 96, 212, 0.15);
+  color: #93C5FD;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(55, 96, 212, 0.3);
+}
+thead th:first-child { border-radius: 8px 0 0 0; }
+thead th:last-child { border-radius: 0 8px 0 0; }
+tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(37, 96, 212, 0.1);
+  color: #CBD5E1;
+  vertical-align: top;
+}
+tbody tr:hover { background: rgba(55, 96, 212, 0.05); }
+tbody td:first-child {
+  font-weight: 600;
+  color: #94A3B8;
+  white-space: nowrap;
+  width: 140px;
+}
+
+/* ===== HIGHLIGHT BOX ===== */
+.highlight-box {
+  background: rgba(244, 199, 67, 0.06);
+  border-left: 4px solid #F4C743;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 12px 12px 0;
+}
+.highlight-box p { color: #FEF3C7; margin: 0; }
+.highlight-box .label-badge { margin-bottom: 4px; }
+
+/* ===== GRID ===== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 1.6em; }
+  .container { padding: 16px; }
+  .section { padding: 20px; }
+}
+.card {
+  background: rgba(11, 18, 56, 0.6);
+  border: 1px solid rgba(37, 96, 212, 0.15);
+  border-radius: 12px;
+  padding: 14px;
+}
+.card .card-title {
+  font-weight: 600;
+  color: #93C5FD;
+  margin-bottom: 6px;
+}
+.card .card-text {
+  font-size: 0.85em;
+  color: #94A3B8;
+}
+
+/* ===== ARCH DIAGRAM ===== */
+.arch {
+  background: rgba(11, 18, 56, 0.5);
+  border: 1px solid rgba(244, 199, 67, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 14px 0;
+  font-family: 'SF Mono', 'Courier New', monospace;
+  font-size: 0.9em;
+  line-height: 1.8;
+  color: #94A3B8;
+}
+.arch .hl { color: #F4C743; }
+.arch .blue { color: #93C5FD; }
+.arch .green { color: #6EE7B7; }
+
+/* ===== CONCLUSION BAR ===== */
+.conclusion-bar {
+  background: linear-gradient(135deg, #0D1B4A, #1A0A3E);
+  border: 1px solid rgba(244, 199, 67, 0.2);
+  border-radius: 16px;
+  padding: 28px;
+  margin: 28px 0;
+  text-align: center;
+}
+.conclusion-bar h3 {
+  font-size: 1.2em;
+  color: #F4C743;
+  margin-bottom: 10px;
+}
+.conclusion-bar p {
+  font-size: 0.95em;
+  color: #CBD5E1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== RANKING ===== */
+.rank { display: inline-block; font-size: 0.85em; padding: 1px 6px; border-radius: 4px; }
+.rank.g1 { background: rgba(244,199,67,0.2); color: #F4C743; }
+.rank.g2 { background: rgba(110,231,183,0.15); color: #6EE7B7; }
+.rank.g3 { background: rgba(148,163,184,0.15); color: #94A3B8; }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <h1>阿里 · 谷歌 · AWS 全栈AI对比</h1>
+  <div class="subtitle">Alibaba v.s. Google v.s. Amazon Web Services — 谁在AI的六个维度领先？</div>
+  <div class="tagline">✦ 阿里是「中国版混合型公司」——同时对标谷歌（AI）和 AWS（云） ✦</div>
+  <div class="meta">基于公开信息整理 · 2026年5月</div>
+</div>
+
+<div class="container">
+
+<!-- ===== 核心判断 ===== -->
+<div class="conclusion-bar">
+  <h3>🔮 一句话核心判断</h3>
+  <p>阿里不是"中国的AWS"——阿里是<strong>"中国版混合型科技公司"</strong>，它需要在<strong>AI（对标谷歌）</strong>和<strong>云（对标AWS）</strong>两个战场上同时竞争。这在资源上是挑战，但也意味着阿里有电商+云+AI的<strong>独特数据飞轮</strong>，是AWS和谷歌都无法复制的差异化。</p>
+</div>
+
+<!-- ===== 维度1: 战略 ===== -->
+<div class="section">
+  <h2>一、公司战略与AI愿景 <span class="badge">底层驱动</span></h2>
+
+  <table>
+    <thead>
+      <tr><th style="width:100px">维度</th><th>阿里</th><th>谷歌</th><th>AWS</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>战略定位</td>
+        <td><strong>AI驱动的科技平台公司</strong>——电商+云计算+AI一体化</td>
+        <td><strong>AI First</strong>——AI作为操作系统，全面重构搜索/云/产品</td>
+        <td><strong>AI即云第四支柱</strong>——计算·存储·数据库·AI</td>
+      </tr>
+      <tr>
+        <td>核心口号</td>
+        <td>"让AI无处不在"——通义+百炼+钉钉AI</td>
+        <td>"AI原生转型"——从搜索到Gemini全面AI</td>
+        <td>"AI民主化"——最低门槛让企业用AI</td>
+      </tr>
+      <tr>
+        <td>关键人物</td>
+        <td>蔡崇信/吴泳铭：回归核心、AI驱动</td>
+        <td>Sundar Pichai：冒险加速、All-in AI</td>
+        <td>Matt Garman：AI是云的逻辑延伸</td>
+      </tr>
+      <tr>
+        <td>混合属性</td>
+        <td><span class="rank g1">混合型</span> 电商+FaaS+AI三合一</td>
+        <td><span class="rank g2">纯AI公司</span> 搜索+AI+云三位一体</td>
+        <td><span class="rank g3">纯基础设施</span> AI是云的增值层</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== 维度2: 全栈算力 ===== -->
+<div class="section">
+  <h2>二、全栈算力与芯片战略 <span class="badge">最深对比维度</span></h2>
+
+  <h3>📍 训练芯片演进</h3>
+  <table>
+    <thead>
+      <tr><th>世代</th><th>阿里</th><th>谷歌</th><th>AWS</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2017-20</td><td>无自研芯片</td><td><span class="rank g1">TPU v2/v3</span></td><td>无自研芯片</td></tr>
+      <tr><td>2021-22</td><td>含光800（推理NPU）</td><td>TPU v4 → v5e</td><td>Inferentia1</td></tr>
+      <tr><td>2023-24</td><td>倚天710 CPU + H100部署</td><td><span class="rank g1">TPU v5p</span>（大规模训练）</td><td><span class="rank g2">Trainium2 UltraCluster</span>（10万芯片）</td></tr>
+      <tr><td>2025</td><td>含光900 NPU + B200部署</td><td>TPU v6 / v6e</td><td>Trainium3（3nm）</td></tr>
+      <tr><td>2026</td><td>下一代NPU/加速器（推测中）</td><td><span class="rank g1">TPU v7 Ironwood</span>（史上最大代际飞跃）</td><td><span class="rank g2">Inferentia3</span>（推理降本60%）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>📍 芯片全家桶对比</h3>
+  <table>
+    <thead>
+      <tr><th>芯片类型</th><th>阿里</th><th>谷歌</th><th>AWS</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>训练芯片</td><td>依赖NVIDIA H100/B200</td><td><span class="rank g1">TPU v7</span>（训练推理一体）</td><td><span class="rank g2">Trainium3</span>（3nm，Anthropic验证）</td></tr>
+      <tr><td>推理芯片</td><td>含光NPU（阿里云推理）</td><td><span class="rank g1">TPU v7</span></td><td><span class="rank g2">Inferentia3</span></td></tr>
+      <tr><td>服务器CPU</td><td>倚天710/下一代 ARM 128核</td><td>无自研CPU（Intel/AMD）</td><td><span class="rank g2">Graviton4/5</span> ARM</td></tr>
+      <tr><td>网络/虚拟化</td><td>MOFION智能网卡</td><td>无公开自研网卡</td><td><span class="rank g1">Nitro v5</span>（5代积累）</td></tr>
+      <tr><td>IoT/边缘</td><td><span class="rank g1">玄铁RISC-V</span>（国内最大生态）</td><td>无RISC-V布局</td><td>无RISC-V布局</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="label-badge gold">💡 关键判断</span>
+    <p><strong>谷歌TPU已迭代到v7，7代积累全球最深厚，训练推理一体化。</strong> AWS Trainium2已通过Anthropic实际训练验证，Trainium3加速追赶。阿里全栈最复杂——倚天CPU（对标Graviton）+含光NPU（对标TPU/Inferentia）+RISC-V玄铁（IoT差异）+大量NVIDIA GPU部署——<strong>混合策略既是现实选择，也是战略定位。</strong></p>
+  </div>
+</div>
+
+<!-- ===== 维度3: MaaS ===== -->
+<div class="section">
+  <h2>三、MaaS平台 + 模型生态 <span class="badge">模型层</span></h2>
+
+  <table>
+    <thead>
+      <tr><th style="width:120px">维度</th><th>阿里</th><th>谷歌</th><th>AWS</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>MaaS平台</td>
+        <td><strong>百炼平台</strong>（通义模型服务）</td>
+        <td><strong>Vertex AI</strong> + Gemini API</td>
+        <td><strong>Amazon Bedrock</strong></td>
+      </tr>
+      <tr>
+        <td>自研旗舰</td>
+        <td><strong>Qwen2.5/3</strong>系列·开源</td>
+        <td><strong>Gemini 2.5 Pro/Flash</strong>·百万token</td>
+        <td><strong>Nova</strong>系列·性价比路线</td>
+      </tr>
+      <tr>
+        <td>第三方模型</td>
+        <td>集成开源（Llama/百川等）</td>
+        <td>Claude/Llama等+Model Garden</td>
+        <td><strong>最广</strong>：150+模型（Claude4/Llama4等）</td>
+      </tr>
+      <tr>
+        <td>开源策略</td>
+        <td><span class="rank g1">最开放</span> Qwen系列全开源</td>
+        <td>Gemini不开源·Gemma轻量开源</td>
+        <td><span class="rank g3">不开放</span>Nova闭源</td>
+      </tr>
+      <tr>
+        <td>Agent框架</td>
+        <td>通义Agent + 钉钉AI助理</td>
+        <td>Vertex Agent Builder + Project Mariner</td>
+        <td>Bedrock Agents（多Agent编排）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="label-badge gold">💡 关键判断</span>
+    <p><strong>Qwen开源给了阿里在MaaS领域"农村包围城市"的机会。</strong> 开发者生态是阿里独有的竞争优势——当全球开发者都在用Qwen时，阿里云百炼平台的转化潜力巨大。Google Gemini模型质量最高但不开源；AWS Bedrock模型选择最广但Nova闭源。</p>
+  </div>
+</div>
+
+<!-- ===== 维度4: ToC ===== -->
+<div class="section">
+  <h2>四、ToC AI产品 <span class="badge">应用层</span></h2>
+
+  <table>
+    <thead>
+      <tr><th style="width:120px">维度</th><th>阿里</th><th>谷歌</th><th>AWS</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>旗舰产品</td>
+        <td><strong>通义App + 夸克AI + 钉钉AI</strong></td>
+        <td><strong>Gemini App</strong></td>
+        <td><strong>Amazon Q + Alexa+</strong></td>
+      </tr>
+      <tr>
+        <td>用户规模</td>
+        <td>通义App亿级下载·夸克数千万日活·钉钉千万级企业用户</td>
+        <td>Gemini App月活过亿·Google生态整合</td>
+        <td>Q：50万+组织·Alexa+：3000万+家庭</td>
+      </tr>
+      <tr>
+        <td>核心功能</td>
+        <td>通义：对话/翻译/文档·夸克：AI搜索·钉钉：企业AI</td>
+        <td>对话/搜索/编程/图像分析·Gemini Live语音</td>
+        <td>Q Developer编程·Q Business企业搜索·Alexa+智能家居</td>
+      </tr>
+      <tr>
+        <td>AI搜索</td>
+        <td><span class="rank g1">夸克AI搜索</span>（国内头部）</td>
+        <td><span class="rank g1">AI Overviews</span>（整合Google搜索）</td>
+        <td><span class="rank g3">无AI搜索产品</span></td>
+      </tr>
+      <tr>
+        <td>生态矩阵</td>
+        <td><strong>三端覆盖最广</strong>：通用+AI搜索+企业</td>
+        <td><strong>Google生态整合最深</strong></td>
+        <td><strong>企业最清晰</strong>：开发+搜索+家庭</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="label-badge gold">💡 关键判断</span>
+    <p>阿里三端（通义+夸克+钉钉）的<strong>场景矩阵最广</strong>，但分散度也是一个问题。谷歌Gemini靠Google生态整合（Gmail/Docs/Maps/YouTube）场景最丰富。AWS在ToC最弱，与其纯基础设施定位一致。</p>
+  </div>
+</div>
+
+<!-- ===== 维度5: 算力租赁+商业ROI ===== -->
+<div class="section">
+  <h2>五、算力租赁 + 商业回报 <span class="badge">商业化层</span></h2>
+
+  <h3>📍 算力产品线</h3>
+  <table>
+    <thead>
+      <tr><th>产品</th><th>阿里</th><th>谷歌</th><th>AWS</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GPU实例</td>
+        <td>GPU云服务器（H100/B200）</td>
+        <td>Cloud GPU（A100/H100+TPU）</td>
+        <td>EC2 GPU p5/p6（H100/B200）</td>
+      </tr>
+      <tr>
+        <td>自研芯片实例</td>
+        <td>含光NPU推理（专有云）</td>
+        <td><span class="rank g1">Cloud TPU v6/v7</span>（按秒计费）</td>
+        <td><span class="rank g2">trn2/3 + inf2/3</span></td>
+      </tr>
+      <tr>
+        <td>智算集群</td>
+        <td>PAI灵骏</td>
+        <td>TPU Pods + HPC</td>
+        <td><span class="rank g2">UltraCluster</span>（10万+芯片）</td>
+      </tr>
+      <tr>
+        <td>闲时算力</td>
+        <td>竞价实例</td>
+        <td>Preemptible TPU/GPU（6折）</td>
+        <td><span class="rank g2">Spot Instances</span> + Capacity Blocks</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>📍 商业ROI</h3>
+  <table>
+    <thead>
+      <tr><th>指标</th><th>阿里</th><th>谷歌</th><th>AWS</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>云业务年化收入</td>
+        <td>约<strong>$18-20B</strong></td>
+        <td>约<strong>$50-55B</strong></td>
+        <td><span class="rank g1">约<strong>$120-130B</strong></span></td>
+      </tr>
+      <tr>
+        <td>全球云市场份额</td>
+        <td>中国<strong>39%</strong>（全球≈5%）</td>
+        <td><strong>12%</strong></td>
+        <td><span class="rank g1"><strong>32%</strong>（第一）</span></td>
+      </tr>
+      <tr>
+        <td>云业务利润率</td>
+        <td>2025年首次扭亏</td>
+        <td>2025年转正</td>
+        <td><span class="rank g1"><strong>28-30%</strong></span></td>
+      </tr>
+      <tr>
+        <td>AI收入占比</td>
+        <td>约15-20%</td>
+        <td>约25-30%（增长最快）</td>
+        <td>约20-25%（含基础设施）</td>
+      </tr>
+      <tr>
+        <td>自研芯片降本效果</td>
+        <td>含光NPU降低推理成本</td>
+        <td>TPU比同算力GPU<strong>便宜30-40%</strong></td>
+        <td>Trainium比GPU<strong>便宜30-50%</strong>·Inferentia比GPU<strong>便宜60-70%</strong></td>
+      </tr>
+      <tr>
+        <td>数据飞轮</td>
+        <td><span class="rank g1">电商+云+物流</span>（独特消费数据）</td>
+        <td>搜索+广告+云+YouTube</td>
+        <td>云基础设施规模+客户锁定</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="label-badge gold">💡 关键判断</span>
+    <p><strong>AWS凭借自研芯片和规模效应，在算力租赁ROI上领先：Trainium比GPU便宜30-50%，Inferentia便宜60-70%，加上28-30%的云利润率，商业模型最成熟。</strong> 谷歌TPU在训练推理一体化上有代际优势。阿里在中国市场的定价能力和生态绑定（电商+云+钉钉一体化）是AWS和谷歌无法复制的护城河，但利润空间小得多。</p>
+  </div>
+</div>
+
+<!-- ===== 维度6: 结论 ===== -->
+<div class="conclusion-bar">
+  <h3>🎯 核心结论：阿里是"混合追赶者"</h3>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">🎯 对标谷歌（AI层）</div>
+      <div class="card-text">通义对标Gemini·百炼对标Vertex AI · 夸克对标Gemini App · 含光NPU对标TPU<br><br><span class="rank g2">🟡 追赶中</span> —— 有场景优势（电商+企业+教育）但芯片和模型质量差距明显</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🛡️ 对标AWS（云层）</div>
+      <div class="card-text">阿里云弹性计算对标EC2·百炼对标Bedrock·倚天对标Graviton·玄铁RISC-V走差异化<br><br><span class="rank g2">🟡 追赶中</span> —— 中国第一但全球份额低；自研芯片覆盖率远不及AWS</div>
+    </div>
+    <div class="card">
+      <div class="card-title">✨ 独特优势（差异化层）</div>
+      <div class="card-text">电商+云+AI数据飞轮 —— AWS和谷歌都没有电商场景，阿里有最完整的消费+企业场景闭环<br><br><span class="rank g1">🟢 差异化</span> —— AWS和谷歌都无法复制</div>
+    </div>
+  </div>
+
+  <br>
+  <div class="arch">
+| 阿里  | = | 谷歌(AI/芯片/MaaS/ToC) | + | AWS(云租赁/企业服务) | + | 电商(独特数据飞轮) |
+<span class="hl">阿里不是"中国的AWS"</span> —— 阿里是 <span class="green">"中国版混合型科技公司"</span><br>
+它需要同时在两个战场上竞争：<span class="blue">AI（对标谷歌）</span> 和 <span class="blue">云（对标AWS）</span><br>
+这既是挑战（资源分散），也是优势（场景更丰富、数据飞轮更完整）
+  </div>
+</div>
+
+<!-- ===== 总结 ===== -->
+<div class="section" style="text-align:center; background:linear-gradient(135deg,#0D1B4A,#1A0A3E);">
+  <h2 style="border:none; color:#F4C743;">六维雷达图</h2>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">公司战略</div>
+      <div class="card-text">
+        <span class="rank g1">谷歌</span> ⭐⭐⭐⭐⭐<br>
+        <span class="rank g2">AWS</span> ⭐⭐⭐⭐<br>
+        <span class="rank g3">阿里</span> ⭐⭐⭐⭐
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">全栈芯片</div>
+      <div class="card-text">
+        <span class="rank g1">谷歌</span> ⭐⭐⭐⭐⭐<br>
+        <span class="rank g2">AWS</span> ⭐⭐⭐⭐⭐<br>
+        <span class="rank g3">阿里</span> ⭐⭐⭐
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">MaaS/模型</div>
+      <div class="card-text">
+        <span class="rank g1">谷歌</span> ⭐⭐⭐⭐⭐<br>
+        <span class="rank g2">AWS</span> ⭐⭐⭐⭐<br>
+        <span class="rank g3">阿里</span> ⭐⭐⭐⭐
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">ToC产品</div>
+      <div class="card-text">
+        <span class="rank g1">谷歌</span> ⭐⭐⭐⭐⭐<br>
+        <span class="rank g2">阿里</span> ⭐⭐⭐⭐<br>
+        <span class="rank g3">AWS</span> ⭐⭐⭐
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">算力租赁</div>
+      <div class="card-text">
+        <span class="rank g1">AWS</span> ⭐⭐⭐⭐⭐<br>
+        <span class="rank g2">谷歌</span> ⭐⭐⭐⭐<br>
+        <span class="rank g3">阿里</span> ⭐⭐⭐
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">商业ROI</div>
+      <div class="card-text">
+        <span class="rank g1">AWS</span> ⭐⭐⭐⭐⭐<br>
+        <span class="rank g2">谷歌</span> ⭐⭐⭐⭐<br>
+        <span class="rank g3">阿里</span> ⭐⭐⭐
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center; padding:20px; color:#475569; font-size:0.8em;">
+  LFF 深度研究 · 数据基于公开信息整理 · 2026年5月
+</div>
+
+</div>
+</body>
+</html>
