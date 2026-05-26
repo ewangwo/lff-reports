@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token生意在重新洗牌 — Pro Hermes 分析报告</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.8;
+    padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 50%, #0d1b2a 100%);
+    border-bottom: 2px solid #00d4ff;
+    padding: 48px 24px 32px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 2em;
+    color: #00d4ff;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+  .header .meta {
+    color: #888;
+    font-size: 0.85em;
+  }
+  .header .badge {
+    display: inline-block;
+    background: #00d4ff22;
+    border: 1px solid #00d4ff44;
+    color: #00d4ff;
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    margin: 4px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 24px; }
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 1.3em;
+    color: #00d4ff;
+    border-left: 4px solid #00d4ff;
+    padding-left: 12px;
+    margin-bottom: 16px;
+  }
+  .judgment-card {
+    background: linear-gradient(135deg, #0d1b2a, #162233);
+    border: 1px solid #00d4ff33;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .judgment-card .label {
+    font-size: 0.75em;
+    color: #00d4ff88;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .judgment-card .text {
+    font-size: 1.15em;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  ul { list-style: none; padding: 0; }
+  li {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  li:hover { border-color: #00d4ff44; }
+  li strong { color: #00d4ff; }
+  .data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .data-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .data-card .num {
+    font-size: 1.5em;
+    color: #00d4ff;
+    font-weight: 600;
+  }
+  .data-card .desc { color: #888; font-size: 0.8em; margin-top: 4px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+  th {
+    background: #1a1a2e;
+    color: #00d4ff;
+    padding: 10px 12px;
+    font-weight: 500;
+    border: 1px solid #222;
+    font-size: 0.85em;
+  }
+  td {
+    padding: 10px 12px;
+    border: 1px solid #222;
+    font-size: 0.85em;
+  }
+  tr:nth-child(even) td { background: #0d0d1a; }
+  .tag { 
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.75em;
+    margin: 2px;
+  }
+  .tag-green { background: #00ff8822; color: #00ff88; border: 1px solid #00ff8844; }
+  .tag-red { background: #ff444422; color: #ff4444; border: 1px solid #ff444444; }
+  .tag-blue { background: #00d4ff22; color: #00d4ff; border: 1px solid #00d4ff44; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #555;
+    font-size: 0.8em;
+    border-top: 1px solid #222;
+  }
+  .callout {
+    background: #1a1a2e;
+    border-left: 4px solid #ffaa00;
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+  .callout .title { color: #ffaa00; font-weight: 500; margin-bottom: 8px; }
+  @media (max-width: 640px) {
+    .data-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.4em; }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🔮 Token生意在重新洗牌</h1>
+  <div class="meta">
+    <span class="badge">腾讯研究院</span>
+    <span class="badge">2026-05-27</span>
+    <span class="badge">Pro Hermes 分析</span>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="section">
+  <div class="judgment-card">
+    <div class="label">📌 一句话判断</div>
+    <div class="text">Token定价体系正在从"按量计费"向"按结果计费"结构性迁移，中国AI厂商凭借<strong style="color:#00ff88">30倍+</strong>成本优势正在重塑全球Token市场格局。</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">🏢 巨头定价逻辑分化</h2>
+  <table>
+    <tr><th>厂商</th><th>定价锚点</th><th>核心战略意图</th></tr>
+    <tr><td><strong>OpenAI</strong></td><td>竞争对标</td><td>生态霸权，抢占开发者生态</td></tr>
+    <tr><td><strong>Anthropic</strong></td><td>自身价值</td><td>安全性+企业级品质溢价</td></tr>
+    <tr><td><strong>Google</strong></td><td>生态效益</td><td>AI驱动云计算增长</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2 class="section-title">🏛️ 市场结构：分层式寡头垄断</h2>
+  <ul>
+    <li><strong>高端层</strong> — OpenAI、Anthropic、Google 寡头博弈，率先调价→跟进→协同</li>
+    <li><strong>中低端层</strong> — 开源模型+云服务商垄断竞争，形成"价格天花板"</li>
+    <li><strong>低锁定成本</strong> — 切换只需改几行API代码，约束溢价空间</li>
+  </ul>
+  <div class="callout">
+    <div class="title">⚠️ 核心警示</div>
+    <div>AI行业技术变革极快，一次重大技术突破（如开源达闭源顶级水平）可能瞬间颠覆格局。任何分析有效期不超过两年。</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">🌏 Token价格地区差异</h2>
+  <div class="data-grid">
+    <div class="data-card">
+      <div class="num">30×</div>
+      <div class="desc">GPT-5.5 vs DeepSeek V4-Pro 价差</div>
+    </div>
+    <div class="data-card">
+      <div class="num">4/5</div>
+      <div class="desc">OpenRouter周榜前5中中国模型数量</div>
+    </div>
+    <div class="data-card">
+      <div class="num">80%</div>
+      <div class="desc">开源AI栈初创公司跑在中国模型上</div>
+    </div>
+    <div class="data-card">
+      <div class="num">¥2-3</div>
+      <div class="desc">中国厂商输出价格区间/百万Token</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">💡 输入/输出差异定价的经济学</h2>
+  <ul>
+    <li><strong>成本层面</strong> — 输出Token计算密度是输入的<strong style="color:#00ff88">数倍</strong></li>
+    <li><strong>价值层面</strong> — 输出=成品，输入=原材料，类似棉花vs衣服的价差</li>
+    <li><strong>策略层面</strong> — 低输入价鼓励充分上下文，优化输出质量</li>
+    <li>典型的<strong>"差别定价"</strong>策略 — 同产品链不同环节按成本+价值分别定价</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2 class="section-title">🔭 未来3-5年：三浪叠加</h2>
+  <ul>
+    <li><strong>第一浪 🌊</strong> — API按量+消费者订阅 双轨并存</li>
+    <li><strong>第二浪 🌊🌊</strong> — <span style="color:#00ff88">按任务/结果计费</span>（Agent驱动，Cursor为代表）"写一份合同"¥50</li>
+    <li><strong>第三浪 🌊🌊🌊</strong> — Token期货/金融衍生品（需标准化+监管框架）</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2 class="section-title">📊 LFF 持仓映射</h2>
+  <table>
+    <tr><th>持仓</th><th>影响</th><th>方向</th></tr>
+    <tr><td>NVDA</td><td>Token需求爆发 = 算力需求爆发</td><td><span class="tag tag-green">利好</span></td></tr>
+    <tr><td>AVGO</td><td>Token经济→ASIC定制化需求</td><td><span class="tag tag-green">利好</span></td></tr>
+    <tr><td>GOOGL</td><td>生态锚定策略验证Cloud增长逻辑</td><td><span class="tag tag-green">利好</span></td></tr>
+    <tr><td>MSFT</td><td>OpenAI背后推手，受益生态霸权</td><td><span class="tag tag-green">利好</span></td></tr>
+    <tr><td>TSM</td><td>所有AI芯片的制造底座</td><td><span class="tag tag-green">利好</span></td></tr>
+    <tr><td>DeepSeek(V4)</td><td>验证中国成本优势路线</td><td><span class="tag tag-blue">确认</span></td></tr>
+  </table>
+  <div class="callout">
+    <div class="title">⚠️ 反证信号</div>
+    <div>• 数据主权和地缘政治可能阻碍全球算力套利<br>• 结果定价质量评估复杂度高，可能拖慢转型</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">📰 关键数据点</h2>
+  <ul>
+    <li><strong>GPT-5.5</strong> — 输入 $5/百万Token，输出 $30/百万Token</li>
+    <li><strong>DeepSeek V4-Pro</strong> — 输入 ¥3/百万Token，输出 ¥6/百万Token（促销价低至¥0.025缓存命中）</li>
+    <li><strong>Cursor</strong> — 两年内数亿美元收入，多轮定价调整</li>
+    <li><strong>中国优势</strong> — 能源成本1/3~1/2、出口管制倒逼算法创新、政策扶持</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Generated by Pro Hermes · 2026-05-27 · 数据来源：腾讯研究院</p>
+  <p style="margin-top:4px;color:#333;">lff-reports · hermes.html index</p>
+</div>
+</body>
+</html>
