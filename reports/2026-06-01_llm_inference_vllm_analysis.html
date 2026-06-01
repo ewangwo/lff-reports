@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Infra入门干货总结：大模型是如何高效推理的 | 腾讯程序员</title>
+<style>
+  :root {
+    --bg: #0f1117; --card: #1a1d28; --border: #2a2d3a;
+    --text: #e4e6ed; --text2: #8b8fa3; --accent: #60a5fa;
+    --green: #4ade80; --orange: #f89a3a; --pink: #f472b6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', monospace; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 26px; margin-bottom: 8px; letter-spacing: -0.3px; }
+  .meta { color: var(--text2); font-size: 13px; margin-bottom: 32px; }
+  .meta span { margin-right: 16px; }
+  h2 { font-size: 20px; color: var(--accent); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 17px; color: var(--orange); margin: 24px 0 12px; }
+  p { margin: 12px 0; }
+  .highlight { color: var(--orange); font-weight: 600; }
+  .code-box { background: #151822; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: 'SF Mono', Menlo, monospace; font-size: 13px; overflow-x: auto; margin: 12px 0; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .grid { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 12px 0; }
+  .grid .header { color: var(--text2); font-weight: 600; font-size: 13px; }
+  .tag { display: inline-block; background: rgba(96,165,250,0.15); color: var(--accent); padding: 2px 10px; border-radius: 4px; font-size: 12px; margin-right: 6px; margin-bottom: 4px; }
+  .tag-orange { background: rgba(248,154,58,0.15); color: var(--orange); }
+  .tag-pink { background: rgba(244,114,182,0.15); color: var(--pink); }
+  ul, ol { margin: 8px 0 8px 20px; }
+  li { margin: 5px 0; }
+  blockquote { border-left: 3px solid var(--accent); background: rgba(96,165,250,0.08); padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; color: var(--text2); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  th { background: var(--card); color: var(--accent); font-weight: 600; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  @media (max-width: 600px) { .container { padding: 20px 16px; } h1 { font-size: 20px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>AI Infra入门干货总结：大模型是如何高效推理的</h1>
+<div class="meta">
+  <span>📅 2026-05-25 17:36</span>
+  <span>✍️ 腾讯程序员(binnnliu)</span>
+  <span>📱 微信公众号</span>
+</div>
+
+<p><span class="tag">LLM推理</span><span class="tag tag-orange">vLLM</span><span class="tag tag-pink">PagedAttention</span><span class="tag">Continuous Batching</span><span class="tag">AI Infra</span></p>
+
+<p>作者花2个月深入阅读vLLM源码，用Llama 3案例追踪推理每一步的张量维度变化。</p>
+
+<blockquote>以上两个概念是当今大模型得以高性能运行的关键：<strong>Continuous Batching</strong> + <strong>Paged Attention</strong></blockquote>
+
+<h2>核心矛盾与解决</h2>
+<p>LLM生成式任务的核心矛盾：<span class="highlight">每个请求的输出序列长度不可预测且差异巨大。</span></p>
+<ul>
+  <li><strong>传统批处理</strong>：请求步调一致→效率低下</li>
+  <li><strong>Continuous Batching</strong>：调度从request level下沉到<strong>token level</strong></li>
+  <li><strong>Paged Attention</strong>：KV Cache按token level按需申请，block table维护地址</li>
+</ul>
+
+<h2>Continuous Batching（连续批处理）</h2>
+<p>调度器视角中不存在Prefill和Decode的区分。</p>
+<div class="card">
+  <p><strong>调度目标</strong>：让 <code>num_computed_tokens</code> 追上 <code>num_tokens</code></p>
+  <p><strong>4个硬性约束</strong>：</p>
+  <ol>
+    <li>最大并发请求数</li>
+    <li>Token Budget（控制GPU计算量上限）</li>
+    <li>模型最大序列长度</li>
+    <li>是否有空闲KV Cache blocks</li>
+  </ol>
+</div>
+
+<h2>Paged Attention（分页注意力）</h2>
+<div class="code-box">
+# KV Cache shape: [num_layers, 2, num_blocks, block_size, num_kv_heads, head_dim]<br>
+# block_table: [max_num_reqs, max_num_blocks_per_req]<br>
+# slot_mapping: 告诉kernel写到哪个slot<br><br>
+slot_idx = slot_mapping[token_idx]<br>
+block_idx = slot_idx / block_size<br>
+block_offset = slot_idx % block_size
+</div>
+
+<p><strong>关键设计</strong>：block_table不需要num_layers维度——因为一个token在所有层的物理块位置相同。</p>
+
+<div class="card">
+<h3>Trade-off分析</h3>
+<p>PagedAttention间接寻址引入离散访存（Uncoalesced Access），降低L2 Cache命中率。</p>
+<p>→ block_size=16缓解：一个block内16个token物理连续</p>
+<p>→ <span class="highlight">用少部分带宽折损换取系统吞吐量大幅跃升</span></p>
+</div>
+
+<h2>LLM推理全流程（Tensor维度变化）</h2>
+
+<h3>1. Tokenize</h3>
+<p>BPE（Byte Pair Encoding）→ Token ID数组</p>
+
+<h3>2. Embedding Lookup</h3>
+<table>
+  <tr><th>阶段</th><th>输入</th><th>权重</th><th>输出</th><th>备注</th></tr>
+  <tr><td>Embedding</td><td>[num_sched_tokens]</td><td>[V, hidden_size]</td><td>[num_sched_tokens, hidden_size]</td><td>Flattened布局，消除Padding</td></tr>
+</table>
+
+<h3>3. RMSNorm</h3>
+<p>砍掉平移操作，仅沿特征维度做尺度缩放。</p>
+<p>输入/输出: [num_sched_tokens, hidden_size] | 权重: [hidden_size]（一维向量，逐通道缩放）</p>
+
+<h3>4. Fused QKV Projection</h3>
+<p>单次宽矩阵GEMM。Q 4096 + K 1024 + V 1024 = 6144。</p>
+<table>
+  <tr><th>阶段</th><th>输入</th><th>权重</th><th>输出</th></tr>
+  <tr><td>Fused QKV</td><td>[num_sched_tokens, hidden_size]</td><td>[hidden_size, 6144]</td><td>[num_sched_tokens, 6144]</td></tr>
+</table>
+
+<h3>5. RoPE（旋转位置编码）</h3>
+<p>用旋转角度代表token位置。cos_sin_cache预计算，避免实时sin/cos（SFU吞吐仅为FP32 ALU的1/4）。</p>
+<p>→ <span class="highlight">空间换时间/访存换算力</span></p>
+
+<h3>6. FlashAttention</h3>
+<p><strong>关键切换</strong>：从Flattened [num_sched_tokens] → 请求维度 [batch_size]</p>
+<p>通过 <code>cu_seqlens</code> 数组实现变长序列的请求级隔离。</p>
+<p>Attention是LLM推理最复杂环节：数学逻辑不复杂，但为了打破内存墙做了大量优化。</p>
+
+<hr>
+
+<h2>📊 LFF投资映射</h2>
+
+<h3>核心判断</h3>
+<div class="card">
+<ul>
+  <li><span class="highlight">推理瓶颈正从算力转向内存带宽（Memory Wall）</span></li>
+  <li>vLLM已成LLM推理事实标准框架</li>
+  <li>PagedAttention是近年AI Infra最重要的工程创新之一</li>
+  <li>对NVDA：CUDA生态壁垒因vLLM等上层框架继续强化</li>
+</ul>
+</div>
+
+<table>
+  <tr><th>方向</th><th>影响</th><th>逻辑</th></tr>
+  <tr><td><strong>NVDA</strong></td><td style="color:var(--green)">正面</td><td>vLLM/CUDA生态是推理护城河关键组成</td></tr>
+  <tr><td><strong>AVGO/TSM</strong></td><td style="color:var(--green)">正面</td><td>推理需求拉动HBM/CoWoS/互联带宽</td></tr>
+  <tr><td><strong>MSFT</strong></td><td style="color:var(--green)">正面</td><td>推理效率提升直接降低Azure OpenAI运营成本</td></tr>
+  <tr><td><strong>GOOGL</strong></td><td style="color:var(--orange)">中性偏弱</td><td>TPU+自研推理栈vs vLLM行业标准，生态劣势</td></tr>
+  <tr><td><strong>华为昇腾</strong></td><td style="color:var(--orange)">机会与挑战</td><td>如果能兼容vLLM/CUDA生态，推理市场有机会</td></tr>
+</table>
+
+<hr>
+<div style="text-align:center;color:var(--text2);font-size:13px;padding:20px 0;">
+  LFF双机系统 · 2026-06-01 · 来源：腾讯程序员微信公众号
+</div>
+
+</div>
+</body>
+</html>
