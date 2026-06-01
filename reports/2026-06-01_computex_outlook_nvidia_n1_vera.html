@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComputeX 前瞻、如何评价英伟达Windows处理器 | 猫叔AI</title>
+<style>
+  :root {
+    --bg: #0f1117; --card: #1a1d28; --border: #2a2d3a;
+    --text: #e4e6ed; --text2: #8b8fa3; --accent: #f89a3a;
+    --green: #4ade80; --blue: #60a5fa; --red: #f87171;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: -0.3px; }
+  .meta { color: var(--text2); font-size: 14px; margin-bottom: 32px; }
+  .meta span { margin-right: 16px; }
+  h2 { font-size: 20px; color: var(--accent); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 17px; color: var(--blue); margin: 24px 0 12px; }
+  p { margin: 12px 0; color: var(--text); }
+  .highlight { color: var(--accent); font-weight: 600; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .grid { display: grid; grid-template-columns: auto 1fr 1fr; gap: 8px 16px; margin: 12px 0; }
+  .grid .header { color: var(--text2); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .grid .item { padding: 6px 0; }
+  .positive { color: var(--green); } .neutral { color: var(--blue); } .negative { color: var(--red); }
+  ul, ol { margin: 8px 0 8px 20px; }
+  li { margin: 6px 0; }
+  blockquote { border-left: 3px solid var(--accent); background: rgba(248,154,58,0.08); padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; color: var(--text2); font-style: italic; }
+  .tag { display: inline-block; background: rgba(248,154,58,0.15); color: var(--accent); padding: 2px 10px; border-radius: 4px; font-size: 12px; margin-right: 6px; }
+  .section-label { display: inline-block; background: rgba(96,165,250,0.15); color: var(--blue); padding: 2px 10px; border-radius: 4px; font-size: 12px; margin-bottom: 8px; }
+  @media (max-width: 600px) { .container { padding: 20px 16px; } h1 { font-size: 22px; } .grid { grid-template-columns: 1fr; } }
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ComputeX 前瞻、如何评价英伟达Windows处理器</h1>
+<div class="meta">
+  <span>📅 2026-05-31 23:32</span>
+  <span>✍️ 猫叔AI</span>
+  <span>📱 微信公众号</span>
+</div>
+
+<!-- SECTION 1: Core Context -->
+<p><span class="tag">AI基础设施</span><span class="tag">英伟达N1</span><span class="tag">Vera CPU</span><span class="tag">CPO</span><span class="tag">液冷</span></p>
+
+<p>下周科技行业最重要的事件就是 <strong>Computex 2026</strong>。文章核心判断：<span class="highlight">AI基础设施正在进入新的系统设计阶段</span>，供应链评判标准从单一组件转向交付完整AI系统的能力。</p>
+
+<blockquote>
+  AI基础设施不再只是GPU集群，而是完整的AI工厂
+</blockquote>
+
+<!-- SECTION 2: N1 Windows Processor -->
+<h2>🖥️ 英伟达N1 Windows处理器</h2>
+
+<p>Computex开幕前夕，英伟达正式发布N1——十多年来首次面向Windows PC市场的芯片。</p>
+
+<div class="card">
+<h3>N1规格</h3>
+<p>• <strong>架构</strong>：ARM，20核CPU<br>
+• <strong>GPU</strong>：RTX 5070级别，6144 CUDA核心，完整CUDA软件栈<br>
+• <strong>内存</strong>：最高128GB LPDDR5X<br>
+• <strong>同款前身</strong>：DGX Spark（2025年10月，$3000-4000，市场表现远低于预期）</p>
+</div>
+
+<p><span class="highlight">但N1能解决DGX Spark没解决的问题吗？</span></p>
+
+<p>当前AI PC硬件差异已不大（骁龙X Elite、Core Ultra、Apple M系列），<strong>真正瓶颈在软件层面</strong>——AI使用场景大多停留在演示阶段。N1的真正价值可能在于：把CUDA生态与Windows生态结合，让开发者更容易在PC上部署AI应用。</p>
+
+<!-- SECTION 3: Vera CPU -->
+<h2>🔧 Vera CPU（数据中心CPU）</h2>
+
+<p>对英伟达更重要的CPU：<span class="highlight">Vera</span>。它针对AI数据中心编排层，非传统通用服务器CPU。</p>
+
+<div class="card">
+<h3>Agentic AI中CPU的角色</h3>
+<p>请求调度 → Agent工作流控制 → 工具调用协调 → 内存索引 → 检索管理 → 模拟 → 网络控制 → 系统遥测</p>
+<p style="margin-top:12px;">→ <span class="highlight">CPU成为AI工厂的"交通控制器"</span></p>
+</div>
+
+<p>• <strong>设计</strong>：SOCAMM内存（更密集、更低功耗、更高带宽）<br>
+• <strong>市场规模</strong>：黄仁勋称CPU市场约<strong>$2000亿</strong><br>
+• <strong>产能</strong>：预测英伟达今年准备约<strong>200万台</strong>Vera<br>
+• <strong>行业信号</strong>：英特尔CEO陈立武称CPU:GPU配比从1:8可能走向1:1；Intel/AMD CPU交期从3-4周延至<strong>8-10周</strong></p>
+
+<!-- SECTION 4: CPO -->
+<h2>🔌 CPO（共封装光学）</h2>
+
+<p>Rubin Ultra NVL576将8个MGX NVL机架(每个72个Rubin Ultra GPU)组合成576-GPU NVLink域，物理规模超过铜缆处理范围。<span class="highlight">CPO渗透率将逐步提升</span>。</p>
+
+<p><strong>采用曲线</strong>：</p>
+<ul>
+  <li>2025-2026：可插拔光模块和LPO/NPO</li>
+  <li>2026-2027：交换机侧CPO和直接光学链路 <span class="tag" style="background:rgba(248,154,58,0.25)">当前阶段</span></li>
+  <li>Rubin Ultra之后：更广泛光学scale-up网络结构</li>
+</ul>
+
+<!-- SECTION 5: Power & Cooling -->
+<h2>⚡ 冷却与供电</h2>
+
+<p>可能成为Rubin部署最实际的瓶颈。功率密度急剧上升：</p>
+
+<div class="card">
+<div class="grid">
+  <span class="header">代际</span><span class="header">机架功耗</span><span class="header">冷却方式</span>
+  <span>Hopper</span><span>40-60kW</span><span>风冷/混合</span>
+  <span>Blackwell NVL72</span><span>120-180kW</span><span style="color:var(--accent)">直接液冷标配</span>
+  <span style="font-weight:600">Rubin NVL72</span><span style="font-weight:600;color:var(--red)">180-220kW</span><span>液冷</span>
+  <span>Rubin Ultra</span><span style="color:var(--red)">可能数百kW</span><span>液冷</span>
+</div>
+</div>
+
+<p>216kW@54V → <strong>4000A电流</strong>，在铜缆、母线、连接器和热管理方面变得极其困难。英伟达推动：<span class="highlight">800V直流供电</span>、110kW电源货架、BBU、直流数据中心架构。</p>
+
+<blockquote>
+  未来的机架不仅仅是服务器机柜，而是需要协调电源转换、备用能源、液体流动、遥测和安全系统的<strong>电热机器</strong>。
+</blockquote>
+
+<hr>
+
+<!-- SECTION 6: Portfolio Mapping -->
+<h2>📊 LFF投资映射</h2>
+
+<h3>持仓影响矩阵</h3>
+<div class="card">
+<div class="grid">
+  <span class="header">标的</span><span class="header">影响</span><span class="header">逻辑</span>
+  <span>NVDA</span><span class="positive">正面</span><span>CPU战略打开$2000亿新市场；AI工厂全栈方案强化护城河</span>
+  <span>AVGO</span><span class="positive">正面</span><span>CPO渗透加速利好网络芯片；数据中心供电架构变革</span>
+  <span>TSM</span><span class="positive">正面</span><span>Vera 200万台+SOCAMM+CPO→先进封装/硅光子制造</span>
+  <span>MSFT</span><span class="neutral">中性偏正</span><span>N1+Windows合作稳固ARM生态地位</span>
+  <span>AMZN</span><span class="positive">正面</span><span>AI工厂供电/液冷基建拉动数据中心投入</span>
+</div>
+</div>
+
+<h3>关键风险</h3>
+<ul>
+  <li><span class="negative">⚠ N1重蹈DGX Spark覆辙</span>：同款芯片换壳进笔记本，软件生态没跟上</li>
+  <li><span class="negative">⚠ CPU配比提升</span>：市场可能阶段性误读为"GPU需求见顶"</li>
+  <li><span class="negative">⚠ CPO落地节奏</span>：2026-2027交换机CPO是最乐观预期，实际可能滞后</li>
+  <li><span class="negative">⚠ 供电架构转型</span>：传统数据中心供应链需要时间调整</li>
+</ul>
+
+<h3>行动建议</h3>
+<ul>
+  <li><strong>关注Computex 2026</strong>：重点验证Vera CPU产能数字和CPO时间表</li>
+  <li><strong>CPU交期拉长</strong>（3-4周→8-10周）：短期利好AMD/Intel</li>
+  <li><strong>AI PC生态信号</strong>：N1发布后是否有Killer App出现是关键观察点</li>
+</ul>
+
+<hr>
+<div style="text-align:center;color:var(--text2);font-size:13px;padding:20px 0;">
+  LFF双机系统 · 2026-06-01 · 来源: 猫叔AI微信公众号
+</div>
+
+</div>
+</body>
+</html>
