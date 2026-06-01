@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>先进封装市场调研·供应链12问深层拆解</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+  background:#060B2D;
+  color:#e8edf5;
+  line-height:1.6;
+  font-size:15px
+}
+.wrapper{
+  max-width:920px;
+  margin:0 auto;
+  padding:24px 16px 60px;
+  background:linear-gradient(180deg,#060B2D 0%,#0A1040 100%);
+  min-height:100vh
+}
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 50%,#0D1540 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:18px;
+  padding:44px 30px 36px;
+  margin-bottom:28px;
+  text-align:center;
+  overflow:hidden;
+  box-shadow:0 0 24px rgba(37,96,212,0.25), inset 0 0 40px rgba(37,96,212,0.05)
+}
+.hero::before{
+  content:'';position:absolute;top:-60%;left:-30%;
+  width:160%;height:200%;
+  background:radial-gradient(ellipse at 30% 50%,rgba(37,96,212,0.08) 0%,transparent 60%);
+  pointer-events:none
+}
+.hero .badge{
+  display:inline-block;
+  background:rgba(37,96,212,0.2);
+  border:1px solid rgba(37,96,212,0.4);
+  color:#60A5FA;
+  font-size:11px;padding:4px 16px;border-radius:20px;
+  letter-spacing:1.5px;font-weight:600;
+  margin-bottom:18px;
+  position:relative;z-index:1
+}
+.hero h1{
+  font-size:28px;font-weight:800;
+  color:#fff;
+  letter-spacing:1px;
+  position:relative;z-index:1
+}
+.hero h1 .hl-yellow{color:#F4C743}
+.hero .subtitle{
+  font-size:15px;color:rgba(255,255,255,0.55);
+  margin-top:10px;
+  position:relative;z-index:1
+}
+.hero .meta{
+  font-size:12px;color:rgba(255,255,255,0.25);
+  margin-top:16px;
+  position:relative;z-index:1
+}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.metric-card{
+  background:linear-gradient(135deg,#0D1540 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.3);
+  border-radius:16px;padding:22px 14px;text-align:center;
+  box-shadow:0 0 14px rgba(37,96,212,0.12);
+  transition:transform .15s,box-shadow .15s
+}
+.metric-card:hover{transform:translateY(-3px);box-shadow:0 0 22px rgba(37,96,212,0.25)}
+.metric-icon{font-size:22px;margin-bottom:6px}
+.metric-num{font-size:28px;font-weight:800;color:#fff;line-height:1.1}
+.metric-num .u{font-size:12px;font-weight:600;color:#60A5FA}
+.metric-label{font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4}
+.comp-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.25);
+  border-radius:16px;padding:28px 24px;margin-bottom:28px;
+  box-shadow:0 0 14px rgba(37,96,212,0.08)
+}
+.comp-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.comp-title sub{font-size:12px;font-weight:400;color:rgba(255,255,255,0.35)}
+.sec-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.2);
+  border-radius:16px;padding:28px 24px;margin-bottom:28px
+}
+.sec-card .sec-title{
+  font-size:17px;font-weight:700;color:#fff;
+  margin-bottom:14px;padding-bottom:12px;
+  border-bottom:1px solid rgba(37,96,212,0.15);
+  display:flex;align-items:center;gap:8px
+}
+.sec-card p{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.8}
+.sec-card p:last-child{margin-bottom:0}
+.sec-card .hl{color:#F4C743;font-weight:700}
+.dg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.di{background:rgba(37,96,212,0.08);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:16px;text-align:center}
+.di .dn{font-size:22px;font-weight:800;color:#fff;line-height:1.2}
+.di .dn .u{font-size:11px;font-weight:600;color:#60A5FA}
+.di .dl{font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px}
+.dl-list{list-style:none;margin:12px 0}
+.dl-list li{
+  padding:10px 0 10px 24px;position:relative;
+  font-size:13px;color:rgba(255,255,255,0.7);
+  border-bottom:1px solid rgba(37,96,212,0.1);line-height:1.6
+}
+.dl-list li:last-child{border-bottom:none}
+.dl-list li::before{content:'';position:absolute;left:2px;top:17px;width:7px;height:7px;border-radius:50%;background:#60A5FA}
+.dl-list li .hl{color:#F4C743;font-weight:700}
+.dl-list li .badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;margin-right:4px}
+.badge-arch{background:rgba(37,96,212,0.2);color:#93C5FD}
+.badge-strat{background:rgba(244,199,67,0.15);color:#F4C743}
+.badge-mem{background:rgba(99,102,241,0.2);color:#A5B4FC}
+.badge-eff{background:rgba(52,211,153,0.15);color:#6EE7B7}
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.c3c{border-radius:12px;padding:18px 14px;border:1px solid}
+.c3c.blue{background:rgba(37,96,212,0.08);border-color:rgba(37,96,212,0.25)}
+.c3c.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.2)}
+.c3c.purple{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)}
+.c3c .c3t{font-size:13px;font-weight:700;margin-bottom:8px}
+.c3c.blue .c3t{color:#93C5FD}
+.c3c.green .c3t{color:#6EE7B7}
+.c3c.purple .c3t{color:#C4B5FD}
+.c3c p{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px}
+.tbl th{background:rgba(37,96,212,0.1);color:#93C5FD;font-weight:700;padding:8px 10px;text-align:left;border-bottom:1px solid rgba(37,96,212,0.2)}
+.tbl th:first-child{border-radius:8px 0 0 0}
+.tbl th:last-child{border-radius:0 8px 0 0}
+.tbl td{padding:8px 10px;border-bottom:1px solid rgba(37,96,212,0.08);color:rgba(255,255,255,0.65)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .up{color:#6EE7B7;font-weight:700}
+.tbl .down{color:#FCA5A5}
+.tbl .neutral{color:rgba(255,255,255,0.4)}
+.insight{background:rgba(244,199,67,0.06);border:1px solid rgba(244,199,67,0.2);border-radius:10px;padding:18px 20px;margin:12px 0}
+.insight .it{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#F4C743;font-weight:700;margin-bottom:6px}
+.insight p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:0}
+.eq-card{background:rgba(37,96,212,0.06);border:1px solid rgba(37,96,212,0.15);border-radius:12px;padding:16px 18px;margin:12px 0}
+.eq-card .eq-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.3);margin-bottom:6px}
+.eq-card .eq-main{font-size:16px;font-weight:700;color:#F4C743;text-align:center;letter-spacing:1px}
+.eq-card .eq-sub{font-size:12px;color:rgba(255,255,255,0.45);text-align:center;margin-top:6px}
+.summary{
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:16px;padding:28px 30px;margin-bottom:20px;
+  box-shadow:0 0 20px rgba(37,96,212,0.15)
+}
+.summary .st{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.3);font-weight:700;margin-bottom:10px}
+.summary .sm{font-size:20px;font-weight:700;line-height:1.5;color:#F4C743}
+.summary .ss{font-size:14px;color:rgba(255,255,255,0.55);margin-top:10px;line-height:1.7}
+.footer{text-align:center;padding:20px 16px;color:rgba(255,255,255,0.2);font-size:11px;line-height:1.8}
+@media(max-width:640px){
+  .wrapper{padding:16px 10px 40px}
+  .hero{padding:30px 18px 26px}
+  .hero h1{font-size:20px}
+  .metrics{grid-template-columns:repeat(2,1fr);gap:10px}
+  .dg2{grid-template-columns:1fr}
+  .c3{grid-template-columns:1fr}
+  .summary{padding:22px 18px}
+  .summary .sm{font-size:17px}
+  .comp-card,.sec-card{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="badge">🏭 产业深度</div>
+  <h1>先进封装市场调研：供应链<span class="hl-yellow">12问深层拆解</span></h1>
+  <div class="subtitle">100万颗 vs 400万颗需求 — 国产CoWoS产能缺口至少持续到2027年底</div>
+  <div class="meta">来源：行业供应链交流纪要 · 2026-06-01 · 6页全本</div>
+</div>
+
+<!-- ===== KEY METRICS ===== -->
+<div class="metrics">
+  <div class="metric-card">
+    <div class="metric-icon">🏭</div>
+    <div class="metric-num">100<span class="u">万颗</span></div>
+    <div class="metric-label">盛合CoWoS-S<br>2025年产能</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">📊</div>
+    <div class="metric-num">400<span class="u">万颗</span></div>
+    <div class="metric-label">本土封装厂<br>稳定年需求</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">💰</div>
+    <div class="metric-num">1,900<span class="u">元/颗</span></div>
+    <div class="metric-label">CoWoS封装测试费<br>（不含Interposer）</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">⏱️</div>
+    <div class="metric-num">18<span class="u">个月</span></div>
+    <div class="metric-label">CoW固晶设备交期<br>产能扩张最大瓶颈</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">⚖️</div>
+    <div class="metric-num">80<span class="u">%</span></div>
+    <div class="metric-label">客户绑定vs技术<br>竞争权重分配</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">🔒</div>
+    <div class="metric-num">2027<span class="u">年</span></div>
+    <div class="metric-label">价格战最早发生时间<br>至少2027前安全</div>
+  </div>
+</div>
+
+<!-- ===== CORE EXECUTIVE ===== -->
+<div class="sec-card">
+  <div class="sec-title">🎯 一句话判断</div>
+  <p>这份12问答揭开了国产先进封装供应链的<strong>真实面纱</strong>：并非简单的"国产替代"叙事，而是一个<strong class="hl">时间成本占60%、客户关系占80%、设备交期18个月</strong>的硬行业。最反直觉的结论是：<strong class="hl">技术不是入场券，绑定大客户才是</strong>。</p>
+</div>
+
+<!-- ===== GATEKEEPERS ===== -->
+<div class="comp-card">
+  <div class="comp-title">🚧 进入先进封装的三道门 <sub>权重排序：时间＞客户＞资金</sub></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+    <div style="background:rgba(244,199,67,0.08);border:1px solid rgba(244,199,67,0.2);border-radius:14px;padding:18px 14px;text-align:center;">
+      <div style="font-size:32px;font-weight:800;color:#F4C743;">60<span style="font-size:14px;color:#F4C743;">%</span></div>
+      <div style="font-size:13px;font-weight:700;color:#F4C743;margin:6px 0;">⏱ 时间成本</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);">量产至少3年<br>盛合3年/通富3年/长电4年</div>
+    </div>
+    <div style="background:rgba(37,96,212,0.08);border:1px solid rgba(37,96,212,0.25);border-radius:14px;padding:18px 14px;text-align:center;">
+      <div style="font-size:32px;font-weight:800;color:#60A5FA;">20<span style="font-size:14px;color:#60A5FA;">%</span></div>
+      <div style="font-size:13px;font-weight:700;color:#93C5FD;margin:6px 0;">👥 客户资源</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);">本土设计公司有限<br>H客户体量最大(近百万颗)</div>
+    </div>
+    <div style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-radius:14px;padding:18px 14px;text-align:center;">
+      <div style="font-size:32px;font-weight:800;color:#6EE7B7;">20<span style="font-size:14px;color:#6EE7B7;">%</span></div>
+      <div style="font-size:13px;font-weight:700;color:#6EE7B7;margin:6px 0;">💰 资金门槛</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);">年产100万颗产线<br>投资≥12亿人民币</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COWOS CAPACITY TABLE ===== -->
+<div class="comp-card">
+  <div class="comp-title">🏗️ 国内CoWoS-S产能格局（2025年底）</div>
+  <table class="tbl">
+    <tr><th>梯队</th><th>企业</th><th>年产能</th><th>产品规格</th><th>状态</th></tr>
+    <tr><td class="up">1</td><td><strong>盛合晶微</strong></td><td><strong>~100万颗</strong></td><td>"1+6"，接触"2+8"</td><td class="up">国内产能+技术第一</td></tr>
+    <tr><td class="up">1</td><td>通富微电</td><td>~50万颗</td><td>"1+4"，部分"1+6"</td><td class="up">量产</td></tr>
+    <tr><td class="up">1</td><td>长电微电子</td><td>~30万颗</td><td>"1+4"，部分"1+6"</td><td class="up">量产</td></tr>
+    <tr><td class="neutral">2</td><td>江苏华天(南京)</td><td>~30万颗(建设中)</td><td>—</td><td class="neutral">客户导入中</td></tr>
+    <tr><td class="neutral">2</td><td>甬矽电子</td><td>数万颗</td><td>—</td><td class="neutral">客户导入中</td></tr>
+    <tr><td class="down">3</td><td>芯成汉奇/曲梁</td><td>规划中</td><td>—</td><td class="down">规划阶段</td></tr>
+  </table>
+</div>
+
+<div class="comp-card">
+  <div class="comp-title">🏗️ 国内CoWoS-L格局（2025年底）</div>
+  <table class="tbl">
+    <tr><th>排名</th><th>企业</th><th>年产能</th><th>关键判断</th></tr>
+    <tr><td class="up">1</td><td><strong>盛合晶微</strong></td><td><strong>~30万颗</strong></td><td class="up">RDL工艺国内领先</td></tr>
+    <tr><td class="up">2</td><td>长电微电子</td><td>~30万颗(建设较晚)</td><td class="neutral">实际可能略少</td></tr>
+    <tr><td class="neutral">3</td><td>通富微电</td><td>~10万颗以内(中试线)</td><td class="neutral">—</td></tr>
+    <tr><td class="neutral">4</td><td>华天科技</td><td>~10万颗以内(中试线)</td><td class="neutral">—</td></tr>
+    <tr><td class="down">5</td><td>甬矽电子</td><td>~10万颗(规划)</td><td class="down">规划中</td></tr>
+  </table>
+</div>
+
+<!-- ===== SUPPLY VS DEMAND ===== -->
+<div class="comp-card">
+  <div class="comp-title">⚖️ 供需缺口：为什么2027年前不会价格战？</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="background:rgba(204,48,35,0.08);border:1px solid rgba(204,48,35,0.25);border-radius:14px;padding:18px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#FCA5A5;margin-bottom:8px;">⚠ 供给侧</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.7);">
+        2025年仅第一梯队有真正产能<br>
+        2027年一+二梯队所有产能加起来<br>
+        <strong style="color:#FCA5A5;">仍难满足400万颗需求</strong><br><br>
+        核心卡点：<br>
+        • CoW固晶设备交期<strong>18个月</strong><br>
+        • Molding设备交期<strong>12个月</strong><br>
+        • DISCO研磨切割<strong>8个月</strong>
+      </div>
+    </div>
+    <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:14px;padding:18px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#6EE7B7;margin-bottom:8px;">📈 需求侧</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.7);">
+        国内总需求<strong>千万颗级别</strong><br>
+        设计公司可支撑<strong style="color:#6EE7B7;">400万颗/年</strong><br>
+        字节/腾讯/阿里需求更高端<br><br>
+        AI芯片需求持续增长<br>
+        2026年大概率超过400万颗<br>
+        <strong style="color:#6EE7B7;">2027年供需缺口持续存在</strong>
+      </div>
+    </div>
+  </div>
+  <div class="insight" style="margin-top:14px;">
+    <div class="it">💡 核心结论</div>
+    <p>至少在<strong>2027年全年</strong>，2.5D/3D封装领域不会发生价格战。封装厂的核心任务不是担心竞争，而是<strong>加快产线建设、尽早量产、获取营收</strong>。唯一竞争激烈的细分是Bumping（WLP晶圆级封装）。2026年价格只会因材料成本上涨。</p>
+  </div>
+</div>
+
+<!-- ===== CLIENT RELATIONSHIP ===== -->
+<div class="sec-card">
+  <div class="sec-title">🤝 客户关系比技术更重要（80% vs 20%）</div>
+  <p>当前阶段，<strong class="hl">绑定头部客户的重要性占80%，技术积累占20%</strong>。原因：</p>
+  <div class="dg2">
+    <div class="di"><div class="dn">📋</div><div class="dl">有既定大客户+明确产品方向→说服管理层大规模投资</div></div>
+    <div class="di"><div class="dn">🔬</div><div class="dl">与头部客户合作→接触到更高端产品→迭代自身技术</div></div>
+    <div class="di"><div class="dn">🗺️</div><div class="dl">封装厂技术路线图通过客户合作更新→实现更大尺寸更多堆叠</div></div>
+    <div class="di"><div class="dn">🔄</div><div class="dl">目前三组固定组合：盛合→H客户 / 通富→AMD+CPU/GPU / 长电→平头哥+天数</div></div>
+  </div>
+</div>
+
+<!-- ===== GAME CHANGING INFO ===== -->
+<div class="sec-card">
+  <div class="sec-title">🚨 五个反直觉的信息</div>
+  <div class="c3">
+    <div class="c3c blue">
+      <div class="c3t">① 先S后L无捷径</div>
+      <p>不存在跳过CoWoS-S直接入CoWoS-L的"弯道超车"路径。所有企业都必须先走完S再过渡到L。</p>
+    </div>
+    <div class="c3c green">
+      <div class="c3t">② 国际客户不在中国封装</div>
+      <p>AMD、英伟达等国际厂商不会选择在大陆进行封装。国产封装厂客户仅限于本土设计公司。</p>
+    </div>
+    <div class="c3c purple">
+      <div class="c3t">③ 产能扩张卡在设备交期</div>
+      <p>不是技术/资金/客户问题，而是CoW固晶设备18个月交期。从2025H2启动，首条产线最快2027年中建成。</p>
+    </div>
+    <div class="c3c blue">
+      <div class="c3t">④ 封装成本占比<10%</div>
+      <p>CoWoS封装测试1,800-1,900元/颗，寒武纪590总成本约2.5万元。远低于大多数人直觉中的"封装很贵"。</p>
+    </div>
+    <div class="c3c green">
+      <div class="c3t">⑤ 良率追赶只是时间问题</div>
+      <p>各厂商良率未来不会相差太多。封装厂技术能力随客户产品开发提升，不是独立技术竞赛。</p>
+    </div>
+    <div class="c3c purple">
+      <div class="c3t">⑥ 盛合被压份额≠被淘汰</div>
+      <p>H客户份额转移后，其他设计公司主动找盛合——因其L系列经验和高端堆叠能力极具吸引力。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEY DYNAMICS ===== -->
+<div class="comp-card">
+  <div class="comp-title">📅 市场变化趋势</div>
+  <ul class="dl-list">
+    <li><span class="badge badge-arch">H客户</span> 战略性将订单转向自身控制/强关联的封测企业（渠梁），是其<strong class="hl">一贯做法</strong></li>
+    <li><span class="badge badge-strat">盛合</span> 被H客户压份额后，<strong class="hl">其他设计公司主动接触</strong>寻求合作（因L系列+高端堆叠经验）</li>
+    <li><span class="badge badge-mem">通富</span> 2025年已导入天数、燧原、摩尔线程</li>
+    <li><span class="badge badge-eff">长电</span> 开始接触壁仞、燧原</li>
+    <li><span class="badge badge-arch">格局</span> 成熟/老产品→自有产线；新产品开发初期→盛合；后期<strong class="hl">一供/二供格局形成</strong></li>
+    <li><span class="badge badge-mem">渠梁</span> CoWoS前段<strong class="hl">2027H2</strong>才能建成类似二梯队的产线</li>
+  </ul>
+</div>
+
+<!-- ===== CROSS-SOURCE ===== -->
+<div class="sec-card">
+  <div class="sec-title">✅ 与已有知识交叉验证</div>
+  <table class="tbl">
+    <tr><th>结论</th><th>本报告（6/1）</th><th>已有知识</th><th>一致性</th></tr>
+    <tr><td>盛合技术国内领先</td><td>产能100万/年+RDL领先</td><td>640: "自身体系优势"</td><td class="up">✅</td></tr>
+    <tr><td>先S后L路径无例外</td><td>不存在弯道超车</td><td>910→950从S过渡到L</td><td class="up">✅</td></tr>
+    <tr><td>封装产能为瓶颈</td><td>2027年仍难满足400万颗</td><td>640: "CoWoS-S产能紧张"</td><td class="up">✅</td></tr>
+    <tr><td>2027年前不会价格战</td><td>明确时间线</td><td>此前未涉及</td><td class="neutral">🆕 新</td></tr>
+    <tr><td>客户绑定>技术</td><td>80% vs 20%</td><td>此前未涉及</td><td class="neutral">🆕 新</td></tr>
+    <tr><td>渠梁受H公司扶持</td><td>2027H2才有二梯队水平</td><td>640: "昇腾正扶持渠梁"</td><td class="up">✅</td></tr>
+    <tr><td>设备交期是最大卡点</td><td>CoW固晶18个月</td><td>此前未涉及</td><td class="neutral">🆕 新</td></tr>
+    <tr><td>国际客户不在中国封装</td><td>AMD/NVDA不会选择大陆</td><td>此前未涉及</td><td class="neutral">🆕 新</td></tr>
+  </table>
+</div>
+
+<!-- ===== CONCLUSION ===== -->
+<div class="summary">
+  <div class="st">📌 核心判断</div>
+  <div class="sm">国产先进封装不是"技术竞赛"，而是"关系+时间的消耗战"。</div>
+  <div class="ss">
+    60%时间成本、80%客户权重、18个月设备交期——这三组数字决定了国产CoWoS产能至少到2027年仍是卖方市场。<br><br>
+    对投资者最重要的两个事实：① 国际客户不在中国封装→国产封装链紧张不直接映射海外AI持仓；② 封装成本仅占芯片总成本&lt;10%→客户对涨价容忍度高，价格战风险极低。<br><br>
+    最值得跟踪的变量不是良率（最终会接近），而是渠梁的CoWoS前段产线何时真正建成——这是H客户"去盛合化"战略的进度标尺。
+  </div>
+</div>
+
+<div class="footer">
+  <p>来源：行业供应链交流纪要（12问12答）· 2026-06-01</p>
+  <p>本文基于公开资料整理，仅作信息分享，不构成投资建议</p>
+</div>
+
+</div>
+</body>
+</html>
