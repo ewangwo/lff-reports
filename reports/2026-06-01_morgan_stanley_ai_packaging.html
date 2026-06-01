@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大摩：AI封装重构半导体—CoWoS/CPO/WoW</title>
+<style>
+  :root {
+    --bg: #0f1117; --card: #1a1d28; --border: #2a2d3a;
+    --text: #e4e6ed; --text2: #8b8fa3;
+    --g: #4ade80; --o: #f89a3a; --b: #60a5fa; --r: #f87171;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  .meta { color: var(--text2); font-size: 13px; margin-bottom: 32px; }
+  h2 { font-size: 19px; color: var(--g); margin: 32px 0 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  h3 { font-size: 16px; color: var(--o); margin: 20px 0 10px; }
+  p { margin: 10px 0; }
+  .hl { color: var(--o); font-weight: 600; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  th { background: var(--card); color: var(--g); }
+  .tag { display:inline-block; padding:2px 10px; border-radius:4px; font-size:12px; margin:2px; }
+  .tg { background:rgba(74,222,128,0.15); color:var(--g); }
+  .to { background:rgba(248,154,58,0.15); color:var(--o); }
+  .tb { background:rgba(96,165,250,0.15); color:var(--b); }
+  ul, ol { margin: 8px 0 8px 20px; }
+  li { margin: 4px 0; }
+  .big { font-size: 26px; font-weight: 700; color: var(--o); }
+  @media (max-width: 600px) { .container { padding: 20px 16px; } h1 { font-size: 19px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>大摩重磅：AI封装重构半导体格局</h1>
+<p style="color:var(--text2);font-size:14px;margin:-4px 0 4px">CoWoS · CPO · WoW 谁主沉浮</p>
+<div class="meta">摩根士丹利 · 2026-05-22 · 老金整理</div>
+
+<p><span class="tag tg">CoWoS</span><span class="tag to">CPO</span><span class="tag tb">WoW</span><span class="tag tg">SoIC</span><span class="tag tb">AI半导体</span><span class="tag to">台积电</span></p>
+
+<blockquote style="border-left:3px solid var(--g);background:rgba(74,222,128,0.08);padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0;color:var(--text2);">
+  2030年全球半导体$1.5万亿，AI占50%。先进封装从配套环节升级为<strong style="color:var(--text)">定义AI算力上限、重构产业格局的核心变量</strong>。
+</blockquote>
+
+<h2>市场总览</h2>
+<div class="card" style="display:flex;gap:20px;flex-wrap:wrap;text-align:center;">
+  <div style="flex:1;min-width:100px"><div class="big">$1.5T</div><div style="font-size:12px;color:var(--text2)">2030全球半导体</div></div>
+  <div style="flex:1;min-width:100px"><div class="big">50%</div><div style="font-size:12px;color:var(--text2)">AI占比</div></div>
+  <div style="flex:1;min-width:100px"><div class="big">$8,110亿</div><div style="font-size:12px;color:var(--text2)">2026云CapEx</div></div>
+  <div style="flex:1;min-width:100px"><div class="big">30%</div><div style="font-size:12px;color:var(--text2)">CAGR</div></div>
+</div>
+
+<h2>Agentic AI → CPU价值重定位</h2>
+<p><span class="hl">CPU:GPU比例 1:12 → 1:2</span>（甚至更高）</p>
+<p>调度类CPU 2030：基准<span class="hl">$790亿</span>，牛市<span class="hl">$2,380亿</span></p>
+
+<h2>CoWoS（2.5D封装）</h2>
+<p><span class="hl">台积电产能：23k wpm(2023) → 165k wpm(2027) — 7倍</span></p>
+<p>客户消耗(2026E)：<strong>英伟达60%</strong> > 博通20% > AMD 8%</p>
+<p>非台积CoWoS：Amkor(135k/年)、ASE/SPIL(30k/年)</p>
+
+<h2>CPO（共封装光学）</h2>
+<table>
+  <tr><th>速率</th><th>可插拔</th><th>LPO</th><th style="color:var(--o)">CPO</th></tr>
+  <tr><td>800G</td><td>14W</td><td>9W</td><td style="color:var(--o)"><strong>5W</strong></td></tr>
+  <tr><td>1.6T</td><td>-</td><td>-</td><td style="color:var(--o)"><strong>8W</strong></td></tr>
+</table>
+<p>CAGR 172%, 2030 = <span class="hl">$90亿</span>  |  博通CPO量产  |  英伟达Rubin为首款CPO XPU</p>
+
+<h2>WoW（晶圆对晶圆堆叠）</h2>
+<p>带宽210GB/s · 2pJ/bit · <span class="hl">单芯片省$80 BOM</span></p>
+<p>CAGR 257%, 2030 = <span class="hl">$60亿</span>  |  牛市 = $120亿</p>
+
+<h2>测试设备</h2>
+<p>CAGR <span class="hl">35%</span> · 引脚数 1,500 → 6,000 → <span class="hl">10,000+</span></p>
+
+<hr>
+
+<h2>📊 LFF持仓映射</h2>
+<table>
+  <tr><th>标的</th><th>影响</th><th>逻辑</th></tr>
+  <tr><td><strong>TSM</strong></td><td style="color:var(--g)">正面</td><td>CoWoS 7倍+SoIC 12倍扩产，AI收入CAGR 60%</td></tr>
+  <tr><td><strong>NVDA</strong></td><td style="color:var(--g)">正面偏强</td><td>60% CoWoS+Robin首款CPO，封装+光互联双受益</td></tr>
+  <tr><td><strong>AVGO</strong></td><td style="color:var(--g)">正面</td><td>CoWoS第二大客户(20%)+CPO量产先行者</td></tr>
+  <tr><td><strong>CPO供应链</strong></td><td style="color:var(--o)">关注</td><td>Rubin为首个大规模CPO拐点，2026-2027落地</td></tr>
+  <tr><td><strong>测试设备</strong></td><td style="color:var(--g)">正面</td><td>35% CAGR，引脚数破万→价值量爆发</td></tr>
+</table>
+
+<p style="color:var(--text2);font-size:13px;text-align:center;padding:20px 0;">LFF双机系统 · 2026-06-01</p>
+</div>
+</body>
+</html>
