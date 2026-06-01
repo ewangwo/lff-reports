@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAND不只是SSD：AI正在把存储推向数据中心核心 | 半导体行业报告</title>
+<style>
+  :root {
+    --bg: #0f1117; --card: #1a1d28; --border: #2a2d3a;
+    --text: #e4e6ed; --text2: #8b8fa3; --accent: #4ade80;
+    --blue: #60a5fa; --orange: #f89a3a; --pink: #f472b6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 26px; margin-bottom: 8px; letter-spacing: -0.3px; }
+  .meta { color: var(--text2); font-size: 13px; margin-bottom: 32px; }
+  .meta span { margin-right: 16px; }
+  h2 { font-size: 20px; color: var(--accent); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 17px; color: var(--orange); margin: 24px 0 12px; }
+  p { margin: 12px 0; }
+  .highlight { color: var(--orange); font-weight: 600; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .grid { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 12px 0; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 12px; margin-right: 6px; margin-bottom: 4px; }
+  .tag-green { background: rgba(74,222,128,0.15); color: var(--accent); }
+  .tag-blue { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .tag-orange { background: rgba(248,154,58,0.15); color: var(--orange); }
+  ul, ol { margin: 8px 0 8px 20px; }
+  li { margin: 5px 0; }
+  blockquote { border-left: 3px solid var(--accent); background: rgba(74,222,128,0.08); padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; color: var(--text2); }
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  th { background: var(--card); color: var(--accent); font-weight: 600; }
+  .code-box { background: #151822; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: 'SF Mono', monospace; font-size: 13px; margin: 12px 0; }
+  @media (max-width: 600px) { .container { padding: 20px 16px; } h1 { font-size: 20px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>NAND不只是SSD：AI正在把存储推向数据中心核心</h1>
+<div class="meta">
+  <span>📅 2026-05-27 17:26</span>
+  <span>✍️ 半导体行业报告（芯联汇）</span>
+  <span>📱 微信公众号</span>
+</div>
+
+<p><span class="tag tag-green">NAND Flash</span><span class="tag tag-blue">AI Infra</span><span class="tag tag-orange">Data-Centric</span><span class="tag tag-blue">CXL</span><span class="tag tag-green">3D NAND</span><span class="tag tag-orange">Computational Storage</span></p>
+
+<blockquote>
+  AI真正的瓶颈，已经不只是GPU算力，而是数据如何更快、更低功耗地流动起来。<br><br>
+  AI推动的不只是GPU革命，而是一场从<strong>"计算中心"</strong>走向<strong>"数据中心"</strong>的底层架构重构。
+</blockquote>
+
+<p><span class="highlight">产业趋势转变：</span>过去NAND竞争=容量更大 → 未来NAND竞争=<span class="highlight">存储架构、数据流、计算协同与AI系统优化</span></p>
+
+<h2>核心内容</h2>
+
+<h3>1. 全球数据爆炸→NAND超长期扩展周期</h3>
+<p>云端/边缘/终端数据同时爆发。"NAND is not replaceable."——已成为数据中心不可替代的核心介质。</p>
+
+<h3>2. 3D NAND：用垂直堆叠延续摩尔定律</h3>
+<div class="code-box">
+"2D NAND was Litho Driven; 3D NAND is Etch Driven."
+</div>
+<p>层数演进：<strong>112层→162层→2xx/4xx/5xx层</strong></p>
+<p><strong>四大扩展方向</strong>：Vertical Scaling / Lateral Scaling / Architecture Scaling / Logical Scaling</p>
+
+<h3>3. 三角挑战：Performance vs Reliability vs Cost</h3>
+<div class="card">
+<p>QLC/PLC虽降低Cost/GB，但带来：</p>
+<ul>
+  <li>⚠ 缩小Vt Window</li>
+  <li>⚠ 降低耐久度</li>
+  <li>⚠ 增加误码率</li>
+  <li>⚠ 恶化Retention</li>
+</ul>
+<p>→ 引入LDPC纠错、RAID保护、Wear Leveling、FTL、复杂SSD Controller</p>
+<p>→ <span class="highlight">SSD已经越来越像"一个小型分布式计算系统"</span></p>
+</div>
+
+<h3>4. SSD：从存储设备→数据管理系统</h3>
+<p>传统问题：Host无法控制Flash内部行为（GC/Wear Leveling→延迟波动、QoS恶化）</p>
+<p>→ <strong>Open Channel SSD / ZNS</strong>，让Host直接参与数据管理</p>
+<p>→ <span class="highlight">SSD控制权正在从Device转向System Software</span></p>
+
+<h3>5. AI推动"计算靠近存储"——数据中心架构时代</h3>
+<p><strong>传统（Compute-Centric）瓶颈：</strong>IO跟不上、数据移动耗电巨大、CPU/GPU等待数据</p>
+<p><strong>未来（Data-Centric）："把计算搬到数据旁边"</strong></p>
+
+<div class="card">
+<p><strong>关键方向：</strong></p>
+<ol>
+  <li><strong>Computational Storage</strong> — SSD内置FPGA/ASIC，Storage侧AI预处理</li>
+  <li><strong>DPU</strong> — 数据处理单元，减轻CPU负担</li>
+  <li><strong>Memory Tiering / CXL Memory</strong> — CXL连接NAND大容量空间</li>
+  <li><strong>Compute-in-Memory (CIM)</strong> — 存内计算，AI时代重要方向</li>
+</ol>
+</div>
+
+<hr>
+
+<h2>📊 LFF投资映射</h2>
+
+<table>
+  <tr><th>赛道</th><th>影响</th><th>逻辑</th></tr>
+  <tr><td><strong>NAND原厂</strong><br><small>三星/SK海力士/Micron</small></td><td style="color:var(--accent)">正面</td><td>AI驱动NAND需求结构升级，容量/层数/QLC持续拉动</td></tr>
+  <tr><td><strong>SSD Controller</strong><br><small>慧荣/Marvell</small></td><td style="color:var(--accent)">正面</td><td>控制器复杂度急剧上升，价值量提升</td></tr>
+  <tr><td><strong>CXL/互联</strong></td><td style="color:var(--accent)">正面</td><td>Memory Tiering/CXL连接NAND是未来核心</td></tr>
+  <tr><td><strong>Computational Storage</strong></td><td style="color:var(--accent)">正面</td><td>SSD内置算力趋势明确</td></tr>
+  <tr><td><strong>NVDA</strong></td><td style="color:var(--accent)">正面偏强</td><td>DPU+Computational Storage+GPU=完整AI数据管道</td></tr>
+  <tr><td><strong>AVGO/TSM</strong></td><td style="color:var(--accent)">正面</td><td>CXL交换机/先进制程存储主控</td></tr>
+</table>
+
+<h3>关键风险</h3>
+<ul>
+  <li>NAND周期属性极强，目前上行周期可能反转</li>
+  <li>QLC/PLC可靠性争议可能延缓企业级大规模采用</li>
+  <li>CXL/Computational Storage生态成熟度还不够</li>
+</ul>
+
+<hr>
+<div style="text-align:center;color:var(--text2);font-size:13px;padding:20px 0;">
+  LFF双机系统 · 2026-06-01 · 来源：芯联汇/半导体行业报告
+</div>
+
+</div>
+</body>
+</html>
