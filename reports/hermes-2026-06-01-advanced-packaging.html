@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>先进封装全景 · AI供给瓶颈的核心</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+  background:#060B2D;
+  color:#e8edf5;
+  line-height:1.6;
+  font-size:15px
+}
+.wrapper{
+  max-width:920px;
+  margin:0 auto;
+  padding:24px 16px 60px;
+  background:linear-gradient(180deg,#060B2D 0%,#0A1040 100%);
+  min-height:100vh
+}
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 50%,#0D1540 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:18px;
+  padding:44px 30px 36px;
+  margin-bottom:28px;
+  text-align:center;
+  overflow:hidden;
+  box-shadow:0 0 24px rgba(37,96,212,0.25), inset 0 0 40px rgba(37,96,212,0.05)
+}
+.hero::before{
+  content:'';position:absolute;top:-60%;left:-30%;
+  width:160%;height:200%;
+  background:radial-gradient(ellipse at 30% 50%,rgba(37,96,212,0.08) 0%,transparent 60%);
+  pointer-events:none
+}
+.hero .badge{
+  display:inline-block;
+  background:rgba(37,96,212,0.2);
+  border:1px solid rgba(37,96,212,0.4);
+  color:#60A5FA;
+  font-size:11px;padding:4px 16px;border-radius:20px;
+  letter-spacing:1.5px;font-weight:600;
+  margin-bottom:18px;
+  position:relative;z-index:1
+}
+.hero h1{
+  font-size:32px;font-weight:800;
+  color:#fff;
+  letter-spacing:1px;
+  position:relative;z-index:1
+}
+.hero h1 .hl-yellow{color:#F4C743}
+.hero .subtitle{
+  font-size:16px;color:rgba(255,255,255,0.55);
+  margin-top:10px;
+  position:relative;z-index:1
+}
+.hero .meta{
+  font-size:12px;color:rgba(255,255,255,0.25);
+  margin-top:16px;
+  position:relative;z-index:1
+}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.metric-card{
+  background:linear-gradient(135deg,#0D1540 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.3);
+  border-radius:16px;padding:22px 14px;text-align:center;
+  box-shadow:0 0 14px rgba(37,96,212,0.12);
+  transition:transform .15s,box-shadow .15s
+}
+.metric-card:hover{transform:translateY(-3px);box-shadow:0 0 22px rgba(37,96,212,0.25)}
+.metric-icon{font-size:22px;margin-bottom:6px}
+.metric-num{font-size:32px;font-weight:800;color:#fff;line-height:1.1}
+.metric-num .u{font-size:13px;font-weight:600;color:#60A5FA}
+.metric-label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4}
+.comp-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.25);
+  border-radius:16px;padding:28px 24px;margin-bottom:28px;
+  box-shadow:0 0 14px rgba(37,96,212,0.08)
+}
+.comp-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.comp-title sub{font-size:12px;font-weight:400;color:rgba(255,255,255,0.35)}
+.vs-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vs-col{border-radius:14px;padding:20px 18px;position:relative}
+.vs-col.old{background:rgba(204,48,35,0.08);border:1px solid rgba(204,48,35,0.25)}
+.vs-col.new{background:rgba(37,96,212,0.1);border:1px solid rgba(37,96,212,0.35)}
+.vs-col .vs-badge{
+  position:absolute;top:-10px;right:12px;
+  font-size:10px;font-weight:700;letter-spacing:1px;
+  padding:3px 12px;border-radius:10px
+}
+.vs-col.old .vs-badge{background:rgba(204,48,35,0.2);color:#FCA5A5;border:1px solid rgba(204,48,35,0.3)}
+.vs-col.new .vs-badge{background:rgba(37,96,212,0.25);color:#60A5FA;border:1px solid rgba(37,96,212,0.4)}
+.vs-col .vs-head{font-size:14px;font-weight:700;margin-bottom:12px}
+.vs-col.old .vs-head{color:#FCA5A5}
+.vs-col.new .vs-head{color:#93C5FD}
+.vs-col ul{list-style:none}
+.vs-col li{font-size:13px;padding:6px 0 6px 18px;position:relative;line-height:1.5;color:rgba(255,255,255,0.75)}
+.vs-col.old li::before{content:'✕';position:absolute;left:0;color:rgba(204,48,35,0.5)}
+.vs-col.new li::before{content:'✓';position:absolute;left:0;color:#60A5FA;font-weight:700}
+.sec-card{
+  background:linear-gradient(135deg,#0B1238 0%,#0F1A50 100%);
+  border:1px solid rgba(37,96,212,0.2);
+  border-radius:16px;padding:28px 24px;margin-bottom:28px
+}
+.sec-card .sec-title{
+  font-size:17px;font-weight:700;color:#fff;
+  margin-bottom:14px;padding-bottom:12px;
+  border-bottom:1px solid rgba(37,96,212,0.15);
+  display:flex;align-items:center;gap:8px
+}
+.sec-card p{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.8}
+.sec-card p:last-child{margin-bottom:0}
+.sec-card .hl{color:#F4C743;font-weight:700}
+.dg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.di{background:rgba(37,96,212,0.08);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:16px;text-align:center}
+.di .dn{font-size:24px;font-weight:800;color:#fff;line-height:1.2}
+.di .dn .u{font-size:12px;font-weight:600;color:#60A5FA}
+.di .dl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px}
+.dl-list{list-style:none;margin:12px 0}
+.dl-list li{
+  padding:10px 0 10px 24px;position:relative;
+  font-size:13px;color:rgba(255,255,255,0.7);
+  border-bottom:1px solid rgba(37,96,212,0.1);line-height:1.6
+}
+.dl-list li:last-child{border-bottom:none}
+.dl-list li::before{content:'';position:absolute;left:2px;top:17px;width:7px;height:7px;border-radius:50%;background:#60A5FA}
+.dl-list li .hl{color:#F4C743;font-weight:700}
+.dl-list li .badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;margin-right:4px}
+.badge-arch{background:rgba(37,96,212,0.2);color:#93C5FD}
+.badge-strat{background:rgba(244,199,67,0.15);color:#F4C743}
+.badge-mem{background:rgba(99,102,241,0.2);color:#A5B4FC}
+.badge-eff{background:rgba(52,211,153,0.15);color:#6EE7B7}
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.c3c{border-radius:12px;padding:18px 14px;border:1px solid}
+.c3c.blue{background:rgba(37,96,212,0.08);border-color:rgba(37,96,212,0.25)}
+.c3c.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.2)}
+.c3c.purple{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)}
+.c3c .c3t{font-size:13px;font-weight:700;margin-bottom:8px}
+.c3c.blue .c3t{color:#93C5FD}
+.c3c.green .c3t{color:#6EE7B7}
+.c3c.purple .c3t{color:#C4B5FD}
+.c3c p{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+.tbl th{background:rgba(37,96,212,0.1);color:#93C5FD;font-weight:700;padding:10px 12px;text-align:left;border-bottom:1px solid rgba(37,96,212,0.2)}
+.tbl th:first-child{border-radius:8px 0 0 0}
+.tbl th:last-child{border-radius:0 8px 0 0}
+.tbl td{padding:10px 12px;border-bottom:1px solid rgba(37,96,212,0.08);color:rgba(255,255,255,0.65)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .up{color:#6EE7B7;font-weight:700}
+.tbl .down{color:#FCA5A5}
+.tbl .neutral{color:rgba(255,255,255,0.4)}
+.insight{background:rgba(244,199,67,0.06);border:1px solid rgba(244,199,67,0.2);border-radius:10px;padding:18px 20px;margin:12px 0}
+.insight .it{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#F4C743;font-weight:700;margin-bottom:6px}
+.insight p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:0}
+.summary{
+  background:linear-gradient(135deg,#060B2D 0%,#121A5D 100%);
+  border:1px solid rgba(37,96,212,0.35);
+  border-radius:16px;padding:28px 30px;margin-bottom:20px;
+  box-shadow:0 0 20px rgba(37,96,212,0.15)
+}
+.summary .st{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.3);font-weight:700;margin-bottom:10px}
+.summary .sm{font-size:20px;font-weight:700;line-height:1.5;color:#F4C743}
+.summary .ss{font-size:14px;color:rgba(255,255,255,0.55);margin-top:10px;line-height:1.7}
+.footer{text-align:center;padding:20px 16px;color:rgba(255,255,255,0.2);font-size:12px;line-height:1.8}
+@media(max-width:640px){
+  .wrapper{padding:16px 10px 40px}
+  .hero{padding:30px 18px 26px}
+  .hero h1{font-size:22px}
+  .metrics{grid-template-columns:repeat(2,1fr);gap:10px}
+  .vs-row{grid-template-columns:1fr}
+  .dg2{grid-template-columns:1fr}
+  .c3{grid-template-columns:1fr}
+  .summary{padding:22px 18px}
+  .summary .sm{font-size:17px}
+  .comp-card,.sec-card{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="badge">🏭 产业全景</div>
+  <h1>先进封装：AI供给瓶颈中的<span class="hl-yellow">核心变量</span></h1>
+  <div class="subtitle">CoWoS产能2022-2027 CAGR 80% — 先进封装正在从AI芯片的"配套环节"变成"供给瓶颈中的核心瓶颈"</div>
+  <div class="meta">BofA · Bernstein · 华为τ论文 · 640供应链数据 · 2026年6月</div>
+</div>
+
+<!-- ===== KEY METRICS ===== -->
+<div class="metrics">
+  <div class="metric-card">
+    <div class="metric-icon">🏭</div>
+    <div class="metric-num">80<span class="u">%</span></div>
+    <div class="metric-label">TSMC CoWoS产能 CAGR<br>2022-2027</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">⚙️</div>
+    <div class="metric-num">90<span class="u">%</span></div>
+    <div class="metric-label">SoIC 产能 CAGR<br>2022-2027</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">📦</div>
+    <div class="metric-num">2.8<span class="u">M wafers</span></div>
+    <div class="metric-label">CoWoS 2028E<br>Bernstein预测</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">🔬</div>
+    <div class="metric-num">98<span class="u">%+</span></div>
+    <div class="metric-label">TSMC 5.5x reticle<br>CoWoS良率</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">🇨🇳</div>
+    <div class="metric-num">300<span class="u">万张</span></div>
+    <div class="metric-label">国产AI芯片年需求<br>均需2.5D封装</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-icon">📈</div>
+    <div class="metric-num">70<span class="u">%</span></div>
+    <div class="metric-label">N2 family产能 CAGR<br>2026-2028</div>
+  </div>
+</div>
+
+<!-- ===== WHAT IS ADVANCED PACKAGING ===== -->
+<div class="sec-card">
+  <div class="sec-title">🧩 什么是先进封装？为何它是AI瓶颈？</div>
+  <p>先进封装（Advanced Packaging）指<span class="hl">2.5D CoWoS、3D SoIC、EMIB</span>等将多颗芯片（GPU+HBM+chiplets）高密度集成在同一封装内的技术。它不是"把芯片包起来"的被动环节，而是决定AI芯片性能/功耗/成本的主动变量。</p>
+  <p>随着摩尔定律放缓，AI芯片性能提升越来越依赖先进封装：<span class="hl">GPU需要HBM紧邻</span>→CoWoS解决；<span class="hl">Chiplet架构</span>→需要高性能die-to-die互连；<span class="hl">数据移动能耗占AI集群>80%</span>→3D堆叠解决。</p>
+</div>
+
+<!-- ===== COMPARISON: TSMC vs INTEL vs CHINA ===== -->
+<div class="comp-card">
+  <div class="comp-title">⚔️ 先进封装三大阵营对比 <sub>BofA + Bernstein + 640图片OCR</sub></div>
+  <div class="vs-row">
+    <div class="vs-col new">
+      <div class="vs-badge">✦ TSMC</div>
+      <div class="vs-head">领先者：CoWoS/SoIC</div>
+      <ul>
+        <li><span class="hl">CoWoS良率98%+</span> — 5.5x reticle良率远超同行</li>
+        <li>CoWoS产能 CAGR 80%，SoIC CAGR 90%</li>
+        <li>CoWoS 2028E 产量<span class="hl">2.8M</span> wafers</li>
+        <li>SoIC升级时间缩短75%</li>
+        <li>护城河：制程+产能+封装+良率+客户验证的复合系统</li>
+      </ul>
+    </div>
+    <div class="vs-col old">
+      <div class="vs-badge">⚠ Intel</div>
+      <div class="vs-head">追赶者：EMIB-T</div>
+      <ul>
+        <li>EMIB-T pilot yield <span class="hl">80-85%</span>（vs TSMC 98%+）</li>
+        <li>若2027年中达不到95%，存在客户流失风险</li>
+        <li>或用于谷歌下一代TPU（传闻）</li>
+        <li>竞争不是PPT竞争，而是良率+产能+生态的复合竞争</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:14px;border-top:1px solid rgba(37,96,212,0.1);padding-top:14px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:14px;">
+        <div style="font-size:12px;font-weight:700;color:#6EE7B7;margin-bottom:6px;">🇨🇳 国产阵营（盛合/渠梁/通富）</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;">
+          盛合国内技术最好（自身体系），CoWoS-L良率领先8-9pp<br>
+          昇腾扶持渠梁（后期份额或略高）<br>
+          国产CoWoS-S产能紧张，950需求爆发跟不上<br>
+          寒武纪690最大瓶颈：先进制程＞封装
+        </div>
+      </div>
+      <div style="background:rgba(37,96,212,0.06);border:1px solid rgba(37,96,212,0.15);border-radius:10px;padding:14px;">
+        <div style="font-size:12px;font-weight:700;color:#93C5FD;margin-bottom:6px;">📊 关键判断</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;">
+          全球先进封装需求由NVDA/AMD/Google TPU/AWS/Broadcom ASIC驱动<br>
+          国产CoWoS-L扩产证明需求强，也证明爬坡难<br>
+          TSMC护城河仍在，单一竞争维度（如Intel良率改善）不足以颠覆
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CAPACITY DATA ===== -->
+<div class="sec-card">
+  <div class="sec-title">📊 CoWoS产能全景数据</div>
+  <div class="dg2">
+    <div class="di"><div class="dn">115<span class="u">K wfpm</span></div><div class="dl">CoWoS 2026E</div></div>
+    <div class="di"><div class="dn">175<span class="u">K wfpm</span></div><div class="dl">CoWoS 2027E</div></div>
+    <div class="di"><div class="dn">220<span class="u">K wfpm</span></div><div class="dl">CoWoS 2028E</div></div>
+    <div class="di"><div class="dn">65<span class="u">K wfpm</span></div><div class="dl">SoIC 2028E</div></div>
+  </div>
+  <div class="insight">
+    <div class="it">💡 二阶解读</div>
+    <p>先进封装景气正在从GPU扩散到HBM/DRAM、NAND、封装设备、ODM机柜。这不是"季度好生意"，而是AI基础设施链中最确定的中期主线之一。</p>
+  </div>
+</div>
+
+<!-- ===== HUAWEI τ SCALING ===== -->
+<div class="sec-card">
+  <div class="sec-title">🔭 华为τ Scaling论文：先进封装的战略转向</div>
+  <p><span class="hl">华为宣布从"节点缩放"转向"3D堆叠/封装/互连/系统协同"，与TSMC 3DFabric/CoWoS方向一致。</span></p>
+  <div class="dg2">
+    <div class="di"><div class="dn">+55<span class="u">%</span></div><div class="dl">LogicFolding晶体管密度提升</div></div>
+    <div class="di"><div class="dn">+41<span class="u">%</span></div><div class="dl">P-core能效提升</div></div>
+    <div class="di"><div class="dn">1.5<span class="u">μm</span></div><div class="dl">混合键合pitch (Kirin 2026)</div></div>
+    <div class="di"><div class="dn">3.1<span class="u">GHz</span></div><div class="dl">P-core最大频率(+13%)</div></div>
+  </div>
+  <p>论文关键含义：先进封装/3DIC/SoIC/硅光/系统级集成的战略重要性被华为提升到与先进制程并列的地位。这不是华人公司在"PPT竞争"，而是全球3D堆叠、HBM/logic fusion、共封装光学、系统级集成的产业共识。</p>
+</div>
+
+<!-- ===== 3 KEY INSIGHTS ===== -->
+<div class="sec-card">
+  <div class="sec-title">🧠 三个未被充分定价的核心洞察</div>
+  <div class="c3">
+    <div class="c3c blue">
+      <div class="c3t">① 从配套→瓶颈</div>
+      <p>先进封装已经从"AI芯片的配套环节"变成"AI供给瓶颈中的核心瓶颈"。TSMC产能约束型增长的核心原因之一就是封装产能不足。</p>
+    </div>
+    <div class="c3c green">
+      <div class="c3t">② 全球+国产并行</div>
+      <p>国内外算力需求相对独立，先进封装需求同时被两条线拉动。国产CoWoS扩产不等于替代TSMC，全球需求还在加速。</p>
+    </div>
+    <div class="c3c purple">
+      <div class="c3t">③ 复合护城河</div>
+      <p>TSMC的护城河不是某一维度的领先，而是"先进制程+产能规模+先进封装+良率曲线+客户排队"的复合系统。单一竞争不足以挑战。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEY UPDATES TIMELINE ===== -->
+<div class="sec-card">
+  <div class="sec-title">📅 近期关键动态时间线</div>
+  <ul class="dl-list">
+    <li><span class="badge badge-arch">5/2</span> 640图片OCR：国产AI芯片<span class="hl">~300万张</span>均需2.5D封装；盛合CoWoS-L技术国内领先</li>
+    <li><span class="badge badge-strat">5/6</span> 英特尔EMIB-T良率达<span class="hl">90%</span>，或用于谷歌下一代TPU</li>
+    <li><span class="badge badge-arch">5/15</span> BofA：TSMC CoWoS CAGR 80%/SoIC CAGR 90%；5.5x reticle良率<span class="hl">98%+</span></li>
+    <li><span class="badge badge-mem">5/16</span> BofA存储：Hanmi Semi TCB 1Q-65%是<span class="hl">短期节奏问题</span>，2H恢复可期</li>
+    <li><span class="badge badge-arch">5/18</span> Bernstein：CoWoS出货2028E达<span class="hl">2.8M</span> wafers；TSMC是"最可信的AI复利资产"</li>
+    <li><span class="badge badge-arch">5/18</span> 供应链：CoWoS景气<span class="hl">延伸至2027-2028</span></li>
+    <li><span class="badge badge-strat">5/25</span> 华为τ论文：LogicFolding Kirin 2026量产验证<span class="hl">密度+55%能效+41%</span></li>
+  </ul>
+</div>
+
+<!-- ===== CROSS-SOURCE VERIFICATION ===== -->
+<div class="comp-card">
+  <div class="comp-title">✅ 跨源互证矩阵 <sub>多份独立来源共同指向</sub></div>
+  <table class="tbl">
+    <tr><th>结论</th><th>验证源</th><th>可信度</th></tr>
+    <tr><td>先进封装景气延至2027-2028</td><td>BofA · Bernstein · 供应链 · 华为τ</td><td class="up">高</td></tr>
+    <tr><td>TSMC CoWoS护城河仍在</td><td>BofA · Bernstein · 国产链640 · 华为τ方向一致</td><td class="up">高</td></tr>
+    <tr><td>国产封装追但差距明显</td><td>640(盛合领先)+BofA(TSMC 98%)</td><td class="up">高</td></tr>
+    <tr><td>Intel EMIB短期无法替代</td><td>BofA(80-85% vs 98%)+供应链</td><td class="neutral">中高</td></tr>
+    <tr><td>先进封装是"更可能延续的链条"</td><td>AI CapEx分析 · BofA · Bernstein</td><td class="up">高</td></tr>
+    <tr><td>TCB miss不是需求反转</td><td>BofA存储(2H恢复可期)</td><td class="up">高</td></tr>
+  </table>
+</div>
+
+<!-- ===== IMPACT CHAIN ===== -->
+<div class="comp-card">
+  <div class="comp-title">🔗 产业链影响传导</div>
+  <table class="tbl">
+    <tr><th>环节</th><th>影响</th><th>方向</th></tr>
+    <tr><td>TSMC (Foundry+封装)</td><td>CoWoS/SoIC直接受益；N2/A16良率快速爬坡强化护城河</td><td class="up">📈 最直接受益</td></tr>
+    <tr><td>封装设备 (ASMPT/Hanmi/Disco)</td><td>TCB订单短期miss但2H恢复；CoWoS扩产驱动设备需求至2028</td><td class="up">📈 受益</td></tr>
+    <tr><td>HBM/存储 (MU/SK Hynix)</td><td>HBM是先进封装的上游输入；长协LTA推动memory向准foundry模式转变</td><td class="up">📈 受益</td></tr>
+    <tr><td>Intel Foundry</td><td>EMIB-T有进展但良率差距大；在AI高端封装侧仍需时间</td><td class="down">⚠ 追赶中</td></tr>
+    <tr><td>国产封装（盛合/渠梁/通富）</td><td>产能紧张但爬坡难；950需求爆发超出扩产速度</td><td class="neutral">🔄 验证中</td></tr>
+    <tr><td>CSP平台 (GOOG/MSFT/META)</td><td>封装产能释放→AI芯片可得性提高；但非直接受益方</td><td class="neutral">➡️ 间接</td></tr>
+  </table>
+</div>
+
+<!-- ===== ANTI-SIGNALS ===== -->
+<div class="sec-card">
+  <div class="sec-title">⚠️ 反证信号</div>
+  <div class="c3">
+    <div class="c3c blue">
+      <div class="c3t">基本面</div>
+      <p>AI CapEx从上修转为下修<br>TSMC毛利率跌破60%<br>CoWoS扩产大幅低于预期</p>
+    </div>
+    <div class="c3c green">
+      <div class="c3t">竞争</div>
+      <p>Intel EMIB达95%+量产良率+获核心客户<br>Samsung Foundry在高端封装获超预期验证<br>Apple/NVDA/AMD出现大规模双源化</p>
+    </div>
+    <div class="c3c purple">
+      <div class="c3t">地缘</div>
+      <p>台海风险显著上升<br>出口管制加码<br>关税导致先进封装成本链条重构</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUMMARY ===== -->
+<div class="summary">
+  <div class="st">📌 核心判断</div>
+  <div class="sm">先进封装不是"AI芯片的配套环节"，而是AI供给瓶颈的核心变量。</div>
+  <div class="ss">CoWoS产能2022-2027 CAGR 80%、SoIC CAGR 90%，英特尔EMIB追赶但短期无法颠覆，国产封装线爬坡验证全球先进封装需求强但供给困难。<br><br>当AI芯片竞争从"谁有更小的制程"变成"谁能把GPU+HBM+chiplets高良率封装在一起"，掌握先进封装的公司将从代工厂升级为AI基础设施的核心瓶颈控制者。</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p>来源：BofA Securities (5/15) · Bernstein (5/18) · 华为τ论文 (5/25) · 640供应链数据 (5/2) · LFF日报 · AI CapEx分析</p>
+  <p>本文基于公开资料整理，仅作信息分享，不构成投资建议</p>
+  <p>生成日期：2026-06-01</p>
+</div>
+
+</div>
+</body>
+</html>
