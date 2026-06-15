@@ -1,1473 +1,1595 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>LFF 50天 · 从华为到独立人生</title>
-<style>*{margin:0;padding:0;box-sizing:border-box}
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>LFF 50天 · 从华为到独立人生</title><style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#f8f9fb;--card:#ffffff;--border:#e2e8f0;--text:#1a202c;--dim:#64748b;--accent:#2563eb;--font:-apple-system,BlinkMacSystemFont,'SF Pro','PingFang SC',sans-serif;--mono:'SF Mono','JetBrains Mono',monospace}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;font-size:16px}
-.hero{text-align:center;padding:48px 20px 32px;background:#f0f4ff;border-bottom:1px solid var(--border)}
-.hero h1{font-size:2em;font-weight:800;color:#1a202c;margin-bottom:6px}
-.hero p{color:var(--dim);font-size:0.92em;max-width:500px;margin:0 auto}
-.hero .tagline{display:inline-block;margin-top:12px;background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;padding:4px 14px;font-size:0.78em;color:#4338ca}
-.grid-wrap{background:#ffffff;border-bottom:1px solid var(--border);padding:12px 16px;position:sticky;top:0;z-index:50;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
-.prow{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.hero{text-align:center;padding:44px 20px 28px;background:linear-gradient(135deg,#eef2ff 0%,#faf5ff 50%,#f0fdf4 100%);border-bottom:1px solid var(--border)}
+.hero h1{font-size:2em;font-weight:800;color:#1a202c;margin-bottom:4px}
+.hero p{color:var(--dim);font-size:0.9em;max-width:480px;margin:0 auto}
+.hero .tagline{display:inline-block;margin-top:10px;background:#eef2ff;border:1px solid #c7d2fe;border-radius:20px;padding:4px 16px;font-size:0.75em;color:#4338ca}
+.grid-wrap{background:#ffffff;border-bottom:1px solid var(--border);padding:10px 14px;position:sticky;top:0;z-index:50;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.prow{display:flex;align-items:center;gap:4px;margin-bottom:4px;flex-wrap:wrap}
 .prow:last-child{margin-bottom:0}
-.plabel{font-size:0.55em;font-family:var(--mono);min-width:22px;text-align:center;letter-spacing:-0.3px}
-.dot{width:24px;height:24px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:0.5em;font-family:var(--mono);cursor:pointer;flex-shrink:0}
+.dot{width:24px;height:24px;border-radius:4px;border:1px solid var(--border);background:var(--card);color:var(--dim);font-size:0.5em;font-family:var(--mono);cursor:pointer;flex-shrink:0;transition:all .1s;padding:0;line-height:24px;text-align:center}
+.dot.ov{width:auto;padding:0 6px;border-radius:12px;font-size:0.55em;font-weight:600;min-width:36px}
 .dot:hover{border-color:var(--accent);color:var(--accent);background:#eef2ff}
 .dot.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.container{max-width:740px;margin:0 auto;padding:20px 16px 60px}
-.card{display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px}
-.card.active{display:block;animation:in .2s ease}
-@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.card-head{margin-bottom:18px;padding:0 0 12px 12px;border-bottom:1px solid var(--border)}
-.card-head h2{font-size:1.2em;font-weight:700;margin:6px 0 2px;line-height:1.4;color:#0f172a}
-.meta{font-size:0.78em;color:var(--dim)}
-.badge{display:inline-block;font-size:0.68em;font-family:var(--mono);padding:2px 10px;border-radius:4px;margin-bottom:6px;font-weight:500}
-.sec{margin-bottom:18px;padding:0 2px}
-.sec-title{font-size:0.74em;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:8px;display:flex;align-items:center;gap:5px}
-.sec p{font-size:0.92em;line-height:1.75;color:#334155;margin-bottom:6px}
-.sec ul,.sec ol{margin:6px 0;padding-left:16px;color:#334155;font-size:0.92em;line-height:1.7}
-.sec li{margin-bottom:3px}
+.container{max-width:740px;margin:0 auto;padding:16px 16px 60px}
+.card,.phase-card{display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px}
+.card.active,.phase-card.active{display:block;animation:fade .25s ease}
+.phase-card.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.card-head{margin-bottom:16px;padding:0 0 10px 12px;border-bottom:1px solid var(--border)}
+.card-head h2{font-size:1.15em;font-weight:700;margin:5px 0 2px;line-height:1.4;color:#0f172a}
+.meta{font-size:0.75em;color:var(--dim)}
+.badge{display:inline-block;font-size:0.65em;font-family:var(--mono);padding:2px 8px;border-radius:4px;margin-bottom:5px;font-weight:500}
+.sec{margin-bottom:16px;padding:0 2px}
+.sec-title{font-size:0.72em;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.sec p{font-size:0.88em;line-height:1.7;color:#334155;margin-bottom:5px}
+.sec ul,.sec ol{margin:5px 0;padding-left:14px;color:#334155;font-size:0.88em;line-height:1.65}
+.sec li{margin-bottom:2px}
 .sec b{color:#0f172a}
-.story{font-size:0.92em;line-height:1.75;color:#374151}
-.quiz-box{background:#f0f4ff;border-radius:8px;padding:16px;border-left:3px solid #6366f1}
-.quiz{color:#1e293b;font-size:0.9em;line-height:1.7}
-.nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:14px;border-top:1px solid var(--border)}
-.nav button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer;font-size:0.8em;font-family:var(--font)}
+.story{font-size:0.88em;line-height:1.7;color:#374151;background:#f8fafc;padding:12px 14px;border-radius:8px;border-left:3px solid #cbd5e1}
+.quiz-box{background:#f0f4ff;border-radius:8px;padding:14px;border-left:3px solid #6366f1}
+.quiz{color:#1e293b;font-size:0.86em;line-height:1.65}
+/* Phase overview styles */
+.phase-head p{font-size:0.88em}
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px}
+.flow-item{display:flex;align-items:center;gap:8px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px}
+.flow-icon{font-size:1.2em;flex-shrink:0}
+.flow-text{display:flex;flex-direction:column}
+.flow-label{font-size:0.78em;font-weight:600;color:#1e293b}
+.flow-desc{font-size:0.65em;color:#64748b;margin-top:1px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.nav button{padding:5px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer;font-size:0.78em;font-family:var(--font)}
 .nav button:hover{border-color:var(--accent);color:var(--accent);background:#eef2ff}
 .nav button:disabled{opacity:0.25;cursor:not-allowed}
-.dot-sep{color:var(--dim);font-size:0.35em;opacity:0.35}
-.footer{text-align:center;padding:32px 16px;color:var(--dim);font-size:0.78em;border-top:1px solid var(--border)}
+.dot-sep{color:var(--dim);font-size:0.3em;opacity:0.3}
+.footer{text-align:center;padding:28px 14px;color:var(--dim);font-size:0.75em;border-top:1px solid var(--border)}
 @media(max-width:600px){
-  .hero{padding:32px 16px 24px}.hero h1{font-size:1.4em}
-  .card{padding:16px;border-radius:10px}.card-head h2{font-size:1.05em}
-  .grid-wrap{padding:8px 10px}.dot{width:20px;height:20px;font-size:0.45em}
-  .plabel{font-size:0.48em;min-width:18px}.prow{gap:3px;margin-bottom:3px}
-}</style>
-</head>
-<body>
-<div class="hero">
-  <h1>🏔️ 从华为到独立人生</h1>
-  <p>李飞 · 50天个人成长计划<br>每天一个判断框架，连接投资·健康·关系·转型</p>
-  <div class="tagline">🎯 2027辞职倒计时 · 2030 1000万RMB+100万USD</div>
-</div>
-<div class="grid-wrap"><div class="prow"><span class="plabel" style="color:#2563eb;font-weight:700">P1</span><button class="dot" data-n="1" onclick="go(1)">1</button> <button class="dot" data-n="2" onclick="go(2)">2</button> <button class="dot" data-n="3" onclick="go(3)">3</button> <button class="dot" data-n="4" onclick="go(4)">4</button> <button class="dot" data-n="5" onclick="go(5)">5</button> <button class="dot" data-n="6" onclick="go(6)">6</button> <button class="dot" data-n="7" onclick="go(7)">7</button> <button class="dot" data-n="8" onclick="go(8)">8</button></div>
-<div class="prow"><span class="plabel" style="color:#7c3aed;font-weight:700">P2</span><button class="dot" data-n="9" onclick="go(9)">9</button> <button class="dot" data-n="10" onclick="go(10)">10</button> <button class="dot" data-n="11" onclick="go(11)">11</button> <button class="dot" data-n="12" onclick="go(12)">12</button> <button class="dot" data-n="13" onclick="go(13)">13</button> <button class="dot" data-n="14" onclick="go(14)">14</button> <button class="dot" data-n="15" onclick="go(15)">15</button> <button class="dot" data-n="16" onclick="go(16)">16</button></div>
-<div class="prow"><span class="plabel" style="color:#059669;font-weight:700">P3</span><button class="dot" data-n="17" onclick="go(17)">17</button> <button class="dot" data-n="18" onclick="go(18)">18</button> <button class="dot" data-n="19" onclick="go(19)">19</button> <button class="dot" data-n="20" onclick="go(20)">20</button> <button class="dot" data-n="21" onclick="go(21)">21</button> <button class="dot" data-n="22" onclick="go(22)">22</button></div>
-<div class="prow"><span class="plabel" style="color:#d97706;font-weight:700">P4</span><button class="dot" data-n="23" onclick="go(23)">23</button> <button class="dot" data-n="24" onclick="go(24)">24</button> <button class="dot" data-n="25" onclick="go(25)">25</button> <button class="dot" data-n="26" onclick="go(26)">26</button> <button class="dot" data-n="27" onclick="go(27)">27</button> <button class="dot" data-n="28" onclick="go(28)">28</button></div>
-<div class="prow"><span class="plabel" style="color:#dc2626;font-weight:700">P5</span><button class="dot" data-n="29" onclick="go(29)">29</button> <button class="dot" data-n="30" onclick="go(30)">30</button> <button class="dot" data-n="31" onclick="go(31)">31</button> <button class="dot" data-n="32" onclick="go(32)">32</button> <button class="dot" data-n="33" onclick="go(33)">33</button> <button class="dot" data-n="34" onclick="go(34)">34</button></div>
-<div class="prow"><span class="plabel" style="color:#0891b2;font-weight:700">P6</span><button class="dot" data-n="35" onclick="go(35)">35</button> <button class="dot" data-n="36" onclick="go(36)">36</button> <button class="dot" data-n="37" onclick="go(37)">37</button> <button class="dot" data-n="38" onclick="go(38)">38</button> <button class="dot" data-n="39" onclick="go(39)">39</button> <button class="dot" data-n="40" onclick="go(40)">40</button></div>
-<div class="prow"><span class="plabel" style="color:#4f46e5;font-weight:700">P7</span><button class="dot" data-n="41" onclick="go(41)">41</button> <button class="dot" data-n="42" onclick="go(42)">42</button> <button class="dot" data-n="43" onclick="go(43)">43</button> <button class="dot" data-n="44" onclick="go(44)">44</button> <button class="dot" data-n="45" onclick="go(45)">45</button> <button class="dot" data-n="46" onclick="go(46)">46</button> <button class="dot" data-n="47" onclick="go(47)">47</button> <button class="dot" data-n="48" onclick="go(48)">48</button> <button class="dot" data-n="49" onclick="go(49)">49</button> <button class="dot" data-n="50" onclick="go(50)">50</button></div></div>
-<div class="container"><article class="card" data-day="1">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>稀缺性 · 你的资源分配法则</h2>
-        <div class="meta">Day 1 / 50</div>
+  .hero{padding:28px 14px 20px}.hero h1{font-size:1.35em}
+  .card,.phase-card{padding:14px;border-radius:10px}.card-head h2{font-size:1em}
+  .grid-wrap{padding:6px 8px}.dot{width:20px;height:20px;font-size:0.45em;line-height:20px}
+  .dot.ov{font-size:0.5em;padding:0 5px;min-width:30px}
+  .flow-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px}
+  .flow-item{padding:6px 8px}
+  .story{padding:10px 12px}
+}</style></head><body><div class="hero"><h1>🏔️ 从华为到独立人生</h1><p>李飞 · 50天个人成长计划<br>每天一个判断框架，连接投资·健康·关系·转型</p><div class="tagline">🎯 2027辞职倒计时 · 2030 1000万RMB+100万USD</div></div><div class="grid-wrap" id="nav"><div class="prow"><button class="dot ov" onclick="go(1)" style="border-color:#2563eb;color:#2563eb;font-size:0.65em">🧭P1</button> <button class="dot" data-n="1" onclick="go(1)">1</button> <button class="dot" data-n="2" onclick="go(2)">2</button> <button class="dot" data-n="3" onclick="go(3)">3</button> <button class="dot" data-n="4" onclick="go(4)">4</button> <button class="dot" data-n="5" onclick="go(5)">5</button> <button class="dot" data-n="6" onclick="go(6)">6</button> <button class="dot" data-n="7" onclick="go(7)">7</button> <button class="dot" data-n="8" onclick="go(8)">8</button></div>
+<div class="prow"><button class="dot ov" onclick="go(18)" style="border-color:#7c3aed;color:#7c3aed;font-size:0.65em">📈P2</button> <button class="dot" data-n="9" onclick="go(9)">9</button> <button class="dot" data-n="10" onclick="go(10)">10</button> <button class="dot" data-n="11" onclick="go(11)">11</button> <button class="dot" data-n="12" onclick="go(12)">12</button> <button class="dot" data-n="13" onclick="go(13)">13</button> <button class="dot" data-n="14" onclick="go(14)">14</button> <button class="dot" data-n="15" onclick="go(15)">15</button> <button class="dot" data-n="16" onclick="go(16)">16</button></div>
+<div class="prow"><button class="dot ov" onclick="go(44)" style="border-color:#059669;color:#059669;font-size:0.65em">🔄P3</button> <button class="dot" data-n="17" onclick="go(17)">17</button> <button class="dot" data-n="18" onclick="go(18)">18</button> <button class="dot" data-n="19" onclick="go(19)">19</button> <button class="dot" data-n="20" onclick="go(20)">20</button> <button class="dot" data-n="21" onclick="go(21)">21</button> <button class="dot" data-n="22" onclick="go(22)">22</button></div>
+<div class="prow"><button class="dot ov" onclick="go(75)" style="border-color:#d97706;color:#d97706;font-size:0.65em">🏥P4</button> <button class="dot" data-n="23" onclick="go(23)">23</button> <button class="dot" data-n="24" onclick="go(24)">24</button> <button class="dot" data-n="25" onclick="go(25)">25</button> <button class="dot" data-n="26" onclick="go(26)">26</button> <button class="dot" data-n="27" onclick="go(27)">27</button> <button class="dot" data-n="28" onclick="go(28)">28</button></div>
+<div class="prow"><button class="dot ov" onclick="go(113)" style="border-color:#dc2626;color:#dc2626;font-size:0.65em">❤️P5</button> <button class="dot" data-n="29" onclick="go(29)">29</button> <button class="dot" data-n="30" onclick="go(30)">30</button> <button class="dot" data-n="31" onclick="go(31)">31</button> <button class="dot" data-n="32" onclick="go(32)">32</button> <button class="dot" data-n="33" onclick="go(33)">33</button> <button class="dot" data-n="34" onclick="go(34)">34</button></div>
+<div class="prow"><button class="dot ov" onclick="go(158)" style="border-color:#0891b2;color:#0891b2;font-size:0.65em">🤖P6</button> <button class="dot" data-n="35" onclick="go(35)">35</button> <button class="dot" data-n="36" onclick="go(36)">36</button> <button class="dot" data-n="37" onclick="go(37)">37</button> <button class="dot" data-n="38" onclick="go(38)">38</button> <button class="dot" data-n="39" onclick="go(39)">39</button> <button class="dot" data-n="40" onclick="go(40)">40</button></div>
+<div class="prow"><button class="dot ov" onclick="go(210)" style="border-color:#4f46e5;color:#4f46e5;font-size:0.65em">🎯P7</button> <button class="dot" data-n="41" onclick="go(41)">41</button> <button class="dot" data-n="42" onclick="go(42)">42</button> <button class="dot" data-n="43" onclick="go(43)">43</button> <button class="dot" data-n="44" onclick="go(44)">44</button> <button class="dot" data-n="45" onclick="go(45)">45</button> <button class="dot" data-n="46" onclick="go(46)">46</button> <button class="dot" data-n="47" onclick="go(47)">47</button> <button class="dot" data-n="48" onclick="go(48)">48</button> <button class="dot" data-n="49" onclick="go(49)">49</button> <button class="dot" data-n="50" onclick="go(50)">50</button></div></div><div class="container"><article class="phase-card" data-idx="0">
+      <div class="phase-head" style="background:#2563eb08;border-left:4px solid #2563eb;border-radius:10px;padding:18px;margin-bottom:6px">
+        <div style="font-size:1.8em;margin-bottom:4px">🧭</div>
+        <h2 style="font-size:1em;font-weight:700;color:#2563eb;margin-bottom:2px">自我认知 · 看清自己的位置</h2>
+        <div style="font-size:0.72em;color:#64748b">Day 1-8 · 你的资源配置法则</div>
+        <p style="margin-top:8px;font-size:0.82em;color:#475569;line-height:1.55">从稀缺性出发，到2030目标落地——让每一份资源都投入最高回报的地方。</p>
       </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的时间、注意力、本金、情绪能量都是稀缺资源。2027年6月辞职倒计时，每一周都是不可再生的。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你是华为计算产品线销售，月薪3.5万，ESOP约42万股。IBKR $588K（现金$248K+股$340K）。四道硬线：股票≤55%、AI芯片≤33%、单仓≤10%、缓冲≥22-25%。</p><p>你每天必须分配的稀缺资源：①工作时间②研究持仓③健康恢复④LEIEN时间⑤学习。五件事不能全做。你最大的稀缺问题不是时间不够，是注意力分配错了。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2025年的典型一天：早8:30到公司，处理邮件+开会到12:00（4小时，产出最低）。下午2:00-5:00处理客户需求（3小时核心）。晚7:00-9:00研究IBKR（2小时）。晚9:30后陪LEIEN。真正的稀缺不是工作时间，是你每天只有2-3小时的深度思考时间——却被会议消耗了。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">用你的IBKR持仓做练习：你的42%现金仓位+5.5% SGOV，就是在用稀缺性框架管理风险——现金是你最稀缺的期权。写下你今天花了多少时间在深度思考上？这个数字≥2小时吗？如果不是，明天把其中1小时从会议/邮件里抢回来。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(0)" disabled>← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(2)" >下一篇 →</button>
+      <div class="flow-grid"><div class="flow-item"><span class="flow-icon">🎯</span><div class="flow-text"><span class="flow-label">稀缺性</span><span class="flow-desc">认清有限资源</span></div></div>
+<div class="flow-item"><span class="flow-icon">🔀</span><div class="flow-text"><span class="flow-label">机会成本</span><span class="flow-desc">每个选择都有代价</span></div></div>
+<div class="flow-item"><span class="flow-icon">📊</span><div class="flow-text"><span class="flow-label">边际分析</span><span class="flow-desc">多一步值不值</span></div></div>
+<div class="flow-item"><span class="flow-icon">⚡</span><div class="flow-text"><span class="flow-label">激励解码</span><span class="flow-desc">什么驱动你行动</span></div></div>
+<div class="flow-item"><span class="flow-icon">💰</span><div class="flow-text"><span class="flow-label">时间价值</span><span class="flow-desc">复利的数学</span></div></div>
+<div class="flow-item"><span class="flow-icon">🛡️</span><div class="flow-text"><span class="flow-label">风险管理</span><span class="flow-desc">四道硬线</span></div></div>
+<div class="flow-item"><span class="flow-icon">👁️</span><div class="flow-text"><span class="flow-label">信息优势</span><span class="flow-desc">你的独特视角</span></div></div>
+<div class="flow-item"><span class="flow-icon">🗺️</span><div class="flow-text"><span class="flow-label">目标倒推</span><span class="flow-desc">2030路线图</span></div></div></div>
+      <div style="margin-top:14px;text-align:center">
+        <button onclick="go(2)" style="padding:6px 18px;border-radius:8px;border:1px solid var(--border);background:#2563eb;color:#fff;cursor:pointer;font-size:0.8em;font-family:var(--font);font-weight:500">开始本阶段 →</button>
       </div>
     </article>
-<article class="card" data-day="2">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>机会成本 · 你的华为选择</h2>
-        <div class="meta">Day 2 / 50</div>
+<article class="card" data-idx="1">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>稀缺性 · 你的资源分配法则</h2>
+            <div class="meta">Day 1 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的时间、注意力、本金、情绪能量都是稀缺资源。2027年6月辞职倒计时，每一周都是不可再生的。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你是华为计算产品线销售，月薪3.5万，ESOP约42万股。IBKR $588K（现金$248K+股$340K）。四道硬线：股票≤55%、AI芯片≤33%、单仓≤10%、缓冲≥22-25%。</p><p>你每天必须分配的稀缺资源：①工作时间②研究持仓③健康恢复④LEIEN时间⑤学习。五件事不能全做。你最大的稀缺问题不是时间不够，是注意力分配错了。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2025年的典型一天：早8:30到公司，处理邮件+开会到12:00（4小时，产出最低）。下午2:00-5:00处理客户需求（3小时核心）。晚7:00-9:00研究IBKR（2小时）。晚9:30后陪LEIEN。真正的稀缺不是工作时间，是你每天只有2-3小时的深度思考时间——却被会议消耗了。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">用你的IBKR持仓做练习：你的42%现金仓位+5.5% SGOV，就是在用稀缺性框架管理风险——现金是你最稀缺的期权。写下你今天花了多少时间在深度思考上？这个数字≥2小时吗？如果不是，明天把其中1小时从会议/邮件里抢回来。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(1)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(3)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="2">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>机会成本 · 你的华为选择</h2>
+            <div class="meta">Day 2 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你继续在华为工作一年的机会成本：放弃的是一年健康恢复窗口、自由支配时间和提前开启第二人生的可能性。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的核心矛盾：华为年薪~150万（含ESOP）vs离职后年现金流~$9万（≈65万RMB）。差额约85万RMB/年。问题是这85万买的是什么？买你一年的身体损耗+情绪消耗+与LEIEN的关系成本。</p><p>从纯财务角度：继续工作1年净现金流+ESOP积累≈150万。但放弃的是1年健康恢复窗口+自由支配时间。问题不是150万值不值，而是用这一年的自由和健康换150万，是不是你当前最好的选择。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2019年的一个选择：两个内转岗机会——①昇腾产品线（加班多但前景好）②传统IT（稳定但天花板低）。你选了昇腾。今天回头看，如果选了稳定路线，你可能错过了芯片爆发红利，但身体损耗可能少很多。这就是机会成本的现实——你不知道另一个选择的结果。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">你每天加班2小时处理非关键事务。这2小时的机会成本是什么？如果用于研究持仓、锻炼、陪LEIEN，年化收益远高于加班绩效。选一件你今天本可以不做的事，明确它的机会成本。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(2)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(4)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="3">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>边际分析 · 再多一步值不值</h2>
+            <div class="meta">Day 3 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>所有'值不值得'的问题，本质上都是：再投入一单位资源，边际收益是否大于边际成本。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的MU持仓：95股，单仓14.8%，已超10%红线。再加20股？边际收益=继续上涨的增量收益。边际风险=集中度攀升+跌破635的损失。每多加一股的边际风险上升，边际收益下降——你已经过了最优仓位点。</p><p>同理：每天加班第1小时（核心客户）边际价值最高。第2小时（内部流程）中等。第3小时（邮件/会议）趋近零。第4小时（无效社交）为负。你的最优点在哪？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你的信息摄入边际曲线：每天看财经信息——前20分钟（核心变动）→第20-40分钟（补充细节）→第40-60分钟（重复信息）→第60分钟+（情绪噪音）。第30分钟后边际收益趋近零。用这30分钟去锻炼，身体收益远大于信息收益。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">选你做得较多的一件事（加班、看盘、刷信息），画一条边际收益曲线。找到你的'停止点'——多一步不值的那条线在哪？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(3)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(5)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="4">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>激励 · 解码你的行为驱动</h2>
+            <div class="meta">Day 4 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你不是按'应该做什么'行动，而是按奖励结构指向什么行动。要改变行为，先改变激励。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的真实激励分析：①金钱激励——月薪3.5万+ESOP，离职后这部分消失。②地位激励——华为高级销售的社会认可。③自主权激励——你渴望的自由时间，这是推动你离职的核心动力。④风险激励——IBKR波动带来的多巴胺刺激。</p><p>你的激励冲突：短期（继续拿高薪）vs长期（健康/自由）。短期激励（每月发薪）总是比长期激励（3年后的健康）更强烈。你需要把长期激励显性化。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你的团队管理洞察：你团队成员的表面激励是完成KPI拿奖金，真实激励是不被淘汰。你作为销售lead能推动他们不是因为PPT讲得好，是因为你调整了奖励结构——谁在昇腾项目上出成果，谁拿到好客户资源。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">想一个你希望自己多做的事（比如每天运动30分钟）。设计一个即时激励（如：完成一周运动就奖励自己周末不碰工作消息）。再想一个你希望团队多做的事，检查当前KPI是否在支持它。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(4)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(6)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="5">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>时间价值 · 你的退休数学</h2>
+            <div class="meta">Day 5 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>今天的一块钱比明天的一块钱更值钱。你的2030目标需要从现在开始倒推执行。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的财务目标：2030年1000万RMB+100万USD。72法则——8%年化→9年翻倍。你的IBKR $588K在4年后（2030）约$800K。加上国内资产（华为最后薪资+ESOP+年终奖≈300-400万RMB），总资产≈$800K+400万RMB。</p><p>按6.5汇率≈920万RMB+$800K。距离100万USD+1000万RMB还有约80万RMB的缺口。如何填补？提高IBKR年化到10%？离职后保持一定收入？降低国内资产比例？需要每季度验证。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2023年的IBKR经历：年初$450K到年底$620K（+38%），觉得自己是天才。2024年上半年MU跌30%+，又怀疑人生。这个波动告诉你：单年回报没意义，4年CAGR才是标准。2023年的38%可能只是把你2022年没亏的补回来了。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">用72法则算：你IBKR $588K按8%年化，4年后是多少？如果达到10%呢？差距就是你需要额外付出的研究和纪律。写下你未来4年的年化回报目标。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(5)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(7)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="6">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>风险管理 · 你的四道硬线</h2>
+            <div class="meta">Day 6 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>投资的第一法则：不要亏钱。第二条：记住第一条。你的四道硬线是写在血泪里的生存法则。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的风控体系（来自manyu决策过滤器）：①股票总仓位≤55%②AI芯片主题≤33%（你的47.7%是违规的！）③NVDA单仓≤18%④单只个股≤10%（MU 14.8%超标）⑤现金缓冲≥22-25%（42%安全）。</p><p>你的四道硬线不是理论，是实战教训。当你在违规区操作时（比如MU超10%），你是在赌。偶尔赌对一次会让你以为很聪明，但长期看，纪律是唯一能让你活到2030年的保障。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2025年的MU仓位教训：MU从$140跌到$90（-35%），你的单仓从15%膨胀到22%（其他持仓跌得更多）。那种不知道要不要补仓的焦虑消耗了大量情绪能量。如果严格执行10%上限，持仓体验和决策质量会好得多。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">检查你当前的IBKR持仓：每只股票仓位是否超过10%上限？AI芯片总仓位是否超过33%？如果超了，写一个减仓计划。这是你最好的风险管理练习。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(6)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(8)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="7">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>信息优势 · 你的华为视角</h2>
+            <div class="meta">Day 7 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你比99%的市场参与者拥有独特的信息优势——你对国产算力的一手认知。但这也是你的偏见来源。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的信息优势分层：①你在华为昇腾做销售，对国产AI芯片的真实竞争力有一手认知。②你同时在用Codex和Hermes，对AI Agent的能力边界有远超普通投资者的体验。③你在美股投资，同时在一家被制裁的中国科技巨头工作——你对中美科技脱钩的理解是华尔街分析师不具备的。</p><p>你的信息优势悖论：你会因为'身在其中'而产生确认偏见——倾向于高估华为和国产算力的价值。你需要用内部信息做判断，但也要意识到这个信息可能是偏的。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2025年的一个决策：从内部了解到昇腾950PR产能扩张，想加仓TSM。但TSM的主要增长驱动力是NVIDIA的Blackwell/Rubin订单，而非国产芯片。你的内部优势在这里反而不是优势——过于关注华为而忽略了全球视角。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">列出你作为华为员工的3个信息优势和3个潜在偏见。哪些信息是市场没定价的？哪些是你的盲区？下次投资前先问：这个信息是真的优势，还是我在华为的视角让我高估了它？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(7)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(9)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="8">
+          <div class="card-head" style="border-left:3px solid #2563eb">
+            <span class="badge" style="background:#2563eb12;color:#2563eb">🧭 P1</span>
+            <h2>目标倒推 · 你的2030路线图</h2>
+            <div class="meta">Day 8 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>如果你不知道要去哪，任何路都会带你去。你的2030目标明确，但路径需要每一步都验证。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的倒推计划：①IBKR $588K×8%×4年≈$800K（2030）。②国内资产（最后薪资+ESOP+年终奖）≈300-400万RMB。③总资产≈$800K+400万RMB，按6.5汇率≈920万RMB+$800K。目标100万USD+1000万RMB，缺口约80万RMB。</p><p>如何填补？①提高IBKR年化到10%②离职后保持一定收入③降低国内资产。关键：这个路线图需要每季度验证——如果某年IBKR跌20%，整个计划需要重置。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2024年初的规划：你当时以为2025年底就能到达某个资产数字。结果MU从$140跌到$90，你的计划延迟了。不是你的错——市场不可预测。但你没有做Plan B（如果跌了怎么办）。这次你有四道硬线了。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">做两个压力测试：①每年回报只有5%的结果→你的2030目标能实现吗？②第一年就亏20%的结果→你的计划还可行吗？如果不行，你需要调整什么？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(8)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(10)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="phase-card" data-idx="9">
+      <div class="phase-head" style="background:#7c3aed08;border-left:4px solid #7c3aed;border-radius:10px;padding:18px;margin-bottom:6px">
+        <div style="font-size:1.8em;margin-bottom:4px">📈</div>
+        <h2 style="font-size:1em;font-weight:700;color:#7c3aed;margin-bottom:2px">投资体系 · 给IBKR装上操作系统</h2>
+        <div style="font-size:0.72em;color:#64748b">Day 9-16 · 从直觉交易到体系化投资</div>
+        <p style="margin-top:8px;font-size:0.82em;color:#475569;line-height:1.55">从分散化配置到极端情景预案——让你的投资系统在任何市场环境中都能运行。</p>
       </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你继续在华为工作一年的机会成本：放弃的是一年健康恢复窗口、自由支配时间和提前开启第二人生的可能性。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的核心矛盾：华为年薪~150万（含ESOP）vs离职后年现金流~$9万（≈65万RMB）。差额约85万RMB/年。问题是这85万买的是什么？买你一年的身体损耗+情绪消耗+与LEIEN的关系成本。</p><p>从纯财务角度：继续工作1年净现金流+ESOP积累≈150万。但放弃的是1年健康恢复窗口+自由支配时间。问题不是150万值不值，而是用这一年的自由和健康换150万，是不是你当前最好的选择。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2019年的一个选择：两个内转岗机会——①昇腾产品线（加班多但前景好）②传统IT（稳定但天花板低）。你选了昇腾。今天回头看，如果选了稳定路线，你可能错过了芯片爆发红利，但身体损耗可能少很多。这就是机会成本的现实——你不知道另一个选择的结果。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">你每天加班2小时处理非关键事务。这2小时的机会成本是什么？如果用于研究持仓、锻炼、陪LEIEN，年化收益远高于加班绩效。选一件你今天本可以不做的事，明确它的机会成本。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(1)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(3)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="3">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>边际分析 · 再多一步值不值</h2>
-        <div class="meta">Day 3 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>所有'值不值得'的问题，本质上都是：再投入一单位资源，边际收益是否大于边际成本。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的MU持仓：95股，单仓14.8%，已超10%红线。再加20股？边际收益=继续上涨的增量收益。边际风险=集中度攀升+跌破635的损失。每多加一股的边际风险上升，边际收益下降——你已经过了最优仓位点。</p><p>同理：每天加班第1小时（核心客户）边际价值最高。第2小时（内部流程）中等。第3小时（邮件/会议）趋近零。第4小时（无效社交）为负。你的最优点在哪？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你的信息摄入边际曲线：每天看财经信息——前20分钟（核心变动）→第20-40分钟（补充细节）→第40-60分钟（重复信息）→第60分钟+（情绪噪音）。第30分钟后边际收益趋近零。用这30分钟去锻炼，身体收益远大于信息收益。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">选你做得较多的一件事（加班、看盘、刷信息），画一条边际收益曲线。找到你的'停止点'——多一步不值的那条线在哪？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(2)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(4)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="4">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>激励 · 解码你的行为驱动</h2>
-        <div class="meta">Day 4 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你不是按'应该做什么'行动，而是按奖励结构指向什么行动。要改变行为，先改变激励。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的真实激励分析：①金钱激励——月薪3.5万+ESOP，离职后这部分消失。②地位激励——华为高级销售的社会认可。③自主权激励——你渴望的自由时间，这是推动你离职的核心动力。④风险激励——IBKR波动带来的多巴胺刺激。</p><p>你的激励冲突：短期（继续拿高薪）vs长期（健康/自由）。短期激励（每月发薪）总是比长期激励（3年后的健康）更强烈。你需要把长期激励显性化。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你的团队管理洞察：你团队成员的表面激励是完成KPI拿奖金，真实激励是不被淘汰。你作为销售lead能推动他们不是因为PPT讲得好，是因为你调整了奖励结构——谁在昇腾项目上出成果，谁拿到好客户资源。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">想一个你希望自己多做的事（比如每天运动30分钟）。设计一个即时激励（如：完成一周运动就奖励自己周末不碰工作消息）。再想一个你希望团队多做的事，检查当前KPI是否在支持它。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(3)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(5)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="5">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>时间价值 · 你的退休数学</h2>
-        <div class="meta">Day 5 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>今天的一块钱比明天的一块钱更值钱。你的2030目标需要从现在开始倒推执行。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的财务目标：2030年1000万RMB+100万USD。72法则——8%年化→9年翻倍。你的IBKR $588K在4年后（2030）约$800K。加上国内资产（华为最后薪资+ESOP+年终奖≈300-400万RMB），总资产≈$800K+400万RMB。</p><p>按6.5汇率≈920万RMB+$800K。距离100万USD+1000万RMB还有约80万RMB的缺口。如何填补？提高IBKR年化到10%？离职后保持一定收入？降低国内资产比例？需要每季度验证。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2023年的IBKR经历：年初$450K到年底$620K（+38%），觉得自己是天才。2024年上半年MU跌30%+，又怀疑人生。这个波动告诉你：单年回报没意义，4年CAGR才是标准。2023年的38%可能只是把你2022年没亏的补回来了。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">用72法则算：你IBKR $588K按8%年化，4年后是多少？如果达到10%呢？差距就是你需要额外付出的研究和纪律。写下你未来4年的年化回报目标。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(4)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(6)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="6">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>风险管理 · 你的四道硬线</h2>
-        <div class="meta">Day 6 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>投资的第一法则：不要亏钱。第二条：记住第一条。你的四道硬线是写在血泪里的生存法则。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的风控体系（来自manyu决策过滤器）：①股票总仓位≤55%②AI芯片主题≤33%（你的47.7%是违规的！）③NVDA单仓≤18%④单只个股≤10%（MU 14.8%超标）⑤现金缓冲≥22-25%（42%安全）。</p><p>你的四道硬线不是理论，是实战教训。当你在违规区操作时（比如MU超10%），你是在赌。偶尔赌对一次会让你以为很聪明，但长期看，纪律是唯一能让你活到2030年的保障。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2025年的MU仓位教训：MU从$140跌到$90（-35%），你的单仓从15%膨胀到22%（其他持仓跌得更多）。那种不知道要不要补仓的焦虑消耗了大量情绪能量。如果严格执行10%上限，持仓体验和决策质量会好得多。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">检查你当前的IBKR持仓：每只股票仓位是否超过10%上限？AI芯片总仓位是否超过33%？如果超了，写一个减仓计划。这是你最好的风险管理练习。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(5)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(7)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="7">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>信息优势 · 你的华为视角</h2>
-        <div class="meta">Day 7 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你比99%的市场参与者拥有独特的信息优势——你对国产算力的一手认知。但这也是你的偏见来源。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的信息优势分层：①你在华为昇腾做销售，对国产AI芯片的真实竞争力有一手认知。②你同时在用Codex和Hermes，对AI Agent的能力边界有远超普通投资者的体验。③你在美股投资，同时在一家被制裁的中国科技巨头工作——你对中美科技脱钩的理解是华尔街分析师不具备的。</p><p>你的信息优势悖论：你会因为'身在其中'而产生确认偏见——倾向于高估华为和国产算力的价值。你需要用内部信息做判断，但也要意识到这个信息可能是偏的。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2025年的一个决策：从内部了解到昇腾950PR产能扩张，想加仓TSM。但TSM的主要增长驱动力是NVIDIA的Blackwell/Rubin订单，而非国产芯片。你的内部优势在这里反而不是优势——过于关注华为而忽略了全球视角。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">列出你作为华为员工的3个信息优势和3个潜在偏见。哪些信息是市场没定价的？哪些是你的盲区？下次投资前先问：这个信息是真的优势，还是我在华为的视角让我高估了它？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(6)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(8)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="8">
-      <div class="card-head" style="border-left:3px solid #2563eb">
-        <span class="badge" style="background:#2563eb15;color:#2563eb">🧭 P1 自我认知</span>
-        <h2>目标倒推 · 你的2030路线图</h2>
-        <div class="meta">Day 8 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>如果你不知道要去哪，任何路都会带你去。你的2030目标明确，但路径需要每一步都验证。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的倒推计划：①IBKR $588K×8%×4年≈$800K（2030）。②国内资产（最后薪资+ESOP+年终奖）≈300-400万RMB。③总资产≈$800K+400万RMB，按6.5汇率≈920万RMB+$800K。目标100万USD+1000万RMB，缺口约80万RMB。</p><p>如何填补？①提高IBKR年化到10%②离职后保持一定收入③降低国内资产。关键：这个路线图需要每季度验证——如果某年IBKR跌20%，整个计划需要重置。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2024年初的规划：你当时以为2025年底就能到达某个资产数字。结果MU从$140跌到$90，你的计划延迟了。不是你的错——市场不可预测。但你没有做Plan B（如果跌了怎么办）。这次你有四道硬线了。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">做两个压力测试：①每年回报只有5%的结果→你的2030目标能实现吗？②第一年就亏20%的结果→你的计划还可行吗？如果不行，你需要调整什么？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(7)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(9)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="9">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>资产配置 · 你的IBKR蓝图</h2>
-        <div class="meta">Day 9 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>超过90%的回报波动来自资产配置，不是选股。你的IBKR需要一个清晰的配置框架。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你当前的IBKR：$588K=现金$248K（42%）+股票$340K（58%）。AI芯片暴露47.7%（远超33%红线！）。核心问题：①你是在主动配置现金比例，还是因为不确定买什么而被动的结果？②你的股票持仓是否过度集中在AI/半导体？③现金$248K的收益是否被通胀侵蚀？</p><p>建议配置：核心（70%）+卫星（30%）。核心=ETF指数（VTI/VXUS/BND），保证市场平均回报。卫星=你研究透彻的个股，用信息优势做超额收益。当前你100%是个股，没有指数核心——这是最大的缺陷。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2024年的学习：在AI基建杠杆那篇文章里看到60/40组合的概念。如果你在2020年就按60/40配置而非全仓个股，你现在的心态会好很多——债券部分在2022年提供了缓冲。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">做你的IBKR配置诊断：按三个维度打分（1-5）：①分散化程度②与目标的匹配度③在不同市场环境下的稳健性。最低分的维度就是你需要调整的方向。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(8)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(10)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="10">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>供需分析 · 存储周期判断</h2>
-        <div class="meta">Day 10 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你重仓MU（14.8%，超标），但你真的理解存储周期吗？这是一个经典的供给驱动型行业。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你通过SemiAnalysis理解了存储周期：2022-2023年需求（PC/手机出货下降）+供给（产能过剩）=价格暴跌80%。2024年起需求（AI拉动HBM）+供给（转向HBM减少传统DRAM）=价格回升。</p><p>你的MU持仓逻辑：受益于HBM需求爆发。但注意：①HBM4商用是2027年，股价可能已提前反映乐观预期。②MU在HBM4的份额仍不确定（SK海力士领先）。③传统DRAM业务在2025-2026可能面临新一波供给过剩。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你读到的那篇文章说云服务商锁定2027年全部LTA产能，UBS大幅上调WFE预测。这个数据背后是结构性短缺。但问题是——市场已经把2028年的预期定价了多少？你的投资假设需要定期验证。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">用供需框架分析MU：列出当前需求驱动力和供给约束。均衡向哪边移动？如果HBM4份额低于预期，你的投资假设还成立吗？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(9)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(11)" >下一篇 →</button>
+      <div class="flow-grid"><div class="flow-item"><span class="flow-icon">🏗️</span><div class="flow-text"><span class="flow-label">资产配置</span><span class="flow-desc">你的IBKR蓝图</span></div></div>
+<div class="flow-item"><span class="flow-icon">⚖️</span><div class="flow-text"><span class="flow-label">供需分析</span><span class="flow-desc">存储周期判断</span></div></div>
+<div class="flow-item"><span class="flow-icon">📏</span><div class="flow-text"><span class="flow-label">估值框架</span><span class="flow-desc">贵还是便宜</span></div></div>
+<div class="flow-item"><span class="flow-icon">💵</span><div class="flow-text"><span class="flow-label">现金管理</span><span class="flow-desc">$248K怎么投</span></div></div>
+<div class="flow-item"><span class="flow-icon">🧩</span><div class="flow-text"><span class="flow-label">因子暴露</span><span class="flow-desc">你的持仓画像</span></div></div>
+<div class="flow-item"><span class="flow-icon">🧠</span><div class="flow-text"><span class="flow-label">行为偏差</span><span class="flow-desc">自己最大敌人</span></div></div>
+<div class="flow-item"><span class="flow-icon">📋</span><div class="flow-text"><span class="flow-label">税务优化</span><span class="flow-desc">看不见的成本</span></div></div>
+<div class="flow-item"><span class="flow-icon">🌪️</span><div class="flow-text"><span class="flow-label">压力测试</span><span class="flow-desc">能活过危机吗</span></div></div></div>
+      <div style="margin-top:14px;text-align:center">
+        <button onclick="go(19)" style="padding:6px 18px;border-radius:8px;border:1px solid var(--border);background:#7c3aed;color:#fff;cursor:pointer;font-size:0.8em;font-family:var(--font);font-weight:500">开始本阶段 →</button>
       </div>
     </article>
-<article class="card" data-day="11">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>估值框架 · 你买的贵不贵</h2>
-        <div class="meta">Day 11 / 50</div>
+<article class="card" data-idx="10">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>资产配置 · 你的IBKR蓝图</h2>
+            <div class="meta">Day 9 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>超过90%的回报波动来自资产配置，不是选股。你的IBKR需要一个清晰的配置框架。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你当前的IBKR：$588K=现金$248K（42%）+股票$340K（58%）。AI芯片暴露47.7%（远超33%红线！）。核心问题：①你是在主动配置现金比例，还是因为不确定买什么而被动的结果？②你的股票持仓是否过度集中在AI/半导体？③现金$248K的收益是否被通胀侵蚀？</p><p>建议配置：核心（70%）+卫星（30%）。核心=ETF指数（VTI/VXUS/BND），保证市场平均回报。卫星=你研究透彻的个股，用信息优势做超额收益。当前你100%是个股，没有指数核心——这是最大的缺陷。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2024年的学习：在AI基建杠杆那篇文章里看到60/40组合的概念。如果你在2020年就按60/40配置而非全仓个股，你现在的心态会好很多——债券部分在2022年提供了缓冲。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">做你的IBKR配置诊断：按三个维度打分（1-5）：①分散化程度②与目标的匹配度③在不同市场环境下的稳健性。最低分的维度就是你需要调整的方向。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(10)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(12)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="11">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>供需分析 · 存储周期判断</h2>
+            <div class="meta">Day 10 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你重仓MU（14.8%，超标），但你真的理解存储周期吗？这是一个经典的供给驱动型行业。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你通过SemiAnalysis理解了存储周期：2022-2023年需求（PC/手机出货下降）+供给（产能过剩）=价格暴跌80%。2024年起需求（AI拉动HBM）+供给（转向HBM减少传统DRAM）=价格回升。</p><p>你的MU持仓逻辑：受益于HBM需求爆发。但注意：①HBM4商用是2027年，股价可能已提前反映乐观预期。②MU在HBM4的份额仍不确定（SK海力士领先）。③传统DRAM业务在2025-2026可能面临新一波供给过剩。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你读到的那篇文章说云服务商锁定2027年全部LTA产能，UBS大幅上调WFE预测。这个数据背后是结构性短缺。但问题是——市场已经把2028年的预期定价了多少？你的投资假设需要定期验证。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">用供需框架分析MU：列出当前需求驱动力和供给约束。均衡向哪边移动？如果HBM4份额低于预期，你的投资假设还成立吗？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(11)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(13)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="12">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>估值框架 · 你买的贵不贵</h2>
+            <div class="meta">Day 11 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>NVDA P/E=45看起来贵，MU P/E=25看起来便宜。但估值不是单一数字，是预期和现实的差距。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>NVDA P/E=45，PEG≈1.8（算合理）。MU P/E=25但存储是周期股——不能用简单P/E估值。周期顶部低P/E是陷阱（盈利在高点），底部高P/E是机会（盈利在低点）。</p><p>你的持仓需要用不同估值框架：成长股用PEG，周期股用PB，价值股用股息率。混用框架是常见的错误。你买的NVDA用PEG合理吗？MU用PB合理吗？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">Amazon 2010-2015年P/E经常100-300倍，价值投资者说太贵了。但P/S只有2-3倍，ROIC持续20%以上。多角度而不是只看P/E才能看到完整画面。NVDA也一样——只看P/E你永远不会买，但考虑CUDA护城河+AI需求，高P/E是合理的。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">用正确的估值框架评估你持有的一只股票：NVDA用PEG，MU用PB周期，GOOG用DCF。每种框架给的结论一致吗？如果不一致，说明你对这家公司理解还不够深。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(12)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(14)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="13">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>现金管理 · 你的$248K怎么办</h2>
+            <div class="meta">Day 12 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的42%现金仓位持有的是买入期权——别人恐慌时你有子弹。但期权也在每天贬值（通胀）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>$248K现金的逻辑是什么？等跌了再买=你在择时。历史数据：2/3的时候一次性投入跑赢DCA。但择时的心理收益是真实的——如果2025年初全仓买入然后跌15%，你的压力会导致在底部卖出。</p><p>建议：把现金分成三份——①应急资金（6个月生活费≈$30K）永远不动。②核心配置（$100K）按目标比例一次性投入。③灵活性资金（剩余$118K）按DCA分12个月投入。既有纪律又有灵活性。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你2020年3月的经历：疫情底时你有现金但没敢买——因为恐惧。如果你有一套DCA计划自动执行，就不会让恐惧阻止你抄底。那是十年一遇的买入机会。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">制定你的现金部署计划：$248K分成三份（应急/核心/DCA）。写出每部分金额和投入时间表。然后回答：如果投入后市场跌20%，你能坚持计划吗？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(13)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(15)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="14">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>因子暴露 · 你的持仓画像</h2>
+            <div class="meta">Day 13 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的组合有什么因子暴露？偏价值还是偏成长？你可能自己都不知道。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的IBKR持仓分析：NVDA（成长+动量）、MU（周期+价值）、GOOG/MSFT/META（成长+质量）、BRK.B（价值）。整体偏成长和动量。如果2026年市场风格切换（从成长转向价值），你的组合可能持续跑输大盘。</p><p>因子暴露的危害：当市场风格不利于你的因子时，即使选股能力再好，也可能持续跑输。2019-2020年价值因子连续3年跑输成长，如果你是全价值投资者，你会怀疑人生。你需要知道你的组合在什么环境下表现好/差。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">Fama-French研究：三个因子——市场、规模、价值——解释了90%以上的股票回报差异。你的持仓高度集中在市场beta+成长因子。你缺少价值和规模因子的暴露。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">分析你的IBKR持仓的因子暴露：每只股票的beta、P/E、市值。然后判断：如果市场风格从成长切换到价值，你的组合会怎样？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(14)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(16)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="15">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>行为偏差 · 你是自己最大的敌人</h2>
+            <div class="meta">Day 14 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你97%的投资知识储备已经足够。你的亏损不是来自不知道，是来自做不到。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的行为偏差诊断：①确认偏见——你看牛的NVDA文章远多于看空的。你作为华为员工天然认为国产算力会赢（即使你的IBKR全是美股）。②处置效应——你盈利了想卖（赚够了），亏损了死扛（会回来的）。③过度自信——你87%持仓是美股，0%债券，反映的不是风险承受能力而是过度自信。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你看到NVDA从$140跌到$90时的反应是加仓而不是检查买入逻辑——这是锚定偏见。如果你在$90时间自己：如果没持仓，今天会用$90买吗？答案可能完全不同。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">选一个你的持仓，写3个看空理由。如果看完后你还相信——那才是真正的确信。如果写不出3个合理的看空理由，说明你有确认偏见。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(15)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(17)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="16">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>税务优化 · 看不见的成本</h2>
+            <div class="meta">Day 15 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你是中国居民投资美股，股息预扣税10%，遗产税最高40%。这些成本每年侵蚀你的回报。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>三个税务陷阱：①股息预扣税——高股息股（VZ 6%）每年被扣10%。②遗产税——持有超过$6万美国资产，税率26-40%。你的$340K股票如果直接注册在美国，继承人面临巨额税。③汇率——RMB/USD波动可能吃掉全部收益。</p><p>优化：①用爱尔兰注册ETF（CSPX替代SPY）避遗产税。②优先持低股息成长股。③用香港上市的美股ETF替代美国注册的。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你之前读到的案例：中国投资者持有$200万美股突然去世，免税额度仅$6万。$194万按40%征税=$77.6万——近40%消失！</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">检查你IBKR持仓的高股息股（>2%）。列出1-2个你可以采取的税务优化行动。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(16)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(18)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="17">
+          <div class="card-head" style="border-left:3px solid #7c3aed">
+            <span class="badge" style="background:#7c3aed12;color:#7c3aed">📈 P2</span>
+            <h2>压力测试 · 你的组合能活过危机吗</h2>
+            <div class="meta">Day 16 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的组合不是用来在好行情中赚最多的，是用来在坏行情中活下来的。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>三个极端情景：①美国经济衰退，S&P 500跌30%，你的科技股跌40%+。②中美科技战升级，TSM和MU受限跌50%+。③AI泡沫破裂，NVDA从$900跌到$300。</p><p>你的$588K会变成多少？你还能坚持计划吗？如果在恐慌中清仓，2030目标就宣告失败。压力测试的目的不是预测未来，是确保你在最坏的情况下也不会被迫卖出。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">LTCM的故事：一群诺奖得主管理的一只基金，4年年化40%+，杠杆25倍。然后俄罗斯债务违约——模型里概率为0的事件发生了。4周亏$46亿，破产。你没有杠杆，但AI芯片制裁这样的小概率事件对你的冲击可能是毁灭性的。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">写三个对你IBKR影响最大的黑天鹅事件。对每个事件写：①触发条件②你的组合亏多少③你会怎么做。如果某个事件下你只能割肉——提前减仓。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(17)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(19)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="phase-card" data-idx="18">
+      <div class="phase-head" style="background:#05966908;border-left:4px solid #059669;border-radius:10px;padding:18px;margin-bottom:6px">
+        <div style="font-size:1.8em;margin-bottom:4px">🔄</div>
+        <h2 style="font-size:1em;font-weight:700;color:#059669;margin-bottom:2px">职业转型 · 从华为到独立人生</h2>
+        <div style="font-size:0.72em;color:#64748b">Day 17-22 · 364天离职倒计时</div>
+        <p style="margin-top:8px;font-size:0.82em;color:#475569;line-height:1.55">离职不是逃跑，是战略转移。6个步骤让你从'华为李飞'平稳过渡到'独立李飞'。</p>
       </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>NVDA P/E=45看起来贵，MU P/E=25看起来便宜。但估值不是单一数字，是预期和现实的差距。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>NVDA P/E=45，PEG≈1.8（算合理）。MU P/E=25但存储是周期股——不能用简单P/E估值。周期顶部低P/E是陷阱（盈利在高点），底部高P/E是机会（盈利在低点）。</p><p>你的持仓需要用不同估值框架：成长股用PEG，周期股用PB，价值股用股息率。混用框架是常见的错误。你买的NVDA用PEG合理吗？MU用PB合理吗？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">Amazon 2010-2015年P/E经常100-300倍，价值投资者说太贵了。但P/S只有2-3倍，ROIC持续20%以上。多角度而不是只看P/E才能看到完整画面。NVDA也一样——只看P/E你永远不会买，但考虑CUDA护城河+AI需求，高P/E是合理的。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">用正确的估值框架评估你持有的一只股票：NVDA用PEG，MU用PB周期，GOOG用DCF。每种框架给的结论一致吗？如果不一致，说明你对这家公司理解还不够深。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(10)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(12)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="12">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>现金管理 · 你的$248K怎么办</h2>
-        <div class="meta">Day 12 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的42%现金仓位持有的是买入期权——别人恐慌时你有子弹。但期权也在每天贬值（通胀）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>$248K现金的逻辑是什么？等跌了再买=你在择时。历史数据：2/3的时候一次性投入跑赢DCA。但择时的心理收益是真实的——如果2025年初全仓买入然后跌15%，你的压力会导致在底部卖出。</p><p>建议：把现金分成三份——①应急资金（6个月生活费≈$30K）永远不动。②核心配置（$100K）按目标比例一次性投入。③灵活性资金（剩余$118K）按DCA分12个月投入。既有纪律又有灵活性。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你2020年3月的经历：疫情底时你有现金但没敢买——因为恐惧。如果你有一套DCA计划自动执行，就不会让恐惧阻止你抄底。那是十年一遇的买入机会。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">制定你的现金部署计划：$248K分成三份（应急/核心/DCA）。写出每部分金额和投入时间表。然后回答：如果投入后市场跌20%，你能坚持计划吗？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(11)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(13)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="13">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>因子暴露 · 你的持仓画像</h2>
-        <div class="meta">Day 13 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的组合有什么因子暴露？偏价值还是偏成长？你可能自己都不知道。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的IBKR持仓分析：NVDA（成长+动量）、MU（周期+价值）、GOOG/MSFT/META（成长+质量）、BRK.B（价值）。整体偏成长和动量。如果2026年市场风格切换（从成长转向价值），你的组合可能持续跑输大盘。</p><p>因子暴露的危害：当市场风格不利于你的因子时，即使选股能力再好，也可能持续跑输。2019-2020年价值因子连续3年跑输成长，如果你是全价值投资者，你会怀疑人生。你需要知道你的组合在什么环境下表现好/差。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">Fama-French研究：三个因子——市场、规模、价值——解释了90%以上的股票回报差异。你的持仓高度集中在市场beta+成长因子。你缺少价值和规模因子的暴露。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">分析你的IBKR持仓的因子暴露：每只股票的beta、P/E、市值。然后判断：如果市场风格从成长切换到价值，你的组合会怎样？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(12)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(14)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="14">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>行为偏差 · 你是自己最大的敌人</h2>
-        <div class="meta">Day 14 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你97%的投资知识储备已经足够。你的亏损不是来自不知道，是来自做不到。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的行为偏差诊断：①确认偏见——你看牛的NVDA文章远多于看空的。你作为华为员工天然认为国产算力会赢（即使你的IBKR全是美股）。②处置效应——你盈利了想卖（赚够了），亏损了死扛（会回来的）。③过度自信——你87%持仓是美股，0%债券，反映的不是风险承受能力而是过度自信。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你看到NVDA从$140跌到$90时的反应是加仓而不是检查买入逻辑——这是锚定偏见。如果你在$90时间自己：如果没持仓，今天会用$90买吗？答案可能完全不同。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">选一个你的持仓，写3个看空理由。如果看完后你还相信——那才是真正的确信。如果写不出3个合理的看空理由，说明你有确认偏见。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(13)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(15)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="15">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>税务优化 · 看不见的成本</h2>
-        <div class="meta">Day 15 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你是中国居民投资美股，股息预扣税10%，遗产税最高40%。这些成本每年侵蚀你的回报。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>三个税务陷阱：①股息预扣税——高股息股（VZ 6%）每年被扣10%。②遗产税——持有超过$6万美国资产，税率26-40%。你的$340K股票如果直接注册在美国，继承人面临巨额税。③汇率——RMB/USD波动可能吃掉全部收益。</p><p>优化：①用爱尔兰注册ETF（CSPX替代SPY）避遗产税。②优先持低股息成长股。③用香港上市的美股ETF替代美国注册的。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你之前读到的案例：中国投资者持有$200万美股突然去世，免税额度仅$6万。$194万按40%征税=$77.6万——近40%消失！</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">检查你IBKR持仓的高股息股（>2%）。列出1-2个你可以采取的税务优化行动。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(14)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(16)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="16">
-      <div class="card-head" style="border-left:3px solid #7c3aed">
-        <span class="badge" style="background:#7c3aed15;color:#7c3aed">📈 P2 投资体系</span>
-        <h2>压力测试 · 你的组合能活过危机吗</h2>
-        <div class="meta">Day 16 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的组合不是用来在好行情中赚最多的，是用来在坏行情中活下来的。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>三个极端情景：①美国经济衰退，S&P 500跌30%，你的科技股跌40%+。②中美科技战升级，TSM和MU受限跌50%+。③AI泡沫破裂，NVDA从$900跌到$300。</p><p>你的$588K会变成多少？你还能坚持计划吗？如果在恐慌中清仓，2030目标就宣告失败。压力测试的目的不是预测未来，是确保你在最坏的情况下也不会被迫卖出。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">LTCM的故事：一群诺奖得主管理的一只基金，4年年化40%+，杠杆25倍。然后俄罗斯债务违约——模型里概率为0的事件发生了。4周亏$46亿，破产。你没有杠杆，但AI芯片制裁这样的小概率事件对你的冲击可能是毁灭性的。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">写三个对你IBKR影响最大的黑天鹅事件。对每个事件写：①触发条件②你的组合亏多少③你会怎么做。如果某个事件下你只能割肉——提前减仓。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(15)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(17)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="17">
-      <div class="card-head" style="border-left:3px solid #059669">
-        <span class="badge" style="background:#05966915;color:#059669">🔄 P3 职业转型</span>
-        <h2>离职倒计时 · 你的364天计划</h2>
-        <div class="meta">Day 17 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>距离2027年6月还有约1年。这不是一个遥远的决定，而是每天在执行的项目。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的离职是系统工程——涉及财务、身份、关系、健康四个维度：财务（T-12个月确认ESOP方案，T-6个月建立离职后收入）→身份（T-3个月从华为销售到独立投资者）→关系（T-2个月与LEIEN深度沟通生活方式变化）→健康（T-1个月开始规律作息）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你在那篇华为着急的文章里思考过：华为在AI软件层焦虑，内部动荡。你的判断是与其煎熬不如体面退出。离职计划不是逃跑，是战略转移。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">制作离职倒计时时间表：从现在到2027年6月的关键里程碑。列出本月要做的3件事。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(16)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(18)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="18">
-      <div class="card-head" style="border-left:3px solid #059669">
-        <span class="badge" style="background:#05966915;color:#059669">🔄 P3 职业转型</span>
-        <h2>ESOP变现 · 你最大的单笔资产</h2>
-        <div class="meta">Day 18 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的ESOP约42万股，是你离开华为时最大的一笔资产变现。怎么处理？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>ESOP决策树：①时机——立即变现还是持有等待IPO/回购？②税率——行权价和售出价差额按工资薪金计税（最高45%）。你有筹划空间吗？③再投资——ESOP变现后的钱如何配置？</p><p>关键：ESOP是你2030目标的关键组成部分。一次性变现缴纳高额个税，实际到手可能远低于预期。需要提前了解税务政策，规划分批变现。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你的同事离职时ESOP一次性变现$200万，交了~$80万的税。如果分期变现，利用不同年份的税率档，可能多留下$20-30万。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">写下三个你需要确认的问题：①行权时间窗口②适用税率③分批变现可能性。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(17)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(19)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="19">
-      <div class="card-head" style="border-left:3px solid #059669">
-        <span class="badge" style="background:#05966915;color:#059669">🔄 P3 职业转型</span>
-        <h2>收入断层 · 现金流规划</h2>
-        <div class="meta">Day 19 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>离职后年收入从~150万降到~$9万。这个断层怎么填补？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>收入对比：当前≈150万RMB/年（月薪3.5万+年终奖+ESOP）vs离职后≈$9万/年（IBKR股息+现金利息≈$18K+可能的自由职业）。缺口约85万RMB/年。</p><p>应对策略：①降低固定支出——识别可削减的开支。②建立过渡期安全垫——1年生活费（30万RMB）作为现金储备。③探索离职后收入——你的15年华为经验可以变现（咨询/顾问/写作）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你算过的复利数据：$1,000月定投8%年化30年=$149万。你不需要在离职后快速赚回华为的薪水，你需要的是让IBKR的复利帮你工作。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">做你的离职后现金流表：列出所有预期收入和支出。缺口多少？你准备用什么填补？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(18)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(20)" >下一篇 →</button>
+      <div class="flow-grid"><div class="flow-item"><span class="flow-icon">⏰</span><div class="flow-text"><span class="flow-label">离职倒计时</span><span class="flow-desc">364天计划</span></div></div>
+<div class="flow-item"><span class="flow-icon">🏦</span><div class="flow-text"><span class="flow-label">ESOP变现</span><span class="flow-desc">最大单笔资产</span></div></div>
+<div class="flow-item"><span class="flow-icon">💸</span><div class="flow-text"><span class="flow-label">收入断层</span><span class="flow-desc">现金流规划</span></div></div>
+<div class="flow-item"><span class="flow-icon">🪪</span><div class="flow-text"><span class="flow-label">身份重塑</span><span class="flow-desc">从华为到独立</span></div></div>
+<div class="flow-item"><span class="flow-icon">🧰</span><div class="flow-text"><span class="flow-label">能力迁移</span><span class="flow-desc">技能变现</span></div></div>
+<div class="flow-item"><span class="flow-icon">🎬</span><div class="flow-text"><span class="flow-label">体面退出</span><span class="flow-desc">最后一年的收官</span></div></div></div>
+      <div style="margin-top:14px;text-align:center">
+        <button onclick="go(36)" style="padding:6px 18px;border-radius:8px;border:1px solid var(--border);background:#059669;color:#fff;cursor:pointer;font-size:0.8em;font-family:var(--font);font-weight:500">开始本阶段 →</button>
       </div>
     </article>
-<article class="card" data-day="20">
-      <div class="card-head" style="border-left:3px solid #059669">
-        <span class="badge" style="background:#05966915;color:#059669">🔄 P3 职业转型</span>
-        <h2>身份重塑 · 从华为李飞到独立李飞</h2>
-        <div class="meta">Day 20 / 50</div>
+<article class="card" data-idx="19">
+          <div class="card-head" style="border-left:3px solid #059669">
+            <span class="badge" style="background:#05966912;color:#059669">🔄 P3</span>
+            <h2>离职倒计时 · 你的364天计划</h2>
+            <div class="meta">Day 17 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>距离2027年6月还有约1年。这不是一个遥远的决定，而是每天在执行的项目。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的离职是系统工程——涉及财务、身份、关系、健康四个维度：财务（T-12个月确认ESOP方案，T-6个月建立离职后收入）→身份（T-3个月从华为销售到独立投资者）→关系（T-2个月与LEIEN深度沟通生活方式变化）→健康（T-1个月开始规律作息）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你在那篇华为着急的文章里思考过：华为在AI软件层焦虑，内部动荡。你的判断是与其煎熬不如体面退出。离职计划不是逃跑，是战略转移。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">制作离职倒计时时间表：从现在到2027年6月的关键里程碑。列出本月要做的3件事。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(19)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(21)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="20">
+          <div class="card-head" style="border-left:3px solid #059669">
+            <span class="badge" style="background:#05966912;color:#059669">🔄 P3</span>
+            <h2>ESOP变现 · 你最大的单笔资产</h2>
+            <div class="meta">Day 18 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的ESOP约42万股，是你离开华为时最大的一笔资产变现。怎么处理？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>ESOP决策树：①时机——立即变现还是持有等待IPO/回购？②税率——行权价和售出价差额按工资薪金计税（最高45%）。你有筹划空间吗？③再投资——ESOP变现后的钱如何配置？</p><p>关键：ESOP是你2030目标的关键组成部分。一次性变现缴纳高额个税，实际到手可能远低于预期。需要提前了解税务政策，规划分批变现。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你的同事离职时ESOP一次性变现$200万，交了~$80万的税。如果分期变现，利用不同年份的税率档，可能多留下$20-30万。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">写下三个你需要确认的问题：①行权时间窗口②适用税率③分批变现可能性。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(20)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(22)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="21">
+          <div class="card-head" style="border-left:3px solid #059669">
+            <span class="badge" style="background:#05966912;color:#059669">🔄 P3</span>
+            <h2>收入断层 · 现金流规划</h2>
+            <div class="meta">Day 19 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>离职后年收入从~150万降到~$9万。这个断层怎么填补？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>收入对比：当前≈150万RMB/年（月薪3.5万+年终奖+ESOP）vs离职后≈$9万/年（IBKR股息+现金利息≈$18K+可能的自由职业）。缺口约85万RMB/年。</p><p>应对策略：①降低固定支出——识别可削减的开支。②建立过渡期安全垫——1年生活费（30万RMB）作为现金储备。③探索离职后收入——你的15年华为经验可以变现（咨询/顾问/写作）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你算过的复利数据：$1,000月定投8%年化30年=$149万。你不需要在离职后快速赚回华为的薪水，你需要的是让IBKR的复利帮你工作。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">做你的离职后现金流表：列出所有预期收入和支出。缺口多少？你准备用什么填补？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(21)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(23)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="22">
+          <div class="card-head" style="border-left:3px solid #059669">
+            <span class="badge" style="background:#05966912;color:#059669">🔄 P3</span>
+            <h2>身份重塑 · 从华为李飞到独立李飞</h2>
+            <div class="meta">Day 20 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你做了15年华为李飞。离职后你是谁？没有公司背书，你的社会身份怎么重建？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>身份危机是很多人离职后最大的挑战——不是钱的问题，是我是谁的问题。每天起床不再有公司需要你，不再有下属汇报，不再有客户叫你李总。这个真空需要提前填充。</p><p>身份重建策略：①投资作为主业（9-12点研究、下午阅读/运动）②输出建立连接（写投资笔记做内容，建立独立投资者身份）③社群作为归属（不是公司的同事而是你选择的圈子）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你在Fable 5那篇文章里的触动：给目标别给步骤。你的离职也一样——你知道你要成为独立投资者（目标），但具体每天做什么（步骤）需要你自己定义。没有老板派活了，你是你自己的CEO。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">写你的新身份宣言——3-5句话。'我是一个独立投资者，我通过……' 不是写给别人，是写给你自己。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(22)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(24)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="23">
+          <div class="card-head" style="border-left:3px solid #059669">
+            <span class="badge" style="background:#05966912;color:#059669">🔄 P3</span>
+            <h2>能力迁移 · 你的华为技能值多少钱</h2>
+            <div class="meta">Day 21 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你15年华为经历积累的不是销售技巧，是一个完整的认知框架——战略思维、客户洞察、资源调动。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的核心能力：①行业认知——你对半导体/AI产业链的理解，是分析师花3年才能建立的。②客户洞察——你懂大客户决策链。③资源调配——在复杂组织中推动一件事的能力。④风险判断——每天都在不确定下做决策。</p><p>变现路径：①独立顾问（给私募/VC做半导体投研）②付费内容（你比大多数财经自媒体有价值100倍）③天使投资（用你的行业判断投早期项目）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你在WorkBuddy分析里看到的Skills自我进化机制：完成复杂任务→沉淀为Skill→迭代。你的华为技能也是——你现在完成的不是销售任务，是在复杂组织里做成事的流程。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">列出3个可迁移技能。每个写一个变现方案：谁能用这个技能、谁会付费。哪怕你不做，了解这些也会让你在离职时更有底气。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(23)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(25)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="24">
+          <div class="card-head" style="border-left:3px solid #059669">
+            <span class="badge" style="background:#05966912;color:#059669">🔄 P3</span>
+            <h2>体面退出 · 你的最后一年</h2>
+            <div class="meta">Day 22 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>离职不是逃跑，是战略转移。最后一年核心任务：①知识转移②关系维护③不留遗憾。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>体面退出原则：①不要让任何人觉得你撑不下去了——保持专业形象和绩效到最后。②知识转移——客户关系和项目经验标准化移交，为你的职业声誉。③关系维护——15年积累的人脉是离职后最重要的资产。</p><p>时间线：T-12个月正常绩效→T-6个月开始知识转移→T-3个月正式提出→T-1个月客户交接告别流程。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你不想被看作被淘汰。你在华为15年从基层做到经理，参与昇腾从0到1——这是你的骄傲。最后一年是你讲述这个故事的收官。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">写下你在华为最后一年想完成的3件事——不是完成销售指标，是给自己一个交代的那种事。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(24)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(26)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="phase-card" data-idx="25">
+      <div class="phase-head" style="background:#d9770608;border-left:4px solid #d97706;border-radius:10px;padding:18px;margin-bottom:6px">
+        <div style="font-size:1.8em;margin-bottom:4px">🏥</div>
+        <h2 style="font-size:1em;font-weight:700;color:#d97706;margin-bottom:2px">健康管理 · 你最重要的仓位</h2>
+        <div style="font-size:0.72em;color:#64748b">Day 23-28 · 身体的复利计划</div>
+        <p style="margin-top:8px;font-size:0.82em;color:#475569;line-height:1.55">健康是2030年目标的底层操作系统——没有健康，$100万+1000万RMB没有任何意义。</p>
       </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你做了15年华为李飞。离职后你是谁？没有公司背书，你的社会身份怎么重建？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>身份危机是很多人离职后最大的挑战——不是钱的问题，是我是谁的问题。每天起床不再有公司需要你，不再有下属汇报，不再有客户叫你李总。这个真空需要提前填充。</p><p>身份重建策略：①投资作为主业（9-12点研究、下午阅读/运动）②输出建立连接（写投资笔记做内容，建立独立投资者身份）③社群作为归属（不是公司的同事而是你选择的圈子）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你在Fable 5那篇文章里的触动：给目标别给步骤。你的离职也一样——你知道你要成为独立投资者（目标），但具体每天做什么（步骤）需要你自己定义。没有老板派活了，你是你自己的CEO。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">写你的新身份宣言——3-5句话。'我是一个独立投资者，我通过……' 不是写给别人，是写给你自己。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(19)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(21)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="21">
-      <div class="card-head" style="border-left:3px solid #059669">
-        <span class="badge" style="background:#05966915;color:#059669">🔄 P3 职业转型</span>
-        <h2>能力迁移 · 你的华为技能值多少钱</h2>
-        <div class="meta">Day 21 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你15年华为经历积累的不是销售技巧，是一个完整的认知框架——战略思维、客户洞察、资源调动。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的核心能力：①行业认知——你对半导体/AI产业链的理解，是分析师花3年才能建立的。②客户洞察——你懂大客户决策链。③资源调配——在复杂组织中推动一件事的能力。④风险判断——每天都在不确定下做决策。</p><p>变现路径：①独立顾问（给私募/VC做半导体投研）②付费内容（你比大多数财经自媒体有价值100倍）③天使投资（用你的行业判断投早期项目）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你在WorkBuddy分析里看到的Skills自我进化机制：完成复杂任务→沉淀为Skill→迭代。你的华为技能也是——你现在完成的不是销售任务，是在复杂组织里做成事的流程。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">列出3个可迁移技能。每个写一个变现方案：谁能用这个技能、谁会付费。哪怕你不做，了解这些也会让你在离职时更有底气。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(20)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(22)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="22">
-      <div class="card-head" style="border-left:3px solid #059669">
-        <span class="badge" style="background:#05966915;color:#059669">🔄 P3 职业转型</span>
-        <h2>体面退出 · 你的最后一年</h2>
-        <div class="meta">Day 22 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>离职不是逃跑，是战略转移。最后一年核心任务：①知识转移②关系维护③不留遗憾。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>体面退出原则：①不要让任何人觉得你撑不下去了——保持专业形象和绩效到最后。②知识转移——客户关系和项目经验标准化移交，为你的职业声誉。③关系维护——15年积累的人脉是离职后最重要的资产。</p><p>时间线：T-12个月正常绩效→T-6个月开始知识转移→T-3个月正式提出→T-1个月客户交接告别流程。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你不想被看作被淘汰。你在华为15年从基层做到经理，参与昇腾从0到1——这是你的骄傲。最后一年是你讲述这个故事的收官。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">写下你在华为最后一年想完成的3件事——不是完成销售指标，是给自己一个交代的那种事。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(21)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(23)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="23">
-      <div class="card-head" style="border-left:3px solid #d97706">
-        <span class="badge" style="background:#d9770615;color:#d97706">🏥 P4 健康管理</span>
-        <h2>健康资产 · 你最重要的仓位</h2>
-        <div class="meta">Day 23 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的健康是2030年目标的最大变量。没有健康，$100万+1000万RMB没有任何意义。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的健康数据：斑块（心脑血管风险）、脂肪肝（代谢综合征）、ALT升高、甲状腺问题、血糖偏高、使用司美控制体重。这些不是独立毛病——是一个系统性代谢综合征。</p><p>健康的复利效应：每天30分钟运动+8小时睡眠+健康饮食，前3个月看不到变化。坚持2年，斑块可能逆转、脂肪肝消失、ALT正常。和IBKR复利一样——前几年轻轻的，越到后面变化越大。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你在替尔泊肽vs司美那篇文章里分析的：司美可以帮你减重15-20%，但不能替代生活方式改变。停药后会反弹。司美是工具，不是解决方案。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">做你的健康资产负债表：资产（好习惯）你每天做了哪些有益健康的事？负债（坏习惯）做了哪些有害的？净资产为正还是负？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(22)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(24)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="24">
-      <div class="card-head" style="border-left:3px solid #d97706">
-        <span class="badge" style="background:#d9770615;color:#d97706">🏥 P4 健康管理</span>
-        <h2>睡眠 · 你最好的免费投资</h2>
-        <div class="meta">Day 24 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你每天睡5-6小时以为在赚时间，实际是在借高利贷——利率是你的认知能力和长期健康。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>华为加班+IBKR盯盘导致你睡眠不足。直接后果：①认知下降——做投资决策时判断力变差（和喝了酒一样）。②情绪不稳——更容易在持仓波动时冲动决策。③长期损伤——睡眠不足是斑块、脂肪肝、血糖的共同风险因素。</p><p>7小时睡眠的科学：从6小时增到7小时，认知能力提升约30%。这个30%在投资决策中的价值，远超过多醒的那1小时刷信息。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你之前读到睡眠不足导致过度自信的研究：睡眠不足的人在投资中更不愿意止损、更容易追涨杀跌。MU从$140跌到$90的过程，你是不是在深夜做了加仓决定？</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">记录本周睡眠时间。目标稳定在7小时以上。如果不到，列出影响因素（看盘？加班？），选一个这周尝试消除。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(23)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(25)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="25">
-      <div class="card-head" style="border-left:3px solid #d97706">
-        <span class="badge" style="background:#d9770615;color:#d97706">🏥 P4 健康管理</span>
-        <h2>运动 · 最低可行剂量</h2>
-        <div class="meta">Day 25 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你不是没时间运动，是没把运动放在正确优先级。每天20分钟是可行的起点。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>最大障碍不是时间，是心理门槛——要运动就要去健身房1小时的想法本身阻止了你。解决方案：最低可行剂量（MVP）——每天20分钟在家就能做。核心是有氧（快走/跳绳）+力量（俯卧撑/深蹲）。</p><p>运动对投资的好处：规律运动的人更少犯错——运动产生的BDNF直接提升决策质量。20分钟运动不是浪费时间，是投资你的决策质量。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你之前和Pro Hermes讨论过MacBook散热问题——你的Mac要散热，你的身体也要。长期办公不运动=身体在过热，认知持续下降。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">你的最低可行运动计划：今天开始每天固定20分钟。不追求强度，追求连续性。标准只有一条：今天动了吗？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(24)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(26)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="26">
-      <div class="card-head" style="border-left:3px solid #d97706">
-        <span class="badge" style="background:#d9770615;color:#d97706">🏥 P4 健康管理</span>
-        <h2>饮食调整 · 最高回报率的投资</h2>
-        <div class="meta">Day 26 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你不需要极端饮食法。只需要在不太改变生活的前提下，做几个高回报率的调整。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的饮食调整优先级（按回报率排序）：①戒酒/限酒——直接影响脂肪肝、血糖、血压。②减少晚餐碳水量——白天需要碳水，但晚餐过量直接转化为脂肪。③增加蛋白质摄入——提升饱腹感。④每天一杯绿茶代替含糖饮料——儿茶素对代谢有益。</p><p>你不是在节食——是在重新配置你的健康组合。和调整IBKR一样：减少垃圾仓位（高糖高脂），增加核心持仓（蛋白质、蔬菜）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">司美通过延缓胃排空产生饱腹感。你需要在司美的帮助下吃高营养密度食物，而不是用省下来的胃口去吃垃圾食品。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">你的健康组合再平衡：列出3种不健康食物和3种健康替代品。不是戒断，是替代。选一项最容易执行的，这周开始。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(25)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(27)" >下一篇 →</button>
+      <div class="flow-grid"><div class="flow-item"><span class="flow-icon">🏋️</span><div class="flow-text"><span class="flow-label">健康资产</span><span class="flow-desc">最重要的仓位</span></div></div>
+<div class="flow-item"><span class="flow-icon">😴</span><div class="flow-text"><span class="flow-label">睡眠修复</span><span class="flow-desc">最好的免费投资</span></div></div>
+<div class="flow-item"><span class="flow-icon">🏃</span><div class="flow-text"><span class="flow-label">运动方案</span><span class="flow-desc">最低可行剂量</span></div></div>
+<div class="flow-item"><span class="flow-icon">🥗</span><div class="flow-text"><span class="flow-label">饮食调整</span><span class="flow-desc">最高回报率投资</span></div></div>
+<div class="flow-item"><span class="flow-icon">💉</span><div class="flow-text"><span class="flow-label">司美管理</span><span class="flow-desc">用药框架</span></div></div>
+<div class="flow-item"><span class="flow-icon">📊</span><div class="flow-text"><span class="flow-label">体检解读</span><span class="flow-desc">你的身体财报</span></div></div></div>
+      <div style="margin-top:14px;text-align:center">
+        <button onclick="go(49)" style="padding:6px 18px;border-radius:8px;border:1px solid var(--border);background:#d97706;color:#fff;cursor:pointer;font-size:0.8em;font-family:var(--font);font-weight:500">开始本阶段 →</button>
       </div>
     </article>
-<article class="card" data-day="27">
-      <div class="card-head" style="border-left:3px solid #d97706">
-        <span class="badge" style="background:#d9770615;color:#d97706">🏥 P4 健康管理</span>
-        <h2>司美管理 · 用药框架</h2>
-        <div class="meta">Day 27 / 50</div>
+<article class="card" data-idx="26">
+          <div class="card-head" style="border-left:3px solid #d97706">
+            <span class="badge" style="background:#d9770612;color:#d97706">🏥 P4</span>
+            <h2>健康资产 · 你最重要的仓位</h2>
+            <div class="meta">Day 23 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的健康是2030年目标的最大变量。没有健康，$100万+1000万RMB没有任何意义。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的健康数据：斑块（心脑血管风险）、脂肪肝（代谢综合征）、ALT升高、甲状腺问题、血糖偏高、使用司美控制体重。这些不是独立毛病——是一个系统性代谢综合征。</p><p>健康的复利效应：每天30分钟运动+8小时睡眠+健康饮食，前3个月看不到变化。坚持2年，斑块可能逆转、脂肪肝消失、ALT正常。和IBKR复利一样——前几年轻轻的，越到后面变化越大。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你在替尔泊肽vs司美那篇文章里分析的：司美可以帮你减重15-20%，但不能替代生活方式改变。停药后会反弹。司美是工具，不是解决方案。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">做你的健康资产负债表：资产（好习惯）你每天做了哪些有益健康的事？负债（坏习惯）做了哪些有害的？净资产为正还是负？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(26)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(28)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="27">
+          <div class="card-head" style="border-left:3px solid #d97706">
+            <span class="badge" style="background:#d9770612;color:#d97706">🏥 P4</span>
+            <h2>睡眠 · 你最好的免费投资</h2>
+            <div class="meta">Day 24 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你每天睡5-6小时以为在赚时间，实际是在借高利贷——利率是你的认知能力和长期健康。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>华为加班+IBKR盯盘导致你睡眠不足。直接后果：①认知下降——做投资决策时判断力变差（和喝了酒一样）。②情绪不稳——更容易在持仓波动时冲动决策。③长期损伤——睡眠不足是斑块、脂肪肝、血糖的共同风险因素。</p><p>7小时睡眠的科学：从6小时增到7小时，认知能力提升约30%。这个30%在投资决策中的价值，远超过多醒的那1小时刷信息。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你之前读到睡眠不足导致过度自信的研究：睡眠不足的人在投资中更不愿意止损、更容易追涨杀跌。MU从$140跌到$90的过程，你是不是在深夜做了加仓决定？</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">记录本周睡眠时间。目标稳定在7小时以上。如果不到，列出影响因素（看盘？加班？），选一个这周尝试消除。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(27)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(29)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="28">
+          <div class="card-head" style="border-left:3px solid #d97706">
+            <span class="badge" style="background:#d9770612;color:#d97706">🏥 P4</span>
+            <h2>运动 · 最低可行剂量</h2>
+            <div class="meta">Day 25 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你不是没时间运动，是没把运动放在正确优先级。每天20分钟是可行的起点。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>最大障碍不是时间，是心理门槛——要运动就要去健身房1小时的想法本身阻止了你。解决方案：最低可行剂量（MVP）——每天20分钟在家就能做。核心是有氧（快走/跳绳）+力量（俯卧撑/深蹲）。</p><p>运动对投资的好处：规律运动的人更少犯错——运动产生的BDNF直接提升决策质量。20分钟运动不是浪费时间，是投资你的决策质量。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你之前和Pro Hermes讨论过MacBook散热问题——你的Mac要散热，你的身体也要。长期办公不运动=身体在过热，认知持续下降。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">你的最低可行运动计划：今天开始每天固定20分钟。不追求强度，追求连续性。标准只有一条：今天动了吗？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(28)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(30)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="29">
+          <div class="card-head" style="border-left:3px solid #d97706">
+            <span class="badge" style="background:#d9770612;color:#d97706">🏥 P4</span>
+            <h2>饮食调整 · 最高回报率的投资</h2>
+            <div class="meta">Day 26 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你不需要极端饮食法。只需要在不太改变生活的前提下，做几个高回报率的调整。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的饮食调整优先级（按回报率排序）：①戒酒/限酒——直接影响脂肪肝、血糖、血压。②减少晚餐碳水量——白天需要碳水，但晚餐过量直接转化为脂肪。③增加蛋白质摄入——提升饱腹感。④每天一杯绿茶代替含糖饮料——儿茶素对代谢有益。</p><p>你不是在节食——是在重新配置你的健康组合。和调整IBKR一样：减少垃圾仓位（高糖高脂），增加核心持仓（蛋白质、蔬菜）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">司美通过延缓胃排空产生饱腹感。你需要在司美的帮助下吃高营养密度食物，而不是用省下来的胃口去吃垃圾食品。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">你的健康组合再平衡：列出3种不健康食物和3种健康替代品。不是戒断，是替代。选一项最容易执行的，这周开始。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(29)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(31)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="30">
+          <div class="card-head" style="border-left:3px solid #d97706">
+            <span class="badge" style="background:#d9770612;color:#d97706">🏥 P4</span>
+            <h2>司美管理 · 用药框架</h2>
+            <div class="meta">Day 27 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>司美是工具不是解决方案。你的目标是用最小剂量维持最大效果。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>使用原则：①最低有效剂量——找到能控制食欲的最低剂量。②监测指标——每周称体重不够，应关注腰围（更准确反映内脏脂肪）、空腹血糖、ALT趋势。③停药策略——停药反弹率很高，需要逐渐减量+饮食替代的长期计划。④副作用监控——胃肠道不适常见，严重时需要医生介入。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">GLP-1药物比较：替尔泊肽在减重效果上更优（双受体激动剂），但更贵。如果司美效果不理想，可和医生讨论换药。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">你的司美日记：每周记录①体重②腰围③食欲感受（1-5分）④副作用。连续4周找到你的最低有效剂量。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(30)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(32)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="31">
+          <div class="card-head" style="border-left:3px solid #d97706">
+            <span class="badge" style="background:#d9770612;color:#d97706">🏥 P4</span>
+            <h2>体检解读 · 你的身体财报</h2>
+            <div class="meta">Day 28 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>体检报告像财报——只看数字没用，要看趋势和组合。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>关键指标跟踪：①ALT——肝功能指标。趋势下降说明生活方式改变在起效。②LDL-C+脂蛋白a——即使LDL正常，脂蛋白a高心脑血管风险仍偏高。③空腹血糖+糖化血红蛋白——糖尿病前期可以逆转。④TSH——甲状腺问题影响代谢率。</p><p>和IBKR持仓一样——不是看单日涨跌（单次体检），看季度/年度趋势。ALT从80降到60（趋势向好），不需要因为一次波动恐慌。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你有脂肪肝和ALT升高。但你知道这些数字的具体变化趋势吗？如果不知道，就像投资一个不看财报的公司。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">拿最近体检报告，写5个关键数字（ALT、LDL-C、空腹血糖、糖化、TSH）。和半年前对比——趋势向好还是向坏？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(31)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(33)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="phase-card" data-idx="32">
+      <div class="phase-head" style="background:#dc262608;border-left:4px solid #dc2626;border-radius:10px;padding:18px;margin-bottom:6px">
+        <div style="font-size:1.8em;margin-bottom:4px">❤️</div>
+        <h2 style="font-size:1em;font-weight:700;color:#dc2626;margin-bottom:2px">家庭关系 · 人生最重要的投资</h2>
+        <div style="font-size:0.72em;color:#64748b">Day 29-34 · 关系资本管理</div>
+        <p style="margin-top:8px;font-size:0.82em;color:#475569;line-height:1.55">投资组合中最大的资产不是NVDA，不是MU——是LEIEN和你的关系网络。</p>
       </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>司美是工具不是解决方案。你的目标是用最小剂量维持最大效果。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>使用原则：①最低有效剂量——找到能控制食欲的最低剂量。②监测指标——每周称体重不够，应关注腰围（更准确反映内脏脂肪）、空腹血糖、ALT趋势。③停药策略——停药反弹率很高，需要逐渐减量+饮食替代的长期计划。④副作用监控——胃肠道不适常见，严重时需要医生介入。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">GLP-1药物比较：替尔泊肽在减重效果上更优（双受体激动剂），但更贵。如果司美效果不理想，可和医生讨论换药。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">你的司美日记：每周记录①体重②腰围③食欲感受（1-5分）④副作用。连续4周找到你的最低有效剂量。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(26)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(28)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="28">
-      <div class="card-head" style="border-left:3px solid #d97706">
-        <span class="badge" style="background:#d9770615;color:#d97706">🏥 P4 健康管理</span>
-        <h2>体检解读 · 你的身体财报</h2>
-        <div class="meta">Day 28 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>体检报告像财报——只看数字没用，要看趋势和组合。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>关键指标跟踪：①ALT——肝功能指标。趋势下降说明生活方式改变在起效。②LDL-C+脂蛋白a——即使LDL正常，脂蛋白a高心脑血管风险仍偏高。③空腹血糖+糖化血红蛋白——糖尿病前期可以逆转。④TSH——甲状腺问题影响代谢率。</p><p>和IBKR持仓一样——不是看单日涨跌（单次体检），看季度/年度趋势。ALT从80降到60（趋势向好），不需要因为一次波动恐慌。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你有脂肪肝和ALT升高。但你知道这些数字的具体变化趋势吗？如果不知道，就像投资一个不看财报的公司。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">拿最近体检报告，写5个关键数字（ALT、LDL-C、空腹血糖、糖化、TSH）。和半年前对比——趋势向好还是向坏？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(27)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(29)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="29">
-      <div class="card-head" style="border-left:3px solid #dc2626">
-        <span class="badge" style="background:#dc262615;color:#dc2626">❤️ P5 家庭关系</span>
-        <h2>LEIEN · 你最重要的长期持仓</h2>
-        <div class="meta">Day 29 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的投资组合里最重要的资产不是NVDA，不是MU——是LEIEN。长期持有在这里不只是比喻。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>LEIEN出生于1994年，今年32岁。你们的关系是你最重要的投资——这个关系经营好了，是你2030计划中最稳定的支撑；经营不好，再多的$也会贬值。</p><p>你的关系资本KPI：①专属时间≥每天30分钟（不看手机不谈工作）②深度对话≥每周1次（不只是今天吃什么）③共同活动≥每月1次约会④未来规划≥每季度1次关于退休后日子的愿景对齐。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你在稀缺性那课学的：你的注意力必须排序。如果把最好注意力给了华为+IBKR，剩下的是疲惫和敷衍——就是在透支关系资本。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">今天安排一次和LEIEN的专属时间——出去散步30分钟。聊聊如果我们退休了想去哪里住？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(28)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(30)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="30">
-      <div class="card-head" style="border-left:3px solid #dc2626">
-        <span class="badge" style="background:#dc262615;color:#dc2626">❤️ P5 家庭关系</span>
-        <h2>父母安排 · 你的安全网</h2>
-        <div class="meta">Day 30 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>父母是你的应急资产——他们好，你才能在投资中大胆承担风险。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你不在父母身边。他们如果出健康或财务问题，不仅影响情绪，还可能要从IBKR抽钱应急——投资中最不想发生的事。</p><p>管理策略：①健康——每年一次远程安排体检+紧急联系人机制。②财务——父母退休金/医保是否覆盖？不够的话每月固定转账。③心理——每周至少一次视频。被需要感也是重要心理支撑。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你作为华为员工医保覆盖父母吗？离职后怎么延续？这个问题比你研究的那只股票涨跌影响大得多。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">本周给父母打一个电话——问问他们的健康状况和体检结果。写下父母未来3年最可能的3个风险，你有预案吗？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(29)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(31)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="31">
-      <div class="card-head" style="border-left:3px solid #dc2626">
-        <span class="badge" style="background:#dc262615;color:#dc2626">❤️ P5 家庭关系</span>
-        <h2>2030对话 · 你们两人的未来</h2>
-        <div class="meta">Day 31 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的2030计划不是一个人的计划——是你和LEIEN共同的未来。你们对齐过吗？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>LEIEN知道你的2030目标吗？她同意吗？她的个人目标和你冲突吗？一个人的退休可能是另一个人的恐慌——她可能觉得你辞职了那我怎么办？</p><p>对话框架：①我们想要的生活方式（天天在一起？各自有空间？）②需要多少钱才够（不是100万USD，是每年能花多少）③经济变化（现金流减少但灵活度增加）④各自角色。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你在AI基建杠杆那课学的：好的投资来自好的沟通和共识。退休也一样——LEIEN是你最大的合伙人。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">本周安排一次2030对话。先分享你的想法（我最近在想2027辞职后的生活……），然后听她的反应。目标是了解分歧在哪，不是达成一致。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(30)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(32)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="32">
-      <div class="card-head" style="border-left:3px solid #dc2626">
-        <span class="badge" style="background:#dc262615;color:#dc2626">❤️ P5 家庭关系</span>
-        <h2>情绪账户 · 你的心理资本</h2>
-        <div class="meta">Day 32 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>投资中最容易被忽视的风险是你的情绪稳定性。市场跌30%时，你的心理账户还有余额吗？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>情绪资本是你所有决策的基础——不仅是投资，还包括和LEIEN的关系和健康。当情绪账户透支时（焦虑、失眠），所有决策质量都会下降。</p><p>管理策略：①建立情绪止损线——连续3天睡眠<6小时+食欲下降+不想运动时，就是需要充值的时候。②充值方式——每天30分钟不用思考的时间。③减少消耗——少看股市评论和群聊。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">MU从$140跌到$90时你的情绪状态：更易怒、更难专注、更不想运动。下次发现这个信号时，不是再坚持一下，是需要止损了。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">设计你的情绪账户充值方案：列出3个免费的情绪恢复活动（散步、喝茶、听播客）。下次状态不对时选一个执行。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(31)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(33)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="33">
-      <div class="card-head" style="border-left:3px solid #dc2626">
-        <span class="badge" style="background:#dc262615;color:#dc2626">❤️ P5 家庭关系</span>
-        <h2>社交网络 · 你的支持和信息系统</h2>
-        <div class="meta">Day 33 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的判断力不只是你大脑决定的——还取决于你从谁那里获取信息、和谁讨论。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的信息系统诊断：①信息输入——公众号、知识星球、分析师报告。源是否多元？还是只读印证现有观点的内容？②讨论圈——你和谁讨论投资？你的圈子是鼓励更深思考还是更冲动交易？③支持系统——当遇到压力时找谁？</p><p>优化方向：①增加对立观点输入——关注和你持仓相反的人。②建立深度讨论圈——找到1-2个同样认真投资的人每周讨论。③维护老友圈——不只和投资相关的人交往。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">在Fable 5文章里看到的Matt Van Horn社区普查：他从865条讨论里整理出共识——给目标别给步骤。好的社区可以把集体智慧提炼成一个人的力量。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">列出你最近1周的信息来源。标注哪些支持你现有观点、哪些挑战你的观点。如果后者<20%，需要增加不舒服的阅读体验。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(32)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(34)" >下一篇 →</button>
+      <div class="flow-grid"><div class="flow-item"><span class="flow-icon">💑</span><div class="flow-text"><span class="flow-label">LEIEN</span><span class="flow-desc">你的长期持仓</span></div></div>
+<div class="flow-item"><span class="flow-icon">👴👵</span><div class="flow-text"><span class="flow-label">父母安排</span><span class="flow-desc">安全网建设</span></div></div>
+<div class="flow-item"><span class="flow-icon">🗣️</span><div class="flow-text"><span class="flow-label">2030对话</span><span class="flow-desc">你们两人的未来</span></div></div>
+<div class="flow-item"><span class="flow-icon">🧘</span><div class="flow-text"><span class="flow-label">情绪账户</span><span class="flow-desc">心理资本</span></div></div>
+<div class="flow-item"><span class="flow-icon">🌐</span><div class="flow-text"><span class="flow-label">社交网络</span><span class="flow-desc">支持与信息</span></div></div>
+<div class="flow-item"><span class="flow-icon">📝</span><div class="flow-text"><span class="flow-label">遗愿清单</span><span class="flow-desc">离职后5件事</span></div></div></div>
+      <div style="margin-top:14px;text-align:center">
+        <button onclick="go(62)" style="padding:6px 18px;border-radius:8px;border:1px solid var(--border);background:#dc2626;color:#fff;cursor:pointer;font-size:0.8em;font-family:var(--font);font-weight:500">开始本阶段 →</button>
       </div>
     </article>
-<article class="card" data-day="34">
-      <div class="card-head" style="border-left:3px solid #dc2626">
-        <span class="badge" style="background:#dc262615;color:#dc2626">❤️ P5 家庭关系</span>
-        <h2>离职后想做的5件事</h2>
-        <div class="meta">Day 34 / 50</div>
+<article class="card" data-idx="33">
+          <div class="card-head" style="border-left:3px solid #dc2626">
+            <span class="badge" style="background:#dc262612;color:#dc2626">❤️ P5</span>
+            <h2>LEIEN · 你最重要的长期持仓</h2>
+            <div class="meta">Day 29 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的投资组合里最重要的资产不是NVDA，不是MU——是LEIEN。长期持有在这里不只是比喻。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>LEIEN出生于1994年，今年32岁。你们的关系是你最重要的投资——这个关系经营好了，是你2030计划中最稳定的支撑；经营不好，再多的$也会贬值。</p><p>你的关系资本KPI：①专属时间≥每天30分钟（不看手机不谈工作）②深度对话≥每周1次（不只是今天吃什么）③共同活动≥每月1次约会④未来规划≥每季度1次关于退休后日子的愿景对齐。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你在稀缺性那课学的：你的注意力必须排序。如果把最好注意力给了华为+IBKR，剩下的是疲惫和敷衍——就是在透支关系资本。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">今天安排一次和LEIEN的专属时间——出去散步30分钟。聊聊如果我们退休了想去哪里住？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(33)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(35)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="34">
+          <div class="card-head" style="border-left:3px solid #dc2626">
+            <span class="badge" style="background:#dc262612;color:#dc2626">❤️ P5</span>
+            <h2>父母安排 · 你的安全网</h2>
+            <div class="meta">Day 30 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>父母是你的应急资产——他们好，你才能在投资中大胆承担风险。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你不在父母身边。他们如果出健康或财务问题，不仅影响情绪，还可能要从IBKR抽钱应急——投资中最不想发生的事。</p><p>管理策略：①健康——每年一次远程安排体检+紧急联系人机制。②财务——父母退休金/医保是否覆盖？不够的话每月固定转账。③心理——每周至少一次视频。被需要感也是重要心理支撑。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你作为华为员工医保覆盖父母吗？离职后怎么延续？这个问题比你研究的那只股票涨跌影响大得多。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">本周给父母打一个电话——问问他们的健康状况和体检结果。写下父母未来3年最可能的3个风险，你有预案吗？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(34)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(36)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="35">
+          <div class="card-head" style="border-left:3px solid #dc2626">
+            <span class="badge" style="background:#dc262612;color:#dc2626">❤️ P5</span>
+            <h2>2030对话 · 你们两人的未来</h2>
+            <div class="meta">Day 31 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的2030计划不是一个人的计划——是你和LEIEN共同的未来。你们对齐过吗？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>LEIEN知道你的2030目标吗？她同意吗？她的个人目标和你冲突吗？一个人的退休可能是另一个人的恐慌——她可能觉得你辞职了那我怎么办？</p><p>对话框架：①我们想要的生活方式（天天在一起？各自有空间？）②需要多少钱才够（不是100万USD，是每年能花多少）③经济变化（现金流减少但灵活度增加）④各自角色。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你在AI基建杠杆那课学的：好的投资来自好的沟通和共识。退休也一样——LEIEN是你最大的合伙人。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">本周安排一次2030对话。先分享你的想法（我最近在想2027辞职后的生活……），然后听她的反应。目标是了解分歧在哪，不是达成一致。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(35)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(37)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="36">
+          <div class="card-head" style="border-left:3px solid #dc2626">
+            <span class="badge" style="background:#dc262612;color:#dc2626">❤️ P5</span>
+            <h2>情绪账户 · 你的心理资本</h2>
+            <div class="meta">Day 32 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>投资中最容易被忽视的风险是你的情绪稳定性。市场跌30%时，你的心理账户还有余额吗？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>情绪资本是你所有决策的基础——不仅是投资，还包括和LEIEN的关系和健康。当情绪账户透支时（焦虑、失眠），所有决策质量都会下降。</p><p>管理策略：①建立情绪止损线——连续3天睡眠<6小时+食欲下降+不想运动时，就是需要充值的时候。②充值方式——每天30分钟不用思考的时间。③减少消耗——少看股市评论和群聊。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">MU从$140跌到$90时你的情绪状态：更易怒、更难专注、更不想运动。下次发现这个信号时，不是再坚持一下，是需要止损了。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">设计你的情绪账户充值方案：列出3个免费的情绪恢复活动（散步、喝茶、听播客）。下次状态不对时选一个执行。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(36)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(38)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="37">
+          <div class="card-head" style="border-left:3px solid #dc2626">
+            <span class="badge" style="background:#dc262612;color:#dc2626">❤️ P5</span>
+            <h2>社交网络 · 你的支持和信息系统</h2>
+            <div class="meta">Day 33 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的判断力不只是你大脑决定的——还取决于你从谁那里获取信息、和谁讨论。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的信息系统诊断：①信息输入——公众号、知识星球、分析师报告。源是否多元？还是只读印证现有观点的内容？②讨论圈——你和谁讨论投资？你的圈子是鼓励更深思考还是更冲动交易？③支持系统——当遇到压力时找谁？</p><p>优化方向：①增加对立观点输入——关注和你持仓相反的人。②建立深度讨论圈——找到1-2个同样认真投资的人每周讨论。③维护老友圈——不只和投资相关的人交往。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">在Fable 5文章里看到的Matt Van Horn社区普查：他从865条讨论里整理出共识——给目标别给步骤。好的社区可以把集体智慧提炼成一个人的力量。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">列出你最近1周的信息来源。标注哪些支持你现有观点、哪些挑战你的观点。如果后者<20%，需要增加不舒服的阅读体验。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(37)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(39)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="38">
+          <div class="card-head" style="border-left:3px solid #dc2626">
+            <span class="badge" style="background:#dc262612;color:#dc2626">❤️ P5</span>
+            <h2>离职后想做的5件事</h2>
+            <div class="meta">Day 34 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>离职不是逃离，是奔向。你离职后最想做的5件事是什么？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>如果不知道离职后要做什么，离职后只会陷入空虚。需要自己定义日程。你的离职后框架：①一件事为了身体（运动/健康习惯）②一件事为了关系（和LEIEN/父母的深度连接）③一件事为了头脑（持续学习/输出）④一件事为了社会（用华为经验帮别人）⑤一件事为了好玩（纯粹享受的爱好）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">在WorkBuddy分析里看到三种工作模式：Craft（你做）Plan（先想再做）Ask（只聊不做）。离职后你大部分时间应该是Craft模式——做那些你真正想做的事。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">写下离职后想做的5件事——每个类别各一件。不需要宏大计划，可以是每天上午在咖啡店看书2小时。关键是让你离职第一天早上醒来有事做。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(38)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(40)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="phase-card" data-idx="39">
+      <div class="phase-head" style="background:#0891b208;border-left:4px solid #0891b2;border-radius:10px;padding:18px;margin-bottom:6px">
+        <div style="font-size:1.8em;margin-bottom:4px">🤖</div>
+        <h2 style="font-size:1em;font-weight:700;color:#0891b2;margin-bottom:2px">AI工具 · 你的数字增强系统</h2>
+        <div style="font-size:0.72em;color:#64748b">Day 35-40 · 双机架构深度优化</div>
+        <p style="margin-top:8px;font-size:0.82em;color:#475569;line-height:1.55">你是全球极少数拥有双机AI架构的个人。把Pro(底座)+Air(随身)用到极致。</p>
       </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>离职不是逃离，是奔向。你离职后最想做的5件事是什么？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>如果不知道离职后要做什么，离职后只会陷入空虚。需要自己定义日程。你的离职后框架：①一件事为了身体（运动/健康习惯）②一件事为了关系（和LEIEN/父母的深度连接）③一件事为了头脑（持续学习/输出）④一件事为了社会（用华为经验帮别人）⑤一件事为了好玩（纯粹享受的爱好）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">在WorkBuddy分析里看到三种工作模式：Craft（你做）Plan（先想再做）Ask（只聊不做）。离职后你大部分时间应该是Craft模式——做那些你真正想做的事。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">写下离职后想做的5件事——每个类别各一件。不需要宏大计划，可以是每天上午在咖啡店看书2小时。关键是让你离职第一天早上醒来有事做。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(33)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(35)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="35">
-      <div class="card-head" style="border-left:3px solid #0891b2">
-        <span class="badge" style="background:#0891b215;color:#0891b2">🤖 P6 AI工具</span>
-        <h2>双机架构 · 你的生产力系统</h2>
-        <div class="meta">Day 35 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>Pro（底座）+Air（随身）——你是全球极少数拥有双机AI架构的个人。你用好了多少？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的架构：Pro（MacBookPro14,1）——24h底座，运行Hermes gate+Chrome CDP+cron+GP deploy。Air——随身，运行Codex+钉钉+Hermes TUI。同步通过iCloud+Air_MEMORY.md桥接。</p><p>架构价值：Pro负责后台（持续任务、监控、cron），Air负责前端（查询、写作、分析）。记忆桥接通过iCloud让两台设备共享上下文——微服务架构跑AI Agent。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">在WorkBuddy分析里看到的：WorkBuddy用三层记忆架构和你双机架构的iCloud+本地MEMORY.md分层设计不谋而合。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">做你的双机架构诊断：①Pro最近cron任务是否正常？②Air和Pro的MEMORY.md是否同步？③你的日常使用是否符合Pro后台Air前台的design？</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(34)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(36)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="36">
-      <div class="card-head" style="border-left:3px solid #0891b2">
-        <span class="badge" style="background:#0891b215;color:#0891b2">🤖 P6 AI工具</span>
-        <h2>Hermes · 你的第二大脑</h2>
-        <div class="meta">Day 36 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你的Hermes不是工具——是你的扩展记忆体、执行引擎和决策辅助系统。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你用微信/钉钉/Telegram访问Hermes。核心能力：记忆（记住持仓/偏好/目标）、cron（定时任务）、分析（文章报告）、工具（terminal/文件/搜索）。</p><p>优化方向：①记忆管理——容量快满了（~2,200 chars），需要合并重复、删除过期、沉淀skill。②cron审计——检查所有任务是否正常。③skill体系——是否需补充新skill（如每日IBKR快报）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">Fable 5文章里说的：Skill/SOP需要从教AI怎么做升级到告诉AI什么算好。你的Hermes skill也需要这个转变。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">打开~/.hermes/里的记忆文件清理至少3条过期记忆。然后想一个可加的新cron任务。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(35)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(37)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="37">
-      <div class="card-head" style="border-left:3px solid #0891b2">
-        <span class="badge" style="background:#0891b215;color:#0891b2">🤖 P6 AI工具</span>
-        <h2>Codex+Hermes协作</h2>
-        <div class="meta">Day 37 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>Codex是你架构中专门负责做的那个。它的分工和Hermes是什么？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>Codex = 执行引擎（Engine），Hermes = 决策系统（Brain）。</p><p>优化协作：①交给Codex的任务——需要写代码的、大量计算的、浏览器交互的。②交给Hermes的任务——需要记忆的、需要推理判断的、跨会话上下文的。③同时用两者的——复杂分析（Codex抓数据→Hermes分析→Codex执行）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你用Codex一键完成了Rosetta迁移+Homebrew升级，手动做要折腾一天。Codex作为执行器的价值就在这——你告诉目标，它自己找到路径。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">选一个你经常做的任务（如分析公众号文章），设计一个Codex做提取+Hermes做分析的协作流程。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(36)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(38)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="38">
-      <div class="card-head" style="border-left:3px solid #0891b2">
-        <span class="badge" style="background:#0891b215;color:#0891b2">🤖 P6 AI工具</span>
-        <h2>信息流管理 · 你的输入质量</h2>
-        <div class="meta">Day 38 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>每天摄入的信息决定思考质量。低质量信息=低质量决策。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的信息流审计：微信公众号（量子位/纪要加油站/北向牧风等）、知识星球（自由职业之路/日落之海）、X/社交平台、cron自动推送。信息多元化是好事，但多少时间花在噪音上？</p><p>帕累托原则：20%信息源贡献80%有价值信息。找出那20%，其余80%要么取关，要么用RSS批量扫读。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">你在BlogWatcher skill里设置的订阅——你定期去掉了无效源。信息流再平衡像IBKR再平衡一样：定期减掉拖后腿的，增持有潜力的。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">列出最近一周阅读的所有信息源。分类标注A（高价值必读）B（有价值可跳）C（噪音）。取消关注至少1个C类。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(37)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(39)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="39">
-      <div class="card-head" style="border-left:3px solid #0891b2">
-        <span class="badge" style="background:#0891b215;color:#0891b2">🤖 P6 AI工具</span>
-        <h2>自动化 · 你的时间机器</h2>
-        <div class="meta">Day 39 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你每天在重复做哪些事？自动化它们。Cron是你的时间机器。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你当前的自动化：cron任务（记忆同步/AI早报/增量同步/学习计划）。这些在后台运行不需要手动操作。</p><p>新机会：①持仓跟踪——每日IBKR净值推送（yfinance+Python+cron）。②财报日历——提前2天提醒持仓公司发财报。③新闻过滤——只推送和你持仓相关的新闻。④交易日记——每次交易后自动记录。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">WorkBuddy支持用自然语言创建定时任务。你的Hermes cron也用类似功能——可以用一句话创建一个新cron。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">创建一个每日IBKR快报的自动化：每天早上8点推送持仓变动和新闻。用yfinance+Python+cron实现。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(38)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(40)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="40">
-      <div class="card-head" style="border-left:3px solid #0891b2">
-        <span class="badge" style="background:#0891b215;color:#0891b2">🤖 P6 AI工具</span>
-        <h2>技能沉淀 · 你的知识复利</h2>
-        <div class="meta">Day 40 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>每次解决问题的经验都沉淀为skill了吗？如果没有，每次都从零开始——最浪费。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你已有的skill：summary-to-obsidian（汇总→自动保存Obsidian）。价值不是省几分钟，是确保不会再忘记我看过这个——知识在复利积累。</p><p>新skill机会：①IBKR周报——每周持仓+红线预警。②健康周报——睡眠/运动/饮食汇总。③离职倒计时——每月准备进度。④文章分析——提取→结构化→持仓映射→Obsidian存档的完整流程。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">Fable 5文章说：完成复杂任务发现可复用流程就沉淀成Skill，有错就改——不要问用户。这是你Agent的自我进化机制。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">审计你当前的skill，每个最近一次使用是什么时候？还有用吗？然后想一个可补充的新skill。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(39)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(41)" >下一篇 →</button>
+      <div class="flow-grid"><div class="flow-item"><span class="flow-icon">💻</span><div class="flow-text"><span class="flow-label">双机架构</span><span class="flow-desc">Pro+Air协同</span></div></div>
+<div class="flow-item"><span class="flow-icon">🧠</span><div class="flow-text"><span class="flow-label">Hermes</span><span class="flow-desc">你的第二大脑</span></div></div>
+<div class="flow-item"><span class="flow-icon">🤝</span><div class="flow-text"><span class="flow-label">Codex协作</span><span class="flow-desc">执行引擎</span></div></div>
+<div class="flow-item"><span class="flow-icon">📡</span><div class="flow-text"><span class="flow-label">信息流管理</span><span class="flow-desc">输入质量</span></div></div>
+<div class="flow-item"><span class="flow-icon">⏲️</span><div class="flow-text"><span class="flow-label">自动化</span><span class="flow-desc">时间机器</span></div></div>
+<div class="flow-item"><span class="flow-icon">📚</span><div class="flow-text"><span class="flow-label">技能沉淀</span><span class="flow-desc">知识复利</span></div></div></div>
+      <div style="margin-top:14px;text-align:center">
+        <button onclick="go(75)" style="padding:6px 18px;border-radius:8px;border:1px solid var(--border);background:#0891b2;color:#fff;cursor:pointer;font-size:0.8em;font-family:var(--font);font-weight:500">开始本阶段 →</button>
       </div>
     </article>
-<article class="card" data-day="41">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>知识图谱 · 你的操作系统</h2>
-        <div class="meta">Day 41 / 50</div>
+<article class="card" data-idx="40">
+          <div class="card-head" style="border-left:3px solid #0891b2">
+            <span class="badge" style="background:#0891b212;color:#0891b2">🤖 P6</span>
+            <h2>双机架构 · 你的生产力系统</h2>
+            <div class="meta">Day 35 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>Pro（底座）+Air（随身）——你是全球极少数拥有双机AI架构的个人。你用好了多少？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的架构：Pro（MacBookPro14,1）——24h底座，运行Hermes gate+Chrome CDP+cron+GP deploy。Air——随身，运行Codex+钉钉+Hermes TUI。同步通过iCloud+Air_MEMORY.md桥接。</p><p>架构价值：Pro负责后台（持续任务、监控、cron），Air负责前端（查询、写作、分析）。记忆桥接通过iCloud让两台设备共享上下文——微服务架构跑AI Agent。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">在WorkBuddy分析里看到的：WorkBuddy用三层记忆架构和你双机架构的iCloud+本地MEMORY.md分层设计不谋而合。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">做你的双机架构诊断：①Pro最近cron任务是否正常？②Air和Pro的MEMORY.md是否同步？③你的日常使用是否符合Pro后台Air前台的design？</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(40)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(42)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="41">
+          <div class="card-head" style="border-left:3px solid #0891b2">
+            <span class="badge" style="background:#0891b212;color:#0891b2">🤖 P6</span>
+            <h2>Hermes · 你的第二大脑</h2>
+            <div class="meta">Day 36 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你的Hermes不是工具——是你的扩展记忆体、执行引擎和决策辅助系统。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你用微信/钉钉/Telegram访问Hermes。核心能力：记忆（记住持仓/偏好/目标）、cron（定时任务）、分析（文章报告）、工具（terminal/文件/搜索）。</p><p>优化方向：①记忆管理——容量快满了（~2,200 chars），需要合并重复、删除过期、沉淀skill。②cron审计——检查所有任务是否正常。③skill体系——是否需补充新skill（如每日IBKR快报）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">Fable 5文章里说的：Skill/SOP需要从教AI怎么做升级到告诉AI什么算好。你的Hermes skill也需要这个转变。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">打开~/.hermes/里的记忆文件清理至少3条过期记忆。然后想一个可加的新cron任务。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(41)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(43)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="42">
+          <div class="card-head" style="border-left:3px solid #0891b2">
+            <span class="badge" style="background:#0891b212;color:#0891b2">🤖 P6</span>
+            <h2>Codex+Hermes协作</h2>
+            <div class="meta">Day 37 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>Codex是你架构中专门负责做的那个。它的分工和Hermes是什么？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>Codex = 执行引擎（Engine），Hermes = 决策系统（Brain）。</p><p>优化协作：①交给Codex的任务——需要写代码的、大量计算的、浏览器交互的。②交给Hermes的任务——需要记忆的、需要推理判断的、跨会话上下文的。③同时用两者的——复杂分析（Codex抓数据→Hermes分析→Codex执行）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你用Codex一键完成了Rosetta迁移+Homebrew升级，手动做要折腾一天。Codex作为执行器的价值就在这——你告诉目标，它自己找到路径。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">选一个你经常做的任务（如分析公众号文章），设计一个Codex做提取+Hermes做分析的协作流程。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(42)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(44)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="43">
+          <div class="card-head" style="border-left:3px solid #0891b2">
+            <span class="badge" style="background:#0891b212;color:#0891b2">🤖 P6</span>
+            <h2>信息流管理 · 你的输入质量</h2>
+            <div class="meta">Day 38 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>每天摄入的信息决定思考质量。低质量信息=低质量决策。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的信息流审计：微信公众号（量子位/纪要加油站/北向牧风等）、知识星球（自由职业之路/日落之海）、X/社交平台、cron自动推送。信息多元化是好事，但多少时间花在噪音上？</p><p>帕累托原则：20%信息源贡献80%有价值信息。找出那20%，其余80%要么取关，要么用RSS批量扫读。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">你在BlogWatcher skill里设置的订阅——你定期去掉了无效源。信息流再平衡像IBKR再平衡一样：定期减掉拖后腿的，增持有潜力的。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">列出最近一周阅读的所有信息源。分类标注A（高价值必读）B（有价值可跳）C（噪音）。取消关注至少1个C类。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(43)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(45)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="44">
+          <div class="card-head" style="border-left:3px solid #0891b2">
+            <span class="badge" style="background:#0891b212;color:#0891b2">🤖 P6</span>
+            <h2>自动化 · 你的时间机器</h2>
+            <div class="meta">Day 39 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你每天在重复做哪些事？自动化它们。Cron是你的时间机器。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你当前的自动化：cron任务（记忆同步/AI早报/增量同步/学习计划）。这些在后台运行不需要手动操作。</p><p>新机会：①持仓跟踪——每日IBKR净值推送（yfinance+Python+cron）。②财报日历——提前2天提醒持仓公司发财报。③新闻过滤——只推送和你持仓相关的新闻。④交易日记——每次交易后自动记录。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">WorkBuddy支持用自然语言创建定时任务。你的Hermes cron也用类似功能——可以用一句话创建一个新cron。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">创建一个每日IBKR快报的自动化：每天早上8点推送持仓变动和新闻。用yfinance+Python+cron实现。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(44)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(46)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="45">
+          <div class="card-head" style="border-left:3px solid #0891b2">
+            <span class="badge" style="background:#0891b212;color:#0891b2">🤖 P6</span>
+            <h2>技能沉淀 · 你的知识复利</h2>
+            <div class="meta">Day 40 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>每次解决问题的经验都沉淀为skill了吗？如果没有，每次都从零开始——最浪费。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你已有的skill：summary-to-obsidian（汇总→自动保存Obsidian）。价值不是省几分钟，是确保不会再忘记我看过这个——知识在复利积累。</p><p>新skill机会：①IBKR周报——每周持仓+红线预警。②健康周报——睡眠/运动/饮食汇总。③离职倒计时——每月准备进度。④文章分析——提取→结构化→持仓映射→Obsidian存档的完整流程。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">Fable 5文章说：完成复杂任务发现可复用流程就沉淀成Skill，有错就改——不要问用户。这是你Agent的自我进化机制。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">审计你当前的skill，每个最近一次使用是什么时候？还有用吗？然后想一个可补充的新skill。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(45)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(47)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="phase-card" data-idx="46">
+      <div class="phase-head" style="background:#4f46e508;border-left:4px solid #4f46e5;border-radius:10px;padding:18px;margin-bottom:6px">
+        <div style="font-size:1.8em;margin-bottom:4px">🎯</div>
+        <h2 style="font-size:1em;font-weight:700;color:#4f46e5;margin-bottom:2px">整合实践 · 从知道到做到</h2>
+        <div style="font-size:0.72em;color:#64748b">Day 41-50 · 知行合一</div>
+        <p style="margin-top:8px;font-size:0.82em;color:#475569;line-height:1.55">50天学习不是终点。真正的旅程从现在开始——用100天把知道变成做到。</p>
       </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>投资不是一个技能，是一个系统。你的操作系统越完善，决策越不会被情绪劫持。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你从Day1到Day40的所有内容可以整合成操作系统框架：底层Kernel（稀缺性/机会成本/边际分析）+应用层（投资体系/职业转型/健康管理/关系管理）+工具层（Hermes/Codex/cron/Obsidian）+监控层（四道硬线/体检指标/关系KPI）。</p><p>当你面对要不要加仓NVDA的决策时，系统自动从不同层调用判断工具。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">八个维度本质上是一个操作系统：底层信念=Kernel，分析工具=Libraries，心理偏见=Bugs，流程纪律=CI/CD。系统越完善，决策越不会被情绪劫持。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">画你的投资操作系统架构图——标出Kernel、Libraries、Bugs、CI/CD各是什么。这幅图就是你的投资手册。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(40)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(42)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="42">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>检查清单 · 你的交易CI/CD</h2>
-        <div class="meta">Day 42 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>专业飞行员起飞前一定走检查清单。你的CI/CD就是你起飞前的检查清单。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的个人检查清单：□用一句话说清这家公司怎么赚钱？□护城河是什么？□P/E/PB在历史什么位置？□信息优势是什么？□如果跌30%会加仓还是恐慌？□单仓是否超10%？AI芯片总仓是否超33%？□和辞职计划时间线是否冲突？□投资日记里写了买入理由？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">飞行员的检查清单在1935年拯救了航空业。你的检查清单也是同样的作用——不是变聪明了，是防御了关键时刻掉链子的人性弱点。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">打印你的检查清单。下次想买入时一条条过。任何一个NO或不确定→回到研究。纪律比智商重要。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(41)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(43)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="43">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>反馈循环 · 投资日记系统</h2>
-        <div class="meta">Day 43 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>不记录的投资等于没做。不复盘，会在同一个错误上反复亏钱。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的投资日记系统：①每次交易记录——日期/股票/价格/理由/情绪/是否经检查清单。②每周回顾（周日晚10分钟）——组合vs基准。③每月深度回顾（月底30分钟）——持仓检查/学到的教训/下月计划。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">大卫·斯文森每天写交易日记30年后出了一本书：写日记不是为了记录，是为了强迫自己在决策时多想一步——因为知道稍后要写下来。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">在Obsidian里建一个投资日记文件夹。下次交易后花5分钟记录。模板：[日期] | [股票] | [买入/卖出] | [理由] | [情绪]</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(42)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(44)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="44">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>压力测试 · 极端情景演练</h2>
-        <div class="meta">Day 44 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>好的投资不是在好行情中赚最多，是在坏行情中活下来。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的三个极端情景：①2027离职后发生2008式危机，IBKR跌50%——还有现金流维持生活吗？②RMB大幅贬值到8:1——海外资产增值但国内缩水。③离职后发现独立投资者生活不是你想要——有Plan B吗？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">在AI基建杠杆那篇看到的：真正要紧的问题不是capex的绝对数字，是债务占比。你的人生杠杆率也一样——离职后有多少固定支出压着你。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">写三个黑天鹅预案。每个写：①触发条件②你会怎么做③Plan B。不是为了预测，是为了极端事件时不恐慌。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(43)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(45)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="45">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>统一决策框架 · 你的ROI计算器</h2>
-        <div class="meta">Day 45 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你每天面对的不是投资决策和人生决策——它们都是资源配置决策。用一个框架。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的统一决策框架：①投资决策（分配钱）=预期回报/风险。②职业决策（分配时间）=成长/机会成本。③健康决策（分配精力）=寿命质量/当下舒适。④关系决策（分配关注）=关系资本/忽略成本。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">Day 1的稀缺性：不是哪个有用，是哪个比其他的更有用。每晚2小时自由时间——学投资vs刷信息vs陪LEIEN。统一框架帮你做所有选择。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">用统一框架评估今天的一个选择：加班还是回家陪LEIEN？用四个维度的ROI来评估。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(44)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(46)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="46">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>半年检查 · 目标再校准</h2>
-        <div class="meta">Day 46 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>每半年重新审视目标。不是因为之前错了，是环境变了——固执才是风险。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的半年检查清单：①IBKR是否在8% CAGR路径上？②辞职准备进度正常吗？③健康指标（ALT/LDL/血糖/体重）向好还是向坏？④和LEIEN的关系KPI达标了吗？⑤双机架构运行正常吗？</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">从目标倒推那课学的：单年回报没意义，4年CAGR才是标准。健康也一样——单次体检波动不重要，趋势方向才重要。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">在Obsidian写下你的半年检查。每一条用Emoji开头：✅正常🔄需调整❌偏离。有❌的就是未来3个月需要集中解决的问题。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(45)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(47)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="47">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>能力圈 · 你知道你不知道的</h2>
-        <div class="meta">Day 47 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>你不需要什么都懂。学会识别懂的、半懂的和不懂的，只在能力圈内下注。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的能力圈诊断：①懂的——国产AI芯片（你比99%市场参与者懂）、存储周期（研究一年）、AI Agent（双机架构用户）。②半懂的——宏观（有框架但预测有限）、债券（没研究过）、税务（了解概念不精细）。③不懂的——生物医药、新兴市场、商品期货。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">巴菲特1999年没买科技股——不在能力圈。2016年买了苹果——因为苹果进入了消费品牌的圈。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">画你的能力圈圈：三个同心圆——内圈（懂的，下重注）、中圈（半懂的，小仓位验证）、外圈（不懂的，不碰）。检查IBKR持仓是否都在内圈。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(46)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(48)" >下一篇 →</button>
+      <div class="flow-grid"><div class="flow-item"><span class="flow-icon">🗺️</span><div class="flow-text"><span class="flow-label">知识图谱</span><span class="flow-desc">你的操作系统</span></div></div>
+<div class="flow-item"><span class="flow-icon">✅</span><div class="flow-text"><span class="flow-label">检查清单</span><span class="flow-desc">交易CI/CD</span></div></div>
+<div class="flow-item"><span class="flow-icon">📓</span><div class="flow-text"><span class="flow-label">反馈循环</span><span class="flow-desc">投资日记</span></div></div>
+<div class="flow-item"><span class="flow-icon">🌪️</span><div class="flow-text"><span class="flow-label">压力测试</span><span class="flow-desc">极端情景演练</span></div></div>
+<div class="flow-item"><span class="flow-icon">🧮</span><div class="flow-text"><span class="flow-label">统一决策</span><span class="flow-desc">ROI计算器</span></div></div>
+<div class="flow-item"><span class="flow-icon">📅</span><div class="flow-text"><span class="flow-label">半年检查</span><span class="flow-desc">目标再校准</span></div></div>
+<div class="flow-item"><span class="flow-icon">⭕</span><div class="flow-text"><span class="flow-label">能力圈</span><span class="flow-desc">知道不知道</span></div></div>
+<div class="flow-item"><span class="flow-icon">🔄</span><div class="flow-text"><span class="flow-label">再平衡</span><span class="flow-desc">年度纪律</span></div></div>
+<div class="flow-item"><span class="flow-icon">🚀</span><div class="flow-text"><span class="flow-label">第二曲线</span><span class="flow-desc">离职后收入</span></div></div>
+<div class="flow-item"><span class="flow-icon">🎬</span><div class="flow-text"><span class="flow-label">百日行动</span><span class="flow-desc">从知道到做到</span></div></div></div>
+      <div style="margin-top:14px;text-align:center">
+        <button onclick="go(88)" style="padding:6px 18px;border-radius:8px;border:1px solid var(--border);background:#4f46e5;color:#fff;cursor:pointer;font-size:0.8em;font-family:var(--font);font-weight:500">开始本阶段 →</button>
       </div>
     </article>
-<article class="card" data-day="48">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>年度再平衡 · 固定日期的纪律</h2>
-        <div class="meta">Day 48 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>再平衡是你唯一需要择时的事——每年一次固定时间，不参考市场状况。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的年度再平衡（每年1月1日）：①检查股债比是否符合目标。②单只股票是否超10%红线。③AI芯片是否超33%红线。④卖出超额、买入不足。⑤记录理由和结果——这是你投资能力的成长记录。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">分散化那课学的：60/40组合在2008年只亏19%（vs全股票37%）。再平衡确保你的40%债券在股市大涨后没有缩水到30%。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">设你的年度再平衡日期在日历上：每年1月1日。7月1日设一个迷你检查——仓位是否严重偏离（超过10%偏离需年中调整）。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(47)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(49)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="49">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>第二曲线 · 离职后收入来源</h2>
-        <div class="meta">Day 49 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>离职后不是吃老本——你有能力创造第二收入曲线。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的第二收入可能性：①独立投资顾问——华为经历+IBKR实战。②知识付费——你有完整的60天学习框架。③产业顾问——半导体/AI企业战略顾问。④副业——自由职业咨询服务。</p><p>不需要离职那天才开始。现在就可以小规模测试——用周末时间接一个付费咨询试试。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">Day 18构建第一笔组合用的80%核心+20%卫星框架——同样适用于收入结构：80%核心（IBKR被动收入）+20%卫星（主动收入探索）。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">选一个第二收入可能性，本周做一个小规模测试。比如写一篇文章介绍投资框架发到朋友圈或星球，看多少人愿意付费。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(48)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(50)" >下一篇 →</button>
-      </div>
-    </article>
-<article class="card" data-day="50">
-      <div class="card-head" style="border-left:3px solid #4f46e5">
-        <span class="badge" style="background:#4f46e515;color:#4f46e5">🎯 P7 整合实践</span>
-        <h2>百日行动 · 从知道到做到</h2>
-        <div class="meta">Day 50 / 50</div>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🎯</span>核心观点</div>
-        <p>50天读完这个计划不是终点。接下来100天才是真正的旅程。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>🧠</span>深度理解</div>
-        <p>你的第一个100天：第1-7天——建立基础设施（检查双机架构、写投资方针、设新cron）。第8-30天——第一次深度行动（重新配置IBKR、第一次离职对话、开始每天运动）。第31-60天——深入优化（持仓因子分析、投资日记系统、启动第二收入测试）。第61-100天——实战循环（季度回顾、再平衡、总结操作系统V1.0）。</p>
-      </div>
-      <div class="sec">
-        <div class="sec-title"><span>📖</span>与你相关</div>
-        <p class="story">29岁程序员2023年开始投资，写了方针、设了定投、坚持写日记。2023年涨2%，2024年涨20%。他做得最多的就是什么也不做——不每天看盘、不抄底逃顶。他用最简单的纪律跑赢了90%的人。</p>
-      </div>
-      <div class="sec quiz-box">
-        <div class="sec-title"><span>✍️</span>今日练习</div>
-        <div class="quiz">从下面选一项今天就完成：①写/更新投资方针②调整IBKR仓位到红线以内③建立投资日记④完成今天的运动目标。选一个，今天做。然后明天再做一件。连续100天。</div>
-      </div>
-      <div class="nav">
-        <button onclick="go(49)" >← 上一篇</button>
-        <span class="dot-sep">●</span>
-        <button onclick="go(51)" disabled>下一篇 →</button>
-      </div>
-    </article></div>
-<div class="footer">For personal use · Made with ❤️</div>
-<script>let cur=1;
-function go(n){if(n<1||n>50)return;cur=n;
-  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('active',parseInt(c.dataset.day)===n));
+<article class="card" data-idx="47">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>知识图谱 · 你的操作系统</h2>
+            <div class="meta">Day 41 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>投资不是一个技能，是一个系统。你的操作系统越完善，决策越不会被情绪劫持。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你从Day1到Day40的所有内容可以整合成操作系统框架：底层Kernel（稀缺性/机会成本/边际分析）+应用层（投资体系/职业转型/健康管理/关系管理）+工具层（Hermes/Codex/cron/Obsidian）+监控层（四道硬线/体检指标/关系KPI）。</p><p>当你面对要不要加仓NVDA的决策时，系统自动从不同层调用判断工具。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">八个维度本质上是一个操作系统：底层信念=Kernel，分析工具=Libraries，心理偏见=Bugs，流程纪律=CI/CD。系统越完善，决策越不会被情绪劫持。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">画你的投资操作系统架构图——标出Kernel、Libraries、Bugs、CI/CD各是什么。这幅图就是你的投资手册。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(47)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(49)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="48">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>检查清单 · 你的交易CI/CD</h2>
+            <div class="meta">Day 42 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>专业飞行员起飞前一定走检查清单。你的CI/CD就是你起飞前的检查清单。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的个人检查清单：□用一句话说清这家公司怎么赚钱？□护城河是什么？□P/E/PB在历史什么位置？□信息优势是什么？□如果跌30%会加仓还是恐慌？□单仓是否超10%？AI芯片总仓是否超33%？□和辞职计划时间线是否冲突？□投资日记里写了买入理由？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">飞行员的检查清单在1935年拯救了航空业。你的检查清单也是同样的作用——不是变聪明了，是防御了关键时刻掉链子的人性弱点。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">打印你的检查清单。下次想买入时一条条过。任何一个NO或不确定→回到研究。纪律比智商重要。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(48)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(50)" >下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="49">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>反馈循环 · 投资日记系统</h2>
+            <div class="meta">Day 43 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>不记录的投资等于没做。不复盘，会在同一个错误上反复亏钱。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的投资日记系统：①每次交易记录——日期/股票/价格/理由/情绪/是否经检查清单。②每周回顾（周日晚10分钟）——组合vs基准。③每月深度回顾（月底30分钟）——持仓检查/学到的教训/下月计划。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">大卫·斯文森每天写交易日记30年后出了一本书：写日记不是为了记录，是为了强迫自己在决策时多想一步——因为知道稍后要写下来。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">在Obsidian里建一个投资日记文件夹。下次交易后花5分钟记录。模板：[日期] | [股票] | [买入/卖出] | [理由] | [情绪]</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(49)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(51)" disabled>下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="50">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>压力测试 · 极端情景演练</h2>
+            <div class="meta">Day 44 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>好的投资不是在好行情中赚最多，是在坏行情中活下来。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的三个极端情景：①2027离职后发生2008式危机，IBKR跌50%——还有现金流维持生活吗？②RMB大幅贬值到8:1——海外资产增值但国内缩水。③离职后发现独立投资者生活不是你想要——有Plan B吗？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">在AI基建杠杆那篇看到的：真正要紧的问题不是capex的绝对数字，是债务占比。你的人生杠杆率也一样——离职后有多少固定支出压着你。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">写三个黑天鹅预案。每个写：①触发条件②你会怎么做③Plan B。不是为了预测，是为了极端事件时不恐慌。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(50)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(52)" disabled>下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="51">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>统一决策框架 · 你的ROI计算器</h2>
+            <div class="meta">Day 45 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你每天面对的不是投资决策和人生决策——它们都是资源配置决策。用一个框架。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的统一决策框架：①投资决策（分配钱）=预期回报/风险。②职业决策（分配时间）=成长/机会成本。③健康决策（分配精力）=寿命质量/当下舒适。④关系决策（分配关注）=关系资本/忽略成本。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">Day 1的稀缺性：不是哪个有用，是哪个比其他的更有用。每晚2小时自由时间——学投资vs刷信息vs陪LEIEN。统一框架帮你做所有选择。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">用统一框架评估今天的一个选择：加班还是回家陪LEIEN？用四个维度的ROI来评估。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(51)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(53)" disabled>下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="52">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>半年检查 · 目标再校准</h2>
+            <div class="meta">Day 46 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>每半年重新审视目标。不是因为之前错了，是环境变了——固执才是风险。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的半年检查清单：①IBKR是否在8% CAGR路径上？②辞职准备进度正常吗？③健康指标（ALT/LDL/血糖/体重）向好还是向坏？④和LEIEN的关系KPI达标了吗？⑤双机架构运行正常吗？</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">从目标倒推那课学的：单年回报没意义，4年CAGR才是标准。健康也一样——单次体检波动不重要，趋势方向才重要。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">在Obsidian写下你的半年检查。每一条用Emoji开头：✅正常🔄需调整❌偏离。有❌的就是未来3个月需要集中解决的问题。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(52)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(54)" disabled>下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="53">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>能力圈 · 你知道你不知道的</h2>
+            <div class="meta">Day 47 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>你不需要什么都懂。学会识别懂的、半懂的和不懂的，只在能力圈内下注。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的能力圈诊断：①懂的——国产AI芯片（你比99%市场参与者懂）、存储周期（研究一年）、AI Agent（双机架构用户）。②半懂的——宏观（有框架但预测有限）、债券（没研究过）、税务（了解概念不精细）。③不懂的——生物医药、新兴市场、商品期货。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">巴菲特1999年没买科技股——不在能力圈。2016年买了苹果——因为苹果进入了消费品牌的圈。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">画你的能力圈圈：三个同心圆——内圈（懂的，下重注）、中圈（半懂的，小仓位验证）、外圈（不懂的，不碰）。检查IBKR持仓是否都在内圈。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(53)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(55)" disabled>下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="54">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>年度再平衡 · 固定日期的纪律</h2>
+            <div class="meta">Day 48 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>再平衡是你唯一需要择时的事——每年一次固定时间，不参考市场状况。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的年度再平衡（每年1月1日）：①检查股债比是否符合目标。②单只股票是否超10%红线。③AI芯片是否超33%红线。④卖出超额、买入不足。⑤记录理由和结果——这是你投资能力的成长记录。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">分散化那课学的：60/40组合在2008年只亏19%（vs全股票37%）。再平衡确保你的40%债券在股市大涨后没有缩水到30%。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">设你的年度再平衡日期在日历上：每年1月1日。7月1日设一个迷你检查——仓位是否严重偏离（超过10%偏离需年中调整）。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(54)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(56)" disabled>下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="55">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>第二曲线 · 离职后收入来源</h2>
+            <div class="meta">Day 49 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>离职后不是吃老本——你有能力创造第二收入曲线。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的第二收入可能性：①独立投资顾问——华为经历+IBKR实战。②知识付费——你有完整的60天学习框架。③产业顾问——半导体/AI企业战略顾问。④副业——自由职业咨询服务。</p><p>不需要离职那天才开始。现在就可以小规模测试——用周末时间接一个付费咨询试试。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">Day 18构建第一笔组合用的80%核心+20%卫星框架——同样适用于收入结构：80%核心（IBKR被动收入）+20%卫星（主动收入探索）。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">选一个第二收入可能性，本周做一个小规模测试。比如写一篇文章介绍投资框架发到朋友圈或星球，看多少人愿意付费。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(55)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(57)" disabled>下一篇 →</button>
+          </div>
+        </article>
+<article class="card" data-idx="56">
+          <div class="card-head" style="border-left:3px solid #4f46e5">
+            <span class="badge" style="background:#4f46e512;color:#4f46e5">🎯 P7</span>
+            <h2>百日行动 · 从知道到做到</h2>
+            <div class="meta">Day 50 / 50</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🎯</span> 核心观点</div>
+            <p>50天读完这个计划不是终点。接下来100天才是真正的旅程。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>🧠</span> 深度理解</div>
+            <p>你的第一个100天：第1-7天——建立基础设施（检查双机架构、写投资方针、设新cron）。第8-30天——第一次深度行动（重新配置IBKR、第一次离职对话、开始每天运动）。第31-60天——深入优化（持仓因子分析、投资日记系统、启动第二收入测试）。第61-100天——实战循环（季度回顾、再平衡、总结操作系统V1.0）。</p>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span>📖</span> 与你相关</div>
+            <p class="story">29岁程序员2023年开始投资，写了方针、设了定投、坚持写日记。2023年涨2%，2024年涨20%。他做得最多的就是什么也不做——不每天看盘、不抄底逃顶。他用最简单的纪律跑赢了90%的人。</p>
+          </div>
+          <div class="sec quiz-box">
+            <div class="sec-title"><span>✍️</span> 今日练习</div>
+            <div class="quiz">从下面选一项今天就完成：①写/更新投资方针②调整IBKR仓位到红线以内③建立投资日记④完成今天的运动目标。选一个，今天做。然后明天再做一件。连续100天。</div>
+          </div>
+          <div class="nav">
+            <button onclick="go(56)" >← 上一篇</button>
+            <span class="dot-sep">●</span>
+            <button onclick="go(58)" disabled>下一篇 →</button>
+          </div>
+        </article></div><div class="footer">For personal use · Made with ❤️</div><script>const totalCards=57;
+function go(n){if(n<1||n>totalCards)return;
+  document.querySelectorAll('.card,.phase-card').forEach(c=>c.classList.toggle('active',parseInt(c.dataset.idx)+1===n));
   document.querySelectorAll('.dot').forEach(d=>d.classList.toggle('active',parseInt(d.dataset.n)===n));
-  const t=document.querySelector('.card.active h2');document.title='Day '+n+': '+(t?t.textContent:'LFF');
+  const el=document.querySelector('.card.active,.phase-card.active');
+  const t=el?.querySelector('h2')?.textContent||'';
+  document.title='['+n+'/'+totalCards+'] '+t;
   window.scrollTo({top:0,behavior:'smooth'});}
-document.addEventListener('DOMContentLoaded',()=>go(1));</script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded',()=>go(1));</script></body></html>
