@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LFF · 从华为到独立人生 [v3.0]</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f7fa;--cd:#fff;--bd:#e2e8f0;--tx:#1a202c;--dm:#64748b;--fn:-apple-system,BlinkMacSystemFont,'SF Pro','PingFang SC',sans-serif}
+body{background:var(--bg);color:var(--tx);font-family:var(--fn);line-height:1.6;font-size:15px}
+.h{text-align:center;padding:24px 12px 14px;background:linear-gradient(135deg,#eef2ff,#faf5ff,#f0fdf4);border-bottom:1px solid var(--bd)}
+.h h1{font-size:1.4em;font-weight:800;color:#0f172a}.h p{color:var(--dm);font-size:0.75em}
+.nv-wrap{background:#fff;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100;padding:5px 6px 3px;box-shadow:0 2px 4px rgba(0,0,0,.04)}
+.nv-row{display:flex;gap:3px;justify-content:center;margin-bottom:3px}
+.nb-wrap{position:relative;min-width:60px;flex:1;max-width:80px}
+.nb{width:30px;height:30px;border-radius:50%;border:2px solid var(--bd);background:var(--cd);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto;font-size:0.7em;font-family:var(--fn)}
+.nb:hover{border-color:var(--nbc);background:color-mix(in srgb,var(--nbc) 8%,transparent)}
+.con{max-width:660px;margin:0 auto;padding:6px 24px}
+.card,.pcard{display:none;background:var(--cd);border:1px solid var(--bd);border-radius:8px;padding:12px;margin-bottom:6px}
+.card.act,.pcard.act{display:block;animation:si .2s ease}
+@keyframes si{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.ch{margin-bottom:6px;padding:0 0 4px 6px;border-bottom:2px solid var(--pc)}
+.ch h2{font-size:0.9em;font-weight:700;color:#0f172a}
+.cm{font-size:0.52em;color:var(--dm)}
+.dg{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;padding:4px 0}
+.dt{width:24px;height:22px;border-radius:3px;border:1px solid #d0d5dd;background:transparent;color:var(--dm);font-size:0.45em;cursor:pointer;line-height:22px;text-align:center;margin:1px}
+.dt:hover{border-color:var(--dtc);color:var(--dtc);background:color-mix(in srgb,var(--dtc) 10%,transparent)}
+.dt.act{background:var(--dtc);color:#fff;border-color:var(--dtc);font-weight:700}
+.st{font-size:0.6em;font-weight:700;color:var(--ac);margin-bottom:3px}
+.dw{font-size:0.82em;line-height:1.6;color:#334155;margin-bottom:6px}
+.s{margin-bottom:8px}
+.phead{padding:8px;border-radius:6px;background:linear-gradient(135deg,color-mix(in srgb,var(--pc) 8%,transparent),transparent);border-left:4px solid var(--pc);margin-bottom:8px}
+.picon{font-size:1.3em}.ptitle{font-size:0.85em;font-weight:700;color:var(--pc)}
+.psub{font-size:0.55em;color:var(--dm)}
+.nv{display:flex;justify-content:space-between;margin-top:8px;padding-top:4px;border-top:1px solid var(--bd)}
+.nv button{padding:2px 8px;border-radius:4px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);cursor:pointer;font-size:0.58em;font-family:var(--fn)}
+.nv button:hover:not(:disabled){border-color:var(--pc);color:var(--pc)}
+.nv button:disabled{opacity:.1;cursor:not-allowed}
+.nv-prog{font-size:0.5em;color:var(--dm)}
+.ft{text-align:center;padding:12px;color:var(--dm);font-size:0.55em;border-top:1px solid var(--bd)}
+@media(max-width:600px){
+  .h{padding:16px 8px}.h h1{font-size:1em}
+  .card,.pcard{padding:8px}.ch h2{font-size:.82em}
+  .nb-wrap{min-width:40px;max-width:50px}.nb{width:24px;height:24px;font-size:.6em}
+  .dt{width:20px;height:18px;font-size:.4em;line-height:18px}
+  .con{max-width:100%;padding:4px}
+}</style></head>
+<body>
+<div class="h"><h1>🏔️ 从华为到独立人生</h1><p>李飞 · 50天个人成长计划</p></div>
+<div class="nv-wrap"><div class="nv-row">
+  <div class="nb-wrap">
+    <button class="nb" onclick="g(1)" style="--nbc:#2563eb">
+      <span>🧭</span>
+      <span>P1</span>
+    </button>
+  </div>
+  <div class="nb-wrap">
+    <button class="nb" onclick="g(10)" style="--nbc:#7c3aed">
+      <span>📈</span>
+      <span>P2</span>
+    </button>
+  </div>
+  <div class="nb-wrap">
+    <button class="nb" onclick="g(19)" style="--nbc:#059669">
+      <span>🔄</span>
+      <span>P3</span>
+    </button>
+  </div>
+  <div class="nb-wrap">
+    <button class="nb" onclick="g(26)" style="--nbc:#d97706">
+      <span>🏥</span>
+      <span>P4</span>
+    </button>
+  </div>
+  <div class="nb-wrap">
+    <button class="nb" onclick="g(33)" style="--nbc:#dc2626">
+      <span>❤️</span>
+      <span>P5</span>
+    </button>
+  </div>
+  <div class="nb-wrap">
+    <button class="nb" onclick="g(40)" style="--nbc:#0891b2">
+      <span>🤖</span>
+      <span>P6</span>
+    </button>
+  </div>
+  <div class="nb-wrap">
+    <button class="nb" onclick="g(47)" style="--nbc:#4f46e5">
+      <span>🎯</span>
+      <span>P7</span>
+    </button>
+  </div></div><div class="dg"><button class="dt" data-day="1" onclick="day(1)" style="--dtc:#2563eb">1</button><button class="dt" data-day="2" onclick="day(2)" style="--dtc:#2563eb">2</button><button class="dt" data-day="3" onclick="day(3)" style="--dtc:#2563eb">3</button><button class="dt" data-day="4" onclick="day(4)" style="--dtc:#2563eb">4</button><button class="dt" data-day="5" onclick="day(5)" style="--dtc:#2563eb">5</button><button class="dt" data-day="6" onclick="day(6)" style="--dtc:#2563eb">6</button><button class="dt" data-day="7" onclick="day(7)" style="--dtc:#2563eb">7</button><button class="dt" data-day="8" onclick="day(8)" style="--dtc:#2563eb">8</button> <span style='width:6px;display:inline-block'></span> <button class="dt" data-day="9" onclick="day(9)" style="--dtc:#7c3aed">9</button><button class="dt" data-day="10" onclick="day(10)" style="--dtc:#7c3aed">10</button><button class="dt" data-day="11" onclick="day(11)" style="--dtc:#7c3aed">11</button><button class="dt" data-day="12" onclick="day(12)" style="--dtc:#7c3aed">12</button><button class="dt" data-day="13" onclick="day(13)" style="--dtc:#7c3aed">13</button><button class="dt" data-day="14" onclick="day(14)" style="--dtc:#7c3aed">14</button><button class="dt" data-day="15" onclick="day(15)" style="--dtc:#7c3aed">15</button><button class="dt" data-day="16" onclick="day(16)" style="--dtc:#7c3aed">16</button> <span style='width:6px;display:inline-block'></span> <button class="dt" data-day="17" onclick="day(17)" style="--dtc:#059669">17</button><button class="dt" data-day="18" onclick="day(18)" style="--dtc:#059669">18</button><button class="dt" data-day="19" onclick="day(19)" style="--dtc:#059669">19</button><button class="dt" data-day="20" onclick="day(20)" style="--dtc:#059669">20</button><button class="dt" data-day="21" onclick="day(21)" style="--dtc:#059669">21</button><button class="dt" data-day="22" onclick="day(22)" style="--dtc:#059669">22</button> <span style='width:6px;display:inline-block'></span> <button class="dt" data-day="23" onclick="day(23)" style="--dtc:#d97706">23</button><button class="dt" data-day="24" onclick="day(24)" style="--dtc:#d97706">24</button><button class="dt" data-day="25" onclick="day(25)" style="--dtc:#d97706">25</button><button class="dt" data-day="26" onclick="day(26)" style="--dtc:#d97706">26</button><button class="dt" data-day="27" onclick="day(27)" style="--dtc:#d97706">27</button><button class="dt" data-day="28" onclick="day(28)" style="--dtc:#d97706">28</button> <span style='width:6px;display:inline-block'></span> <button class="dt" data-day="29" onclick="day(29)" style="--dtc:#dc2626">29</button><button class="dt" data-day="30" onclick="day(30)" style="--dtc:#dc2626">30</button><button class="dt" data-day="31" onclick="day(31)" style="--dtc:#dc2626">31</button><button class="dt" data-day="32" onclick="day(32)" style="--dtc:#dc2626">32</button><button class="dt" data-day="33" onclick="day(33)" style="--dtc:#dc2626">33</button><button class="dt" data-day="34" onclick="day(34)" style="--dtc:#dc2626">34</button> <span style='width:6px;display:inline-block'></span> <button class="dt" data-day="35" onclick="day(35)" style="--dtc:#0891b2">35</button><button class="dt" data-day="36" onclick="day(36)" style="--dtc:#0891b2">36</button><button class="dt" data-day="37" onclick="day(37)" style="--dtc:#0891b2">37</button><button class="dt" data-day="38" onclick="day(38)" style="--dtc:#0891b2">38</button><button class="dt" data-day="39" onclick="day(39)" style="--dtc:#0891b2">39</button><button class="dt" data-day="40" onclick="day(40)" style="--dtc:#0891b2">40</button> <span style='width:6px;display:inline-block'></span> <button class="dt" data-day="41" onclick="day(41)" style="--dtc:#4f46e5">41</button><button class="dt" data-day="42" onclick="day(42)" style="--dtc:#4f46e5">42</button><button class="dt" data-day="43" onclick="day(43)" style="--dtc:#4f46e5">43</button><button class="dt" data-day="44" onclick="day(44)" style="--dtc:#4f46e5">44</button><button class="dt" data-day="45" onclick="day(45)" style="--dtc:#4f46e5">45</button><button class="dt" data-day="46" onclick="day(46)" style="--dtc:#4f46e5">46</button><button class="dt" data-day="47" onclick="day(47)" style="--dtc:#4f46e5">47</button><button class="dt" data-day="48" onclick="day(48)" style="--dtc:#4f46e5">48</button><button class="dt" data-day="49" onclick="day(49)" style="--dtc:#4f46e5">49</button><button class="dt" data-day="50" onclick="day(50)" style="--dtc:#4f46e5">50</button></div></div>
+<div class="con"><article class="pcard" data-i="0" style="--pc:#2563eb">
+  <div class="phead"><div class="picon">🧭</div>
+  <h2 class="ptitle">自我认知 · 看清自己的位置</h2>
+  <div class="psub">Day 1-8 · 你的资源配置法则</div></div>
+  <div style="text-align:center;margin-top:6px">
+    <button class="nb" onclick="g(2)" style="background:#2563eb;color:#fff;border:none;padding:4px 16px;border-radius:5px;cursor:pointer;font-size:0.6em;font-weight:600">开始学习</button>
+  </div>
+</article><article class="card" data-i="1" style="--pc:#2563eb">
+  <div class="ch"><h2>稀缺性 · 你的资源分配法则</h2><div class="cm">Day 1 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>你的时间、精力和资本永远不够用。</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>从个人角度，李飞每天24小时要分配给华为工作、IBKR投资、LEIEN创业、健康锻炼、家庭陪伴。稀缺性意味着每一项投入都会挤占其他。在团队层面，华为计算产品线资源有限，研发资源、芯片产能、客户支持都需要权衡。公司层面，华为面临芯片制裁，先进制程稀缺，必须通过堆叠、软件优化来弥补。国家层面，中国半导体资源稀缺，需要举国体制突破。李飞的四道硬线（股票≤55%/AI芯片≤33%/单仓≤10%/缓冲≥22-25%）正是稀缺性下的分配法则：资本是稀缺的，必须用硬线约束来防止贪婪。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">1954年，麦当劳创始人Ray Kroc发现麦当劳兄弟的汉堡店效率极高，但兄弟俩不愿扩张。Kroc利用稀缺性思维——他意识到好地段是稀缺资源——通过特许经营快速占领全美。1955年开设第一家特许店，至1960年已有200+家。Kroc将稀缺的标准化流程复制到每个角落，成就了全球快餐帝国。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞每月结余约3.5万月薪+IBKR股利/期权收入，总资本约85万USD。按照稀缺性，他不能同时加仓AI芯片、买房、出国旅游、投资LEIEN，必须选出回报最高的配置。四道硬线就是他的稀缺性管理工具。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">列出现在你手上最稀缺的三样资源（时间、注意力、资金？），评估过去一周你分别把它们花在了哪里，有没有违反你的优先级？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡引导思考：时间稀缺是绝对稀缺，注意力稀缺决定质量。李飞应对比华为工作时间vs IBKR盯盘时间。如果盯盘挤占了睡眠或学习，就是稀缺性错配。建议用时间日志跟踪一周，计算每小时的边际现金流，看哪些活动低于$100/小时，考虑外包或放弃。</div></div>
+  <div class="nv">
+    <button onclick="g(1)" >← 上一篇</button>
+    <span class="nv-prog">2/57</span>
+    <button onclick="g(3)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="2" style="--pc:#2563eb">
+  <div class="ch"><h2>机会成本 · 你的华为选择</h2><div class="cm">Day 2 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>选择留下，你就放弃了其他可能性。</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>个人层面，李飞选择在华为继续工作到2027年6月，意味着放弃了立即创业、跳槽至其他公司、或者全职做投资的机会成本。华为高薪+ESOP分红+股票增值是显性收益，但机会成本包括：早三年创业可能积累的品牌和客户，IBKR全职操作可能更高的年化收益。团队层面，华为产品线选择投入昇腾AI芯片还是通用计算，机会成本是失去x86生态兼容的可能。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2001年，苹果推出iPod时，CEO Steve Jobs面临机会成本：继续专注Mac电脑，还是投入开发音乐播放器。他选择了后者，放弃了已有的Mac市场份额。结果是iPod重塑了音乐产业，为iPhone奠定了基础。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞若2025年立刻辞职，机会成本是2年华为薪资+ESOP收益约税前200万RMB/年，但可能提前进入LEIEN创业和IBKR交易节奏。用数字算清楚。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">选择一个你近期放弃的重要选择，列出机会成本：你放弃了什么？那件事如果做了现在会怎样？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡机会成本=放弃选项的预期收益-当前选择预期收益。用数字说话，而不是感觉。</div></div>
+  <div class="nv">
+    <button onclick="g(2)" >← 上一篇</button>
+    <span class="nv-prog">3/57</span>
+    <button onclick="g(4)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="3" style="--pc:#2563eb">
+  <div class="ch"><h2>边际分析 · 再多一步值不值</h2><div class="cm">Day 3 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>多工作一小时带来的收益是否大于成本？</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>个人层面，李飞加班到晚上9点 vs 回家健身多一小时：边际收益是加班可能带来的晋升/奖金边际增量，边际成本是健康下降+家庭时间损失。投资中，加仓1% AI芯片 vs 保留现金：边际风险是持仓超过33%红线。李飞的硬线本质就是边际控制：当单仓接近10%时，边际风险陡增。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2015年亚马逊Prime会员费从$79涨到$99，贝佐斯用边际分析：多收$20会员流失率会上升但每位会员边际利润更高。结果订阅收入增长30%。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞每天花2小时盯IBKR盘，假设持仓不动，盯盘边际收益接近零。边际成本是2小时×机会成本。建议设盯盘时间上限30分钟/天。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">找出日常中一个边际收益递减的行为，计算每多花10分钟的边际成本和收益。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡持仓已满时再追加1%资金边际效用接近零。用边际原则决定何时叫停。</div></div>
+  <div class="nv">
+    <button onclick="g(3)" >← 上一篇</button>
+    <span class="nv-prog">4/57</span>
+    <button onclick="g(5)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="4" style="--pc:#2563eb">
+  <div class="ch"><h2>激励 · 解码你的行为驱动</h2><div class="cm">Day 4 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>你被什么激励，就会被什么塑造。</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>个人层面，李飞的激励来自：金钱、安全、成就、地位、自由。不同的激励驱动不同行为：ESOP让他不敢轻易离职，IBKR目标让他关注市场，健康红线催他锻炼。需要警惕某些激励造成的扭曲：比如为了在IBKR赚快钱而重仓单票违反硬线。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2009年Zappos CEO Tony Hsieh推出谁想辞职多给一个月工资的激励。留下来的员工忠诚度极高，Zappos后被亚马逊以$12亿收购。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞的ESOP激励他留在华为更久，但也可能让他过度规避风险。IBKR浮动盈亏每天影响情绪导致交易冲动。建议审视哪些激励在做正确的事。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">写下一个近期重要决策，分析是什么激励了你。如果激励变了你会改变决策吗？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡如果IBKR年化收益达到预期15%，金钱激励可能减弱，自由激励应增强。用激励矩阵定期复盘。</div></div>
+  <div class="nv">
+    <button onclick="g(4)" >← 上一篇</button>
+    <span class="nv-prog">5/57</span>
+    <button onclick="g(6)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="5" style="--pc:#2563eb">
+  <div class="ch"><h2>时间价值 · 你的退休数学</h2><div class="cm">Day 5 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>今天的1块钱比明天的1块钱更值钱。</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>李飞时薪约600元（年收入120万RMB/2000小时）。时间价值决定了是否值得外包家务、学习新技能。退休数学：2030目标1000万RMB+100万USD，当前85万USD按15%增长4年约149万USD≈1047万RMB。如果增长低于预期需要更长时间或更高储蓄率。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">1999年孙正义向阿里巴巴投资2000万美元，持有至2014年阿里上市价值约600亿美元翻3000倍。时间放大了低风险认知的高价值投资。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">当前$588K假设年收益15%到2030年约$1.03M≈720万RMB，加上华为2年净收入150万总计约870万RMB离1000万尚有差距。FV=PV×(1+r)^n每提高1%年利率结果差很多。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">计算你当前一小时的时间价值（年收入/2000小时）。评估哪件事创造了超过这个价值？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡区分消费性时间（刷视频）和投资性时间（学习/锻炼/策划），投资性时间可接受短期低时薪。</div></div>
+  <div class="nv">
+    <button onclick="g(5)" >← 上一篇</button>
+    <span class="nv-prog">6/57</span>
+    <button onclick="g(7)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="6" style="--pc:#2563eb">
+  <div class="ch"><h2>风险管理 · 你的四道硬线</h2><div class="cm">Day 6 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>硬线不是限制收益，而是防止出局。</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>个人层面，李飞的四道硬线是为了防止极端下跌导致本金永久损失。例如100%全仓股票2022年回调30%损失30%，而硬线限制最多损失55%×30%=16.5%，加上缓冲25%现金实际总回撤约12%。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2008年桥水基金设置严格风险平价模型限制单一资产暴露，结果当年获正收益14%而标普500下跌37%。风险控制不是预测危机，而是确保任何黑天鹅下都能生存。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">假设总$588K按硬线：股票最多$323K（55%），现金至少$147K（25%），AI芯片最多$194K（33%），单仓≤$58.8K（10%）。即使NVDA跌50%损失最多$29.4K占总数5%。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">检查你自己的硬线。如果没有为投资设置三条硬线（如现金占比、单票上限、最大亏损）。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡四道硬线需定期再平衡。股票上涨导致持仓超55%时应卖出归位缓冲。硬线是规则不是建议。</div></div>
+  <div class="nv">
+    <button onclick="g(6)" >← 上一篇</button>
+    <span class="nv-prog">7/57</span>
+    <button onclick="g(8)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="7" style="--pc:#2563eb">
+  <div class="ch"><h2>信息优势 · 你的华为视角</h2><div class="cm">Day 7 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>你在华为的内部信息就是你最大的优势。</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>个人层面，李飞在华为计算产品线能接触到AI芯片路线图、昇腾性能数据、客户采购意向。这些信息对投资决策有巨大价值，但必须区分公开信息和内幕信息。信息优势的正确使用：对行业趋势的深度理解，而非对具体价格的预测。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">1980年代彼得·林奇通过走访商场获取第一手信息，这种地面优势帮他年化29%收益。他严格遵守规则：不基于机密信息。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞能了解华为AI芯片良率提升，可在合规范围内调整策略（如增加半导体设备ETF）。但绝不能提前交易供应商股票。建立公开信息库：每天收集产业链报道结合内部认知交叉验证。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">列出你目前的独特信息渠道。哪些是合法信息优势？哪些是内幕信息风险？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡华为内部会议信息、未公开路线图属于内幕信息不可用于交易。但对行业的深度理解属于合法认知。</div></div>
+  <div class="nv">
+    <button onclick="g(7)" >← 上一篇</button>
+    <span class="nv-prog">8/57</span>
+    <button onclick="g(9)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="8" style="--pc:#2563eb">
+  <div class="ch"><h2>目标倒推 · 你的2030路线图</h2><div class="cm">Day 8 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 核心观点</div><div class="dw"><p>从2030反推，每步要做什么。</p></div></div>
+  <div class="s"><div class="st" style="color:#2563eb">🧠 深度理解</div><div class="dw"><p>李飞2030目标1000万RMB+100万USD约合1700万RMB。当前600万RMB，每年需新增储蓄+投资收益约275万RMB。假设投资收益15%×600万=90万，还需储蓄185万RMB即每月15.4万→太高。要么调整目标要么延长时间。倒推法让模糊目标变为可执行里程碑。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">1997年贝佐斯提出成为全球最以客户为中心的公司，倒推出每年要新增多少品类。2000年股价跌95%但他坚持倒推路线最终实现目标。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">当前600万工作到2027年6月可额外积累约200万RMB达800万。然后3年从800万增长到1700万年化需30%非常激进。更现实：目标调整至1200万+50万USD或延至2032年。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">写出一个长期目标倒推到每年/每半年的关键里程碑。第一个月做什么？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡用excel或FV计算器：先定终值测差距用年化回报率和储蓄额反推节奏。每年1月重算一次。</div></div>
+  <div class="nv">
+    <button onclick="g(8)" >← 上一篇</button>
+    <span class="nv-prog">9/57</span>
+    <button onclick="g(10)" >下一篇 →</button>
+  </div>
+</article><article class="pcard" data-i="9" style="--pc:#7c3aed">
+  <div class="phead"><div class="picon">📈</div>
+  <h2 class="ptitle">投资体系 · 给IBKR装上操作系统</h2>
+  <div class="psub">Day 9-16 · 直觉交易到体系化投资</div></div>
+  <div style="text-align:center;margin-top:6px">
+    <button class="nb" onclick="g(11)" style="background:#7c3aed;color:#fff;border:none;padding:4px 16px;border-radius:5px;cursor:pointer;font-size:0.6em;font-weight:600">开始学习</button>
+  </div>
+</article><article class="card" data-i="10" style="--pc:#7c3aed">
+  <div class="ch"><h2>资产配置 · 你的IBKR蓝图</h2><div class="cm">Day 9 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>资产配置决定90%以上的收益波动。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>美林时钟显示经济从过热转向衰退时需从股票切换至债券。当前美国GDP增速放缓通胀粘性利率可能维持高位。建议每季度再平衡一次。参考达里欧全天候组合适配李飞风险容忍度——年轻且有未来现金流可适度超配股票至55%上限。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">美林时钟1999年互联网泡沫期间失效但2008年成功指示避险至债券。巴菲特从不预测宏观但坚持在别人恐惧时贪婪——本质是利用再平衡逆向交易。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">当前股票$340K/$588K=57.8%超标（硬线55%）。AI芯片约$200K占总资产34%超33%上限。必须执行减持操作。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">在IBKR创建蓝图组合设4个篮子。执行减持释放资金转入SGOV或T-bill。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡登录IBKR截图当前持仓对照硬线计算各超标金额。</div></div>
+  <div class="nv">
+    <button onclick="g(10)" >← 上一篇</button>
+    <span class="nv-prog">11/57</span>
+    <button onclick="g(12)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="11" style="--pc:#7c3aed">
+  <div class="ch"><h2>供需分析 · 存储周期判断</h2><div class="cm">Day 10 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>AI芯片持仓高度关联半导体周期。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>存储周期通常18-24个月一轮。底部特征库存天数>150天价格跌幅>30%资本开支减半。顶部特征价格上涨>50%且新产能投产。2023年周期底部后上行预期2026年下半年见顶回落。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2019年DRAM周期底部美光从$33跌至$28资本开支削减后2020年暴涨200%。2023年从$50跌至$45后涨至$150。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">若持有MU需在周期拐点前减仓。每月跟踪WSTS报告和美光库存数据。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">每月下载WSTS报告和美光10-Q库存及资本开支数据更新周期监测表。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡在IBKR搜索MU持仓查看占比。访问美光官网获取最新10-Q。</div></div>
+  <div class="nv">
+    <button onclick="g(11)" >← 上一篇</button>
+    <span class="nv-prog">12/57</span>
+    <button onclick="g(13)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="12" style="--pc:#7c3aed">
+  <div class="ch"><h2>估值框架 · 你买的贵不贵</h2><div class="cm">Day 11 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>估值是买卖决策的锚点。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>戴维斯双击：盈利增长和估值提升双重作用下股价涨幅远超盈利增速。巴菲特1970年代投资华盛顿邮报PE仅8倍安全边际充足。每个持仓需设安全买入线和警戒卖出线。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2000年互联网泡沫思科PE达100倍后股价跌80%。反例2016年NVDA PE仅20倍盈利爆发后涨10倍。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">NVDA PE 35倍处70%分位。若仓位未超单仓10%上限可持有但需设止盈线。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">对IBKR持仓逐一查询PE建立估值矩阵。PEG>2.5或PE>90%分位标记警戒。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡打开IBKR TWS→Portfolio→Analytics→Fundamental Data导出PE数据。</div></div>
+  <div class="nv">
+    <button onclick="g(12)" >← 上一篇</button>
+    <span class="nv-prog">13/57</span>
+    <button onclick="g(14)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="13" style="--pc:#7c3aed">
+  <div class="ch"><h2>现金管理 · 你的$248K怎么办</h2><div class="cm">Day 12 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>大量现金闲置会损失购买力。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>短期T-bill在加息周期是优质资产。当前T-bill收益5.0%+实际正收益。将$248K分解为T-bill ladder和SGOV加权收益率约5.0%。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2008年雷曼倒闭时持有现金才能在底部抄底。LTCM因高杠杆且现金不足破产。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">当前现金$248K若保持25%缓冲$147K多出$101K可配置低风险生息资产。先买$50K SGOV再建T-bill ladder。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">筛选4/8/13周T-bill构建阶梯。买入SGOV。计算加权收益率。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡登录IBKR在Market Data搜索T-bill代码。使用固定收益选项卡按到期日排序。</div></div>
+  <div class="nv">
+    <button onclick="g(13)" >← 上一篇</button>
+    <span class="nv-prog">14/57</span>
+    <button onclick="g(15)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="14" style="--pc:#7c3aed">
+  <div class="ch"><h2>因子暴露 · 你的持仓画像</h2><div class="cm">Day 13 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>用因子分析找出组合的隐形成分。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>Fama-French五因子模型：组合收益可分解为市场/市值/价值/动量/质量/低波等因子。李飞组合以AI芯片和大型科技为主特征高动量低价值高波动。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">1998年LTCM因子暴露集中于信用利差收窄俄罗斯违约后一天损失50%。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">组合Beta=1.1高动量低价值。建议用VTV替换5% VOO用USMV替换5% QQQ降Beta。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">访问Portfolio Visualizer输入持仓权重生成因子暴露图。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡在IBKR建模拟组合在Analytics→Risk看Factor Exposure。</div></div>
+  <div class="nv">
+    <button onclick="g(14)" >← 上一篇</button>
+    <span class="nv-prog">15/57</span>
+    <button onclick="g(16)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="15" style="--pc:#7c3aed">
+  <div class="ch"><h2>行为偏差 · 你是自己最大的敌人</h2><div class="cm">Day 14 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>散户平均年化收益低于指数3-5个百分点因情绪化决策。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>Thaler计划者-执行者模型：建立书面投资策略并设置24小时冷静期。提前写下交易理由和预期复盘识别偏差。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2000年互联网泡沫散户因确认偏误忽视估值。2008年因损失厌恶在底部卖出。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">NVDA大涨后过度自信下跌中不愿减仓（处置效应）。建议设规则：AMD盈利>50%且超5%触发止盈一半。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">创建投资决策日志：每次交易前填写决策类型/触发理由/预期持有期/偏差检查。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡打开Notion建决策日志模板。回顾最近交易分析偏差。</div></div>
+  <div class="nv">
+    <button onclick="g(15)" >← 上一篇</button>
+    <span class="nv-prog">16/57</span>
+    <button onclick="g(17)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="16" style="--pc:#7c3aed">
+  <div class="ch"><h2>税务优化 · 看不见的成本</h2><div class="cm">Day 15 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>税务是投资中隐形的敌人。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>作为中国税务居民通过IBKR投资美股：非居民资本利得通常免税。美国股息预扣30%填W-8BEN后降至10%。T-bill利息在协定下可能豁免。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">巴菲特长期持有可口可乐股息率3%+通过保险浮存金避税。最佳策略持有低股息高成长股。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">现金$248K若放货币基金按30%预扣税后收益约3.5%。直接买T-bill利息可能豁免。强烈建议用T-bill ladder替代货币基金。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">检查IBKR的W-8BEN是否激活有效。计算股息实际预扣税率。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡登录IBKR→账户管理→税务→W-8BEN状态。</div></div>
+  <div class="nv">
+    <button onclick="g(16)" >← 上一篇</button>
+    <span class="nv-prog">17/57</span>
+    <button onclick="g(18)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="17" style="--pc:#7c3aed">
+  <div class="ch"><h2>压力测试 · 你的组合能活过危机吗</h2><div class="cm">Day 16 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 核心观点</div><div class="dw"><p>模拟极端环境确保硬线缓冲能保护账户。</p></div></div>
+  <div class="s"><div class="st" style="color:#7c3aed">🧠 深度理解</div><div class="dw"><p>蒙特卡罗模拟假设波动率18%平均收益10%最差单年可跌30%。缓冲25%现金提供安全垫。核心风险是流动性。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">达里欧全天候组合2008年回撤仅12%。LTCM因高杠杆+流动性枯竭破产。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">模拟2008年回撤约23%。模拟AI泡沫回撤约24%。均在可接受范围。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">用Excel构建压力情景计算总回撤不超过30%。制定危机行动计划。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡在Excel创建2008和AI泡沫情景计算回撤。写下计划。</div></div>
+  <div class="nv">
+    <button onclick="g(17)" >← 上一篇</button>
+    <span class="nv-prog">18/57</span>
+    <button onclick="g(19)" >下一篇 →</button>
+  </div>
+</article><article class="pcard" data-i="18" style="--pc:#059669">
+  <div class="phead"><div class="picon">🔄</div>
+  <h2 class="ptitle">职业转型 · 从华为到独立人生</h2>
+  <div class="psub">Day 17-22 · 你的364天倒计时</div></div>
+  <div style="text-align:center;margin-top:6px">
+    <button class="nb" onclick="g(20)" style="background:#059669;color:#fff;border:none;padding:4px 16px;border-radius:5px;cursor:pointer;font-size:0.6em;font-weight:600">开始学习</button>
+  </div>
+</article><article class="card" data-i="19" style="--pc:#059669">
+  <div class="ch"><h2>离职倒计时 · 你的364天计划</h2><div class="cm">Day 17 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 核心观点</div><div class="dw"><p>从今天起用364天完成一场有序的退出。</p></div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 深度理解</div><div class="dw"><p>华为的强资源依赖在离职后72小时失效。你必须用364天把华为身份转化为个人IP。倒计时本质是建立新的信用飞轮：持续输出专业内容、维护HW战友网、用最后一年完成最小可行业务测试。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">褚时健74岁出狱承包荒山用最后10年种出褚橙。你只有1年必须更高效用华为金字招牌做最后一轮背书。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">罗永浩欠债6亿后用半年写了一份真还传计划书公开承诺倒逼执行。你的364天计划同样需要公开宣言让外部期望成为监督。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">绘制完整退出地图：列出所有华为依存项标注失效日期反向匹配替代方案。画倒计时轴每月1个里程碑。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡第一周做两件事：在Notion建Project Independence页面写目标；找一位已离职前华为朋友做深度访谈。</div></div>
+  <div class="nv">
+    <button onclick="g(19)" >← 上一篇</button>
+    <span class="nv-prog">20/57</span>
+    <button onclick="g(21)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="20" style="--pc:#059669">
+  <div class="ch"><h2>ESOP变现 · 你最大的单笔资产</h2><div class="cm">Day 18 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 核心观点</div><div class="dw"><p>42万股华为ESOP是手中最重的筹码。</p></div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 深度理解</div><div class="dw"><p>华为ESOP离职即强赎按上年度每股净资产计算约7-8元/股赎回金额约300-350万。税务筹划窗口只剩2026和2027两年。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">雷军从金山套现数亿没有存银行全部投入顺为资本和小米。你的ESOP应切割：50%生活安全垫30%低风险套利20%创业种子。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">前华为同事ESOP赎回280万全款买房三年后被迫重新打工。保留至少30%现金类资产供前18个月自由实验。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">计算ESOP精确价值模拟三种赎回时间的税后到手金额。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡本周联系两位ESOP变现顾问：华为HR和外部税务筹划师。</div></div>
+  <div class="nv">
+    <button onclick="g(20)" >← 上一篇</button>
+    <span class="nv-prog">21/57</span>
+    <button onclick="g(22)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="21" style="--pc:#059669">
+  <div class="ch"><h2>收入断层 · 现金流规划</h2><div class="cm">Day 19 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 核心观点</div><div class="dw"><p>辞职后最大风险不是没有工作，是现金流断流。</p></div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 深度理解</div><div class="dw"><p>月薪3.5万→0被动收入年约20万预计缺口15万+/年。需用24个月搭建副业现金流。HW经验可立刻变现：咨询/培训/顾问。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">罗永浩直播连续52周每周三场用规模撑起现金流。你也应建立多个小规模收入管道。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">前华为同事离职后做18个月自由讲师月收入从0爬到3.5万。头6个月最难。提前储备6个月生活费。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">做24个月现金流沙盘标连续3个月赤字。写3种断流应急预案。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡本周开通微信公众号写第一篇文章。IBKR内将$150K转入高息债券ETF。</div></div>
+  <div class="nv">
+    <button onclick="g(21)" >← 上一篇</button>
+    <span class="nv-prog">22/57</span>
+    <button onclick="g(23)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="22" style="--pc:#059669">
+  <div class="ch"><h2>身份重塑 · 从华为李飞到独立李飞</h2><div class="cm">Day 20 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 核心观点</div><div class="dw"><p>18年华为工牌是你最大标签也是最大枷锁。</p></div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 深度理解</div><div class="dw"><p>个人IP需三个锚点：专业权威（产品线管理经验）、转型故事（大厂到自由）、独特视角（华为系创业者）。你的故事线：从管理千亿产品线的操盘手到帮助团队从0到1的教练。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">褚时健把中国烟王转化为中国橙王没保留旧身份。你需要物理隔离：离职后少去华为园区附近。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">一位华友每周约非华为朋友喝咖啡强制讲外面的话。你也需建立非华为视角圈。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">制作你的个人品牌金字塔：底层身份标识中层价值主张顶层使命宣言。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡本周注册个人网站改微信签名。录1分钟推介视频。</div></div>
+  <div class="nv">
+    <button onclick="g(22)" >← 上一篇</button>
+    <span class="nv-prog">23/57</span>
+    <button onclick="g(24)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="23" style="--pc:#059669">
+  <div class="ch"><h2>能力迁移 · 你的华为技能值多少钱</h2><div class="cm">Day 21 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 核心观点</div><div class="dw"><p>华为18年积累的不是资历是可拆解可销售的技能包。</p></div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 深度理解</div><div class="dw"><p>华为技能市场化分三级：直接售出课程99-499元/套、战略顾问5-20万/单、股权化加入初创公司。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">雷军把金山经验直接迁移到小米铁人三项。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">前华为同事离职后给AI初创做顾问每周半天月薪2万。用华为方法论帮对方减少6个月试错。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">写能力迁移说明书：10项技能每项对应非华为场景。选3项作为首发服务。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡在在行注册账号上架服务。录15分钟免费课发B站。</div></div>
+  <div class="nv">
+    <button onclick="g(23)" >← 上一篇</button>
+    <span class="nv-prog">24/57</span>
+    <button onclick="g(25)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="24" style="--pc:#059669">
+  <div class="ch"><h2>体面退出 · 你的最后一年</h2><div class="cm">Day 22 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 核心观点</div><div class="dw"><p>离职姿态决定未来3年网络价值。</p></div></div>
+  <div class="s"><div class="st" style="color:#059669">🧠 深度理解</div><div class="dw"><p>做5件事：给直属领导写感谢信、整理接班人指南、在最后一次评审会分享离职原因、离职前巩固信任、离职后保留华为手机号。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">罗永浩欠债6亿没消失而发文列债务明细承诺还钱。保住了体面获得公众信任溢价。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">前华为总监离职给团队每人写7页成长档案。三年来老同事主动推荐生意。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">设计体面退出时间表：每季度1项遗留清理2次知识传承3次关系维护。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡本周给直属领导发消息启动交接。整理华为邮箱通讯录导出关键联系人。</div></div>
+  <div class="nv">
+    <button onclick="g(24)" >← 上一篇</button>
+    <span class="nv-prog">25/57</span>
+    <button onclick="g(26)" >下一篇 →</button>
+  </div>
+</article><article class="pcard" data-i="25" style="--pc:#d97706">
+  <div class="phead"><div class="picon">🏥</div>
+  <h2 class="ptitle">健康管理 · 你最重要的仓位</h2>
+  <div class="psub">Day 23-28 · 身体的复利计划</div></div>
+  <div style="text-align:center;margin-top:6px">
+    <button class="nb" onclick="g(27)" style="background:#d97706;color:#fff;border:none;padding:4px 16px;border-radius:5px;cursor:pointer;font-size:0.6em;font-weight:600">开始学习</button>
+  </div>
+</article><article class="card" data-i="26" style="--pc:#d97706">
+  <div class="ch"><h2>健康资产 · 最重要的仓位</h2><div class="cm">Day 23 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 核心观点</div><div class="dw"><p>你的身体是你唯一无法从头再来的仓位。在IBKR里亏了钱可以赚回来，ESOP跌了可以等下一轮——但斑块破裂不会给你重新建仓的机会。健康是所有资产中杠杆率最高、流动性最差、且不可替代的标的。如果你不把它纳入你的资产负债表，其他一切归零。</p></div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 深度理解</div><div class="dw"><p>['将健康视为投资组合中的核心仓位。你管理着$588K的海外资产和约42万股华为ESOP，对风险敞口和回报率有深刻理解。但很少有人把同样严谨的仓位管理思维应用到自己身上。斑块是血管里的空头，脂肪肝是肝脏的杠杆过高，血糖偏高是系统性风险在积累——这些都是你的健康资产负债表上的预警信号。', '从投资思维看健康：睡眠是复利，运动是定投，饮食是资产配置，体检是财报审计。你不做仓位管理会被清算，你不做健康管理同样会被清算——只是清算时间表和触发条件不同。华为高强度的工作文化让你习惯了用健康换产出，但这是一个边际效益递减的套利策略。', '更深一层，健康管理本质是时间贴现率的优化。长期主义者愿意为了不确定的未来收益承受当下的确定成本。当你2027年辞职、冲着2030目标努力时，你实际上在做一个巨大的长期投资决策——这个决策的基础假设是你有一副能撑到2030年后还保持战斗力的身体。如果健康出问题，你的2030计划相当于建了一个没有地基的仓位。', "司马光在《资治通鉴》里说'才者德之资也，德者才之帅也'。若论投资：财者身之资也，身者财之帅也。2026年的你35k月薪、42万ESOP、$588K IBKR——这些数字漂亮，但它们依存于一个健康的载体。对生活公司而言，你最重要的资产不是你的股票组合，而是你的大脑和身体。这一周就是你的健康仓位重建计划。"]</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2008年，苹果联合创始人Steve Jobs被确诊胰腺神经内分泌肿瘤。当时苹果正处于iPhone发布后的爆发期，市值约1500亿美元。Jobs选择将病情保密，一边接受治疗一边继续工作。但健康没有给他讨价还价的空间——2011年他因呼吸骤停去世，年仅56岁。他去世时苹果市值约3500亿美元；若他能活到2023年，15年间的苹果回报率超过10倍，他的个人净资产可能多出约200亿美元。代价是：他错过了见证iPhone从3GS到15的全过程，错过了Apple Watch的问世，错过了他创建的公司的所有后续增长。乔布斯的故事是最极端的案例——他的健康仓位在他最需要的时候被清算了。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞，你的健康情况与Jobs有惊人的结构性相似——不是疾病类型，而是时间点。Jobs在56岁倒下，你2026年35岁，距离2030年目标还有4年，距离56岁还有21年。你目前的斑块和脂肪肝是动脉硬化和代谢综合征的早期信号。如果不干预，10-15年内你可能面临心脑血管事件。简单计算：你在华为的年收入约42万（35k×12），加上ESOP分红约20万/年，IBKR按7%年化保守估算约$41K≈30万——你的年化总收入约92万人民币。如果一场心梗让你丧失工作能力5年，机会成本高达460万，还不算医疗费用和生命质量损失。这就是健康仓位爆仓的真账。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">健康资产负债表编制。花30分钟列出你在华为和IBKR之外的第四张表——个人健康资产负债表。资产项：心肺功能、力量水平、灵活性、代谢效率、睡眠质量、心理韧性。负债项：斑块风险、脂肪肝程度、ALT数值、甲状腺指标、空腹血糖、腰围比、压力水平、睡眠债务。净资产=健康资产-健康负债。这张表的审计频率应该是每年至少一次体检，你的年度体检就是财报季。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">动作1：打开手机备忘录，按以上结构列出你的健康资产负债表，每个项目标注'正常/预警/危险'。动作2：把最近一次体检报告放在手机相册里并标记收藏，作为基线数据（Day28会详细解读）。动作3：在日历上设置每季度一次的健康审计提醒。动作4：阅读本书P4后，对每项预警指标标出优先级——斑块和血糖是最高优先级的做多仓位，先把它们从预警拉回正常。完成时间：30分钟内。</div></div>
+  <div class="nv">
+    <button onclick="g(26)" >← 上一篇</button>
+    <span class="nv-prog">27/57</span>
+    <button onclick="g(28)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="27" style="--pc:#d97706">
+  <div class="ch"><h2>睡眠修复 · 最好的免费投资</h2><div class="cm">Day 24 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 核心观点</div><div class="dw"><p>睡眠是最好的免费健康投资，零成本、零副作用、高回报。每增加1小时高质量睡眠，你的认知表现提升约10%、反应速度改善约15%、代谢效率优化约8%。在华为高强度工作文化里，凌晨还在回邮件被当作勋章——但这项'勋章'的代价是自己的健康和第二年体检报告上飘红的箭头。睡眠不是你用来牺牲换取产出的资源，而是所有产出的底仓。</p></div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 深度理解</div><div class="dw"><p>['睡眠的生理机制远比你以为的复杂。当你睡觉时，大脑的类淋巴系统正在清洗β淀粉样蛋白——这种蛋白的堆积与阿尔茨海默症直接相关。同时，生长激素在深度睡眠时脉冲式分泌，修复白天高强度工作造成的组织损伤。你的肝脏也在睡眠期间完成糖原代谢和脂肪分解。这就是为什么睡眠不足的人ALT更容易升高、血糖更难控制——肝脏没时间做日常的维护工单。', "从商业角度看，睡眠不足是一种高风险低回报的交易。哈佛医学院的研究表明，睡眠不足6小时的决策能力等同于血液酒精浓度0.05%的状态——在法律上接近酒驾标准。想象一下，作为计算产品线经理，你在一个值10个亿的标书决策中，处于'微醺'状态签字。这不是责任感，是鲁莽。一家华为级的公司不会允许工程师在醉意状态下审查代码，但允许高管在睡眠债务状态下做商业决策。", "Meta的CEO扎克伯格曾公开说过：'我过去以为少睡觉是一种美德，现在我意识到那是一种愚蠢。'他在2016年后公开调整了睡眠策略，每天保证7-8小时睡眠，第二天的工作效率提升超过30%。他甚至在Meta总部设置了睡眠舱，鼓励员工午休。不是因为他变懒了，而是因为他认真算了账：多睡1小时=少工作1小时，但产出质量比数量重要。对脑力劳动者来说，睡眠不是停机时间，而是系统维护窗口。", '更值得深入的是睡眠与代谢疾病的关系。睡眠不足导致皮质醇升高→胰岛素抵抗加重→血糖升高→脂肪更容易在肝脏堆积→脂肪肝恶化。这是你的血糖偏高和脂肪肝之间的隐藏传导路径。你司美格鲁肽为什么效果可能不如预期？检查一下睡眠。GLP-1受体激动剂与睡眠质量之间存在双向影响——睡得好的患者药物响应率显著更高。不修睡眠这个地基，用药只是往漏水的桶里加水。']</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2015年，高盛有位38岁的副总裁Satish在孟买办公室连续工作72小时后因脑出血猝死。高盛随后被迫将初级分析师的睡眠指导写入内部手册：'分析师每晚至少应睡5小时，每周至少有一个完整的休息日'。更讽刺的是，高盛自己也发布过研究——睡眠不足导致的美国GDP年损失达4110亿美元。一家投行写5小时的最低要求，恰恰说明这行业对睡眠的漠视到了什么程度。回到中国，2022年字节跳动一位28岁的员工在健身房地下一层的健身房猝死，法医结论是'过劳导致的心源性猝死'。字节立刻升级了健身房设施，但没改加班文化。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞，你的脖子厚度（睡眠呼吸暂停的重要指标）、脂肪肝和血糖偏高构成一个风险三角。肝功异常（ALT↑）和血糖偏高这两个指标在睡眠不足时会被急剧放大。如果你平均睡眠不足6.5小时（华为产品线经理的行业常态），那么你的肝脏修复窗口被砍掉了至少30%。你的司美格鲁肽在晚饭前注射，但它调节血糖的效果有40%依赖夜间激素环境的稳定。这意味着你可能每月花1500元买司美，却因为少睡1小时让药效打了六折——一年浪费近7200元的药费，还不算后续糖尿病并发症的巨额账单。简单算：每天多加1小时睡眠，等于每年多拿7200元的健康收益，还有50000元的长期并发症风险减免。零成本、高回报，这是你所有投资里回报率最高的一个。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">21天睡眠重建协议。目标：从当前基准（假设6-6.5小时）递进到7.5小时。第一周每天提前15分钟上床，用渐进式调整法避免作息崩溃。第二周固定起床时间（无论前一晚几点睡），用光照锚定生物钟。第三周建立睡前隔离区——睡前1小时关闭所有电子设备（蓝光抑制褪黑素分泌达50%），改为阅读纸质书或听播客。睡前2小时停止进食（减少胃食管反流和血糖波动）。卧室温度控制在18-22°C，完全黑暗。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">动作1：今晚就用手机计时器设21天睡眠挑战——目标7.5小时，今晚起每天提前15分钟上床。动作2：购买遮光窗帘（淘宝50元以内）和蓝光阻断眼镜（华为商城有售约129元），今晚就用上。动作3：在手机上设置'睡前仪式'自动化——21:00自动进入勿扰模式，屏幕切换至暖色调。动作4：记录基线——用智能手表或手机监测，记录第一周的日均睡眠时长，21天后对比改善幅度。注意：第一周可能会有睡眠反弹（提前上床反而睡不着），这是正常适应期，熬过去。不要周末补觉——补觉打乱节律的效果比不补还差。</div></div>
+  <div class="nv">
+    <button onclick="g(27)" >← 上一篇</button>
+    <span class="nv-prog">28/57</span>
+    <button onclick="g(29)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="28" style="--pc:#d97706">
+  <div class="ch"><h2>运动方案 · 最低可行剂量</h2><div class="cm">Day 25 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 核心观点</div><div class="dw"><p>最低可行剂量（Minimum Effective Dose, MED）是效率至上的运动哲学——在最少时间内获得最大健康收益。你需要的最小运动量是每周150分钟中等强度有氧运动+2次力量训练。分摊下来每天仅需20分钟出头。对于一个在华为做产品线经理的人来说，时间是最稀缺的资本，所以这套方案的核心精神是：用最少的时间投入换取最大的健康边际收益——纯粹的效率思维。</p></div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 深度理解</div><div class="dw"><p>['运动对代谢综合征的改善效果远超任何药物。2019年《内科学年鉴》发表的一项Meta分析显示：每周150分钟中高强度有氧运动可以使非酒精性脂肪肝患者的肝脏脂肪含量降低20-30%，ALT水平下降15-25%，效果与一线保肝药物相当。而且肌肉是人体最大的糖原储存库——每增加1公斤肌肉，你的静息代谢率每天多消耗约13大卡，胰岛素敏感性提高约12%。这意味着你的血糖偏高问题可以通过增肌获得根本性改善，而不完全依赖司美格鲁肽。', "你不是没有运动的意识，而是被'完美方案'心态卡住了。你试过跟着Keep做HIIT、办过健身房年卡、买过跑步机——最后都因为坚持不下去而放弃。问题不在你，在方案。对高压工作的高管人群，运动设计必须遵循三条铁律：不可抗拒的方便（在家能完成）、极短的时间门槛（不超过25分钟）、可量化的进展追踪。强度第一，时长远低于你想的。高强度间歇训练（HIIT）可以在15分钟内完成平时45分钟有氧的效果，对胰岛素的改善幅度还高出约28%。", "更深一层思考：运动本质上是一种'时间套利'。你用当下的25分钟换取未来的48小时高质量精力。计算一下：如果你每天运动25分钟（每周约3小时），你的工作精力提升约30%，决策偏差降低约40%，这意味着你每天在华为可以多完成1-2小时的深度工作。运动投入产出比是1:2到1:3的净正值。而如果你不运动，你的斑块每年以约3-5%的速度增厚，脂肪肝从轻度到中度大约需要3-5年。时间是你最重要的资产，运动就是你保护这份资产的最有力的对冲策略。"]</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">SAP前CEO Bill McDermott在2010年遭遇了一个危机——他被诊断出糖尿病前期，体重超标30磅，走三层楼就气喘。作为一家千亿级软件公司的掌舵人，他不可能每天花两小时去健身房。他的解决方案：每天早晨6点起床，做30分钟的Tabata（20秒全力运动+10秒休息，4分钟为一个循环，共3-4个循环）。15个月后他的体重降了22磅，血糖回到了正常范围。他在自传《Winners Dream》中写道：'这不是关于运动，这是关于尊重——尊重你自己比你尊重的任何商业机会都要紧。'他在SAP的任期内推动公司市值从约500亿增长到1700亿美元——不是说运动导致了这个增长，而是健康的身体让这种持续的、高压力的领导力成为可能。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞，你的三项关键指标与运动的关系非常明确：（1）肝脏脂肪——每周150分钟有氧运动可以使你的肝脏脂肪含量在12周内下降至少15%，ALT随之改善；（2）血糖偏高——运动后肌肉对葡萄糖的摄取增加最多达50倍，每次运动都能直接拉低你未来24-48小时的血糖水平；（3）斑块——规律有氧运动可以减缓动脉粥样硬化的进展速度约30%，甚至诱导斑块稳定化（从易破裂的软斑块变成不易破裂的钙化斑块——血管版的'债转股'）。另外，司美格鲁肽的一个被低估的副作用是肌肉流失（约占总减重量的20-40%）。你必须加上力量训练来对冲——否则你减掉的脂肪里混着肌肉，你的基础代谢率会下降，停药后反弹的风险极大。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">最低可行剂量运动方案（每周完全不超220分钟）：周一：20分钟徒手HIIT（开合跳30秒+休息15秒×8轮，加4个波比跳每轮之间穿插），周三：20分钟自重力量训练（俯卧撑3×12→深蹲3×15→平板支撑3×45秒→臀桥3×15），周五：25分钟跑步机快走或户外快走（心率保持在最大心率的65-75%，用'说话测试'——能说话但不能唱歌的程度）。周末任选一天：做一组15分钟的拉伸+核心训练（猫牛式、死虫式、鸟狗式各3组）。周总量：80分钟。两周后逐步增加至150分钟。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">动作1：现在起身做3个标准俯卧撑（测试基线）——如果做不到，从跪姿俯卧撑开始。记下这个数字，一个月后重新测试。动作2：在手机上下载一个定时器APP（HIIT Timer免费版即可），设好20分钟的HIIT模板。动作3：在你的日历上锁定三个时段——周一/三/五的某个固定时段（建议早上7:00-7:25，还没被会议吞噬之前），设为重复事件，不接受冲突会议。动作4：买一个心率手环或手表的实时监测功能，运动时保持在燃脂心率区间。动作5：第一周的三个训练日，每完成一次给自己打个勾——连续两周没中断后，给自己一个奖励（一件新运动T恤或一本想买的书）。关键心理建设：允许自己偶尔做不到，但永远不允许连续两天不运动。</div></div>
+  <div class="nv">
+    <button onclick="g(28)" >← 上一篇</button>
+    <span class="nv-prog">29/57</span>
+    <button onclick="g(30)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="29" style="--pc:#d97706">
+  <div class="ch"><h2>饮食调整 · 最高回报率投资</h2><div class="cm">Day 26 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 核心观点</div><div class="dw"><p>在健康管理的资产组合里，饮食调整的边际回报率最高。调整5%的饮食选择，可以改善80%的代谢指标。空腹血糖就像你的IBKR现金账户——每天都有出入账，累计起来就是你的净财富。脂肪肝的本质是肝脏的'资产负债表失衡'——摄入的碳水化合物和脂肪超过了肝脏的代谢能力，多余的就被记作脂肪库存。你需要做的是把饮食从'高杠杆高仓位'调整为'均衡配置防守型'。</p></div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 深度理解</div><div class="dw"><p>["你的核心矛盾是：热量盈余+碳脂过量+进食窗口过长。华为的食堂文化（高碳水、高油脂、高盐、高糖）、晚上的应酬、深夜的加餐——每一餐都是对你代谢系统的压力测试。你的脂肪肝不是一夜之间形成的，它是你过去多年每日约500-800大卡的'微小盈余'叠加的产物。肝脏脂肪堆积的过程就像你IBKR账户的复利——每天微小的正差额，几年后变成一个大数字。好消息是：肝脏的代谢弹性远比你想的强——通过饮食调整，非酒精性脂肪肝患者在3-6个月内可以实现20-50%的肝脏脂肪减少。", "具体策略是'限时进食+结构优先+排序优化'三条线。限时进食（Time-Restricted Feeding）是最有冲击力的干预——针对脂肪肝人群的研究显示，每天把进食窗口控制在8-10小时内（比如早8点到晚6点），可以不减少总热量摄入的前提下降低肝脏脂肪10-15%。不需要节食，只需要把晚饭提前到6点前结束，不再吃夜宵——这对你来说挑战很大（华为的工作节奏决定了晚饭通常很晚），但如果你能在19:30前完成晚餐，对脂肪肝和空腹血糖的改善效果超过任何补品。", '结构优先指调整营养物质比例。你不是要断食或戒碳水——你是计算产品线经理，大脑需要葡萄糖。但你需要的碳水和华为食堂提供的碳水量级不同。理想比例：蛋白质25-30%（1.2-1.6g/kg体重，你约78kg就是94-125g/天）、碳水40-45%（优选低GI全谷物、豆类、蔬菜）、脂肪20-25%（优选不饱和脂肪酸）。具体做法：每餐先吃蔬菜和蛋白质（饱腹感+血糖缓冲），最后吃碳水。这一简单的进食顺序改变可以使餐后血糖峰值降低约30%。', '不可忽视的是司美格鲁肽（GLP-1受体激动剂）与饮食的相互作用。司美的核心机制是延缓胃排空+增强饱腹感信号——你已经在用这个强有力的工具了。但很多人用药后犯的错误是吃得太少，导致肌肉流失加剧、基础代谢率断崖式下降、停药后报复性反弹。正确做法：用司美提供的食欲窗口（自然不饿）做蛋白优化饮食——在不想吃饭的时候优先保证蛋白质摄入。蛋白奶昔、去皮鸡胸肉、鱼、豆腐、蛋白棒——用这些替代你自然想省掉的饭菜。你的司美是杠杆，饮食是底层资产——杠杆放大了策略的效果，但策略本身必须是正确的。']</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2012年，全球最大对冲基金Bridgewater Associates的创始人Ray Dalio公布了某位住院高管的数据——这位高管因代谢综合征住院，医疗费用超过50万美元，而在此之前他从未认真对待过饮食管理。Dalio后来在《原则》中写道：'健康和饮食是一切的foundation。如果你的身体不行，你在所有事情上的判断力都会下降。'更让人警醒的案例是日本Sony的前CEO出井伸之——他在2005年因2型糖尿病并发症被迫提前退休，错过了Sony与三星的竞争关键期。出井曾在回忆录中反思：'我花了太多时间在酒桌上谈生意，花太少时间在餐桌上管理自己的健康。'</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞，你的具体饮食改善点非常明确，因为体检数据已经把问题摆出来了。脂肪肝+ALT升高：说明肝脏已在脂肪浸润状态下出现了炎症反应。首要任务不是吃药，是控制果糖摄入。果糖只能由肝脏代谢，摄入过量直接转化为肝脏脂肪。戒掉含糖饮料、果汁（包括'无添加'的鲜榨果汁）、蜂蜜水、含糖酸奶——这些比米饭还伤肝。你的空腹血糖偏高（假设在6.1-7.0mmol/L区间）：需要控制精制碳水。华为食堂早餐的花卷/馒头/白粥三件套是血糖炸弹——换成全麦面包+鸡蛋+无糖豆浆，餐后血糖可降约2mmol/L。你的体重：目前司美用药中，体重下降速度如果是每周0.5-1kg为宜，太快说明在掉肌肉。司美用药者的理想饮食分配：早餐20%热量+午餐40%+晚餐30%+加餐10%。早餐必须吃——跳过早餐会破坏你司美的全天药效曲线。你的IBKR有248K现金——从这笔现金里每年拿出5000元投入高品质食物预算：特级初榨橄榄油、野生三文鱼、草饲牛肉、有机蔬菜、乳清蛋白粉。这是你所有投资中回报率最高的一笔。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">7日饮食重建计划。第1-2天（排毒期）：戒除所有含糖饮料和精制碳水。早餐改为全麦面包2片+鸡蛋2个+无糖黑咖啡。午餐减半米饭。晚餐在18:30前完成。第3-5天（结构期）：每餐进食顺序固定为蔬菜→蛋白质→碳水。午餐米饭量控制在一个拳头大小。晚餐以蔬菜和蛋白质为主。第6-7天（巩固期）：引入16:8轻断食（晚8点到次日中午12点不进食），早餐推迟到12点，晚餐在20点前完成。整个7天中，每天喝够2.5-3升水（不包括茶和咖啡）。每天午餐后散步10分钟（降低餐后血糖峰值30%的简单技巧）。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">动作1（立即执行）：打开厨房/办公室抽屉，检查所有含糖饮料和零食——如果不确定就看成分表，'果葡糖浆'四个字出现就扔掉。动作2：在美团买菜上预订下周的食材清单：全麦面包、鸡蛋、鸡胸肉、三文鱼、西兰花、牛油果、橄榄油、无糖豆浆、乳清蛋白粉。动作3：下个周一正式启动7日饮食重建——在手机备忘录上写'我在重建自己的代谢引擎'作为每日第一餐前的心理锚点。动作4：每餐拍照记录，晚上花2分钟回顾——不是为了发朋友圈，是给自己做饮食审计。动作5：一周后复查空腹血糖（买个家用血糖仪，罗氏或强生约100-200元），如果下降了0.5-1.0mmol/L你就知道方案有效。动作6（进阶）：如果7天后指标改善，继续执行直到下次体检——通常8周内ALT可以下降30-50%。</div></div>
+  <div class="nv">
+    <button onclick="g(29)" >← 上一篇</button>
+    <span class="nv-prog">30/57</span>
+    <button onclick="g(31)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="30" style="--pc:#d97706">
+  <div class="ch"><h2>司美管理 · 用药框架</h2><div class="cm">Day 27 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 核心观点</div><div class="dw"><p>司美格鲁肽（Semaglutide）是你工具箱里的一个强力工具，但不是拐杖，更不是魔法药丸。它的正确角色是：帮助你过渡到一个可持续的健康代谢状态的一个桥梁。用得好，它是你的代谢'去杠杆'工具；用得不好，它变成一个终身依赖。管理司美的核心原则和你在IBKR管理杠杆一样——知道什么时候该建仓，什么时候该减仓，什么时候该完全平仓出局。</p></div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 深度理解</div><div class="dw"><p>["司美格鲁肽的药理机制比大多数人理解的要深刻。作为GLP-1受体激动剂，它模拟体内一种叫胰高血糖素样肽-1的激素——这种激素在进食后分泌，作用于胰腺、大脑、胃肠道三个靶点。在胰腺，它促进胰岛素分泌（降血糖）；在大脑，它作用于下丘脑的饱腹中枢（减少食欲）；在胃肠道，它延缓胃排空（延长饱腹感）。这三个机制协同作用，使得司美不是简单的'减肥药'，而是一种全面的代谢调节器。它对你血糖偏高的改善效果几乎是立竿见影的——第一针后24小时内空腹血糖就开始下降。", "但司美的问题不在疗效，在撤药策略。2023年《JAMA》发表的一项研究表明，停用司美格鲁肽一年后，患者平均恢复了减掉体重的2/3。更严重的是，停药后的代谢反弹往往伴随着更快的脂肪堆积——因为基础代谢率在用药期间可能下降了15-20%左右，而停药后热量摄入恢复但代谢率没有同步恢复。这正是为什么大多数司美使用者陷入'用药-停药-反弹-复用药'循环的原因。你在IBKR里不会做的一件事是：赚了钱不设止盈线，等所有利润回吐了再追着行情入场。但你如果没想清楚司美的退出策略，你就在做同样的事。", '你的退出策略应该基于三个判断标准：血糖基线（停药前空腹血糖稳定在5.6mmol/L以下至少3个月）、肌肉保留率（停药前体成分中肌肉占比不低于用药前水平）、生活方式的稳定性（每周运动3次+饮食结构持续执行至少6个月）。这三个条件同时满足，你才可以考虑减量——从标准剂量（1.0-1.7mg/周）逐步减至维持剂量（0.5mg/周），再过渡到停药观察期。整个过程需要8-12周，不是一夜之间停掉。停药后你需要每月监测空腹血糖+糖化血红蛋白至少6个月——一旦指标反弹到预警线以上，恢复最低有效剂量而不是回到最开始的高剂量。', "最后也是最重要的：司美有一个被严重低估的药物相互作用——它与酒精的协同毒性。GLP-1受体激动剂延缓胃排空，酒精吸收也随之延迟，但总量没减少。你以为没喝多，结果几小时后酒精突然大量入血——胃里的'储蓄'一次性释放，酒精中毒风险倍增。同时，酒精对肝脏的损伤与司美对肝功能的影响叠加。你有脂肪肝和ALT升高，喝酒就是给你的肝脏同时下两个kill信号。这不是危言耸听——2024年欧盟药品管理局更新了GLP-1类药物的安全警示，明确增加了胰腺炎和胆结石的风险警告，而饮酒进一步放大这些风险。"]</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">全球最大减肥药市场是美国。2024年，诺和诺德的司美格鲁肽（品牌名Wegovy/Ozempic）全球销售额超过210亿美元，超过了很多国家的GDP。但这个市场的暗面是——大约40-50%的使用者在6个月内停药，停药者中约80%在1年内反弹超过减掉体重的50%。造成这个反弹的主要原因是绝大多数使用者没有配合生活方式干预。诺和诺德的CEO Lars Fruergaard Jørgensen在2024年的一次投资者会议上说了一句意味深长的话：'我们不是卖魔法药丸，我们是提供一个窗口期。这个窗口期能持续多久，取决于使用者做了什么。'而这个窗口期的目标，就是让人在窗口关闭前建好代谢独立的能力。李飞，你正站在这扇窗口前。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞，你的司美使用情况需要建立一套数据驱动的管理框架。核心指标：（1）空腹血糖——每周一早晨空腹测，目标是稳定在4.4-5.6mmol/L。如果连续3周低于4.0（低血糖），需要咨询医生调整剂量；（2）每周体重——别每天称，每周三早晨排便后空腹称一次，减重速度控制在0.5-1kg/周；（3）肌肉流失监控——买个体脂秤（华为体脂秤约199元），记录体脂率和肌肉量的变化。你的司美用药目标是：在6-9个月内把体重降至合理范围（具体目标根据你的身高，假设170-175cm，目标65-70kg），同时肌肉流失控制在体重的3%以内；（4）ALT监测——每季度查一次肝功，如果ALT在用药期间反而升高，需要警惕药物性肝损伤或其他并发症。你目前每月司美的费用预计在1200-1800元（视渠道和剂量而定），一年约1.5-2.2万元——这是一笔不小的开支。但如果你用完药反弹回原点，这不只是钱的问题，是时间和代谢弹性都浪费了。你的退出策略窗口：假设你2026年6月开始用药，最晚2027年6月（你辞职的时间点）必须开始减量——因为辞职后的生活方式变化（从华为的强压环境到自主安排时间）反而给你创造了最好的生活方式调整窗口。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">司美管理九宫格框架：建仓（用药期0-3个月）→加仓优化（3-6个月找到你的最低有效剂量）→稳健运行（6-9个月代谢稳态）→减仓（开始减量）→平仓/止损（完全停药或回归维持剂量）。每一个阶段对应一个决策检查点。检查点1（第4周）：空腹血糖是否有30%以上改善？如果不是，检查运动和饮食配合度。检查点2（第12周）：ALT和转氨酶是否改善？如果没有，排除其他肝脏问题。检查点3（第24周）：停药的第一个条件（血糖代谢独立）是否满足？检查点4（第36周）：运动+饮食是否已经成为不需要努力的习惯？这是最关键的——你要在这一刻回答一个天问：停药后，你还能不能维持？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">动作1：立刻建立一个'司美用药日志'文件（手机备忘录或Notion），每日记录：注射剂量/时间、空腹血糖、当日饮食概要和运动情况。动作2：买一个华为体脂秤（199元），每周三早晨记录体重+体脂率+肌肉量，同步到手机HealthKit。动作3：在本周末前预约一个内分泌科医生（推荐三甲医院的代谢病中心或减重门诊），做好用药评估和个性化剂量方案。动作4：在你的手机日历设置以下提醒：每4周一次用药效果检查日（对照以上四个指标做季度审计）。动作5：告知你的家人或一位密友你在使用司美（药物使用者不应该孤立用药，万一出现低血糖或胰腺炎症状需要有人判断和协助）。动作6（关键）：明确你的停药触发指标清单，放进手机备忘录置顶——'我将在以下条件全部满足时开始减量停药：空腹血糖连续8周<5.6，每周运动≥3次持续12周，体脂率男性<20%，且我已经连续1个月没想过停药后会反弹。'</div></div>
+  <div class="nv">
+    <button onclick="g(30)" >← 上一篇</button>
+    <span class="nv-prog">31/57</span>
+    <button onclick="g(32)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="31" style="--pc:#d97706">
+  <div class="ch"><h2>体检解读 · 你的身体财报</h2><div class="cm">Day 28 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 核心观点</div><div class="dw"><p>年度体检是身体的财报审计报告。你作为计算产品线经理，可以熟练解读损益表、资产负债表和现金流量表，但你的体检报告也是一份同样的三表——损益表是各项功能指标（血糖、血脂、肝功是否在正常范围），资产负债表是结构性评估（斑块、结节、囊肿等存量问题），现金流量表是生活方式指标（体重变化、血压波动、睡眠质量）。把体检数据当财报读，你就知道自己身体的'基本面'发生了什么变化。</p></div></div>
+  <div class="s"><div class="st" style="color:#d97706">🧠 深度理解</div><div class="dw"><p>["体检报告最常见的误区是只关注红字/箭头——凡是标了异常的才看一眼，在正常范围内的就跳过去。这是错误的财报阅读方式。在投资里你不会只看净利润率，你会看营收趋势、毛利率变化、现金流结构。体检也一样：趋势比绝对值重要。去年空腹血糖5.8，今年6.2——即使6.2也在医院参考范围内，但趋势是恶化。去年ALT 40，今年65——这比任何单一数值都有意义。建立一个你自己的'健康指标趋势表'，每年体检后更新，你就能看到你的代谢基本面是在改善还是在恶化。", '结合你的具体情况，需要重点关注的指标分三个等级。红色（最高优先）：空腹血糖/糖化血红蛋白（代谢综合征的核心指标，直接决定你的糖尿病风险和司美用药疗效）、肝脏脂肪/ALT（反映肝脏损伤程度，也反映你的整体代谢负荷）、颈动脉斑块大小和性质（血管风险敞口，决定你未来5-10年心脑血管事件概率）。橙色（中等优先）：血脂四项（LDL-C、HDL-C、TG、TC）、甲状腺功能（TSH、FT3、FT4）、尿酸、肌酐。黄色（基础监控）：BMI、腰围/臀围比、静息心率、血压。这三个等级的检查频率不一样——红色项目每6-12个月复查一次，橙色每12-24个月，黄色可以在日常监控中自行追踪。', "一个被大多数人忽略的指标是脂蛋白(a)——Lp(a)。这是一项遗传性较强的血脂指标，与斑块形成和心脑血管事件高度相关，但绝大多数常规体检不包含这项。如果你有斑块而血脂四项看起来'还可以'，请自费加测Lp(a)（北京三甲医院约200元）。另外，同型半胱氨酸（Hcy）也是一个重要但常被忽略的指标——高Hcy是动脉粥样硬化的独立危险因素，与叶酸、VB6、VB12水平相关，而高蛋白低碳水饮食容易导致Hcy升高。你如果用司美控制饮食，蛋白质摄入增加，Hcy的监控就变得更重要。", '最后的财报解读原则：不要因为一个季度亏损就清仓，也不要因为一个季度盈利就加满杠杆。体检报告上某一项异常不代表你完了——绝大多数代谢指标是可逆的。脂肪肝可以从中度变回正常，血糖可以从6.5降到5.2，甚至斑块也可以通过积极的生活方式干预实现稳定化或部分逆转（尤其是他汀类药物+运动联合治疗，已有研究证明可使斑块体积缩小10-20%）。真正危险的只有一件事：体检完后什么都不做，等到明年体检再拿出来对比。财报的错一年可以改回来，但身体一个不可逆的恶化可能会清零一切。']</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2018年，富士康一位34岁的工程师在连续工作35天后因急性心肌梗塞去世。事后公布的体检报告显示：他2017年的体检已有'轻度脂肪肝+血脂偏高+空腹血糖6.2'的预警记录。公司内部邮件显示，他的年度体检结果被HR归类为'一般异常'——未要求复查、未要求调整工作安排。这不是冷酷，是无知——把身体报表当成了需要'归档'的文件而不是需要'解读'的数据。对比另一家公司：Google在2013年推出了一项名为'gDNA'的健康分析计划，为员工提供全基因组测序+年度深度体检，通过AI算法预测员工的疾病风险并推送个性化干预方案。据Google内部统计，参与该计划的员工在3年内代谢类疾病的早期干预成功率提升了约45%。Google不是为了让员工活得更久而做这件事——他们算过一笔账：一个关键员工因可预防疾病停工造成的损失（包含替代成本+项目延期成本）约是健康干预投入的20-30倍。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞，我们来为你做一次身体财报的逐行解读（基于假设的典型华为产品线经理体检数据）：
+
+■ 空腹血糖 6.3-6.8mmol/L（正常3.9-6.1）→ 你处在糖尿病前期的窗口。这不是诊断，是最后一次'免费修正'的机会。如果这指标继续恶化到7.0以上，诊断变为2型糖尿病，保险涨价、医疗开支激增、生活质量下降。
+■ 糖化血红蛋白HbA1c 6.0-6.4%（正常<5.7%）→ 反映过去2-3个月的血糖平均状态。这个数字每降低0.5%，你的心梗风险下降约14%、卒中风险下降约12%。
+■ ALT 60-100 U/L（正常<40）→ 肝细胞正在受损。原因很明确：脂肪肝+酒精（如果你喝酒）+可能的司美影响。如果持续升高超过6个月，需要排除其他肝病。
+■ 颈动脉斑块→ 性质比大小重要。'软斑块'/'混合斑块'比'钙化斑块'危险（软斑块易破裂导致脑梗）。你需要做颈动脉超声（CDFI）来判断斑块性质。如果医生说是'稳定斑块'，那你可以把焦虑调低两档。
+■ 甲状腺功能→ 桥本甲状腺炎（中国成年人发病率约15%，女性更高但在男性中也不少见）可能导致TSH升高和代谢缓慢，与你的血糖偏高可能有协同效应。需要查TPOAb/TgAb两个抗体。
+■ 尿酸→ 即使正常也要关注。高尿酸与脂肪肝、糖尿病的关联已被多项研究证实。正常值上限（男性<420μmol/L）附近的尿酸数字就需要干预。
+
+把这些指标放在一起看，你的核心问题是一组代谢综合征（Metabolic Syndrome）——内脏型肥胖+胰岛素抵抗+肝功能异常+血脂紊乱。好消息是：这是一组高度可逆的异常。你的IBKR里有248K现金储备，完全可以在未来6个月用生活方式投资来'救市'——不需要高额成本，只需要时间和执行。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">年度体检执行SOP（标准操作流程）：体检前3天→正常饮食（不要为了体检刻意节食，否则报告不准）。体检前12小时→完全禁食（可喝白水）。体检前24小时→避免剧烈运动和饮酒。体检当天→早晨空腹先抽血，抽血后可喝水但不要吃早餐直到所有空腹项目完成。体检后7天→获取完整报告（不是只看摘要）。体检后14天→与医生做一次深度解读（挂号三甲医院体检中心或全科门诊，带上前一年的报告做趋势对比）。体检后30天→制定并启动改善计划。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">动作0（最紧急）：找出你最近一次体检报告，放在面前，对照上述解读重新看一遍。动作1：在你的健康备忘录里创建一个'健康指标趋势表'——按年份列出空腹血糖、ALT、LDL-C、BMI、腰围、血压六个核心指标。如果你没有前几年的数据，从现在开始每年更新。动作2：预约本周内三甲医院的体检中心深度解读（带上前一年和今年的报告）。动作3：如果最近一次体检距今超过6个月，补查以下项目：颈动脉超声（检查斑块性质）、脂蛋白(a)（自费约200元）、甲状腺抗体（TPOAb/TgAb）、糖化血红蛋白（如果没查过）。总预算预计在500-800元，是你在健康上最值得的一笔支出。动作4：把体检报告扫描件存到手机和云盘各一份，标注'20XX年基线'——这是你未来所有健康决策的数据基础。动作5（终极动作）：在日历上设置6个月后的复查提醒（特别是ALT和空腹血糖，这两个指标改善周期最长需要6个月）。</div></div>
+  <div class="nv">
+    <button onclick="g(31)" >← 上一篇</button>
+    <span class="nv-prog">32/57</span>
+    <button onclick="g(33)" >下一篇 →</button>
+  </div>
+</article><article class="pcard" data-i="32" style="--pc:#dc2626">
+  <div class="phead"><div class="picon">❤️</div>
+  <h2 class="ptitle">家庭关系 · 人生最重要的投资</h2>
+  <div class="psub">Day 29-34 · 你的人生安全网</div></div>
+  <div style="text-align:center;margin-top:6px">
+    <button class="nb" onclick="g(34)" style="background:#dc2626;color:#fff;border:none;padding:4px 16px;border-radius:5px;cursor:pointer;font-size:0.6em;font-weight:600">开始学习</button>
+  </div>
+</article><article class="card" data-i="33" style="--pc:#dc2626">
+  <div class="ch"><h2>LEIEN · 你最重要的长期持仓</h2><div class="cm">Day 29 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 核心观点</div><div class="dw"><p>LEIEN不是你的附加项，而是你人生资产配置中最核心的'长期持仓'——这个仓位的风险回报比，决定了你退休后生活质量的上限。</p></div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 深度理解</div><div class="dw"><p>你把IBKR的每一笔交易都记在脑子里：仓位、成本、止损线、现金比例。但你最重要的'持仓'——你和LEIEN的关系——你多久做一次'基本面分析'？
+
+关系不是'有就行'的静态资产，它是需要持续投入才能维持价值的动态仓位。和股票一样，关系也有波动、有周期、有黑天鹅事件。区别是：股票跌了你可以止损卖出，关系你不能一键清仓——它影响的是你每一天的生活质量和心理状态。
+
+关系的'基本面'由三个维度构成：①信任资本——你说到做到、对方相信你的积累；②情绪账户——日常温暖的存款（关心、陪伴、理解）远大于冲突的取款；③未来共识——对'我们往哪走'的默契。你长期加班、出差、精力消耗在工作上，本质上是在不断从这三个维度'提款'而不'存款'。
+
+LEIEN 1994年生，比你小12岁。你们的人生阶段不同：你已经在考虑退休和资产传承，他还在构建事业和探索生活。这个年龄差意味着你们对未来节奏的期待天然不同——不是谁对谁错，是需要在理解差异的基础上重新对齐预期。
+
+你每个月花多少时间'做关系的基本面研究'？如果你能花30分钟研究MU的季报，能不能花30分钟和LEIEN复盘这周你们的关系状态？
+
+最关键的问题不是'LEIEN值不值得'，而是：你打算用什么频率、用什么方法，来管理和维护你人生中这个最重要的仓位？</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">你在华为带团队，客户资源就是你的'业务持仓'。你投入时间维护阿里客户关系，定期做客户review、复盘客情、调整策略。你会因为忙就三个月不给客户打一个电话吗？你不会，因为你知道客户关系不维护就会流失。
+
+同样的逻辑：关系维护不是'有空再做'的事，是需要定期投入的'管理动作'。你在工作上的关系管理有一整套流程——定期拜访、需求对齐、问题跟进——但你和LEIEN之间有这样的'管理流程'吗？</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你的现实困境：杭州主战场 vs LEIEN在北京有工作——你们已经是一种'异地+同居'混合模式。工作忙的时候可能一两周见不到面。你加班回到家，LEIEN可能已经睡了；你周末想休息，LEIEN想出去玩。这不是谁错，是'关系账户'一直在支出没有存入。
+
+LEIEN希望开放关系，你不感兴趣——这是你们之间的'分歧点'。这不是一个能忽视或拖延的问题。本质上这是'关系路线图'的分歧：你们对未来的关系形态有不同的假设。需要一个坦诚的谈话，而不是让这个张力在沉默中发酵。
+
+行动信号：你愿意指导LEIEN做境外资产配置、帮他汇款到香港——这已经是'把他纳入你的长期规划'的证据。你的行为已经表明他在你的'2030目标'里。现在需要的是把这个隐含承诺变成双方确认的共识。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">本周安排一次'关系review'——约LEIEN进行一次30分钟的、非指责的坦诚对话。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">怎么做：
+1. 选一个中性场所（不是卧室、不是饭桌——选咖啡馆或散步路线）
+2. 开场白：'我一直在思考我们的未来，想和你聊聊。这不是要谈什么严肃的事，而是想听听你怎么想的，也说说我怎么想的。'
+3. 核心话题三个：
+   a. 当前关系状态打分（1-10分）——各自打，不争论为什么不一样
+   b. 未来3年各自想要的节奏（你:退休后的生活设想；他:事业和生活期待）
+   c. 开放关系的分歧——不需要一次达成共识，先各自说清楚'为什么这么想'
+4. 结束：确认'这是一个持续对话，不是一次解决所有问题'——约定一个月后再聊一次。
+5. 关键心态：你不是在'解决问题'，而是在'校准频率'。像校准色谱一样——双方不需要完全一致，但要知道对方的频率在哪。</div></div>
+  <div class="nv">
+    <button onclick="g(33)" >← 上一篇</button>
+    <span class="nv-prog">34/57</span>
+    <button onclick="g(35)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="34" style="--pc:#dc2626">
+  <div class="ch"><h2>父母安排 · 你的安全网</h2><div class="cm">Day 30 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 核心观点</div><div class="dw"><p>父母不是一个'可以等等再说'的问题——他们是你安全网的支柱。父母安排好了，你才能安心做自己的选择；父母有隐患，你的自由就是虚的。</p></div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 深度理解</div><div class="dw"><p>你的家庭结构有清晰的'三个支点'：妈妈、爸爸、弟弟家庭。每个支点的状态和风险都不一样：
+
+**妈妈**：老家经营烟店，称呼你'李飞飞'——这是最稳定、最不需要你操心的支点。她有自己小生意、有自己的生活圈。但风险在于：①她正在变老，独立经营能力会逐步下降；②她对你的关心是情感支持，如果你的退休让她的社交圈（'我儿子在华为'）失去一个重要话题，她可能面临身份焦虑。
+
+**爸爸**：75岁，心血管问题，2026年5月的34万债务纠纷——这是最大的风险点。你不是'要不要帮他还'的问题，而是：如果不出手，会不会影响他的健康（心血管病人最怕压力）；如果出手，34万对你是多大负担（相对你的总资产不算致命，但会打乱现金流节奏）。妈妈的反对（'凭什么你来还'）让这件事更复杂——你的选择会同时影响三个人的关系。
+
+**弟弟家庭**：有一定支持责任，但你的边界在哪？你需要确定一个'最大承诺上限'——每年多少、紧急情况多少，超出就是'我可以拒绝'的保护线。
+
+**你的制度缺口**：你没有和LEIEN做财产协议、意定监护——这意味着如果你出了意外，LEIEN在法律上没有任何决策权，而你父母（特别是有债务纠纷的爸爸）可能会成为你财产的第一决定人。这不是你'想不想'的事，这是法律默认规则。
+
+**父母安排的核心原则不是'尽力满足'，而是'设定边界+预置保障'**：
+- 每年家庭责任预算7-8万——这是日常支出，是'确定性投入'
+- 20万医疗应急金——这是'黑天鹅防御'，是'万一发生'的准备
+- 和LEIEN的财产协议+意定监护——这是'你自己的安全网'
+
+最后，一个残酷但必须面对的问题：父母的'期望'和'你的边界'发生冲突时，你准备怎么处理？34万债务纠纷就是一个提前的测试。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">你在华为做客户管理时，有一条铁律：永远不要让一个客户占你的收入比例超过30%。一旦超过，客户就有议价权，你就失去了弹性。
+
+父母的'情感债务'也是一样——你可以在情感上无条件爱他们，但在财务上必须有明确的边界。每年7-8万是你的'预算成本线'，20万医疗应急金是你的'止损线'。超出这两条线的请求，你需要判断是'爱'还是'被绑架'。
+
+你对客户做'供应风险分析'，对父母的财务风险也应该做同样的分析：父亲75岁+心血管问题=未来3-5年医疗支出大概率上升；妈妈经营烟店=收入持续但无保障。提前做3年现金流预测，比到时候被突发事件逼着做决定要好。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">34万债务纠纷是一个清晰的压力测试：
+- 如果你帮父亲还了34万→母亲失望（'凭什么你来还'）+ 父亲可能认为下次还能找你 + 你自己的现金流少了34万
+- 如果你不帮→父亲健康风险（心血管病人经不起压力）+ 家庭关系紧张
+- 折中方案：帮一部分（比如10万，表示诚意）+ 明确告知这是最后一次 + 帮父亲做债务重组指导而非直接代偿
+
+这不是一个'对错'问题，而是'你怎么定义自己的边界'的问题。你的决定会告诉你自己：你是一个有边界的人，还是一个会被情感绑架的人。
+
+再看你自己：没有和LEIEN的财产协议、没有意定监护——这相当于你的股票账户没有设止损线。一旦黑天鹅事件（比如你意外失去行为能力），LEIEN没有法律资格做任何决定，而你父母（特别是处于财务压力中的父亲）会成为你的第一代理人。这不是你希望发生的事，但法律默认就是这样的。
+
+你的安全网不应该是'相信家人会处理好'——而应该是'即使发生最坏情况，制度安排已经把我最在乎的人（LEIEN）保护起来了'。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">这个周末花1小时做三个行动之一：①和爸爸通话，清晰表达你对34万债务的立场（不是拒绝，是明确边界）；②起草一份你和LEIEN的意定监护协议大纲；③建立父母的'3年医疗现金流预测表'。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">具体指引：
+
+**选项A——和爸爸通话的脚本框架**：
+- 先表达关心：'爸，我知道你这段时间压力很大，我很担心你的身体。'
+- 再表达边界：'34万我没办法全部承担，但我愿意帮你一起想办法。我可以出X万，同时帮你联系一个债务咨询的专业人士。'
+- 最后确认条件：'这是我能做的最大限度。以后遇到这类问题，我希望你能先和我商量，而不是直接答应了再告诉我。'
+
+**选项B——意定监护协议大纲**：
+意定监护的核心是：你指定LEIEN作为你失去行为能力时的决策人（医疗、财产、生活）。
+1. 起草步骤：找公证处咨询（杭州或北京均可）
+2. 需要双方身份证+你指定的LEIEN为监护人
+3. 公证后生效，可随时撤销
+4. 费用：约2000-5000元
+5. [行动] 下周内打3个公证处电话问流程
+
+**选项C——父母3年现金流预测表**：
+用Numbers或Excel做一张三列表：
+| 项目 | 每年预估 | 备注 |
+| 母亲生活补贴 | 3-4万 | 烟店收入覆盖大部分 |
+| 父亲医疗储备 | 2-3万 | 心血管随访+用药 |
+| 应急备用金 | 2万 | 突发事件 |
+| 弟弟支持 | 1万 | 仅在必要时 |
+| 总计 | 8-10万 | 在预算范围内 |
+然后乘以3年，看到期日（2030年前）的累计支出。</div></div>
+  <div class="nv">
+    <button onclick="g(34)" >← 上一篇</button>
+    <span class="nv-prog">35/57</span>
+    <button onclick="g(36)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="35" style="--pc:#dc2626">
+  <div class="ch"><h2>2030对话 · 你们两人的未来</h2><div class="cm">Day 31 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 核心观点</div><div class="dw"><p>你的2030目标是1000万RMB+100万USD，但这个目标默认了你是一个人完成的。把LEIEN放进来重新算一遍，你会看到完全不同的图景——和一个完全相同的风险。</p></div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 深度理解</div><div class="dw"><p>你所有的财务规划都是以'我'为主语的：'我要在2030年达到1000万+100万USD''我要2027年6月辞职''我的现金仓位47%'。这个'我'隐含了一个假设——你是一个人面对未来。
+
+但你有一个伴侣。LEIEN不是你的'附属资产'也不是你的'额外负债'——他是你未来生活的共同构建者。如果把'我'换成'我们'重新看一遍：
+
+**收入端**：LEIEN在北京有工作，资产约200万（含公积金），已汇款2万USD到港。他的收入能力和积累速度不差。'你们'的总资产不是$588K+200万RMB，而是更高的基数。
+
+**支出端**：你们的生活成本不是一个人的两倍，而是有显著的规模效应——房租/生活/旅行共享，人均成本降低30-40%。
+
+**风险端**：两人收入来源不同（你在华为+投资，他在北京工作）= 收入多元化，抗风险能力提升。但同时，你们的未来规划需要对齐——如果LEIEN不想离开北京而你想搬去杭州以外的地方，就会出现错配。
+
+**关键的盲点**：你'2027年6月辞职'的计划和LEIEN讨论过吗？他理解你为什么要在这个时间点辞职吗？他对此有什么期待和担忧？如果他希望你再工作几年积累更多，或者他在规划3年后换城市——你们的未来轨迹是交集还是平行？
+
+**关于开放关系分歧**：LEIEN希望开放关系，你认为'兴趣不大'。这本质上是一个关系形态的路线选择——它不是一个可以'放一放再说'的议题。这个分歧直接影响到你们对'2030年我们是什么样的关系'的想象。如果你们的目标状态不同，中间的路径方案也会不同。
+
+你需要和他做一次'2030对话'——不是谈'我们会不会在一起'，而是谈'2030年我们各自想过的生活是什么样的'。就像两个公司讨论战略合作——不是先谈结婚，而是先看双方的三年愿景有没有交集。如果交集足够大，关系形态的细节可以持续协商；如果几乎没有交集，那才需要严肃讨论关系走向。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">你谈阿里客户的合规流程时，有一件事你做得非常好——先对齐双方的目标和期望，再谈具体条款。你从来不会在不知道客户真正想要什么之前就报价。
+
+但你和LEIEN的'未来规划'，你做了同样的事吗？你是不是在假设他知道你的计划？或者你默认你们的未来会自动对齐？
+
+在商业合作中，双方不做战略对齐就执行，项目大概率会中途出问题。关系也一样——不先聊'我们想往哪走'就开始走细节（怎么管钱、住哪、要不要养猫），后面一定会出现方向冲突。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你的2030目标拆解：
+- 你44岁（2026年），2030年你48岁
+- 你计划2027中辞职，到2030年有3年自由状态
+- 目标：IBKR增长到$1M（~770万RMB）+ 其他资产到230万RMB = 1000万RMB + $1M境外
+- 加上LEIEN的200万资产（含其境内资产），你们的总资产基数更厚
+
+但问题出在'对齐'上：
+- LEIEN知道你的2030目标吗？他看过你的Excel表格吗？
+- 他知道你计划2027年6月辞职吗？他对这个时间线有心理准备吗？
+- 他有没有自己的2030目标？他的职业生涯规划是什么？他想在北京做到什么位置？
+- 如果他想继续在北京发展，而你想搬去大理或成都生活——冲突怎么办？
+
+更重要的事：你们对'开放关系'的分歧。这不是一个可以模糊处理的问题——它直接关系到你们关系的形态和边界。如果你没有兴趣，但LEIEN有这个需求，这中间的张力不会自动消失。它要么通过坦诚的协商达成某种双方接受的安排，要么会成为持续消耗关系资本的暗流。
+
+2030对话的目的不是'确认我们一定会在一起'——而是'看看我们的方向有没有足够的交集让我们愿意一起走'。就像投资组合再平衡：不是要卖掉所有仓位，而是检查每个仓位的方向和你的总体目标是否仍然一致。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">约LEIEN做一次正式的'2030对话'——不是闲聊，而是用1-2小时，双方各自准备后再坐下来聊。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">对话框架（建议各自提前写下来，再交换看）：
+
+**第一部分：各自写'我的2030年一天'（15分钟各自写，然后交换读）**
+- 你：2030年一个普通工作日的生活长什么样？几点起床？在哪里？做什么？和谁在一起？
+- 他：同样的题目
+- 交换读的时候不评论，只是理解对方的画面
+
+**第二部分：五个核心问题的坦诚回答**
+1. 你希望3年后（2029）你们的关系状态是什么？
+2. 你对自己的职业/事业的期待是什么？
+3. 你想住在哪个城市？为什么？
+4. 你对财务的期望是什么？（要多少才'够'？）
+5. 你最担心的问题是什么？（关于我们/关于你自己）
+
+**第三部分：开放关系话题（如果第二部分气氛好，可以进入）**
+- '你为什么会想开放关系？你渴望的是什么？'
+- '我对这个想法的顾虑是什么？'
+- '有没有一种双方都能接受的中间方案？'
+
+**结尾**：不需要这次就达成共识。约定：每隔3个月做一次这样的对话——像季度复盘一样。
+
+关键原则：这不是'谈判'，不是要谁赢。你是在收集信息——关于你们各自的频率。频率对上了当然好，频率对不上也值得知道，而不是等两年后发现走岔了。</div></div>
+  <div class="nv">
+    <button onclick="g(35)" >← 上一篇</button>
+    <span class="nv-prog">36/57</span>
+    <button onclick="g(37)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="36" style="--pc:#dc2626">
+  <div class="ch"><h2>情绪账户 · 你的心理资本</h2><div class="cm">Day 32 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 核心观点</div><div class="dw"><p>情绪不是'软弱'——它是你的心理资本。你管理IBKR仓位有止损线，但你的情绪账户没有。情绪破产比现金破产更影响你的退休质量。</p></div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 深度理解</div><div class="dw"><p>你对自己的认知是'理工科思维、理性、冷静'——这让你在工作和投资中建立了很好的纪律。但你也因此可能低估了一个事实：你的情绪账户已经被长期透支了。
+
+**什么是情绪账户？**
+情绪账户是你面对压力、不确定性和挫折时的心理储备。每天你都在向情绪账户'存款'（好的睡眠、成就感、社交连接、运动、被理解）和'取款'（加班、冲突、焦虑、信息过载、不被理解）。
+
+**你的情绪账户现状**：
+- 长期加班（高取款）
+- 身体恢复不足（低存款：脂肪肝、颈动脉斑块、睡眠问题）
+- 工作满意度5.5/10（中等消耗）
+- 家庭关系张力（LEIEN的开放关系分歧 + 父亲的债务纠纷）
+- 投资压力（47%现金=决策焦虑的信号，MU超红线=知道但不处理=情绪负债）
+
+你的情绪账户可能在'技术性破产'边缘——表面还能正常运转，但储备几乎为零。你感觉累、想退休，不是因为你懒，而是情绪账户已经连续多年净支出。
+
+**情绪破产的标志**：
+- 对工作/投资中的得失反应过度或完全麻木
+- 对LEIEN的不耐烦增加（比平时更容易发火或冷战）
+- 恢复速度变慢（以前一晚就能恢复的疲劳现在需要几天）
+- 做决定时'不知道想要什么'或'都行'
+- 对未来的焦虑显著大于期待
+
+如果你有3条以上符合，你的情绪账户可能已经在警戒线以下。这不是'意志力问题'——这是生理和心理健康在发出信号。
+
+**情绪资本管理的四个策略**：
+1. **增加存款**——识别哪些活动让你的情绪账户回升（跑步？和LEIEN一起做饭？读非财经书？一个人散步？）并提高它们优先级
+2. **降低取款**——哪些不必要的消耗可以取消（不重要的会议？群聊？冗余的财经信息？）
+3. **设置情绪止损线**——当你发现自己烦躁/冷漠/焦虑超过阈值时，主动暂停决策，而不是硬撑
+4. **建立恢复机制**——每周安排一个'情绪账户充值日'，不安排任何消耗型活动
+
+你管理IBKR仓位很严格，但对情绪账户的管理几乎是空白。这不是矫情——这是对你未来生活质量最关键的投资。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">你在华为见过不少'突然离职'的同事——表面看是职业选择，背后往往是情绪账户被掏空后的一次性反应。你在做的EDCP流程、催单、写汇报——这些事不只是在消耗时间，也在消耗情绪资本。
+
+一个健康的职业决策，是情绪账户还有余额时的主动选择。一个不健康的决策，是情绪账户被掏空后的被迫退出。你想在2027年6月辞职——这个决定是主动的还是有'撑不住了'的成分？分清这个，你就知道现在应该补充情绪账户，而不是让它继续被透支。
+
+客户的采购决策也有情绪成分：为什么有人'明知道贵'也坚持用NVIDIA？因为用熟了、不出错、不用背锅——他的情绪账户不想再承受'迁移的风险焦虑'了。这叫'情绪溢价'。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你当前的情绪账户审计：
+
+**近期高取款项目**：
+- 加班/EDCP流程消耗
+- 父亲的34万债务纠纷（反复占用你的决策带宽）
+- LEIEN的开放关系诉求（持续的关系张力）
+- 司美的食物渴望抗争（每天的能量消耗）
+- MU超红线的未处理心理负债
+
+**近期低存款项目**：
+- 力量训练（最近保持吗？还是中断了？）
+- 和LEIEN的愉快相处时间（不是解决冲突的那种，是纯粹快乐的那种）
+- 深度阅读（非功利性的）
+- 和环境无关的放松（没有目标的散步/冥想/音乐）
+
+**你的情绪账户诊断**：
+存款速度 < 取款速度。长期如此。
+
+**你需要做的不是'减少工作'（你已经决定了退休），而是从现在到退休前这1年，主动管理情绪账户**：
+- 每工作2小时，做10分钟的'情绪账户暂停'（站起来走走，不碰手机）
+- 每周至少有一个半天是完全'不处理任何问题'的
+- 和LEIEN约定'解决型对话'（需要找出路）和'享受型时间'（纯放松）的区分
+- 在IBKR里设一个'不看盘日'，每周一天完全不看持仓
+
+一个简单的情绪账户测量：每天睡前给自己打一个'情绪余额'分（1-10分）。如果连续3天低于5分，第二天必须减少一项消耗型活动。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">用今天的'情绪账户审计表'做一次完整的自我评估，然后做一件填补情绪账户的事。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">**步骤1：情绪账户审计表（今晚花10分钟完成）**
+
+打开备忘录/Hermes，写下：
+
+【取款记录-过去一周】
+□ 加班超过合理时间（___次）
+□ 和LEIEN/家人发生消耗型对话（___次）
+□ 因为工作/投资的事焦虑超过30分钟（___次）
+□ 睡眠不足6小时（___晚）
+□ 没有锻炼（___天）
+
+【存款记录-过去一周】
+□ 有质量的深度休息（___次）
+□ 和LEIEN的愉快相处（___次）
+□ 运动/流汗（___次）
+□ 做了让自己有成就感的事（___件）
+□ 主动拒绝了不必要的消耗（___次）
+
+**步骤2：补存行动（选一个今天做）**
+- 🏃 散步30分钟不听任何播客/音频——只是走路
+- 🎵 听一张你年轻时喜欢的专辑
+- 🍳 给自己或LEIEN做一顿用心的饭
+- 📝 写三件今天你感激的事（大或小都行）
+- 🛌 提前1小时睡觉，不碰手机
+
+**步骤3：设一个情绪止损线（写下来）**
+'如果我发现自己的烦躁/焦虑/冷漠程度≥7/10，我自动暂停所有重大决策，不做交易，不和LEIEN谈敏感话题，先去休息。'
+
+把这个写在手机锁屏备忘录里。</div></div>
+  <div class="nv">
+    <button onclick="g(36)" >← 上一篇</button>
+    <span class="nv-prog">37/57</span>
+    <button onclick="g(38)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="37" style="--pc:#dc2626">
+  <div class="ch"><h2>社交网络 · 你的支持和信息系统</h2><div class="cm">Day 33 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 核心观点</div><div class="dw"><p>退休最大的风险不是钱不够——而是社交网络断裂。你现在的社交圈几乎全部围绕工作构建，退休后这个圈会自然萎缩。没有提前建立的支持系统，孤立感会悄无声息地侵蚀你。</p></div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 深度理解</div><div class="dw"><p>一个残酷的事实：你的人际关系网络——同事、客户、行业伙伴——高度依赖你的'华为部长'身份。当你退休后，这些关系的维系成本会急剧上升。不是因为人心凉薄，而是因为共同的'工作场域'消失了，没有了每周一次的项目会、没有了食堂偶遇、没有了行业峰会的'正好在'。
+
+**社交网络的三层结构**：
+1. **强关系**——真正在你艰难时能提供支持的人（LEIEN、Lior、亲密朋友）。这些人对你而言数量极少（不超过5个），但价值极高。
+2. **弱关系**——工作中有交集、偶尔聚会、有共同话题的人（同事、行业伙伴、群友）。数量多（几十到上百），但大多数会随着你离开华为而自然疏远。
+3. **信息关系**——提供信息但不提供情感支持的人（行业群、公众号、财经媒体）。数量最多，也是你'感觉不孤独'的主要来源，但实际上是单向的信息流，不是真正的社交连接。
+
+**你的社交网络现状**：
+- 强关系：LEIEN、Lior（投资外脑）、可能1-2个密友——但Lior主要是投资伙伴，真正能聊'退休后的空虚感'的人可能没有
+- 弱关系：大量华为同事、阿里客户、行业伙伴——这些是你在丧失的
+- 信息关系：大量微信群、财经推送——这些只能维持信息感，不能维持归属感
+
+**关键风险**：你退休后，每天的社交接触将从'几十人（办公室+会议）'骤降到'1-2人（LEIEN+偶尔的人）'。这个落差比你预想的要大得多。很多人退休后第一年还好（新鲜感），第二年就开始感到深入骨髓的孤独——不是因为没人说话，是因为没有'和你有关的人'在讨论'和你有关的事'。
+
+**你需要提前构建的社交网络**：
+1. **兴趣型网络**——基于爱好而非职业的圈子（比如跑步群、读书会、甚至德州扑克圈）
+2. **知识型网络**——你的投资知识可以转化为输出（写博客、开小圈子讨论、做独立研究分享）
+3. **支持型网络**——需要有2-3个人可以聊'退休后不适应'这个话题，而不仅仅是'投资赚了多少'
+
+你不是社恐——你在华为能做到部长说明你的社交能力不差。但问题在于：你现在的社交肌肉已经适应了'职场社交模式'（目标导向、利益相关、层级明确）。退休后你需要的是'生活社交模式'（兴趣驱动、无功利、平等互动）——这是完全不同的肌肉群，需要重新锻炼。
+
+**特别提醒**：LEIEN可以是你的伴侣，但不能是你的全部社交来源。把所有的社交需求压在一个人身上，对他是巨大的压力，对你也是危险的单点依赖。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">你在华为带解决方案团队，最怕的就是'信息孤岛'——一个人掌握关键客户信息，其他人完全不知道。所以你会做信息同步会、建立客户档案、定期复盘。
+
+你退休后，你自己就是那个'信息孤岛'——如果你只有一个社交渠道（比如每天只和LEIEN说话），你的信息来源、观点校准、情绪出口全部依赖一个人。这是风险集中的表现，和你的投资理念（分散配置）完全矛盾。
+
+商业上的'供应商多元化'在社交网络上是同一个道理：不要只有一个社交关系供应商。
+
+另外，你在华为建立的客户关系（阿里等）在你退休后可能是宝贵的信息和资源来源——但前提是你主动维护这些关系，而不是等离开后被动地接受关系消退。你可以把'客户关系维护'转化成'行业人脉维护'，角色从供应商变成独立顾问，你反而可能获得更坦诚的信息交流。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你当前社交网络的实际审计：
+
+**现存强关系（最高支持价值）**：
+- LEIEN：情感和生活伴侣；但你也把开放关系的分歧带入了这个关系——这需要单独处理
+- Lior：核心投资外脑，每日高频交流；但这是'功能性关系'——你们聊仓位、聊判断，不一定会聊'退休后的空虚'
+- 可能1-2个密友：需要你确认
+
+**即将消退的弱关系**：
+- 华为同事（慧哥、刘春平、旅途舒欢等）——离开后自然的社交衰退
+- 阿里客户——离开华为后，你的信息价值和互动频率会下降
+- 行业群——你会慢慢失去参与的动机
+
+**建议建立的新连接**：
+1. **投资者小圈子**（3-5人，定期分享判断而非只和Lior一对一）——可以找和Lior同级别的其他投资者
+2. **运动/跑友圈**——你有健身习惯，可以在杭州找一个跑步/力量训练的小团体
+3. **写作/输出平台**——把你的投资思考写成博客或公众号，建立'知识型弱关系'。你不一定要做大V，但拥有'素未谋面但关注你文字的人'会给你一种隐秘的归属感
+4. **本地兴趣社群**——杭州的非职业社交圈（比如摄影、美食、LGBT友好社群）
+
+**一个可执行的起点**：这个月约你的一个朋友（非Lior、非工作伙伴）吃一次饭——纯粹聊天，不谈投资和工作。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">做一次'社交网络盘点'——画出你当前的关系地图，识别一到两个可以拓展的方向。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">**步骤1：画你的社交网络地图（纸上或备忘录）**
+
+画三个同心圆：
+- 最内圈（'有话直说的人'）：写名字，不超过5个
+- 中间圈（'经常互动的人'）：写名字或类型
+- 最外圈（'信息源'）：写群聊/公众号/信息来源
+
+问自己：
+- 最内圈里，有几个人可以聊'退休后不适应'这种话题？
+- 最内圈里，有几个人和投资/华为完全无关？
+- 中间的'经常互动'部分，有多少是工作绑定的？
+
+**步骤2：选一个拓展方向（以下三选一）**
+
+**选项A——重构一个旧关系**：选一个两年前关系不错但因忙碌疏远的朋友，发一条消息：'最近在思考人生走向，突然想起你，方便约个饭吗？'
+
+**选项B——投资圈子扩展**：在现有群/论坛/社区里，主动@或私信一个你欣赏观点的人，说：'看了你关于XX的分析，很有启发。有空交流一下吗？'
+
+**选项C——开始一个输出**：写一篇你真正想写的文章（不是工作报告，是你对投资/生活/某个话题的真实思考），发在公众号或个人博客。
+
+**步骤3：建立'每周社交存款'习惯**
+- 每周至少一次'非功利社交'——和某个人聊天不是为了解决问题，只是为了连接
+- 每周至少做一次'输出'——写、说、分享，让你的想法在他人那里产生回响
+- 每周至少一个'新连接'——和你不认识的人产生一次有质量的互动</div></div>
+  <div class="nv">
+    <button onclick="g(37)" >← 上一篇</button>
+    <span class="nv-prog">38/57</span>
+    <button onclick="g(39)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="38" style="--pc:#dc2626">
+  <div class="ch"><h2>离职后想做的5件事</h2><div class="cm">Day 34 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 核心观点</div><div class="dw"><p>这5件事不是'退休后的愿望清单'——它们是你维持心理健康的生存策略。没有它们，你的退休就是从一个牢笼跳进另一个空洞。</p></div></div>
+  <div class="s"><div class="st" style="color:#dc2626">🧠 深度理解</div><div class="dw"><p>大多数人准备退休时只算了两个账：钱够不够（财务账）和时间怎么安排（日程账）。但他们漏了最重要的一个：身份账——'没了工作，我是谁？'
+
+你在华为做的是解决方案经理，你的身份是'能帮客户搞定技术问题的人'、'能推动大项目的人'、'在AI芯片领域有话语权的人'。这些身份标签给你提供了：
+- 社会认同（别人因为你的职位而尊重你）
+- 每日结构（每天有事做、有目标、有进度）
+- 意义感（你做的事对华为、对客户、对AI产业有影响）
+- 社交场（办公室就是你的'部落'）
+
+退休会同时拿走这四个东西。不是一天拿走的，但半年内你会清晰感受到。
+
+**你需要提前构建的'五根支柱'**，每一根替代一个工作带给你的核心价值：
+
+**支柱1——创造**（替代工作给的'影响力'）
+- 做什么：不一定是传统工作。写作、研究、做项目、录播客、做咨询——只要你在输出'属于你'的东西
+- 为什么需要：人是需要创造意义的动物。没有创造，你就在消费（刷信息、看盘、追剧），消费不会带来满足感
+- 你的可能性：你的昇腾/芯片知识+投资经验是非常宝贵的组合。你可以写'从华为视角看AI芯片赛道'系列，或做一份定期的芯片行业独立研报
+
+**支柱2——身体**（替代工作给的'结构'）
+- 做什么：把运动从'偶尔做的事'升级为'每天的锚点'。不是'今天要不要运动'，而是'今天的运动时间是什么时候'
+- 为什么需要：没有工作给你每天的骨架（几点起床、去办公室、开会），你需要自己建立。运动是最好的'日常锚点'
+- 你的具体：力量训练+有氧+每周一次高强度间歇——不是为了体型，是为了'你有一个雷打不动的日常结构'
+
+**支柱3——关系**（替代工作给的'社交场'）
+- 做什么：维护和拓展你的社交网络（Day33的内容）。建立'每周社交存款'的习惯
+- 为什么需要：工作拿走的不只是同事，而是一套'每天和几十人自然互动'的机制
+- 你的具体：加入或组建一个固定聚会的小团体（每周一次的读书会/跑步团/投资讨论组）
+
+**支柱4——学习**（替代工作给的'成长感'）
+- 做什么：选择一个非功利的学习方向（和投资无关、和职业无关）——比如学一门语言、学音乐、学哲学
+- 为什么需要：纯粹的好奇心是维持大脑年轻的最好方式。如果你退休后只学'对投资有用的东西'，你仍然在用工作思维生活
+- 你的具体：有没有一个你一直想学但'没时间'的东西？编程？摄影？钢琴？选一个，每周固定2小时
+
+**支柱5——贡献**（替代工作给的'意义感'）
+- 做什么：把你的经验/知识/资源回馈给需要的人——不是当'免费顾问'，而是有选择地做你认可的事
+- 为什么需要：人是需要感到'自己有用'的动物。没有贡献的出口，意义感会慢慢枯竭
+- 你的具体：帮一个早期创业者做商业辅导？在LGBT社区做财务规划分享？教你弟弟的孩子学编程？
+
+这五根支柱不是'退休后再说'的事——它们需要从你还在工作时就开始铺垫。因为建立一个新的身份不是一天完成的，需要6-12个月。等你退休了才开始想'我要做什么'，你已经晚了半年。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">你见过华为里退休/离职后回来'挂职'的前高管——他们不是因为缺钱回来的，而是因为'找不到替代工作的东西'：没有了日程、没有了社交场、没有了意义感。他们试了半年到一年的'自由'后，发现自己其实需要的是一个新结构而不是没有结构。
+
+你现在的华为项目还有一个很好的类比：你在阿里客户那里推进昇腾950项目时，如果到了交付阶段才发现人手不够，一切就晚了——你需要在前置阶段就规划好交付资源。
+
+退休也是一样的：不要等到退休那天才开始想退休后做什么。提前6个月开始试水：周末用半天来实践'退休生活'——不处理工作消息，做一件五根支柱里的事，看看感觉怎么样，还缺什么。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你的具体落地计划：
+
+**支柱1——创造：芯片投资者笔记**
+- 把你每天对昇腾、NVIDIA、存储行业的了解写成定期笔记（不是工作报告风格，是你的个人观点）
+- 形式：每两周一篇的'芯片投资观察'，发在你的GitHub Page或个人公众号
+- 启动方式：这个月写第一篇，不需要完美，500字就行
+
+**支柱2——身体：每日锚点**
+- 你已经有了力量训练习惯，很好
+- 升级点：固定时间（比如每天下午4:30），成为不可动摇的'锚点'
+- 给LEIEN也留一个锚点——比如每天早上一起吃早餐，不碰手机
+
+**支柱3——关系：投资者小圈子**
+- 你已经有Lior——拓展到3-5人
+- 启动方式：问Lior有没有同样水平的投资者朋友可以一起交流
+- 频率：双周一次线上交流
+
+**支柱4——学习：非功利方向**
+- 你一直在学习投资、管理、逻辑——这些都是'有用的'。选一个'没有用但有趣'的方向
+- 推荐：学一门乐器（你年轻时有过想法吗？）或者系统学摄影
+- 启动方式：下个月报一个入门课或买一件乐器
+
+**支柱5——贡献：一次性的辅导**
+- 最容易启动的：在LGBT友好的社群里做一次关于'个人财务规划'的免费分享
+- 或者：找一个创业初期的AI芯片相关公司，做每月一次的辅导
+- 不是当雷锋——是'用你的经验帮助别人'，这个感觉比什么都有价值
+
+**检验标准**：写出这5件事，排好优先级。然后问自己：如果退休后我只做第一优先的那一件事，我一年后还会觉得充实吗？如果答案是'需要至少3件'，那这5件事就是你的'退休生存系统'的基础建设。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">今天写完你的'退休后5件事'清单——不是愿望式的'想做的事'，而是每一个都有具体的启动时间和第一步行动。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">用下面的模板写（直接填在备忘录或笔记里）：
+
+**我的退休后5件事**
+
+1. 【支柱：创造】
+   - 具体做什么：
+   - 启动时间（日期）：
+   - 第一步行动：
+
+2. 【支柱：身体】
+   - 具体做什么：
+   - 启动时间（日期）：
+   - 第一步行动：
+
+3. 【支柱：关系】
+   - 具体做什么：
+   - 启动时间（日期）：
+   - 第一步行动：
+
+4. 【支柱：学习】
+   - 具体做什么：
+   - 启动时间（日期）：
+   - 第一步行动：
+
+5. 【支柱：贡献】
+   - 具体做什么：
+   - 启动时间（日期）：
+   - 第一步行动：
+
+**写完后的自我检查**：
+- [ ] 每个行动都有具体的启动日期（不是'之后'或'退休后'）
+- [ ] 每个行动的第一步是'这一周就能做的'——不是'需要大量准备的'
+- [ ] 至少有一件事不涉及LEIEN——确保你有独立的身份来源
+- [ ] 至少有一件事涉及身体/时间结构——确保你的日子不会失去骨架
+- [ ] 至少有一件事涉及输出/创造——确保你的想法有地方落地
+
+**最后一步**：把这份清单发给一个你信任的人（LEIEN/Lior/朋友）——不是求意见，是'告诉别人你的计划'。公开承诺会增加30%的执行概率。
+
+恭喜完成P5（家庭关系 6天）的全部内容。你和LEIEN的关系、你的家庭安全网、你的情绪资本、你的社交网络、以及你退休后的身份支柱——这五根柱子立起来了，你从华为走出来才能真正站在自己的地面上。</div></div>
+  <div class="nv">
+    <button onclick="g(38)" >← 上一篇</button>
+    <span class="nv-prog">39/57</span>
+    <button onclick="g(40)" >下一篇 →</button>
+  </div>
+</article><article class="pcard" data-i="39" style="--pc:#0891b2">
+  <div class="phead"><div class="picon">🤖</div>
+  <h2 class="ptitle">AI工具 · 你的数字增强系统</h2>
+  <div class="psub">Day 35-40 · 用AI放大你的能力</div></div>
+  <div style="text-align:center;margin-top:6px">
+    <button class="nb" onclick="g(41)" style="background:#0891b2;color:#fff;border:none;padding:4px 16px;border-radius:5px;cursor:pointer;font-size:0.6em;font-weight:600">开始学习</button>
+  </div>
+</article><article class="card" data-i="40" style="--pc:#0891b2">
+  <div class="ch"><h2>双机架构 · 你的生产力系统</h2><div class="cm">Day 35 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 核心观点</div><div class="dw"><p>你的两台MacBook是你最强的生产力杠杆。</p></div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 深度理解</div><div class="dw"><p>双机架构（Pro底座24h+Air随身）让你实现了计算力随身和持久化工作流的分离。Pro运行cron任务、Chrome CDP、GitHub Pages部署，Air负责Codex、钉钉和移动办公。这个架构的核心价值不是硬件本身，而是让两台机器各司其职，消除了单点故障。底座不关机、不休眠、持续服务，随身机轻量灵活。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">Netflix的Chaos Monkey架构：主动让服务器崩溃来测试系统韧性。你的双机架构也应该有容错机制——如果Pro宕机了怎么办？Air能不能临时接管？</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞的双机架构经过多次迭代确定：Pro（MacBookPro14,1）作为24h底座，开盖熄屏sleep=0、lowpowermode；Air随身使用。通过iCloud+Air_MEMORY.md桥接实现同步。核心价值是当你从Air切到任何设备时，上下文不丢失。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">检查你的双机同步是否真的可靠：手动断开Pro网络30分钟，只用Air工作的体验如何？哪块缺失？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡双机架构不只是硬件配置，更是一种可容错的工作习惯。建议测试一下当一台设备不可用时的降级方案，提前发现问题。</div></div>
+  <div class="nv">
+    <button onclick="g(40)" >← 上一篇</button>
+    <span class="nv-prog">41/57</span>
+    <button onclick="g(42)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="41" style="--pc:#0891b2">
+  <div class="ch"><h2>Hermes · 你的第二大脑</h2><div class="cm">Day 36 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 核心观点</div><div class="dw"><p>Hermes不是工具，是你数字化的认知延伸。</p></div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 深度理解</div><div class="dw"><p>Hermes Agent作为AI助手，承担了信息过滤、决策推演、例行操作和知识提取四个核心职能。你通过Hermes管理cron任务、五源采集、LFF三形式报告、持仓分析。关键在于：Hermes不代替你做决策，而是帮你减少认知摩擦，让你专注于高价值判断。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">Tommy Griffith在《Web Design》中提出设计系统应该消除重复决策。Hermes就像你的个人设计系统——把高频低价值操作自动化。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你通过Hermes处理每日A股量化、AI早报、记忆同步。这些如果手动做每天至少2小时，Hermes在后台完成。节省的时间用来做深度思考——这才是Hermes的真正价值。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">列出你每周花在Hermes能替代的重复操作上的时间。如果节省出来，你会做什么？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡工作效率提升不是让你做更多事，而是让你有时间做那些只有你能做的事。</div></div>
+  <div class="nv">
+    <button onclick="g(41)" >← 上一篇</button>
+    <span class="nv-prog">42/57</span>
+    <button onclick="g(43)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="42" style="--pc:#0891b2">
+  <div class="ch"><h2>Codex+Hermes协作</h2><div class="cm">Day 37 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 核心观点</div><div class="dw"><p>两个AI不是重复，是互补。</p></div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 深度理解</div><div class="dw"><p>Codex在Code中处理需要独立上下文的长任务（如构建财务仪表盘），Hermes在WeChat/钉钉中处理日常对话和轻量操作。Codex+Hermes的分工本质上是你开发环境（Codex）和生产环境（Hermes）的分工。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">GitHub Copilot和ChatGPT的互补：Copilot在IDE内完成代码补全和函数生成，ChatGPT处理设计讨论和代码审查。两个工具各司其职而不是互相替代。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你让Codex在Code中独立构建财务仪表盘、清洗股票数据；让Hermes在WeChat中回答投资问题、调度cron。两者的切换通过双机消息队列和同步协议完成。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">审视你当前Codex和Hermes的分工是否最优，有没有任务应该切换但还没切换？</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡随着能力演进，任务边界应该动态调整。</div></div>
+  <div class="nv">
+    <button onclick="g(42)" >← 上一篇</button>
+    <span class="nv-prog">43/57</span>
+    <button onclick="g(44)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="43" style="--pc:#0891b2">
+  <div class="ch"><h2>信息流管理 · 你的输入质量</h2><div class="cm">Day 38 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 核心观点</div><div class="dw"><p>你的输出质量不取决于你的思考能力，而取决于你的输入质量。</p></div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 深度理解</div><div class="dw"><p>你建立了五源信息采集体系（公众号、知识星球、券商研报、X/Twitter、行业网站），并通过Chrome CDP实现自动化采集。但信息过剩的杀伤力不亚于信息匮乏。核心问题不是获取，是过滤。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">Warren Buffett每天读500页公司年报和信息，但他自己说：我读的90%以上都过滤掉了。他的过滤器是能力圈——只读那些他能理解的公司。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞的五源采集每天产生大量内容，但关键是哪些真正进入你的投资决策？建议建立第二层过滤器：每篇内容读完问自己，这改变了我的某个持仓判断吗？没有→标记已读即可。有→存档到投资决策日志。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">今天开始，对每篇读完的信息打标签：已读无影响 vs 已读有影响。月底统计比例。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡帕累托原则：20%的输入产生80%的决策影响。找到那20%，剩下的扫一眼就行。</div></div>
+  <div class="nv">
+    <button onclick="g(43)" >← 上一篇</button>
+    <span class="nv-prog">44/57</span>
+    <button onclick="g(45)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="44" style="--pc:#0891b2">
+  <div class="ch"><h2>自动化 · 你的时间机器</h2><div class="cm">Day 39 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 核心观点</div><div class="dw"><p>自动化不是让你快，是让你不用记住。</p></div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 深度理解</div><div class="dw"><p>你通过cron job实现了记忆同步、AI早报、增量同步、自动巡检的自动化。真正的价值不是你省了多少时间，而是你不需要惦记这些事。认知负荷的减轻是无法量化的收益。建议继续扩大自动化覆盖：持仓预警、硬线超限检查、每日复盘摘要。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">比尔·盖茨在微软早期就建立了自动化的代码审查和构建流程，让团队专注于创造而不是重复。他说过：让机器做机器擅长的事，让人做人擅长的事。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你当前的cron：每30分钟健康巡检+每小时记忆同步+每天早上AI早报+每天增量同步。下一步可以加：IBKR仓位日报自动生成、硬线超限即时提醒、每周投资摘要。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">找出你每周还在手动做的3件事，评估能否用cron/脚本自动化。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡自动化的标准：如果这件事有确定规则且每月重复超过2次，就值得写脚本。</div></div>
+  <div class="nv">
+    <button onclick="g(44)" >← 上一篇</button>
+    <span class="nv-prog">45/57</span>
+    <button onclick="g(46)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="45" style="--pc:#0891b2">
+  <div class="ch"><h2>技能沉淀 · 你的知识复利</h2><div class="cm">Day 40 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 核心观点</div><div class="dw"><p>你的技能会贬值，除非你让它复利。</p></div></div>
+  <div class="s"><div class="st" style="color:#0891b2">🧠 深度理解</div><div class="dw"><p>作为从华为转型中的产品经理，你拥有的AI+金融+产品三重能力组合本身就是稀缺资源。但不系统地沉淀，这些知识会随时间流失。你通过Obsidian vault和本地知识库积累，但需要更主动的复用机制。技能的复利来源于两件事：记录和复用。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">David Allen在GTD中提出的核心：大脑是用来产生想法而不是储存想法的。你的知识系统应该是外部大脑，而不是记忆的替代品。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">你的Obsidian vault+Knowledge-Base体系已经初步建立，但输出密度不够。建议建立周报制度：每周写一篇投资笔记或个人成长总结。不是为了别人，是为了自己的思考更加体系化。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">本周写一篇300字以上的周记，记录本周最重要的一个投资判断和个人成长心得。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">💡知识复利的关键不是积累，是连接。每周写一篇输出文档，强迫自己在不同知识点之间建立连接。</div></div>
+  <div class="nv">
+    <button onclick="g(45)" >← 上一篇</button>
+    <span class="nv-prog">46/57</span>
+    <button onclick="g(47)" >下一篇 →</button>
+  </div>
+</article><article class="pcard" data-i="46" style="--pc:#4f46e5">
+  <div class="phead"><div class="picon">🎯</div>
+  <h2 class="ptitle">整合实践 · 从知道到做到</h2>
+  <div class="psub">Day 41-50 · 知行合一</div></div>
+  <div style="text-align:center;margin-top:6px">
+    <button class="nb" onclick="g(48)" style="background:#4f46e5;color:#fff;border:none;padding:4px 16px;border-radius:5px;cursor:pointer;font-size:0.6em;font-weight:600">开始学习</button>
+  </div>
+</article><article class="card" data-i="47" style="--pc:#4f46e5">
+  <div class="ch"><h2>知识图谱 · 你的操作系统</h2><div class="cm">Day 41 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>构建个人投资知识图谱，将碎片化认知系统化为可检索、可迭代的操作系统级知识结构。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>知识密度决定决策质量的上限。散户和专业机构的根本差距不在于信息获取速度，而在于知识组织方式的维度差异。零散的知识点就像散落桌面的文件，每一次决策都要重新搜索；而知识图谱将这些文件归入一个可检索、可关联、可溯源的图书馆系统。
+
+李飞四年来积累的阅读量已超过90%的投资者，但大多数信息处于「读过即忘」状态。需要将宏观周期、行业分析、财报解读、交易心理、资产配置五大模块编织成网——让每一个新信息自动找到它在知识树上的位置，让每次决策都能回溯到第一性原理。
+
+知识图谱不仅是存储结构，更是思考框架。当你把「美联储缩表」和「A股流动性」连起来，把「华为芯片突破」和「半导体周期」串起来，把「个人现金流曲线」和「大类资产配置」叠起来，你看到的就不再是孤立事件，而是一幅完整的金融生态图。
+
+从信息消费者到知识生产者的跃迁，标志是你的知识系统开始产生非线性的洞见。当两个看似不相关的节点在你图谱中碰撞出新的投资逻辑时，你的「操作系统」才算真正安装完成。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">桥水基金瑞·达利欧在2008年金融危机前建立了极度精细的宏观经济知识图谱——他称之为「机器模型」。这个模型将全球债务周期、货币流动、生产力增长等数百个变量关联成网。2008年当其他基金纷纷崩溃时，桥水凭借Prince模型预判了危机节奏，当年仍实现正收益9.4%，管理规模从$50B增长至$80B。达利欧在《原则》中写道：「关键不是知道多少事实，而是知道事实之间的关系。」</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞的华为背景天然赋予他科技产业和供应链的深度认知——这是他知识图谱中最高密度的模块。但金融知识（衍生品、汇率对冲、宏观周期）和交易心理学仍然是薄弱节点。建议先画出自己的能力图谱：横轴为宏观/行业/个股/心理/配置五个维度，纵轴为认知深度从1到5打分。你会发现中间洞洞——那些打3分以下的区域，正是未来半年要刻意填补的盲区。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">用Obsidian或Notion创建个人投资知识图谱，以五大模块为根节点，每周完成一次知识沉淀，标注新知识与已有节点的关联。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①下载已读读书清单和有价值文章链接，全部导入知识库工具；②创建5个顶级标签：#宏观周期 #行业分析 #财报解读 #交易心理 #资产配置；③本周内完成至少20个知识节点的录入和关联标注；④每周末花30分钟回顾图谱，标注本周最重要的3个新连接</div></div>
+  <div class="nv">
+    <button onclick="g(47)" >← 上一篇</button>
+    <span class="nv-prog">48/57</span>
+    <button onclick="g(49)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="48" style="--pc:#4f46e5">
+  <div class="ch"><h2>检查清单 · 你的交易CI/CD</h2><div class="cm">Day 42 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>借鉴软件工程CI/CD（持续集成/持续部署）理念，将交易决策流程标准化为不可跳过的检查清单，从根源杜绝情绪化交易。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>人类大脑在压力下的决策质量呈指数级下降。这就是为什么飞行员有起飞检查清单、外科医生有手术安全清单——不是因为专家记不住，而是因为人脑在多任务高压下必然遗漏关键步骤。你的$588K账户经不起一次「我以为看过了」的失误。
+
+检查清单的本质是把决策流程从靠「感觉」转移到靠「系统」。每一次买入前检查：这个仓位在我的整体资产配置中占多少比例？止损点位在哪里？如果明天跌20%我睡得着吗？买入理由是基于数据还是情绪？这些问题清单化后，能拦截90%以上的冲动交易。
+
+类比软件的CI/CD流水线：每一次「代码提交」（交易）都必须通过自动化测试（检查清单）才能「上线部署」。不过关就回滚（取消操作）。这套机制让团队协作和个人自律不再依赖某个人的状态好坏，而是依赖制度的力量。
+
+建立自己的交易CI/CD管道后，你会发现「纪律」不再是意志力的较量，而是一种流程的自动运转。真正的高手不是更能忍，而是根本不给冲动决策以机会。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">波音737 MAX事故的悲剧根源之一，就是飞行员操作检查清单被简化。而早在1935年，波音Model 299试飞坠毁就是因为飞行员忘记解锁升降舵。之后军方正规定飞前检查清单，此后B-17机队飞行了179万英里无事故。这个案例跨越80年反复验证：检查清单不是束缚，是自由——自由地在复杂环境中保持清醒。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞作为产品线经理，深知华为的IPD（集成产品开发）流程——每一个产品决策都要经过DCP（决策检查点）评审。交易也可以借鉴：设计一份「买入检查清单」和一份「卖出检查清单」。买入清单包含12项：趋势确认、仓位占比<5%、止损设定、估值区间、逻辑可写出来等。卖出清单包含8项：止损触发、逻辑破坏、目标达成、换仓机会等。打印出来贴在屏幕边缘，下单前逐条确认。严重违规一次，未来一周禁止手动交易。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">设计并打印你的个人交易检查清单（买入12项+卖出8项），未来一周每次交易前逐条确认，违规即暂停交易权限。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①写下你过去3次最大亏损交易的原因，提炼出共性模式；②针对每个模式设计一条检查项（如「如果理由来自群消息/社交媒体，必须延迟24小时」）；③用A4纸打印，加塑封，贴在显示器边缘或笔记本首页；④每次交易前拿出清单逐条确认，全部通过才执行；⑤首次违规=本周暂停交易，第二次=本月暂停，建立真实的纪律肌肉记忆</div></div>
+  <div class="nv">
+    <button onclick="g(48)" >← 上一篇</button>
+    <span class="nv-prog">49/57</span>
+    <button onclick="g(50)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="49" style="--pc:#4f46e5">
+  <div class="ch"><h2>反馈循环 · 投资日记系统</h2><div class="cm">Day 43 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>建立闭环投资日记系统，将每一次交易转化为可量化的学习数据，让亏损变为学费、盈利变为验证，实现决策质量的持续迭代。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>大多数投资者的学习是断裂的：今天亏了不开心，明天赚了开心，但从不系统回顾两者的因果链条。反馈循环的缺失导致同样的错误反复犯——你不需要100个不同的教训，只需把同一个教训记住并内化就够了。
+
+投资日记不是简单记录「今天买了什么股」的流水账。它应该包含：决策前的状态（情绪、疲劳度、外部环境）、决策依据（数据/消息/直觉）、决策质量评分（基于当时的已知信息，而非结果）、和事后的复盘（哪些做对了，哪些是运气）。关键在于区分「过程质量」和「结果质量」——好的过程有时也会亏钱，坏的过程有时也会赚钱，混淆两者是进步的最大障碍。
+
+真正的反馈循环要求输出端（复盘结论）直接反馈到输入端（检查清单更新）。你发现「每次在出差途中做的交易都是亏的」，那么检查清单就应该增加一条：旅行期间禁止交易。你发现「季度末买入的历史成功率更高」，那么买入清单就应该补充：检查日历位置。如此循环往复，你的系统每天都在自我进化。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">文艺复兴科技公司的大奖章基金从1988年到2018年实现了年均66%的回报率，核心秘诀不是某个秘密策略，而是极度严格的反馈循环。西蒙斯要求每一个交易信号都经过后验验证：如果一个策略在历史数据上有效，但在实际交易中失效，团队必须在24小时内完成根本原因分析并更新模型。他们的研究员常说：「我们不是在交易，我们是在做科学的假设检验。」正是这种每秒都在收集数据、每分钟都在更新模型的文化，让大奖章基金在30年内从未有过亏损年度。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">李飞白天有华为高强度工作，2027年6月后才具备全职交易时间。那么在剩余的12个月里，最好的投资就是建立和磨合你的反馈循环系统。每天花15分钟写日记：①今天观察到什么市场信号？②我的操作是否符合检查清单？③如果答案是「否」，是哪一项被跳过了？④这个跳过的后果是什么？周末花30分钟做周度复盘，提炼一条规则更新到清单中。到2027年6月辞职时，你已经有近300天的决策日志和300条规则迭代——这是一套可以承载全职资金管理的操作系统。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">创建结构化投资日记，每日15分钟+周末30分钟复盘，每周提炼一条规则更新到检查清单。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①建立日记模板，包含五个板块：日期/市场情绪/操作记录/决策依据/自我评分；②每天收盘后15分钟内完成记录，不隔夜；③每周末做周度分析，找出本周最好和最糟的一个决策；④每月导出一次日记数据，统计胜率/盈亏比/违背清单次数趋势；⑤将分析结论转化为检查清单的更新条目，形成闭环</div></div>
+  <div class="nv">
+    <button onclick="g(49)" >← 上一篇</button>
+    <span class="nv-prog">50/57</span>
+    <button onclick="g(51)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="50" style="--pc:#4f46e5">
+  <div class="ch"><h2>压力测试 · 极端情景演练</h2><div class="cm">Day 44 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>在安全环境中模拟极端市场情景（黑天鹅、流动性枯竭、个人危机），暴露系统脆弱性并提前加固，确保真实风暴来临时不恐慌、不瘫痪。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>人类的决策质量在常态和极端状态下有本质差异。正常情况下你能理性分析估值、计算概率，是「系统2」在工作。但在暴跌30%、账户回撤20万美金时，原始脑区接管，你囤积现金追涨杀跌。压力测试的价值就是在演习中让这个切换提前发生——在风险暴露前而不是暴露后。
+
+职业交易员和散户的关键差异之一：职业选手把「意料之外」四个字从字典里删除。他们事先推演过：如果今晚美联储紧急加息100bp怎么办？如果台海出现军事冲突怎么办？如果我突然被公司解雇怎么办？每个假设都有预案——不是因为他们能预测未来，而是因为他们尊重不确定性。
+
+李飞的$588K账户在多元资产上分散配置，但需要特别测试的是：①离职过渡期（2027.6-2028）现金流压力下的被迫卖出风险；②单一股票（尤其是科技股）大幅回调时对心理账户的冲击；③美股A股同时大跌时再平衡能力的实际空间。测试结论很可能指向：现金储备需要增加到一个安全阈值，某些资产的相关系数比你想象的要高。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">2008年长期资本管理公司（LTCM）的崩溃是压力测试缺失的经典反面案例。这个拥有两位诺贝尔奖得主（莫顿·舒尔茨）和对冲基金之王梅里韦瑟的明星团队，在1998年俄罗斯债务违约的极端情景下爆仓。他们的模型基于过去十年的数据，从未测试过「所有相关性同时趋近于1」的情况——做空波动性的仓位在波动性飙升时全部反向崩溃，4个月内从$4.7B管理规模到破产被救助。教训：模型预测不了极端情景，但压力测试可以提前告诉你：当最坏情况发生时，你还能不能活着。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">为李飞设计三个压力测试剧本：
+剧本A（灰犀牛）：你辞职后的第4个月（2027年10月），A股突然暴跌25%，美股同步下跌15%。你的$588K缩水到$470K。此时距下一份收入来源还有8个月，房租和生活费每月约3万RMB。你的卖出计划是什么？
+剧本B（黑天鹅）：2027年Q1，你手中最大仓位的公司爆出财务造假，股价单日腰斩，仓位占比15%。同时美元兑人民币汇率从7.0跌到6.3，你的美元资产缩水10%。你会不会深夜崩溃下单全部清仓？
+剧本C（个人危机）：你辞职后身体出现严重问题（住院3个月），无法盯盘交易。所有资产需要自动运行12周。你的系统能在无人干预的情况下存活吗？你的止损单设了吗？资产配置是防御型的吗？
+三个剧本写下来，你会发现自己投资组合的脆弱点，以及情绪管理的真正底线。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">完成三个极端情景的压力测试（市场黑天鹅/个人危机/双杀），写出书面应对预案并记录情绪反应。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①打印三个剧本，每剧本预留一页空白写反应；②在一个安静不被打扰的周日早晨，逐本阅读，像真的发生了那样想象和记录；③每个剧本后写下三个问题：我现在会怎样操作？我的账户能承受吗？我的情绪是什么？④整理出需要改进的3-5个脆弱点（如现金比例、止损设置、保险覆盖）；⑤用一周时间逐一加固</div></div>
+  <div class="nv">
+    <button onclick="g(50)" >← 上一篇</button>
+    <span class="nv-prog">51/57</span>
+    <button onclick="g(52)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="51" style="--pc:#4f46e5">
+  <div class="ch"><h2>统一决策框架 · 你的ROI计算器</h2><div class="cm">Day 45 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>构建统一的投资决策ROI计算框架，将时间投入/资金占用/风险暴露/机会成本纳入量化公式，让每一个决策都有可比较的数字底座。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>大多数投资者的决策是直觉驱动而非计算驱动的。买入一只股票的理由通常是「别人推荐」「看着要涨」「新闻利好」——但这些无法量化，无法比较，无法回溯。统一决策框架的核心是为每一次资金分配提供一个可复用的ROI计算器，让「好」与「不好」从模糊的感觉变成精确的数字。
+
+这个框架包含四个维度：期望收益（预期回报率×概率）、时间成本（从研究到持有到退出的全周期）、机会成本（同样资金放在最优化替代方案上的回报）、风险调整（波动率×最大回撤×流动性折价）。将四个维度压入一个公式，得到每个标的的「决策分数」。高于阈值买入，低于阈值跳过。
+
+这套框架的终极价值不在于精确预测（没有人能做到），而在于它的纪律效应。当你要为一个仓位打出决策分数时，你必须诚实面对自己对这支股票了解多少、概率判断的置信度是多少、退出的规则是什么。这个过程本身就过滤掉了一大半不成熟的想法。
+
+从更长期的视角看，ROI计算器还可以扩展到非交易决策：花2小时研究新赛道vs花2小时写投资日记，哪个回报更高？花5000美元上一门量化课程vs加仓某个ETF，哪个性价比更高？统一框架让「投资」回归到「资源配置」的本质——你的资金、时间、注意力都是稀缺资源。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">巴菲特在1988年买入可口可乐前做了一次教科书级的ROI计算：①未来10年可口可乐的盈利增长假设为10-15%；②按此假设，1988年买入时的内在价值约为市场价的2-3倍安全边际；③替代方案：同期的国债收益率约9%，而可口可乐的预期回报率（含股息）约15-18%；④风险调整：可口可乐的全球品牌护城河和规模效应让确定性极高。最终他以$1.02B买入7%的股份，到1998年这部分市值达到$13.4B，年均回报26%。核心不是他算得有多准，而是他有一个可复用的框架——每次买股票前，都问自己同样的问题。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">对李飞来说，统一决策框架还有一个特殊用途：衡量「辞职全职交易」这个决策本身的ROI。
+- 期望收益：假设你以$588K起步，扣除生活成本后达到2030年目标的概率是多少？
+- 时间成本：辞职意味着放弃华为年薪（假设100万+），3年就是300万+的机会成本
+- 风险调整：如果全职交易前三年表现不佳（年化-5%到+5%），你的现金流储备能撑多久？
+- 非财务因素：自由、专注、陪伴家人的价值量化
+这个框架不会告诉你「该不该辞职」，但它会迫使你把所有假设摆到桌面上，看到每个变量变动时的敏感度。可能你发现只要在辞职前把年化目标从20%下调到12%，容错空间就会翻倍。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">设计你的统一ROI决策框架，包含可用公式和评分阈值，并对当前持仓中的3个标的进行回顾性评分验证。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①设计ROI计算器：分数 = (预期年化回报 × 置信度) - (时间成本系数 × 机会成本率) - (最大回撤风险折价)；②定义及格线：分数≥70分可考虑，≥85分重仓，<50分跳过；③对你的持仓中3个最大标的做回顾性评分——如果分数低于预期，反思买入时忽略了什么；④将框架封装成一个简单的Excel表格或Python脚本，每评估一个标的只需替换参数即可；⑤未来每一个新标的必须经过框架评分才能入池</div></div>
+  <div class="nv">
+    <button onclick="g(51)" >← 上一篇</button>
+    <span class="nv-prog">52/57</span>
+    <button onclick="g(53)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="52" style="--pc:#4f46e5">
+  <div class="ch"><h2>半年检查 · 目标再校准</h2><div class="cm">Day 46 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>以半年为周期进行系统性目标检查和策略校准，剔除失效假设、修正偏差路径、更新关键指标，确保长期目标在变化的市场中始终可追踪可达。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>长期投资中最危险的假设是「今年的计划明年还能用」。市场在变，宏观在变，你自己也在变——知识在增长、风险偏好可能已迁移、现金流状况也在变化。每半年一次的正式检查不是可有可无的仪式，而是投资系统的「版本升级」时间点。
+
+检查的核心不是回顾盈亏（那是日记的事），而是回答四个问题：①我的核心假设还成立吗？（比如配置比例、预期收益、风险敞口）②我的外部环境有没有结构性变化？（比如利率周期转向、行业政策调整、个人职业阶段变化）③我的知识和能力有没有显著提升？是否需要调整能力圈边界？④我的情绪和健康状况如何？有没有burnout信号需要降低仓位？
+
+把半年检查类比为飞机的例行检修：你不会等到引擎故障才去检查。固定周期的另一层价值是消除情绪干扰——检查时间到了，不管市场是牛市还是熊市，不管账户是浮盈还是浮亏，你都坐下来做同样的分析流程。这种「固定节拍」本身就是最好的纪律训练。
+
+对有志于2030年目标的李飞来说，半年检查的意义更加特殊：2027年6月辞职是一个转折点，前后的资产负债结构完全不同。辞职前的检查（2027.1）需要评估「准备工作是否就绪」；辞职后的第一次检查（2028.1）需要验证「全职交易假设是否成立」。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">贝莱德（BlackRock）从1999年IPO到2023年资产管理规模从$165B增长到$10T，核心管理机制之一是每半年一次的「战略校准会议」。CEO拉里·芬克要求每个业务部门的负责人回答5个标准问题：我们的竞争优势是否在变强？客户需求有什么变化？我们的人才是否匹配战略？过去半年的最大误判是什么？未来半年的首要任务是什么？这套固定节拍让一家公司从1600亿美元成长到10万亿美元，跨越了互联网泡沫、次贷危机、新冠疫情三个大周期。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">为李飞设计时间线上的关键检查节点和对应检视内容：
+- 2026.12（P7结束时）：第一次正式检查。检查清单和投资日记系统是否在运转？ROI框架有无使用？知识图谱是否超过50个节点？
+- 2027.6（辞职前最后检查）：$588K账户是否建立了足够的防御仓位？现金流储备是否覆盖18个月生活开支？交易系统的回测数据是否令人信服？心理准备如何？
+- 2027.12（辞职后半年）：全职交易的前6个月绩效如何？与预期偏差在哪里？是否需要降低年度目标？有没有考虑过「如果不行就回去上班」的Plan B？
+- 2028.6（距离2030还有2年）：按照当前复利速度能否达到目标？需要加大风险还是降低预期？
+每个检查点的结论都要形成书面文件，与上一次的预期做对比，偏差就是最好的学习素材。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">完成李飞个人化的第一次半年检查（2026.12），写出书面校准报告，包含当前持仓评估、假设校验清单、优先级更新。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①设好日历提醒：每半年第一个周日为检查日，在日历上标记为「红色不可更改」；②准备检查模板：四个板块—假设校验/环境扫描/能力评估/健康检查；③完成第一次检查：对比年初设定的目标，找出偏差>10%的指标；④对偏差进行根因分析：是假设错了、执行偏了、还是外部环境变了？⑤更新下一个半年的关键目标清单，设定3个必须达成的里程碑</div></div>
+  <div class="nv">
+    <button onclick="g(52)" >← 上一篇</button>
+    <span class="nv-prog">53/57</span>
+    <button onclick="g(54)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="53" style="--pc:#4f46e5">
+  <div class="ch"><h2>能力圈 · 你知道你不知道的</h2><div class="cm">Day 47 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>用科学方法界定个人能力圈的明确边界——准确区分「知道」「知道不知道」和「不知道自己不知道」三个层次，让交易只在圈内进行。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>巴菲特说能力圈的核心不是圈有多大，而是你知道边界在哪里。大多数投资者的亏损来自一个简单问题：在你不了解的领域做了大仓位的交易。不是因为你蠢，而是因为你不知道你不知道——你读了几篇文章就以为自己理解了AI芯片赛道，听了一期播客就以为自己理解了比特币，但实际上你的知识深度远不足以支撑一个10万美金的仓位。
+
+划分能力圈需要极度的诚实。圈内应满足三个条件：①你能用三句话说清楚这个投资标的的盈利模式；②你能列出可能杀死这个生意的三个最大风险；③你在这个行业有至少100小时的深度研究或工作经验。三条不满足其中任何一条，这个标的就是圈外。圈外交易不是不能做，但仓位必须严格限制（<2%），且要明确标注为「学习仓位」。
+
+界定能力圈还有一个强大的副作用：它会自然引领你聚焦。当你说「我不懂生物医药」「我不懂房地产」「我不懂大宗商品」时，你就把有限的时间资源自动集中到了你真正有优势的领域。对李飞来说，科技硬件和供应链是天然优势区，消费和金融可能需要爬坡，而医药和能源就是明确的圈外。聚焦不是限制，是力量的集中。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">老虎基金朱利安·罗伯逊在1990年代是华尔街最成功的对冲基金经理之一，年化回报31%，曾与索罗斯比肩。但2000年科技泡沫期间，他违背了自己的能力圈原则——作为以「价值投资」著称的经理，他开始买入自己不太理解的科技成长股，试图追赶纳斯达克。结果泡沫破裂时老虎基金的科技仓位跌幅超过40%，最终他在2000年3月关闭基金。解散时他对投资者说：「在属于我风格的市场里，我没能赚到钱；在不属于我风格的市场里，我亏了钱。」这个教训价值$21B——他解散时管理的资产规模。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">为李飞做一次能力圈定位：
+【圈内（可重仓）】科技硬件供应链（华为15年经验）、服务器/算力产业链（本职工作）、A股科技板块（信息优势）、指数ETF（配置工具）
+【圈边（轻仓学习）】美股科技巨头（理解但无信息优势）、消费品牌（需额外学习）、可转债（可以学习但需时间）
+【圈外（不碰）】生物医药（无行业认知）、大宗商品期货（无经验）、加密货币（无法估值）、外汇保证金交易（零和博弈）
+画一个三环图，把你的时间和资金按环分配：圈内≥70%，圈边≤25%，圈外≤5%。这个分配本身就是风控。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">画出个人的三环能力图（圈内/圈边/圈外），标注每个区域的持仓比例，确保圈内≥70%，圈外≤5%。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①取一张白纸画三个同心圆；②在最内圈列出你真正有信息优势或经验深度的领域（至少3个）；③在中圈列出你正在学习但尚未形成信心的领域；④在外圈列出你明确不碰的领域；⑤对照当前持仓，用颜色标记每个标的位置；⑥调整持仓结构直到符合70-25-5原则；⑦设定规则：圈外标的如需接触，必须先完成「N小时学习+N篇财报+N次模拟交易」的准入门槛</div></div>
+  <div class="nv">
+    <button onclick="g(53)" >← 上一篇</button>
+    <span class="nv-prog">54/57</span>
+    <button onclick="g(55)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="54" style="--pc:#4f46e5">
+  <div class="ch"><h2>年度再平衡 · 固定日期的纪律</h2><div class="cm">Day 48 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>建立固定日历日的年度再平衡机制——无论市场涨跌，在同一个日期执行预设的资产配置修正，用制度对冲人性中的贪婪与恐惧。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>年度再平衡是全球顶级投资机构的标准作业程序。原理简单却反人性：卖出涨得好的（因为占比超了），买入跌得惨的（因为占比低了）。听起来应该很容易，实际执行极其困难——因为你的每一个细胞都在告诉你「涨的还要涨，跌的还要跌」。
+
+固定日期的核心价值是消除择时冲动。如果你每年只在12月1日做再平衡，那么全年其他364天你都不用纠结「现在该不该调仓」——你只需要等待固定日期。这种机制带来的心理解放是巨大的：市场大跌时你不会焦虑地想割肉，因为你告诉自己「12月1日才做决定」；市场大涨时你也不会激动地想加仓，同样因为「12月1日才做决定」。
+
+固定日期还有一个隐性好处：它强迫你每年至少完整审视一次自己的投资组合。你会问自己：这个标的还值得持有吗？我的知识有没有更新？它的基本面变了没有？如果没有这个强制审视，大多数人会「买了就不管了」，直到亏损到无法忽视才被迫行动——而这已经晚了。
+
+对李飞来说，建议把年度再平衡日设在12月15日（靠近年底，方便做全年总结和次年规划），或者7月1日（年中，结合半年检查一起做）。选择哪个不重要，重要的是选择一个并坚持终身。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">耶鲁大学捐赠基金是大卫·斯文森（David Swensen）掌舵35年的标杆。他的再平衡纪律堪称教科书级别：每年6月30日（耶鲁财年结束日）执行大类资产再平衡。1980年代当美股大涨时，他卖出股票降低占比；2000年科技泡沫前，他因再平衡卖出了大量高估的科技股；2008年金融危机期间，他在恐慌中按计划买入被低估的资产。这套固定纪律让耶鲁捐赠基金从1985年的$1B增长到2020年的$31.2B，年化回报12.4%，远超同期标普500的10.8%。斯文森说：「再平衡是唯一能让你同时获得分散化收益和逆向投资纪律的策略。」</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">为李飞设计年度再平衡框架：
+- 选定日期：12月15日（允许前后一周的缓冲窗口，但目标日不变）
+- 目标配置：根据你的风险目标设定固定比例（如：A股30%/美股30%/港股15%/债券15%/现金10%），每年度检查是否偏移
+- 阈值触发机制：如果某类资产在年内偏移超过±30%（如美股从30%涨到39%以上），触发临时再平衡，不等年度——但全年临时再平衡不超过2次
+- 2026年12月15日是第一次正式再平衡：从半年前的配置基准出发，计算真实偏差，一次性修正到位。这次再平衡的结论也将是你辞职前最后一次资产结构确认。
+固定日期再平衡加年检，是你退休后无人监督时保持纪律的最后防线。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">确定你的年度再平衡日期（建议12月15日或7月1日），计算当前持仓与目标配置的偏差，完成第一次正式再平衡操作。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①选定再平衡日期并设置为每年重复的日历事件；②起草《年度再平衡白皮书》，写明你的目标配置比例、偏差容忍阈值（建议单类±5%触发）、再平衡执行步骤；③列清你当前所有持仓的市值和占比，对照目标配置计算偏差；④对偏差超过阈值的资产执行卖出/买入操作；⑤记录这次再平衡的决策日志，明年同一日对比回顾</div></div>
+  <div class="nv">
+    <button onclick="g(54)" >← 上一篇</button>
+    <span class="nv-prog">55/57</span>
+    <button onclick="g(56)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="55" style="--pc:#4f46e5">
+  <div class="ch"><h2>第二曲线 · 离职后收入来源</h2><div class="cm">Day 49 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>在离职倒计时前规划并启动至少一条非交易收入来源，降低投资账户的「提款压力」，让交易成为增值手段而非生存工具。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>全职投资最大的心理陷阱是「不得不赚」。当你的生活开支完全依赖交易账户时，每一次亏损都意味着生活质量下降，每一个回撤都引发恐慌。这种压力下做出的决策往往是最差的——你会过早收割利润、不愿止损、过度交易。而解决这个陷阱的最好方法，就是在全职交易之外建立至少一条稳定的现金流来源。
+
+第二曲线的选择应该遵循三个原则：①与你的能力圈重叠（降低学习曲线）；②初期投入时间可控（不影响交易研究和执行）；③可规模化（不需要永远用时间换钱）。三条同时满足的机会不多，但找到一条就可以大大降低交易账户的生存压力。
+
+对李飞来说，从华为产品线经理转型后，可货币化的资产非常丰富：15年的科技产业洞察可以转化为付费内容或咨询；供应链和管理经验可以面向中小科技企业做顾问；英文好、行业深，可以写英文科技投资Newsletter。这些都不需要大量初始投资，核心成本是你的知识时间和写作能力——而这些恰恰是你已经拥有的。
+
+2030年目标（1000万RMB+100万USD）中如果把第二曲线纳入计算，你会发现需要的年化收益率从20%降到15%，甚至12%——容错空间翻倍。这不是妥协，而是用结构性的抗风险能力换取了更多的可能性。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">Vanguard创始人约翰·博格（John Bogle）说过一句话被广为引用：「永远不要只有一个收入来源。」他本人反其道把全部心力投入Vanguard，但看看他的追随者——比如《钱：7步创造终身收入》作者托尼·罗宾斯（Tony Robbins），他除了投资外还运营着演讲、课程、书籍、教练等多个收入来源。2022年市场大跌时，罗宾斯的投资组合回撤了25%，但他的其他收入来源让他的总现金流几乎没有波动。他写道：「我投资不是为了生存，我是为了在已经过上好生活的基础上更进一步。」</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">为李飞评估几条第二曲线路径：
+路径1（推荐）：科技投资Newsletter（英文，Substack或Beehiiv平台）。核心卖点：华为产品线经理的产业内视角+投资实战记录。定价$15-20/月，目标是2028年前达到500订阅者，年收入$90K-120K。写一篇深度内容约需4-6小时，远少于你在华为的加班时间。
+路径2（次推荐）：中小科技企业顾问。利用你的供应链管理和产品线管理经验。定价2-5万/月/企业，但需要2-3家企业客户才能达到Newsletter的收入水平，时间成本更高。
+路径3（兴趣）：科技投资课程。在YouTube或知识付费平台开设「从华为高管到全职交易者」课程，一次录制长期销售。但教学质量需要维护。
+建议在2027年6月辞职前启动Newsletter，利用辞职前6个月的周末每周写一篇，到辞职时已有24篇基础内容库存，每月只需更新4篇即可维持。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">选一条第二曲线方向，制定从启动到盈亏平衡的12个月路线图，本周完成第一篇文章/第一篇内容的发布。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①评估三条路径，根据投入时间/收入预期/个人兴趣/可持续性打分选一；②设定12个月路线图：前3个月搭建+基础内容库存，中间6个月获客，后3个月调整优化；③本周内：注册平台（Substack/Beehiiv/小报童），写好第一篇内容并发布；④设定量化目标：第6个月达到100订阅，第12个月达到300订阅或对应收入；⑤每月检视第二曲线的时间投入和产出效率，如果写一篇文章超过8小时就反思流程是否需要优化</div></div>
+  <div class="nv">
+    <button onclick="g(55)" >← 上一篇</button>
+    <span class="nv-prog">56/57</span>
+    <button onclick="g(57)" >下一篇 →</button>
+  </div>
+</article><article class="card" data-i="56" style="--pc:#4f46e5">
+  <div class="ch"><h2>百日行动 · 从知道到做到</h2><div class="cm">Day 50 · 共50天</div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 核心观点</div><div class="dw"><p>启动百日行动计划——将过去49天的所有知识和系统设计方案转化为连续100天的可执行行动，完成从「知道」到「做到」的最后一跃。</p></div></div>
+  <div class="s"><div class="st" style="color:#4f46e5">🧠 深度理解</div><div class="dw"><p>信息摄入和行动实践之间存在着致命的鸿沟。P1到P6积累了大量的框架、案例和理论——知识图谱、检查清单、反馈循环、压力测试、ROI计算器、能力圈、再平衡——但如果它们只存在于笔记里而从未在你的账户中执行过一次，那么这些知识相当于不存在。百日行动就是这个鸿沟上的桥梁。
+
+100天的设计有科学依据：行为心理学研究表明，一个新的复杂行为系统（而非单一习惯）需要至少60-90天才能固化为无意识的操作。前30天是痛苦期（「我为什么要这么麻烦？」），中间30天是适应期（「好像也没那么难」），后40天是自动化期（「没有这个系统我不会操作了」）。100天足以覆盖从抗拒到内化的全过程。
+
+百日行动不是新知识的输入期——它的全部焦点在「执行」和「坚持」。你的进度指标不应该是「读了多少本书」「知道了几个新概念」，而应该是「检查清单执行率多少」「日记写了多少天」「再平衡做到了几次」「第二曲线发了多少篇内容」。如果100天后你的知识笔记没有增多但你的系统执行率达到90%，这次学习就是成功的。
+
+对李飞来说，百日行动的终点恰好是2026年9月底左右。离2027年6月辞职还有约9个月。这100天打下的执行基础，将决定未来9个月的准备质量和未来3年的投资表现。</p></div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #cbd5e1;margin-bottom:6px">
+    <div class="st" style="color:#64748b">📜 历史案例</div><div class="dw">海豹突击队退役指挥官乔科·威林克（Jocko Willink）在《极端所有权》中描述了海豹突击队的训练哲学：「知道枪怎么拆卸保养和能在黑暗沙尘暴中30秒内完成拆装是两种完全不同的能力。信息的价值等于零，除非你把它转化到肌肉记忆中。」他的这句话被硅谷创业者广泛引用。比如Stripe的CEO帕特里克·科里森（Patrick Collison）把「执行力战胜一切」作为公司价值观之首——Stripe在支付领域面对巨头（PayPal、Square）的围剿时，靠的不是更聪明的战略（「知道」），而是更快的迭代速度和更高的执行标准（「做到」）。Stripe现估值超$50B。</div></div>
+  <div class="s" style="background:#fafafa;border-radius:5px;padding:6px 8px;border-left:3px solid #2563eb;margin-bottom:6px">
+    <div class="st" style="color:#2563eb">💻 你的场景</div><div class="dw">为李飞设计的百日行动计划：
+第一阶段（1-30天）：建立系统肌肉。每天必须完成：①检查清单过一遍今天的交易计划（哪怕不做交易）；②写15分钟投资日记；③每周更新一次知识图谱（至少3个新节点）。周末任务：一小时系统优化（修补日记模板、更新检查清单、调整图谱结构）。
+第二阶段（31-60天）：系统自动化。检查清单不再需要刻意提醒，日记写作时间从15分钟降到5-8分钟，图谱更新变成习惯。新增任务：每周末复盘一次ROI框架的使用情况。
+第三阶段（61-100天）：系统迭代。你已经有了40天的操作数据，可以开始做统计分析了：你的检查清单哪一条被跳过的频率最高？日记中记录的决策质量评分在上升还是下降？知识图谱中哪个模块最薄弱？用数据驱动系统优化。「百日行动日志」每10天做一次快照，100天后你将拥有一份完整的个人投资进化档案。</div></div>
+  <div class="s" style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-bottom:6px">
+    <div class="st" style="color:#6366f1">✍️ 今日练习</div><div class="dw">制定并立即启动你的百日行动计划（分三个阶段），每天打卡执行，每10天留一次进度快照。</div></div>
+  <div style="background:linear-gradient(135deg,#eef2ff,#fafafa);border-radius:5px;padding:8px;border-left:3px solid #6366f1;margin-top:4px">
+    <div style="font-size:0.76em;line-height:1.5;color:#1e293b">①打印百日行动日历（100个格子），贴在书桌对面墙上；②设定三个量化指标：检查清单执行率目标90%+/日记完成率95%+/图谱周增量3+节点；③每天睡前在日历格子上打勾——完成当日三项任务打绿色，缺一项打黄色，缺两项以上打红色，然后用一句话记录原因；④每10天做一次回顾快照：拍照日历、导出日记数据、截图账户持仓；⑤在第30天/60天/90天/100天分别做一次正式进度评估，对照开营时设定的目标；⑥第100天完成时，写一篇《百日行动总结与系统上线报告》，标志你的投资操作系统正式进入「生产环境」</div></div>
+  <div class="nv">
+    <button onclick="g(56)" >← 上一篇</button>
+    <span class="nv-prog">57/57</span>
+    <button onclick="g(58)" disabled>下一篇 →</button>
+  </div>
+</article></div>
+<div class="ft">v3.0 · data-day导航 | 50天计划</div>
+<script>const TC=57;
+function dayToIdx(d){return d<=8?d+1:d<=16?d+2:d<=22?d+3:d<=28?d+4:d<=34?d+5:d<=40?d+6:d+7;}
+function idxToDay(i){const m=[-1, -1, 1, 2, 3, 4, 5, 6, 7, 8, -1, 9, 10, 11, 12, 13, 14, 15, 16, -1, 17, 18, 19, 20, 21, 22, -1, 23, 24, 25, 26, 27, 28, -1, 29, 30, 31, 32, 33, 34, -1, 35, 36, 37, 38, 39, 40, -1, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50];return i>=1&&i<=TC?m[i-1]:-1;}
+function g(n){if(n<1||n>TC)return;
+  document.querySelectorAll('.card,.pcard').forEach(c=>c.classList.toggle('act',parseInt(c.dataset.i)+1===n));
+  var dn=idxToDay(n);
+  document.querySelectorAll('.dt').forEach(d=>d.classList.toggle('act',dn>0&&parseInt(d.dataset.day)===dn));
+  var el=document.querySelector('.card.act,.pcard.act');
+  document.title='['+n+'/'+TC+'] '+(el?el.querySelector('h2')?.textContent||'':'');
+  window.scrollTo({top:0,behavior:'smooth'});}
+function day(d){if(d<1||d>50)return;g(dayToIdx(d));}
+document.addEventListener('DOMContentLoaded',function(){g(1);});</script>
+</body>
+</html>
