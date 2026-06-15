@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>学习者 60 天通识学习路线图</title>
+<style>
+:root{--bg:#f4f6f8;--paper:#fff;--ink:#101828;--muted:#667085;--line:#d0d5dd;--navy:#111827}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.68}header{background:var(--navy);color:white;padding:34px 28px 30px}.wrap{max-width:1320px;margin:0 auto}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:end}h1{font-size:38px;margin:0 0 10px;letter-spacing:0}.sub{color:#d0d5dd;font-size:16px;max-width:780px}.hero-panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:16px}.hero-panel b{font-size:28px;display:block;margin-bottom:4px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 10px;color:#e5e7eb;font-size:13px}.layout{display:grid;grid-template-columns:310px 1fr;gap:20px;max-width:1320px;margin:20px auto;padding:0 18px}.sidebar{position:sticky;top:12px;align-self:start;background:white;border:1px solid var(--line);border-radius:12px;padding:14px;max-height:calc(100vh - 24px);overflow:auto}.sidebar h2{font-size:16px;margin:0 0 10px}.sidebar a{display:grid;grid-template-columns:34px 1fr;gap:8px;align-items:start;padding:8px;border-radius:8px;color:#344054;text-decoration:none;font-size:13px}.sidebar a:hover{background:#f2f4f7}.sidebar a span{background:#eef2ff;color:#3730a3;border-radius:6px;text-align:center;font-weight:700}.sidebar a.review span{background:#fef3c7;color:#92400e}.content{display:grid;gap:16px}.intro,.week-map{background:white;border:1px solid var(--line);border-radius:12px;padding:20px}.intro h2,.week-map h2{margin:0 0 10px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}.mini{border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fbfcfe}.mini b{display:block;margin-bottom:4px}.day-card{background:white;border:1px solid var(--line);border-left:7px solid var(--accent);border-radius:12px;padding:24px;box-shadow:0 10px 26px rgba(16,24,40,.04)}.day-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.day-num{background:var(--accent);color:white;border-radius:999px;padding:5px 10px;font-weight:800;font-size:13px;margin-right:8px}.stage{color:var(--accent);font-weight:700}.book{color:var(--muted);font-size:13px;text-align:right}h2{font-size:26px;margin:14px 0 16px}h3{font-size:16px;margin:0 0 8px;color:#344054}h4{font-size:16px;margin:0 0 6px;color:#111827}section{margin-top:16px}ul,ol{margin:0;padding-left:22px}li{margin:6px 0}.day-card p{margin:0 0 10px}.claim{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px}.cap-grid{display:grid;gap:10px}.capability{display:grid;grid-template-columns:34px 1fr;gap:12px;background:#fbfcfe;border:1px solid #e5e7eb;border-radius:10px;padding:13px}.cap-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:white;font-weight:800;display:grid;place-items:center}.capability p{color:#344054}.scene-more{color:#475467}.mistake{background:#fff1f2;border:1px solid #fecdd3;border-radius:10px;padding:12px}.practice{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:12px}.note{background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:12px}.footer{color:#667085;text-align:center;padding:28px}.print-tip{font-size:13px;color:#667085}@media(max-width:980px){.hero,.layout,.grid4{grid-template-columns:1fr}.sidebar{position:static;max-height:none}.book{text-align:left}.day-top{display:block}h1{font-size:30px}h2{font-size:23px}.day-card{padding:18px}}@media print{.sidebar{display:none}.layout{display:block}.day-card{break-inside:avoid;box-shadow:none}.hero-panel,.tags{display:none}body{background:white}header{background:white;color:#111827}.sub{color:#344054}}
+</style>
+</head>
+<body>
+<header><div class="wrap hero">
+  <div>
+    <h1>学习者 60 天通识学习路线图</h1>
+    <p class="sub">把 18 本通识教材压缩成 60 天可读、可练、可沉淀的课程。目标不是读完书，而是形成可用于投资、大型科技企业组织判断、AI/半导体研究、职业退出、健康和亲密关系的跨学科判断力。</p>
+    <div class="tags"><span class="tag">经济学</span><span class="tag">逻辑与法律</span><span class="tag">心理与行为科学</span><span class="tag">组织与沟通</span><span class="tag">Obsidian 原子笔记</span></div>
+  </div>
+  <div class="hero-panel"><b>60 天 / 8 周复盘</b><div>每天 20-30 分钟。今晚可以先顺读总览，再挑与你当前处境最相关的卡片深读。</div></div>
+</div></header>
+<main class="layout">
+  <nav class="sidebar"><h2>60 天导航</h2><a href="#day-1" class=""><span>1</span>选择不是愿望，是约束下的取舍</a><a href="#day-2" class=""><span>2</span>激励决定行为，不是口号决定行为</a><a href="#day-3" class=""><span>3</span>现金不是躺平，是选择权</a><a href="#day-4" class=""><span>4</span>价格是信息，不只是数字</a><a href="#day-5" class=""><span>5</span>沉没成本不该决定未来</a><a href="#day-6" class=""><span>6</span>比较优势：你不必什么都自己做</a><a href="#day-7" class="review"><span>7</span>第一周复盘：把钱、时间、身体放进同一个模型</a><a href="#day-8" class=""><span>8</span>供给需求：每个选择背后都有两条曲线</a><a href="#day-9" class=""><span>9</span>利率是资产价格的地心引力</a><a href="#day-10" class=""><span>10</span>通胀是财富转移机制</a><a href="#day-11" class=""><span>11</span>货币政策如何穿透到你的账户</a><a href="#day-12" class=""><span>12</span>风险不是波动，风险是永久损失与失去选择</a><a href="#day-13" class=""><span>13</span>外部性：你的选择会影响身边人</a><a href="#day-14" class="review"><span>14</span>第二周复盘：从宏观数据到个人选择</a><a href="#day-15" class=""><span>15</span>制度比努力更像地形</a><a href="#day-16" class=""><span>16</span>先分清结论和理由</a><a href="#day-17" class=""><span>17</span>必要条件与充分条件</a><a href="#day-18" class=""><span>18</span>相关不等于因果</a><a href="#day-19" class=""><span>19</span>规则不是道德，是可执行边界</a><a href="#day-20" class=""><span>20</span>证据意识：没有记录就很难主张</a><a href="#day-21" class="review"><span>21</span>第三周复盘：别被观点牵着走</a><a href="#day-22" class=""><span>22</span>什么是好生活</a><a href="#day-23" class=""><span>23</span>自由：想做什么与能不做什么</a><a href="#day-24" class=""><span>24</span>类比有启发，但不能当证明</a><a href="#day-25" class=""><span>25</span>权利、责任和风险要一起看</a><a href="#day-26" class=""><span>26</span>身份不是牢笼，是可重构叙事</a><a href="#day-27" class=""><span>27</span>概率思维：不要用确定性语言描述不确定世界</a><a href="#day-28" class="review"><span>28</span>第四周复盘：为重大选择建立检查清单</a><a href="#day-29" class=""><span>29</span>程序正义：过程决定结果可信度</a><a href="#day-30" class=""><span>30</span>有限生命：时间是最终预算</a><a href="#day-31" class=""><span>31</span>注意力是你的操作系统</a><a href="#day-32" class=""><span>32</span>压力会缩窄你的决策视野</a><a href="#day-33" class=""><span>33</span>样本太少，不要急着总结规律</a><a href="#day-34" class=""><span>34</span>可验证假设，而不是自我感动</a><a href="#day-35" class="review"><span>35</span>第五周复盘：把自己当成系统调试</a><a href="#day-36" class=""><span>36</span>人会被群体情绪感染</a><a href="#day-37" class=""><span>37</span>安全感需求很古老，资产只是现代形式</a><a href="#day-38" class=""><span>38</span>习惯比意志更可靠</a><a href="#day-39" class=""><span>39</span>基准率：先问通常情况，再看特殊故事</a><a href="#day-40" class=""><span>40</span>控制变量：别一次改太多</a><a href="#day-41" class=""><span>41</span>身份认同会保护自尊，也会阻碍改变</a><a href="#day-42" class="review"><span>42</span>第六周复盘：投资、职业、健康都要防认知偏差</a><a href="#day-43" class=""><span>43</span>情绪不是敌人，是信号</a><a href="#day-44" class=""><span>44</span>亲密关系需要资源，也需要注意力</a><a href="#day-45" class=""><span>45</span>均值回归：别把极端状态当常态</a><a href="#day-46" class=""><span>46</span>组织不是理性机器，是人和权力的网络</a><a href="#day-47" class=""><span>47</span>管理是通过他人完成目标</a><a href="#day-48" class=""><span>48</span>沟通不是表达完整，而是让对方能接收</a><a href="#day-49" class="review"><span>49</span>第七周复盘：组织里看角色、利益和关系</a><a href="#day-50" class=""><span>50</span>从众：多数人的方向不一定是你的方向</a><a href="#day-51" class=""><span>51</span>心理契约：没写进合同但影响很大</a><a href="#day-52" class=""><span>52</span>战略是选择不做什么</a><a href="#day-53" class=""><span>53</span>冲突不是失败，是需求同时出现</a><a href="#day-54" class=""><span>54</span>激励错配会制造荒唐行为</a><a href="#day-55" class=""><span>55</span>领导力是制造清晰，而不是制造压力</a><a href="#day-56" class="review"><span>56</span>第八周复盘：从组织人转向系统设计者</a><a href="#day-57" class=""><span>57</span>地位焦虑：比较会偷走自由感</a><a href="#day-58" class=""><span>58</span>倾听是获取真实信息的技术</a><a href="#day-59" class=""><span>59</span>产品化：把一次性能力变成可复制交付</a><a href="#day-60" class="review"><span>60</span>60 天总复盘：从资产、逻辑、心理到组织</a></nav>
+  <div class="content">
+    <section class="intro"><h2>怎么学习这份网页</h2><p>建议今晚分三轮：第一轮看每周标题，理解地图；第二轮重点看 Day 1-30，补经济与逻辑；第三轮挑 Day 31-60 中与你当前压力、投资和职业退出相关的主题。每看完一天，只需要写一条 Obsidian 原子笔记。</p>
+      <div class="grid4">
+        <div class="mini"><b>第 1-15 天</b>经济学底层语言：机会成本、激励、利率、现金、制度。</div>
+        <div class="mini"><b>第 16-30 天</b>逻辑、法律、哲学：论证、规则、证据、自由和价值排序。</div>
+        <div class="mini"><b>第 31-45 天</b>心理和行为科学：注意力、压力、偏差、统计、关系。</div>
+        <div class="mini"><b>第 46-60 天</b>社会心理与组织：权力、管理、沟通、产品化和自我领导。</div>
+      </div>
+      <p class="print-tip">提示：这个网页支持浏览器打印或导出 PDF。</p>
+    </section>
+    <article class="day-card" id="day-1" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 1</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学的思维方式》</div>
+    </div>
+    <h2>选择不是愿望，是约束下的取舍</h2>
+    <section class="claim"><h3>核心观点</h3><p>机会成本是自由感的真实价格。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：选择不是愿望，是约束下的取舍不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。稀缺性：时间、健康、注意力和现金都有限。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。机会成本：选择大型科技企业现金流，就放弃部分生活和第二曲线时间。 说明这个概念有边界，不能被滥用。边际思维：真正要比较的是“多做一年”的边际收益与边际损耗。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>稀缺性</h4><p>这里不要只看定义。时间、健康、注意力和现金都有限。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：把 2026-2027 留任收益、一次性离职现金流、海外资产增长，与睡眠、亲密关系、所在城市生活质量放在同一张表里比较。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>机会成本</h4><p>这里不要只看定义。选择大型科技企业现金流，就放弃部分生活和第二曲线时间。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：把 2026-2027 留任收益、一次性离职现金流、海外资产增长，与睡眠、亲密关系、所在城市生活质量放在同一张表里比较。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>边际思维</h4><p>这里不要只看定义。真正要比较的是“多做一年”的边际收益与边际损耗。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：把 2026-2027 留任收益、一次性离职现金流、海外资产增长，与睡眠、亲密关系、所在城市生活质量放在同一张表里比较。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>把 2026-2027 留任收益、一次性离职现金流、海外资产增长，与睡眠、亲密关系、所在城市生活质量放在同一张表里比较。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写下你当前最大的三个机会成本：继续高强度工作、重仓 AI/半导体、推迟生活升级。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>机会成本是自由感的真实价格</p></section>
+  </article>
+<article class="day-card" id="day-2" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 2</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学原理》</div>
+    </div>
+    <h2>激励决定行为，不是口号决定行为</h2>
+    <section class="claim"><h3>核心观点</h3><p>组织行为要从激励结构开始看。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：激励决定行为，不是口号决定行为不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。人会响应激励：奖金、职级、考核会塑造行为。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。组织激励常常压过个人意愿。 说明这个概念有边界，不能被滥用。看人和组织，先看奖励什么、惩罚什么。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>人会响应激励</h4><p>这里不要只看定义。奖金、职级、考核会塑造行为。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解大型科技企业、云计算平台、客户侧项目为什么会推动加班、交付、内卷和短期目标优先。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>组织激励常常压过个人意愿。</h4><p>这里不要只看定义。组织激励常常压过个人意愿。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解大型科技企业、云计算平台、客户侧项目为什么会推动加班、交付、内卷和短期目标优先。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>看人和组织，先看奖励什么、惩罚什么。</h4><p>这里不要只看定义。看人和组织，先看奖励什么、惩罚什么。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解大型科技企业、云计算平台、客户侧项目为什么会推动加班、交付、内卷和短期目标优先。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>理解大型科技企业、云计算平台、客户侧项目为什么会推动加班、交付、内卷和短期目标优先。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>列出你所在组织实际奖励的 5 件事，而不是口头倡导的 5 件事。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>组织行为要从激励结构开始看</p></section>
+  </article>
+<article class="day-card" id="day-3" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 3</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学》</div>
+    </div>
+    <h2>现金不是躺平，是选择权</h2>
+    <section class="claim"><h3>核心观点</h3><p>现金是选择权而不是低效资产。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：现金不是躺平，是选择权不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。流动性是一种期权。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。现金在高估值市场里有等待价值。 说明这个概念有边界，不能被滥用。短债/货币类资产 和美元现金提供心理稳定器。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>流动性是一种期权。</h4><p>这里不要只看定义。流动性是一种期权。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：复盘你的 海外投资账户 组合：现金、短债/货币类资产、AI 与半导体相关持仓 的功能不同，不能只看收益率。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>现金在高估值市场里有等待价值。</h4><p>这里不要只看定义。现金在高估值市场里有等待价值。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：复盘你的 海外投资账户 组合：现金、短债/货币类资产、AI 与半导体相关持仓 的功能不同，不能只看收益率。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>短债/货币类资产 和美元现金提供心理稳定器。</h4><p>这里不要只看定义。短债/货币类资产 和美元现金提供心理稳定器。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：复盘你的 海外投资账户 组合：现金、短债/货币类资产、AI 与半导体相关持仓 的功能不同，不能只看收益率。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>复盘你的 海外投资账户 组合：现金、短债/货币类资产、AI 与半导体相关持仓 的功能不同，不能只看收益率。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>给每类资产标注一个角色：进攻、防守、现金流、等待、保险。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>现金是选择权而不是低效资产</p></section>
+  </article>
+<article class="day-card" id="day-4" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 4</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学原理》</div>
+    </div>
+    <h2>价格是信息，不只是数字</h2>
+    <section class="claim"><h3>核心观点</h3><p>价格是被压缩的信息包。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：价格是信息，不只是数字不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。价格反映供需、预期和约束。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。股价上涨不等于价值提升。 说明这个概念有边界，不能被滥用。汇率、利率、工资都是信号。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>价格反映供需、预期和约束。</h4><p>这里不要只看定义。价格反映供需、预期和约束。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：看 AI/半导体行情时，不只看涨跌，要问价格在反映什么预期：利润率、资本开支、地缘风险还是流动性。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>股价上涨不等于价值提升。</h4><p>这里不要只看定义。股价上涨不等于价值提升。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：看 AI/半导体行情时，不只看涨跌，要问价格在反映什么预期：利润率、资本开支、地缘风险还是流动性。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>汇率、利率、工资都是信号。</h4><p>这里不要只看定义。汇率、利率、工资都是信号。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：看 AI/半导体行情时，不只看涨跌，要问价格在反映什么预期：利润率、资本开支、地缘风险还是流动性。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>看 AI/半导体行情时，不只看涨跌，要问价格在反映什么预期：利润率、资本开支、地缘风险还是流动性。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>挑 存储周期资产 或 半导体龙头，写出股价里隐含的三个市场预期。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>价格是被压缩的信息包</p></section>
+  </article>
+<article class="day-card" id="day-5" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 5</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学的思维方式》</div>
+    </div>
+    <h2>沉没成本不该决定未来</h2>
+    <section class="claim"><h3>核心观点</h3><p>沉没成本不能替代未来收益判断。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：沉没成本不该决定未来不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。已经付出的时间和痛苦不能证明继续值得。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。职业身份容易制造沉没成本幻觉。 说明这个概念有边界，不能被滥用。退出不是否定过去，而是重新配置未来。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>已经付出的时间和痛苦不能证明继续值得。</h4><p>这里不要只看定义。已经付出的时间和痛苦不能证明继续值得。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你在大型科技企业的积累很重要，但不能因为已经投入多年，就自动推导出必须继续同样强度。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>职业身份容易制造沉没成本幻觉。</h4><p>这里不要只看定义。职业身份容易制造沉没成本幻觉。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你在大型科技企业的积累很重要，但不能因为已经投入多年，就自动推导出必须继续同样强度。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>退出不是否定过去，而是重新配置未来。</h4><p>这里不要只看定义。退出不是否定过去，而是重新配置未来。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你在大型科技企业的积累很重要，但不能因为已经投入多年，就自动推导出必须继续同样强度。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你在大型科技企业的积累很重要，但不能因为已经投入多年，就自动推导出必须继续同样强度。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一件你因为“已经投入很多”而不愿调整的事。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>沉没成本不能替代未来收益判断</p></section>
+  </article>
+<article class="day-card" id="day-6" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 6</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学》</div>
+    </div>
+    <h2>比较优势：你不必什么都自己做</h2>
+    <section class="claim"><h3>核心观点</h3><p>比较优势帮助个人重新分工。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：你不必什么都自己做不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。比较优势看相对效率，不看绝对能力。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。高价值时间应该做高杠杆任务。 说明这个概念有边界，不能被滥用。外包健康、财务整理、家务、研究资料是理性选择。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>比较优势看相对效率，不看绝对能力。</h4><p>这里不要只看定义。比较优势看相对效率，不看绝对能力。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你适合把云、AI、产业经验产品化，不适合把全部精力耗在低杠杆杂事。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>高价值时间应该做高杠杆任务。</h4><p>这里不要只看定义。高价值时间应该做高杠杆任务。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你适合把云、AI、产业经验产品化，不适合把全部精力耗在低杠杆杂事。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>外包健康、财务整理、家务、研究资料是理性选择。</h4><p>这里不要只看定义。外包健康、财务整理、家务、研究资料是理性选择。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你适合把云、AI、产业经验产品化，不适合把全部精力耗在低杠杆杂事。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你适合把云、AI、产业经验产品化，不适合把全部精力耗在低杠杆杂事。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>列出三件可以外包或工具化的事。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>比较优势帮助个人重新分工</p></section>
+  </article>
+<article class="day-card" id="day-7" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 7</span><span class="stage">周复盘 1</span></div>
+      <div class="book">经济学三书</div>
+    </div>
+    <h2>第一周复盘：把钱、时间、身体放进同一个模型</h2>
+    <section class="claim"><h3>核心观点</h3><p>人生策略是多目标约束优化。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“把钱、时间、身体放进同一个模型”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>本周关键词</h4><p>稀缺、机会成本、激励、流动性、沉没成本。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：用一张表比较：继续高强度工作、提前半退休、咨询产品化、生活升级四条路径。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>你当前最大问题不是不知道努力，而是要判断努力是否仍高性价比。</h4><p>你当前最大问题不是不知道努力，而是要判断努力是否仍高性价比。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：用一张表比较：继续高强度工作、提前半退休、咨询产品化、生活升级四条路径。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>资产仪表盘是经济学思维的个人化工具。</h4><p>资产仪表盘是经济学思维的个人化工具。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：用一张表比较：继续高强度工作、提前半退休、咨询产品化、生活升级四条路径。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>用一张表比较：继续高强度工作、提前半退休、咨询产品化、生活升级四条路径。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要只收藏结论，要把它变成一个下次能复用的判断动作。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一条本周最改变你判断的经济学概念。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>人生策略是多目标约束优化</p></section>
+  </article>
+<article class="day-card" id="day-8" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 8</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学原理》</div>
+    </div>
+    <h2>供给需求：每个选择背后都有两条曲线</h2>
+    <section class="claim"><h3>核心观点</h3><p>工资是能力与稀缺性的市场信号。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：每个选择背后都有两条曲线不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。需求不是喜欢，而是有支付能力的偏好。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。供给不是想提供，而是成本约束下愿意提供。 说明这个概念有边界，不能被滥用。工资是劳动力市场的价格。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>需求不是喜欢，而是有支付能力的偏好。</h4><p>这里不要只看定义。需求不是喜欢，而是有支付能力的偏好。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你在大型科技企业的薪酬对应的是稀缺经验、组织压力、时间投入和市场替代成本。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>供给不是想提供，而是成本约束下愿意提供。</h4><p>这里不要只看定义。供给不是想提供，而是成本约束下愿意提供。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你在大型科技企业的薪酬对应的是稀缺经验、组织压力、时间投入和市场替代成本。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>工资是劳动力市场的价格。</h4><p>这里不要只看定义。工资是劳动力市场的价格。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你在大型科技企业的薪酬对应的是稀缺经验、组织压力、时间投入和市场替代成本。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你在大型科技企业的薪酬对应的是稀缺经验、组织压力、时间投入和市场替代成本。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>把你的工作价值拆成需求侧和供给侧。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>工资是能力与稀缺性的市场信号</p></section>
+  </article>
+<article class="day-card" id="day-9" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 9</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学》</div>
+    </div>
+    <h2>利率是资产价格的地心引力</h2>
+    <section class="claim"><h3>核心观点</h3><p>利率改变未来现金流的现在价值。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：利率是资产价格的地心引力不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。利率影响折现率。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。长期成长股对利率敏感。 说明这个概念有边界，不能被滥用。现金收益率会改变持仓耐心。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>利率影响折现率。</h4><p>这里不要只看定义。利率影响折现率。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：大型科技与半导体资产 的估值，都受利率和长期利润折现影响。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>长期成长股对利率敏感。</h4><p>这里不要只看定义。长期成长股对利率敏感。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：大型科技与半导体资产 的估值，都受利率和长期利润折现影响。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>现金收益率会改变持仓耐心。</h4><p>这里不要只看定义。现金收益率会改变持仓耐心。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：大型科技与半导体资产 的估值，都受利率和长期利润折现影响。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>大型科技与半导体资产 的估值，都受利率和长期利润折现影响。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写出降息、加息、利率不变三种情况下你组合的可能反应。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>利率改变未来现金流的现在价值</p></section>
+  </article>
+<article class="day-card" id="day-10" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 10</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学原理》</div>
+    </div>
+    <h2>通胀是财富转移机制</h2>
+    <section class="claim"><h3>核心观点</h3><p>通胀下定价权比收入规模更重要。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：通胀是财富转移机制不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。通胀不是单纯物价上涨。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。现金、工资、资产会被不同程度重估。 说明这个概念有边界，不能被滥用。有定价权的资产更能抵御通胀。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>通胀不是单纯物价上涨。</h4><p>这里不要只看定义。通胀不是单纯物价上涨。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解为什么平台型公司、高毛利软件、强定价权企业在长期资产配置里重要。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>现金、工资、资产会被不同程度重估。</h4><p>这里不要只看定义。现金、工资、资产会被不同程度重估。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解为什么平台型公司、高毛利软件、强定价权企业在长期资产配置里重要。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>有定价权的资产更能抵御通胀。</h4><p>这里不要只看定义。有定价权的资产更能抵御通胀。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解为什么平台型公司、高毛利软件、强定价权企业在长期资产配置里重要。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>理解为什么平台型公司、高毛利软件、强定价权企业在长期资产配置里重要。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>标注你持仓中谁有定价权，谁是价格接受者。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>通胀下定价权比收入规模更重要</p></section>
+  </article>
+<article class="day-card" id="day-11" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 11</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学》</div>
+    </div>
+    <h2>货币政策如何穿透到你的账户</h2>
+    <section class="claim"><h3>核心观点</h3><p>宏观数据通过利率预期影响资产。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：货币政策如何穿透到你的账户不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。央行影响短端利率和流动性预期。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。市场先交易预期，再等待数据确认。 说明这个概念有边界，不能被滥用。资产价格会提前反应政策路径。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>央行影响短端利率和流动性预期。</h4><p>这里不要只看定义。央行影响短端利率和流动性预期。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：CPI、PCE、就业数据发布后，你要看的是利率路径变化，而不是单个数字好坏。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>市场先交易预期，再等待数据确认。</h4><p>这里不要只看定义。市场先交易预期，再等待数据确认。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：CPI、PCE、就业数据发布后，你要看的是利率路径变化，而不是单个数字好坏。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>资产价格会提前反应政策路径。</h4><p>这里不要只看定义。资产价格会提前反应政策路径。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：CPI、PCE、就业数据发布后，你要看的是利率路径变化，而不是单个数字好坏。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>CPI、PCE、就业数据发布后，你要看的是利率路径变化，而不是单个数字好坏。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>做一条宏观数据到股价的传导链。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>宏观数据通过利率预期影响资产</p></section>
+  </article>
+<article class="day-card" id="day-12" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 12</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学的思维方式》</div>
+    </div>
+    <h2>风险不是波动，风险是永久损失与失去选择</h2>
+    <section class="claim"><h3>核心观点</h3><p>风险预算包括心理承受力。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：风险不是波动，风险是永久损失与失去选择不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。波动可能是机会。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。永久损失来自错误仓位、杠杆、流动性枯竭。 说明这个概念有边界，不能被滥用。心理承受力也是风险预算。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>波动可能是机会。</h4><p>这里不要只看定义。波动可能是机会。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：AI/半导体资产 可能波动大，但真正危险是仓位过重导致你无法按计划生活和退出。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>永久损失来自错误仓位、杠杆、流动性枯竭。</h4><p>这里不要只看定义。永久损失来自错误仓位、杠杆、流动性枯竭。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：AI/半导体资产 可能波动大，但真正危险是仓位过重导致你无法按计划生活和退出。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>心理承受力也是风险预算。</h4><p>这里不要只看定义。心理承受力也是风险预算。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：AI/半导体资产 可能波动大，但真正危险是仓位过重导致你无法按计划生活和退出。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>AI/半导体资产 可能波动大，但真正危险是仓位过重导致你无法按计划生活和退出。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写出你组合里的三种风险：市场、地缘、心理。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>风险预算包括心理承受力</p></section>
+  </article>
+<article class="day-card" id="day-13" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 13</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学原理》</div>
+    </div>
+    <h2>外部性：你的选择会影响身边人</h2>
+    <section class="claim"><h3>核心观点</h3><p>自由策略要计算关系外部性。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：你的选择会影响身边人不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。个人决策会产生外部影响。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。工作强度会外溢到亲密关系和健康。 说明这个概念有边界，不能被滥用。投资焦虑会外溢到生活质量。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>个人决策会产生外部影响。</h4><p>这里不要只看定义。个人决策会产生外部影响。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你增加健康和体验消费，不是纯个人享受，也会改善伴侣关系和家庭氛围。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>工作强度会外溢到亲密关系和健康。</h4><p>这里不要只看定义。工作强度会外溢到亲密关系和健康。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你增加健康和体验消费，不是纯个人享受，也会改善伴侣关系和家庭氛围。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>投资焦虑会外溢到生活质量。</h4><p>这里不要只看定义。投资焦虑会外溢到生活质量。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：你增加健康和体验消费，不是纯个人享受，也会改善伴侣关系和家庭氛围。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你增加健康和体验消费，不是纯个人享受，也会改善伴侣关系和家庭氛围。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一件你的财务决策对伴侣/家庭的正外部性。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>自由策略要计算关系外部性</p></section>
+  </article>
+<article class="day-card" id="day-14" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 14</span><span class="stage">周复盘 2</span></div>
+      <div class="book">经济学三书</div>
+    </div>
+    <h2>第二周复盘：从宏观数据到个人选择</h2>
+    <section class="claim"><h3>核心观点</h3><p>资产配置是个人目标的翻译器。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“从宏观数据到个人选择”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>宏观不是新闻，而是利率、流动性、利润率的传导。</h4><p>宏观不是新闻，而是利率、流动性、利润率的传导。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：更新你的资产仪表盘时，给每个模块标记：进攻、防守、自由现金流、保险。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>个人资产配置要服务自由，不只追收益。</h4><p>个人资产配置要服务自由，不只追收益。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：更新你的资产仪表盘时，给每个模块标记：进攻、防守、自由现金流、保险。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>现金、短债、AI 仓位要有角色分工。</h4><p>现金、短债、AI 仓位要有角色分工。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：更新你的资产仪表盘时，给每个模块标记：进攻、防守、自由现金流、保险。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>更新你的资产仪表盘时，给每个模块标记：进攻、防守、自由现金流、保险。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要只收藏结论，要把它变成一个下次能复用的判断动作。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>用 3 句话说明你为什么持有 短债/货币类资产。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>资产配置是个人目标的翻译器</p></section>
+  </article>
+<article class="day-card" id="day-15" style="--accent:#0f766e">
+    <div class="day-top">
+      <div><span class="day-num">Day 15</span><span class="stage">经济学底层语言</span></div>
+      <div class="book">《经济学》</div>
+    </div>
+    <h2>制度比努力更像地形</h2>
+    <section class="claim"><h3>核心观点</h3><p>改变制度环境也是个人策略。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：制度比努力更像地形不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。制度决定交易成本和激励边界。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。同样努力在不同制度中回报不同。 说明这个概念有边界，不能被滥用。国家、公司、学校都是制度环境。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>制度决定交易成本和激励边界。</h4><p>这里不要只看定义。制度决定交易成本和激励边界。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解为什么你会关注海外资产、孩子教育、工作退出，因为这些都是在改变自己所处的制度地形。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>同样努力在不同制度中回报不同。</h4><p>这里不要只看定义。同样努力在不同制度中回报不同。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解为什么你会关注海外资产、孩子教育、工作退出，因为这些都是在改变自己所处的制度地形。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>国家、公司、学校都是制度环境。</h4><p>这里不要只看定义。国家、公司、学校都是制度环境。 这件事放到个人决策里，就是把“我想要”翻译成“我愿意为它付出什么”。你看资产、职业和消费时，都要问同一个问题：这个选择占用了我的现金、时间、注意力还是情绪容量？如果答案说不清，说明你还没有真正理解成本。对应到你的场景：理解为什么你会关注海外资产、孩子教育、工作退出，因为这些都是在改变自己所处的制度地形。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>理解为什么你会关注海外资产、孩子教育、工作退出，因为这些都是在改变自己所处的制度地形。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把经济学理解成只关心赚钱。它真正训练的是约束下的取舍：时间、健康、注意力、关系和现金同样稀缺。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>列出三个你想改变的制度环境：工作、资产、教育/家庭。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>改变制度环境也是个人策略</p></section>
+  </article>
+<article class="day-card" id="day-16" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 16</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《逻辑学导论》</div>
+    </div>
+    <h2>先分清结论和理由</h2>
+    <section class="claim"><h3>核心观点</h3><p>观点分析从结论和理由开始。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：先分清结论和理由不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。很多观点只有情绪，没有论证。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。结论回答‘他说什么’，理由回答‘凭什么’。 说明这个概念有边界，不能被滥用。拆论证能降低被大 V 带节奏的概率。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>很多观点只有情绪，没有论证。</h4><p>很多观点只有情绪，没有论证。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：看“国内必然卷”“AI 利润率爆发”这类判断，先拆结论、证据、隐含前提。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>结论回答‘他说什么’，理由回答‘凭什么’。</h4><p>结论回答‘他说什么’，理由回答‘凭什么’。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：看“国内必然卷”“AI 利润率爆发”这类判断，先拆结论、证据、隐含前提。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>拆论证能降低被大 V 带节奏的概率。</h4><p>拆论证能降低被大 V 带节奏的概率。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：看“国内必然卷”“AI 利润率爆发”这类判断，先拆结论、证据、隐含前提。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>看“国内必然卷”“AI 利润率爆发”这类判断，先拆结论、证据、隐含前提。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>选一条财经观点，写出结论、理由、前提。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>观点分析从结论和理由开始</p></section>
+  </article>
+<article class="day-card" id="day-17" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 17</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《逻辑学导论》</div>
+    </div>
+    <h2>必要条件与充分条件</h2>
+    <section class="claim"><h3>核心观点</h3><p>财富是自由必要条件不是充分条件。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：必要条件与充分条件不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。有钱是自由的必要条件之一。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。有钱不是生活自由的充分条件。 说明这个概念有边界，不能被滥用。混淆条件会导致错误人生策略。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>有钱是自由的必要条件之一。</h4><p>有钱是自由的必要条件之一。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你已经接近财务目标，但仍要设计健康、关系、职业第二曲线。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>有钱不是生活自由的充分条件。</h4><p>有钱不是生活自由的充分条件。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你已经接近财务目标，但仍要设计健康、关系、职业第二曲线。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>混淆条件会导致错误人生策略。</h4><p>混淆条件会导致错误人生策略。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你已经接近财务目标，但仍要设计健康、关系、职业第二曲线。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你已经接近财务目标，但仍要设计健康、关系、职业第二曲线。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写出你自由生活的 5 个必要条件。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>财富是自由必要条件不是充分条件</p></section>
+  </article>
+<article class="day-card" id="day-18" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 18</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《逻辑学导论》</div>
+    </div>
+    <h2>相关不等于因果</h2>
+    <section class="claim"><h3>核心观点</h3><p>相关性不能直接推出因果性。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：相关不等于因果不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。两个变量一起出现，不代表互相导致。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。股价上涨可能有多个原因。 说明这个概念有边界，不能被滥用。人生选择也常被伪因果误导。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>两个变量一起出现，不代表互相导致。</h4><p>两个变量一起出现，不代表互相导致。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：AI 股上涨不一定全因业绩，也可能是流动性、叙事、仓位拥挤。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>股价上涨可能有多个原因。</h4><p>股价上涨可能有多个原因。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：AI 股上涨不一定全因业绩，也可能是流动性、叙事、仓位拥挤。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>人生选择也常被伪因果误导。</h4><p>人生选择也常被伪因果误导。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：AI 股上涨不一定全因业绩，也可能是流动性、叙事、仓位拥挤。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>AI 股上涨不一定全因业绩，也可能是流动性、叙事、仓位拥挤。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>找一个你最近听到的因果判断，列出三个替代解释。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>相关性不能直接推出因果性</p></section>
+  </article>
+<article class="day-card" id="day-19" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 19</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《法律之门》</div>
+    </div>
+    <h2>规则不是道德，是可执行边界</h2>
+    <section class="claim"><h3>核心观点</h3><p>规则文本是自由行动的边界。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：规则不是道德，是可执行边界不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。法律关心证据、程序和责任。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。平台规则、雇佣合同、券商条款都是真实约束。 说明这个概念有边界，不能被滥用。自由需要懂边界。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>法律关心证据、程序和责任。</h4><p>法律关心证据、程序和责任。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：海外资产、海外投资账户、税务、公司离职权益，都不是靠感觉处理，而要看规则文本。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>平台规则、雇佣合同、券商条款都是真实约束。</h4><p>平台规则、雇佣合同、券商条款都是真实约束。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：海外资产、海外投资账户、税务、公司离职权益，都不是靠感觉处理，而要看规则文本。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>自由需要懂边界。</h4><p>自由需要懂边界。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：海外资产、海外投资账户、税务、公司离职权益，都不是靠感觉处理，而要看规则文本。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>海外资产、海外投资账户、税务、公司离职权益，都不是靠感觉处理，而要看规则文本。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>找一个账户或雇佣相关规则，标出权利、义务、风险。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>规则文本是自由行动的边界</p></section>
+  </article>
+<article class="day-card" id="day-20" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 20</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《法律之门》</div>
+    </div>
+    <h2>证据意识：没有记录就很难主张</h2>
+    <section class="claim"><h3>核心观点</h3><p>证据链让未来决策可追溯。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：没有记录就很难主张不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。法律世界重证据链。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。工作交付、财务预测、健康数据都需要记录。 说明这个概念有边界，不能被滥用。Obsidian 是私人证据系统。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>法律世界重证据链。</h4><p>法律世界重证据链。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：把资产截图、收入预测、健康检查、职业决策记录进知识库，是保护未来自己的方式。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>工作交付、财务预测、健康数据都需要记录。</h4><p>工作交付、财务预测、健康数据都需要记录。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：把资产截图、收入预测、健康检查、职业决策记录进知识库，是保护未来自己的方式。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>Obsidian 是私人证据系统。</h4><p>Obsidian 是私人证据系统。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：把资产截图、收入预测、健康检查、职业决策记录进知识库，是保护未来自己的方式。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>把资产截图、收入预测、健康检查、职业决策记录进知识库，是保护未来自己的方式。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>建立一个“关键证据”清单：资产、合同、健康、家庭。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>证据链让未来决策可追溯</p></section>
+  </article>
+<article class="day-card" id="day-21" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 21</span><span class="stage">周复盘 3</span></div>
+      <div class="book">逻辑学与法律</div>
+    </div>
+    <h2>第三周复盘：别被观点牵着走</h2>
+    <section class="claim"><h3>核心观点</h3><p>成熟判断包含反证意识。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“别被观点牵着走”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>拆结论、理由、前提。</h4><p>拆结论、理由、前提。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：以后看到大 V 判断，不急着信或反驳，先问：证据是什么，前提是什么，适用边界是什么。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>区分必要条件和充分条件。</h4><p>区分必要条件和充分条件。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：以后看到大 V 判断，不急着信或反驳，先问：证据是什么，前提是什么，适用边界是什么。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>用证据和规则替代情绪判断。</h4><p>用证据和规则替代情绪判断。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：以后看到大 V 判断，不急着信或反驳，先问：证据是什么，前提是什么，适用边界是什么。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>以后看到大 V 判断，不急着信或反驳，先问：证据是什么，前提是什么，适用边界是什么。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>选一条你认同的观点，专门写它可能错在哪里。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>成熟判断包含反证意识</p></section>
+  </article>
+<article class="day-card" id="day-22" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 22</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《大问题》</div>
+    </div>
+    <h2>什么是好生活</h2>
+    <section class="claim"><h3>核心观点</h3><p>好生活需要价值排序。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：什么是好生活不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。好生活不是单一财富最大化。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。价值排序决定选择。 说明这个概念有边界，不能被滥用。哲学问题最终会落到日程和预算。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>好生活不是单一财富最大化。</h4><p>好生活不是单一财富最大化。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：所在城市生活开心、健康预算、伴侣体验、职业退出，都是你在重新定义好生活。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>价值排序决定选择。</h4><p>价值排序决定选择。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：所在城市生活开心、健康预算、伴侣体验、职业退出，都是你在重新定义好生活。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>哲学问题最终会落到日程和预算。</h4><p>哲学问题最终会落到日程和预算。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：所在城市生活开心、健康预算、伴侣体验、职业退出，都是你在重新定义好生活。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>所在城市生活开心、健康预算、伴侣体验、职业退出，都是你在重新定义好生活。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写出你的好生活五要素，并排序。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>好生活需要价值排序</p></section>
+  </article>
+<article class="day-card" id="day-23" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 23</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《大问题》</div>
+    </div>
+    <h2>自由：想做什么与能不做什么</h2>
+    <section class="claim"><h3>核心观点</h3><p>财务自由购买的是拒绝权。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：想做什么与能不做什么不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。自由包括积极自由和消极自由。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。能拒绝不想要的事，是重要自由。 说明这个概念有边界，不能被滥用。财务自由本质上买拒绝权。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>自由包括积极自由和消极自由。</h4><p>自由包括积极自由和消极自由。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：阶段性海外资产目标不仅是数字，而是让你能拒绝过度消耗工作方式。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>能拒绝不想要的事，是重要自由。</h4><p>能拒绝不想要的事，是重要自由。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：阶段性海外资产目标不仅是数字，而是让你能拒绝过度消耗工作方式。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>财务自由本质上买拒绝权。</h4><p>财务自由本质上买拒绝权。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：阶段性海外资产目标不仅是数字，而是让你能拒绝过度消耗工作方式。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>阶段性海外资产目标不仅是数字，而是让你能拒绝过度消耗工作方式。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>列出你希望未来 3 年获得的 5 个拒绝权。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>财务自由购买的是拒绝权</p></section>
+  </article>
+<article class="day-card" id="day-24" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 24</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《逻辑学导论》</div>
+    </div>
+    <h2>类比有启发，但不能当证明</h2>
+    <section class="claim"><h3>核心观点</h3><p>类比启发思考但不等于证明。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：类比有启发，但不能当证明不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。海外教育轻松不等于所有海外路径都好。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。别人成功路径不等于适合你。 说明这个概念有边界，不能被滥用。类比需要检验关键相似点。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>海外教育轻松不等于所有海外路径都好。</h4><p>海外教育轻松不等于所有海外路径都好。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：看英国朋友孩子轻松上学，要提炼变量：制度、家庭资产、孩子性格、父母期待。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>别人成功路径不等于适合你。</h4><p>别人成功路径不等于适合你。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：看英国朋友孩子轻松上学，要提炼变量：制度、家庭资产、孩子性格、父母期待。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>类比需要检验关键相似点。</h4><p>类比需要检验关键相似点。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：看英国朋友孩子轻松上学，要提炼变量：制度、家庭资产、孩子性格、父母期待。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>看英国朋友孩子轻松上学，要提炼变量：制度、家庭资产、孩子性格、父母期待。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个你最近听到的类比，找出两个相似点和两个不同点。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>类比启发思考但不等于证明</p></section>
+  </article>
+<article class="day-card" id="day-25" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 25</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《法律之门》</div>
+    </div>
+    <h2>权利、责任和风险要一起看</h2>
+    <section class="claim"><h3>核心观点</h3><p>重大行动要同时看权利责任风险。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：权利、责任和风险要一起看不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。权利伴随责任。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。合同和账户规则常把风险藏在细节里。 说明这个概念有边界，不能被滥用。成年人自由需要承担后果。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>权利伴随责任。</h4><p>权利伴随责任。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：跨境资产、税务、离职权益、家庭支持，都要同时看收益和责任。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>合同和账户规则常把风险藏在细节里。</h4><p>合同和账户规则常把风险藏在细节里。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：跨境资产、税务、离职权益、家庭支持，都要同时看收益和责任。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>成年人自由需要承担后果。</h4><p>成年人自由需要承担后果。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：跨境资产、税务、离职权益、家庭支持，都要同时看收益和责任。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>跨境资产、税务、离职权益、家庭支持，都要同时看收益和责任。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>为“2027 年转出海外资产”写一张权利责任风险表。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>重大行动要同时看权利责任风险</p></section>
+  </article>
+<article class="day-card" id="day-26" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 26</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《大问题》</div>
+    </div>
+    <h2>身份不是牢笼，是可重构叙事</h2>
+    <section class="claim"><h3>核心观点</h3><p>职业退出是身份叙事重构。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：身份不是牢笼，是可重构叙事不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。人会被职业身份绑定。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。身份叙事会影响风险偏好。 说明这个概念有边界，不能被滥用。退出不是失去身份，而是重写身份。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>人会被职业身份绑定。</h4><p>人会被职业身份绑定。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你未来可以从大型科技企业管理/专家身份，转为 AI 产业研究、投资判断、咨询产品化身份。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>身份叙事会影响风险偏好。</h4><p>身份叙事会影响风险偏好。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你未来可以从大型科技企业管理/专家身份，转为 AI 产业研究、投资判断、咨询产品化身份。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>退出不是失去身份，而是重写身份。</h4><p>退出不是失去身份，而是重写身份。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你未来可以从大型科技企业管理/专家身份，转为 AI 产业研究、投资判断、咨询产品化身份。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你未来可以从大型科技企业管理/专家身份，转为 AI 产业研究、投资判断、咨询产品化身份。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写三个未来身份标签，并说明每个标签需要的资产。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>职业退出是身份叙事重构</p></section>
+  </article>
+<article class="day-card" id="day-27" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 27</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《逻辑学导论》</div>
+    </div>
+    <h2>概率思维：不要用确定性语言描述不确定世界</h2>
+    <section class="claim"><h3>核心观点</h3><p>成熟判断用概率语言表达。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：不要用确定性语言描述不确定世界不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。投资、职业、健康都是概率问题。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。确定性语言制造过度自信。 说明这个概念有边界，不能被滥用。好决策是在概率下管理后果。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>投资、职业、健康都是概率问题。</h4><p>投资、职业、健康都是概率问题。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：不要说“AI 一定继续涨”，而说“在什么条件下，继续持有是高胜率”。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>确定性语言制造过度自信。</h4><p>确定性语言制造过度自信。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：不要说“AI 一定继续涨”，而说“在什么条件下，继续持有是高胜率”。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>好决策是在概率下管理后果。</h4><p>好决策是在概率下管理后果。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：不要说“AI 一定继续涨”，而说“在什么条件下，继续持有是高胜率”。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>不要说“AI 一定继续涨”，而说“在什么条件下，继续持有是高胜率”。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>把一个绝对判断改写成概率判断。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>成熟判断用概率语言表达</p></section>
+  </article>
+<article class="day-card" id="day-28" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 28</span><span class="stage">周复盘 4</span></div>
+      <div class="book">逻辑法律哲学</div>
+    </div>
+    <h2>第四周复盘：为重大选择建立检查清单</h2>
+    <section class="claim"><h3>核心观点</h3><p>重大决策需要事实证据价值三层。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“为重大选择建立检查清单”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>逻辑让你不被观点骗。</h4><p>逻辑让你不被观点骗。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：建立你的重大决策模板：事实、证据、前提、价值、风险、退出条件。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>法律让你看见边界。</h4><p>法律让你看见边界。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：建立你的重大决策模板：事实、证据、前提、价值、风险、退出条件。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>哲学让你知道为什么选择。</h4><p>哲学让你知道为什么选择。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：建立你的重大决策模板：事实、证据、前提、价值、风险、退出条件。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>建立你的重大决策模板：事实、证据、前提、价值、风险、退出条件。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>用模板评估“2027 是否离开大型科技企业”。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>重大决策需要事实证据价值三层</p></section>
+  </article>
+<article class="day-card" id="day-29" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 29</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《法律之门》</div>
+    </div>
+    <h2>程序正义：过程决定结果可信度</h2>
+    <section class="claim"><h3>核心观点</h3><p>程序让决策可重复。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：过程决定结果可信度不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。好结果不只靠结论正确。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。程序能减少任性和偏见。 说明这个概念有边界，不能被滥用。投资复盘也需要程序。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>好结果不只靠结论正确。</h4><p>好结果不只靠结论正确。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你的投资和职业决策应固定流程：数据输入、假设、风险、仓位、复盘。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>程序能减少任性和偏见。</h4><p>程序能减少任性和偏见。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你的投资和职业决策应固定流程：数据输入、假设、风险、仓位、复盘。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>投资复盘也需要程序。</h4><p>投资复盘也需要程序。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：你的投资和职业决策应固定流程：数据输入、假设、风险、仓位、复盘。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你的投资和职业决策应固定流程：数据输入、假设、风险、仓位、复盘。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个投资买入前的 6 步程序。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>程序让决策可重复</p></section>
+  </article>
+<article class="day-card" id="day-30" style="--accent:#4338ca">
+    <div class="day-top">
+      <div><span class="day-num">Day 30</span><span class="stage">逻辑法律哲学</span></div>
+      <div class="book">《大问题》</div>
+    </div>
+    <h2>有限生命：时间是最终预算</h2>
+    <section class="claim"><h3>核心观点</h3><p>时间主权比资产数字更终极。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：时间是最终预算不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。所有目标都要消耗生命时间。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。时间不可逆，比金钱更稀缺。 说明这个概念有边界，不能被滥用。退休计划本质是时间主权计划。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>所有目标都要消耗生命时间。</h4><p>所有目标都要消耗生命时间。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：不要等 阶段性资产目标到账才开始生活，所在城市生活和健康训练要提前试运行。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>时间不可逆，比金钱更稀缺。</h4><p>时间不可逆，比金钱更稀缺。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：不要等 阶段性资产目标到账才开始生活，所在城市生活和健康训练要提前试运行。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>退休计划本质是时间主权计划。</h4><p>退休计划本质是时间主权计划。 的作用，是把一个看起来很有道理的说法拆开检查。很多观点的问题不是结论一定错，而是它偷偷省略了前提：适用于谁、在什么时间、证据够不够、有没有反例。你读到任何大 V、研报或身边人的建议，都可以用它先降温，再判断。对应到你的场景：不要等 阶段性资产目标到账才开始生活，所在城市生活和健康训练要提前试运行。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>不要等 阶段性资产目标到账才开始生活，所在城市生活和健康训练要提前试运行。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把会说理由等同于判断正确。一个判断必须经得起证据、前提、边界和反例的检查。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一件不能再拖到财务目标之后的事。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>时间主权比资产数字更终极</p></section>
+  </article>
+<article class="day-card" id="day-31" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 31</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《心理学导论》</div>
+    </div>
+    <h2>注意力是你的操作系统</h2>
+    <section class="claim"><h3>核心观点</h3><p>注意力是认知系统的入口。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：注意力是你的操作系统不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。注意力决定你能处理什么信息。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。高压工作和行情会切碎注意力。 说明这个概念有边界，不能被滥用。恢复不是偷懒，是维护系统。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>注意力决定你能处理什么信息。</h4><p>注意力决定你能处理什么信息。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你需要保护深度思考时间，才能做咨询产品化、知识库和投资框架。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>高压工作和行情会切碎注意力。</h4><p>高压工作和行情会切碎注意力。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你需要保护深度思考时间，才能做咨询产品化、知识库和投资框架。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>恢复不是偷懒，是维护系统。</h4><p>恢复不是偷懒，是维护系统。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你需要保护深度思考时间，才能做咨询产品化、知识库和投资框架。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你需要保护深度思考时间，才能做咨询产品化、知识库和投资框架。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>设计一个每天 30 分钟无市场、无微信的深度窗口。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>注意力是认知系统的入口</p></section>
+  </article>
+<article class="day-card" id="day-32" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 32</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《心理学导论》</div>
+    </div>
+    <h2>压力会缩窄你的决策视野</h2>
+    <section class="claim"><h3>核心观点</h3><p>压力状态下要降低决策权重。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：压力会缩窄你的决策视野不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。压力下人更短视。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。身体疲劳会放大风险感。 说明这个概念有边界，不能被滥用。恢复能改善判断质量。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>压力下人更短视。</h4><p>压力下人更短视。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：工作强度、投资波动、健康焦虑叠加时，不适合做重大交易和离职决定。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>身体疲劳会放大风险感。</h4><p>身体疲劳会放大风险感。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：工作强度、投资波动、健康焦虑叠加时，不适合做重大交易和离职决定。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>恢复能改善判断质量。</h4><p>恢复能改善判断质量。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：工作强度、投资波动、健康焦虑叠加时，不适合做重大交易和离职决定。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>工作强度、投资波动、健康焦虑叠加时，不适合做重大交易和离职决定。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写你的压力决策禁令：哪些状态下不做交易/承诺。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>压力状态下要降低决策权重</p></section>
+  </article>
+<article class="day-card" id="day-33" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 33</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《行为科学统计》</div>
+    </div>
+    <h2>样本太少，不要急着总结规律</h2>
+    <section class="claim"><h3>核心观点</h3><p>小样本成功不能证明长期规律。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：样本太少，不要急着总结规律不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。少数案例容易误导。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。短期收益不能证明能力。 说明这个概念有边界，不能被滥用。统计思维要求样本和基准。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>少数案例容易误导。</h4><p>少数案例容易误导。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：某只股票涨了、某个朋友成功了、某个大 V 说中了，都不能直接形成规则。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>短期收益不能证明能力。</h4><p>短期收益不能证明能力。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：某只股票涨了、某个朋友成功了、某个大 V 说中了，都不能直接形成规则。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>统计思维要求样本和基准。</h4><p>统计思维要求样本和基准。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：某只股票涨了、某个朋友成功了、某个大 V 说中了，都不能直接形成规则。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>某只股票涨了、某个朋友成功了、某个大 V 说中了，都不能直接形成规则。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>为你最近一个判断补充样本量和反例。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>小样本成功不能证明长期规律</p></section>
+  </article>
+<article class="day-card" id="day-34" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 34</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《实验心理学》</div>
+    </div>
+    <h2>可验证假设，而不是自我感动</h2>
+    <section class="claim"><h3>核心观点</h3><p>成长目标要可验证。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：可验证假设，而不是自我感动不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。实验要求假设可检验。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。个人成长也要有指标。 说明这个概念有边界，不能被滥用。模糊目标难以反馈。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>实验要求假设可检验。</h4><p>实验要求假设可检验。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：健康、阅读、咨询产品化都要设可验证指标：体脂、输出篇数、客户访谈数。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>个人成长也要有指标。</h4><p>个人成长也要有指标。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：健康、阅读、咨询产品化都要设可验证指标：体脂、输出篇数、客户访谈数。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>模糊目标难以反馈。</h4><p>模糊目标难以反馈。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：健康、阅读、咨询产品化都要设可验证指标：体脂、输出篇数、客户访谈数。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>健康、阅读、咨询产品化都要设可验证指标：体脂、输出篇数、客户访谈数。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>把“提高认知”改成一个可测量指标。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>成长目标要可验证</p></section>
+  </article>
+<article class="day-card" id="day-35" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 35</span><span class="stage">周复盘 5</span></div>
+      <div class="book">心理学与统计</div>
+    </div>
+    <h2>第五周复盘：把自己当成系统调试</h2>
+    <section class="claim"><h3>核心观点</h3><p>自我管理需要可观测指标。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“把自己当成系统调试”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>注意力、压力、样本、指标，是自我管理基础。</h4><p>注意力、压力、样本、指标，是自我管理基础。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：健康计划不要靠意志力，要靠睡眠、训练、饮食、复查指标闭环。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>不要只优化账户，也要优化身体和认知环境。</h4><p>不要只优化账户，也要优化身体和认知环境。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：健康计划不要靠意志力，要靠睡眠、训练、饮食、复查指标闭环。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>数据能减少自责。</h4><p>数据能减少自责。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：健康计划不要靠意志力，要靠睡眠、训练、饮食、复查指标闭环。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>健康计划不要靠意志力，要靠睡眠、训练、饮食、复查指标闭环。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要只收藏结论，要把它变成一个下次能复用的判断动作。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个你的个人仪表盘：资产、健康、关系、输出。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>自我管理需要可观测指标</p></section>
+  </article>
+<article class="day-card" id="day-36" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 36</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《社会心理学》</div>
+    </div>
+    <h2>人会被群体情绪感染</h2>
+    <section class="claim"><h3>核心观点</h3><p>市场情绪会伪装成独立判断。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：人会被群体情绪感染不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。群体会放大乐观和恐慌。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。市场社区会制造一致性压力。 说明这个概念有边界，不能被滥用。独立判断需要隔离噪音。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>群体会放大乐观和恐慌。</h4><p>群体会放大乐观和恐慌。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：AI/半导体热度高时，要识别自己是基于模型持有，还是被群体情绪推着走。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>市场社区会制造一致性压力。</h4><p>市场社区会制造一致性压力。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：AI/半导体热度高时，要识别自己是基于模型持有，还是被群体情绪推着走。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>独立判断需要隔离噪音。</h4><p>独立判断需要隔离噪音。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：AI/半导体热度高时，要识别自己是基于模型持有，还是被群体情绪推着走。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>AI/半导体热度高时，要识别自己是基于模型持有，还是被群体情绪推着走。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写下你最近一个被群体情绪影响的投资判断。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>市场情绪会伪装成独立判断</p></section>
+  </article>
+<article class="day-card" id="day-37" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 37</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《进化心理学》</div>
+    </div>
+    <h2>安全感需求很古老，资产只是现代形式</h2>
+    <section class="claim"><h3>核心观点</h3><p>资产目标也服务安全感需求。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：安全感需求很古老，资产只是现代形式不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。人天生厌恶失去安全。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。地位、资源、伴侣稳定都触发深层心理。 说明这个概念有边界，不能被滥用。财富焦虑不是纯理性问题。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>人天生厌恶失去安全。</h4><p>人天生厌恶失去安全。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你追求海外资产和退出选项，既是财务计划，也是安全感系统建设。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>地位、资源、伴侣稳定都触发深层心理。</h4><p>地位、资源、伴侣稳定都触发深层心理。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你追求海外资产和退出选项，既是财务计划，也是安全感系统建设。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>财富焦虑不是纯理性问题。</h4><p>财富焦虑不是纯理性问题。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你追求海外资产和退出选项，既是财务计划，也是安全感系统建设。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你追求海外资产和退出选项，既是财务计划，也是安全感系统建设。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>区分一个财务目标里的理性部分和情绪部分。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>资产目标也服务安全感需求</p></section>
+  </article>
+<article class="day-card" id="day-38" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 38</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《心理学导论》</div>
+    </div>
+    <h2>习惯比意志更可靠</h2>
+    <section class="claim"><h3>核心观点</h3><p>习惯是认知复利的自动化。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：习惯比意志更可靠不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。习惯降低认知负担。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。环境设计比硬扛更有效。 说明这个概念有边界，不能被滥用。稳定小动作带来复利。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>习惯降低认知负担。</h4><p>习惯降低认知负担。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：每日学习投递、Obsidian 同步、资产仪表盘更新，都是把好行为制度化。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>环境设计比硬扛更有效。</h4><p>环境设计比硬扛更有效。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：每日学习投递、Obsidian 同步、资产仪表盘更新，都是把好行为制度化。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>稳定小动作带来复利。</h4><p>稳定小动作带来复利。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：每日学习投递、Obsidian 同步、资产仪表盘更新，都是把好行为制度化。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>每日学习投递、Obsidian 同步、资产仪表盘更新，都是把好行为制度化。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>设计一个 10 分钟睡前知识库整理习惯。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>习惯是认知复利的自动化</p></section>
+  </article>
+<article class="day-card" id="day-39" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 39</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《行为科学统计》</div>
+    </div>
+    <h2>基准率：先问通常情况，再看特殊故事</h2>
+    <section class="claim"><h3>核心观点</h3><p>基准率压制故事诱惑。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：先问通常情况，再看特殊故事不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。个案很生动，基准率更可靠。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。投资、职业、健康都要看基础概率。 说明这个概念有边界，不能被滥用。忽视基准率会高估奇迹。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>个案很生动，基准率更可靠。</h4><p>个案很生动，基准率更可靠。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：判断职业退出、咨询变现、AI 投资收益时，要先看行业基准，而不是最成功案例。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>投资、职业、健康都要看基础概率。</h4><p>投资、职业、健康都要看基础概率。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：判断职业退出、咨询变现、AI 投资收益时，要先看行业基准，而不是最成功案例。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>忽视基准率会高估奇迹。</h4><p>忽视基准率会高估奇迹。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：判断职业退出、咨询变现、AI 投资收益时，要先看行业基准，而不是最成功案例。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>判断职业退出、咨询变现、AI 投资收益时，要先看行业基准，而不是最成功案例。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>为“咨询产品化成功”找一个保守基准率假设。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>基准率压制故事诱惑</p></section>
+  </article>
+<article class="day-card" id="day-40" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 40</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《实验心理学》</div>
+    </div>
+    <h2>控制变量：别一次改太多</h2>
+    <section class="claim"><h3>核心观点</h3><p>控制变量让复盘有效。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：别一次改太多不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。同时改变太多，无法知道原因。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。生活升级也要分阶段。 说明这个概念有边界，不能被滥用。投资调仓需要记录变量。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>同时改变太多，无法知道原因。</h4><p>同时改变太多，无法知道原因。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：健康、消费、职业退出、资产调仓不要同月大幅改变，否则无法复盘。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>生活升级也要分阶段。</h4><p>生活升级也要分阶段。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：健康、消费、职业退出、资产调仓不要同月大幅改变，否则无法复盘。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>投资调仓需要记录变量。</h4><p>投资调仓需要记录变量。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：健康、消费、职业退出、资产调仓不要同月大幅改变，否则无法复盘。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>健康、消费、职业退出、资产调仓不要同月大幅改变，否则无法复盘。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>选一个未来一个月只改变的变量。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>控制变量让复盘有效</p></section>
+  </article>
+<article class="day-card" id="day-41" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 41</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《社会心理学》</div>
+    </div>
+    <h2>身份认同会保护自尊，也会阻碍改变</h2>
+    <section class="claim"><h3>核心观点</h3><p>新身份需要行为证据。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：身份认同会保护自尊，也会阻碍改变不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。人会维护旧身份。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。身份威胁会让人防御。 说明这个概念有边界，不能被滥用。新身份需要小证据支持。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>人会维护旧身份。</h4><p>人会维护旧身份。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：从大型科技企业职业人转向自由顾问/投资研究者，需要持续输出证据，不是自我宣布。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>身份威胁会让人防御。</h4><p>身份威胁会让人防御。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：从大型科技企业职业人转向自由顾问/投资研究者，需要持续输出证据，不是自我宣布。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>新身份需要小证据支持。</h4><p>新身份需要小证据支持。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：从大型科技企业职业人转向自由顾问/投资研究者，需要持续输出证据，不是自我宣布。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>从大型科技企业职业人转向自由顾问/投资研究者，需要持续输出证据，不是自我宣布。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写三件能证明你新身份的小作品。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>新身份需要行为证据</p></section>
+  </article>
+<article class="day-card" id="day-42" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 42</span><span class="stage">周复盘 6</span></div>
+      <div class="book">心理与行为科学</div>
+    </div>
+    <h2>第六周复盘：投资、职业、健康都要防认知偏差</h2>
+    <section class="claim"><h3>核心观点</h3><p>长期人生项目需要月度复盘。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“投资、职业、健康都要防认知偏差”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>群体情绪、基准率、控制变量、身份认同，是本周重点。</h4><p>群体情绪、基准率、控制变量、身份认同，是本周重点。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：把 海外投资账户 组合、健康训练、知识输出都做成月度复盘。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>用系统代替意志，用数据代替感觉。</h4><p>用系统代替意志，用数据代替感觉。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：把 海外投资账户 组合、健康训练、知识输出都做成月度复盘。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>你要把自己当成长期项目管理。</h4><p>你要把自己当成长期项目管理。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：把 海外投资账户 组合、健康训练、知识输出都做成月度复盘。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>把 海外投资账户 组合、健康训练、知识输出都做成月度复盘。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要只收藏结论，要把它变成一个下次能复用的判断动作。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个月度复盘模板的 5 个栏目。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>长期人生项目需要月度复盘</p></section>
+  </article>
+<article class="day-card" id="day-43" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 43</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《心理学导论》</div>
+    </div>
+    <h2>情绪不是敌人，是信号</h2>
+    <section class="claim"><h3>核心观点</h3><p>情绪是未翻译的需求信息。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：情绪不是敌人，是信号不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。焦虑提示风险感。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。愤怒提示边界被侵犯。 说明这个概念有边界，不能被滥用。快乐提示真实偏好。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>焦虑提示风险感。</h4><p>焦虑提示风险感。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：所在城市生活开心，是重要信号；不要忽略它对未来居住和退休计划的价值。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>愤怒提示边界被侵犯。</h4><p>愤怒提示边界被侵犯。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：所在城市生活开心，是重要信号；不要忽略它对未来居住和退休计划的价值。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>快乐提示真实偏好。</h4><p>快乐提示真实偏好。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：所在城市生活开心，是重要信号；不要忽略它对未来居住和退休计划的价值。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>所在城市生活开心，是重要信号；不要忽略它对未来居住和退休计划的价值。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>记录最近三次强情绪及其提示的需求。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>情绪是未翻译的需求信息</p></section>
+  </article>
+<article class="day-card" id="day-44" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 44</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《进化心理学》</div>
+    </div>
+    <h2>亲密关系需要资源，也需要注意力</h2>
+    <section class="claim"><h3>核心观点</h3><p>关系资产需要持续投入。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：亲密关系需要资源，也需要注意力不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。关系不是纯情绪，也受安全感和投入影响。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。共同体验能提高关系质量。 说明这个概念有边界，不能被滥用。无边界付出会制造不平衡。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>关系不是纯情绪，也受安全感和投入影响。</h4><p>关系不是纯情绪，也受安全感和投入影响。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：伴侣体验预算不是浪费，而是把财富转成当下幸福和关系资产。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>共同体验能提高关系质量。</h4><p>共同体验能提高关系质量。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：伴侣体验预算不是浪费，而是把财富转成当下幸福和关系资产。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>无边界付出会制造不平衡。</h4><p>无边界付出会制造不平衡。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：伴侣体验预算不是浪费，而是把财富转成当下幸福和关系资产。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>伴侣体验预算不是浪费，而是把财富转成当下幸福和关系资产。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>设计一个每月伴侣共同体验清单。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>关系资产需要持续投入</p></section>
+  </article>
+<article class="day-card" id="day-45" style="--accent:#b45309">
+    <div class="day-top">
+      <div><span class="day-num">Day 45</span><span class="stage">心理行为科学</span></div>
+      <div class="book">《行为科学统计》</div>
+    </div>
+    <h2>均值回归：别把极端状态当常态</h2>
+    <section class="claim"><h3>核心观点</h3><p>极端状态不宜外推长期趋势。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：别把极端状态当常态不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。极端收益和极端痛苦都可能回归。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。市场和工作状态都有周期。 说明这个概念有边界，不能被滥用。决策要避免在极端点外推。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>极端收益和极端痛苦都可能回归。</h4><p>极端收益和极端痛苦都可能回归。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：某个月 海外投资账户 大涨或大跌，都不该直接改变长期策略。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>市场和工作状态都有周期。</h4><p>市场和工作状态都有周期。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：某个月 海外投资账户 大涨或大跌，都不该直接改变长期策略。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>决策要避免在极端点外推。</h4><p>决策要避免在极端点外推。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：某个月 海外投资账户 大涨或大跌，都不该直接改变长期策略。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>某个月 海外投资账户 大涨或大跌，都不该直接改变长期策略。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一条你在极端行情下的冷静规则。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>极端状态不宜外推长期趋势</p></section>
+  </article>
+<article class="day-card" id="day-46" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 46</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《组织行为学》</div>
+    </div>
+    <h2>组织不是理性机器，是人和权力的网络</h2>
+    <section class="claim"><h3>核心观点</h3><p>组织运行依赖非正式网络。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：组织不是理性机器，是人和权力的网络不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。正式结构和非正式网络并存。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。权力来自资源、信息、关系和稀缺能力。 说明这个概念有边界，不能被滥用。组织判断要看真实影响链。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>正式结构和非正式网络并存。</h4><p>正式结构和非正式网络并存。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：大型科技企业/云计算平台/客户合作中，真正推动事情的人未必在组织图最上方。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>权力来自资源、信息、关系和稀缺能力。</h4><p>权力来自资源、信息、关系和稀缺能力。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：大型科技企业/云计算平台/客户合作中，真正推动事情的人未必在组织图最上方。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>组织判断要看真实影响链。</h4><p>组织判断要看真实影响链。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：大型科技企业/云计算平台/客户合作中，真正推动事情的人未必在组织图最上方。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>大型科技企业/云计算平台/客户合作中，真正推动事情的人未必在组织图最上方。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>画一个项目的真实影响力地图。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>组织运行依赖非正式网络</p></section>
+  </article>
+<article class="day-card" id="day-47" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 47</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《管理学》</div>
+    </div>
+    <h2>管理是通过他人完成目标</h2>
+    <section class="claim"><h3>核心观点</h3><p>产品化要求经验流程化。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：管理是通过他人完成目标不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。管理不是亲自做更多。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。目标、资源、反馈、激励缺一不可。 说明这个概念有边界，不能被滥用。高压组织容易把管理变成催促。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>管理不是亲自做更多。</h4><p>管理不是亲自做更多。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你未来咨询产品化时，要从亲自解决问题转向设计框架和交付系统。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>目标、资源、反馈、激励缺一不可。</h4><p>目标、资源、反馈、激励缺一不可。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你未来咨询产品化时，要从亲自解决问题转向设计框架和交付系统。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>高压组织容易把管理变成催促。</h4><p>高压组织容易把管理变成催促。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你未来咨询产品化时，要从亲自解决问题转向设计框架和交付系统。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你未来咨询产品化时，要从亲自解决问题转向设计框架和交付系统。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>把一个你擅长的任务写成别人可执行流程。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>产品化要求经验流程化</p></section>
+  </article>
+<article class="day-card" id="day-48" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 48</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《沟通的艺术》</div>
+    </div>
+    <h2>沟通不是表达完整，而是让对方能接收</h2>
+    <section class="claim"><h3>核心观点</h3><p>沟通效果由接收决定。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：沟通不是表达完整，而是让对方能接收不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。沟通要考虑对方状态。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。同一句话在不同关系里含义不同。 说明这个概念有边界，不能被滥用。反馈比表达更重要。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>沟通要考虑对方状态。</h4><p>沟通要考虑对方状态。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：与伴侣谈消费、与客户谈方案、与上级谈退出节奏，都需要不同语言。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>同一句话在不同关系里含义不同。</h4><p>同一句话在不同关系里含义不同。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：与伴侣谈消费、与客户谈方案、与上级谈退出节奏，都需要不同语言。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>反馈比表达更重要。</h4><p>反馈比表达更重要。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：与伴侣谈消费、与客户谈方案、与上级谈退出节奏，都需要不同语言。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>与伴侣谈消费、与客户谈方案、与上级谈退出节奏，都需要不同语言。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>把一个强硬观点改写成合作表达。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>沟通效果由接收决定</p></section>
+  </article>
+<article class="day-card" id="day-49" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 49</span><span class="stage">周复盘 7</span></div>
+      <div class="book">组织行为/管理/沟通</div>
+    </div>
+    <h2>第七周复盘：组织里看角色、利益和关系</h2>
+    <section class="claim"><h3>核心观点</h3><p>沟通前先做利益相关者分析。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“组织里看角色、利益和关系”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>组织是权力和协作网络。</h4><p>组织是权力和协作网络。 讲的是人与系统的关系。组织里很多事情不是靠“讲清楚”就能解决，因为每个人背后都有目标、考核、资源和面子。你要训练的是看见角色背后的利益，再决定如何沟通、授权、拒绝或产品化。对应到你的场景：准备一个“咨询产品化”的利益相关者沟通模板。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>管理是系统设计，不是个人苦干。</h4><p>管理是系统设计，不是个人苦干。 讲的是人与系统的关系。组织里很多事情不是靠“讲清楚”就能解决，因为每个人背后都有目标、考核、资源和面子。你要训练的是看见角色背后的利益，再决定如何沟通、授权、拒绝或产品化。对应到你的场景：准备一个“咨询产品化”的利益相关者沟通模板。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>沟通是影响，不是自我表达。</h4><p>沟通是影响，不是自我表达。 讲的是人与系统的关系。组织里很多事情不是靠“讲清楚”就能解决，因为每个人背后都有目标、考核、资源和面子。你要训练的是看见角色背后的利益，再决定如何沟通、授权、拒绝或产品化。对应到你的场景：准备一个“咨询产品化”的利益相关者沟通模板。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>准备一个“咨询产品化”的利益相关者沟通模板。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把组织和关系问题都看成谁对谁错。很多冲突来自目标、激励、角色和信息不一致。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个客户沟通前的三问：他要什么，怕什么，谁影响他。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>沟通前先做利益相关者分析</p></section>
+  </article>
+<article class="day-card" id="day-50" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 50</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《社会心理学》</div>
+    </div>
+    <h2>从众：多数人的方向不一定是你的方向</h2>
+    <section class="claim"><h3>核心观点</h3><p>独立选择需要承受不一致。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：多数人的方向不一定是你的方向不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。群体规范会塑造行为。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。从众降低孤独感，但可能牺牲目标。 说明这个概念有边界，不能被滥用。独立需要承担不一致压力。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>群体规范会塑造行为。</h4><p>群体规范会塑造行为。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：同事继续卷、朋友买房、市场追热点，都不必自动成为你的选择。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>从众降低孤独感，但可能牺牲目标。</h4><p>从众降低孤独感，但可能牺牲目标。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：同事继续卷、朋友买房、市场追热点，都不必自动成为你的选择。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>独立需要承担不一致压力。</h4><p>独立需要承担不一致压力。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：同事继续卷、朋友买房、市场追热点，都不必自动成为你的选择。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>同事继续卷、朋友买房、市场追热点，都不必自动成为你的选择。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个你准备不再跟随的群体默认选项。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>独立选择需要承受不一致</p></section>
+  </article>
+<article class="day-card" id="day-51" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 51</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《组织行为学》</div>
+    </div>
+    <h2>心理契约：没写进合同但影响很大</h2>
+    <section class="claim"><h3>核心观点</h3><p>心理契约影响组织关系质量。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：没写进合同但影响很大不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。员工和组织之间有隐性期待。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。心理契约破裂会导致失望。 说明这个概念有边界，不能被滥用。退出前要识别双方期待。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>员工和组织之间有隐性期待。</h4><p>员工和组织之间有隐性期待。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你对大型科技企业的期待、大型科技企业对你的期待、上级对你的期待，未必写在制度里，但决定体验。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>心理契约破裂会导致失望。</h4><p>心理契约破裂会导致失望。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你对大型科技企业的期待、大型科技企业对你的期待、上级对你的期待，未必写在制度里，但决定体验。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>退出前要识别双方期待。</h4><p>退出前要识别双方期待。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你对大型科技企业的期待、大型科技企业对你的期待、上级对你的期待，未必写在制度里，但决定体验。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你对大型科技企业的期待、大型科技企业对你的期待、上级对你的期待，未必写在制度里，但决定体验。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写出你和组织之间三个隐性心理契约。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>心理契约影响组织关系质量</p></section>
+  </article>
+<article class="day-card" id="day-52" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 52</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《管理学》</div>
+    </div>
+    <h2>战略是选择不做什么</h2>
+    <section class="claim"><h3>核心观点</h3><p>战略的核心是取舍。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：战略是选择不做什么不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。战略不是愿望清单。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。资源有限，必须放弃。 说明这个概念有边界，不能被滥用。个人战略也要明确不做清单。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>战略不是愿望清单。</h4><p>战略不是愿望清单。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你不能同时追求职级最大化、投资最大收益、健康最好、伴侣最多陪伴、咨询最快变现。要排序。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>资源有限，必须放弃。</h4><p>资源有限，必须放弃。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你不能同时追求职级最大化、投资最大收益、健康最好、伴侣最多陪伴、咨询最快变现。要排序。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>个人战略也要明确不做清单。</h4><p>个人战略也要明确不做清单。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你不能同时追求职级最大化、投资最大收益、健康最好、伴侣最多陪伴、咨询最快变现。要排序。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你不能同时追求职级最大化、投资最大收益、健康最好、伴侣最多陪伴、咨询最快变现。要排序。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写你的 2026-2027 不做清单。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>战略的核心是取舍</p></section>
+  </article>
+<article class="day-card" id="day-53" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 53</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《沟通的艺术》</div>
+    </div>
+    <h2>冲突不是失败，是需求同时出现</h2>
+    <section class="claim"><h3>核心观点</h3><p>冲突处理从识别需求开始。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：冲突不是失败，是需求同时出现不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。冲突背后常是需求冲突。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。先确认需求，再讨论方案。 说明这个概念有边界，不能被滥用。情绪降温比立即说服更重要。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>冲突背后常是需求冲突。</h4><p>冲突背后常是需求冲突。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：消费、旅行、家庭支持、未来孩子教育，都可能成为伴侣冲突主题。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>先确认需求，再讨论方案。</h4><p>先确认需求，再讨论方案。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：消费、旅行、家庭支持、未来孩子教育，都可能成为伴侣冲突主题。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>情绪降温比立即说服更重要。</h4><p>情绪降温比立即说服更重要。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：消费、旅行、家庭支持、未来孩子教育，都可能成为伴侣冲突主题。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>消费、旅行、家庭支持、未来孩子教育，都可能成为伴侣冲突主题。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>把一个冲突句式改成：我感到、我需要、我建议。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>冲突处理从识别需求开始</p></section>
+  </article>
+<article class="day-card" id="day-54" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 54</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《组织行为学》</div>
+    </div>
+    <h2>激励错配会制造荒唐行为</h2>
+    <section class="claim"><h3>核心观点</h3><p>错误指标会制造错误人生。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：激励错配会制造荒唐行为不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。考核什么，人就优化什么。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。短期指标会牺牲长期价值。 说明这个概念有边界，不能被滥用。个人也会被错误指标绑架。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>考核什么，人就优化什么。</h4><p>考核什么，人就优化什么。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：如果你只考核资产净值，就会牺牲健康、关系和生活体验。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>短期指标会牺牲长期价值。</h4><p>短期指标会牺牲长期价值。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：如果你只考核资产净值，就会牺牲健康、关系和生活体验。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>个人也会被错误指标绑架。</h4><p>个人也会被错误指标绑架。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：如果你只考核资产净值，就会牺牲健康、关系和生活体验。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>如果你只考核资产净值，就会牺牲健康、关系和生活体验。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>为你的个人仪表盘加入非财务指标。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>错误指标会制造错误人生</p></section>
+  </article>
+<article class="day-card" id="day-55" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 55</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《管理学》</div>
+    </div>
+    <h2>领导力是制造清晰，而不是制造压力</h2>
+    <section class="claim"><h3>核心观点</h3><p>自我领导是退出组织后的核心能力。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：领导力是制造清晰，而不是制造压力不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。好领导提供方向和优先级。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。压力不能替代清晰。 说明这个概念有边界，不能被滥用。自我领导也需要清晰。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>好领导提供方向和优先级。</h4><p>好领导提供方向和优先级。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你未来从高压环境退出，需要自己给自己设置节奏、目标和复盘，而不是靠组织推着走。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>压力不能替代清晰。</h4><p>压力不能替代清晰。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你未来从高压环境退出，需要自己给自己设置节奏、目标和复盘，而不是靠组织推着走。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>自我领导也需要清晰。</h4><p>自我领导也需要清晰。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你未来从高压环境退出，需要自己给自己设置节奏、目标和复盘，而不是靠组织推着走。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你未来从高压环境退出，需要自己给自己设置节奏、目标和复盘，而不是靠组织推着走。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个未来 90 天自我领导计划。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>自我领导是退出组织后的核心能力</p></section>
+  </article>
+<article class="day-card" id="day-56" style="--accent:#475569">
+    <div class="day-top">
+      <div><span class="day-num">Day 56</span><span class="stage">周复盘 8</span></div>
+      <div class="book">组织行为/管理/沟通</div>
+    </div>
+    <h2>第八周复盘：从组织人转向系统设计者</h2>
+    <section class="claim"><h3>核心观点</h3><p>自由需要自我管理系统。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“从组织人转向系统设计者”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>你要从执行者转向设计者。</h4><p>你要从执行者转向设计者。 讲的是人与系统的关系。组织里很多事情不是靠“讲清楚”就能解决，因为每个人背后都有目标、考核、资源和面子。你要训练的是看见角色背后的利益，再决定如何沟通、授权、拒绝或产品化。对应到你的场景：为“离开大型科技企业后的第一年”写一个组织外自我管理系统。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>个人战略需要不做清单。</h4><p>个人战略需要不做清单。 讲的是人与系统的关系。组织里很多事情不是靠“讲清楚”就能解决，因为每个人背后都有目标、考核、资源和面子。你要训练的是看见角色背后的利益，再决定如何沟通、授权、拒绝或产品化。对应到你的场景：为“离开大型科技企业后的第一年”写一个组织外自我管理系统。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>关系沟通要识别需求而非争对错。</h4><p>关系沟通要识别需求而非争对错。 讲的是人与系统的关系。组织里很多事情不是靠“讲清楚”就能解决，因为每个人背后都有目标、考核、资源和面子。你要训练的是看见角色背后的利益，再决定如何沟通、授权、拒绝或产品化。对应到你的场景：为“离开大型科技企业后的第一年”写一个组织外自我管理系统。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>为“离开大型科技企业后的第一年”写一个组织外自我管理系统。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把组织和关系问题都看成谁对谁错。很多冲突来自目标、激励、角色和信息不一致。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>列出离开组织后你会失去的三种外部约束，并设计替代机制。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>自由需要自我管理系统</p></section>
+  </article>
+<article class="day-card" id="day-57" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 57</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《社会心理学》</div>
+    </div>
+    <h2>地位焦虑：比较会偷走自由感</h2>
+    <section class="claim"><h3>核心观点</h3><p>比较对象决定主观自由感。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：比较会偷走自由感不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。人天然会横向比较。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。比较对象会决定幸福感。 说明这个概念有边界，不能被滥用。资产自由后仍可能被地位焦虑困住。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>人天然会横向比较。</h4><p>人天然会横向比较。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：别把同事职级、朋友资产、社交媒体生活当你的评分表。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>比较对象会决定幸福感。</h4><p>比较对象会决定幸福感。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：别把同事职级、朋友资产、社交媒体生活当你的评分表。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>资产自由后仍可能被地位焦虑困住。</h4><p>资产自由后仍可能被地位焦虑困住。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：别把同事职级、朋友资产、社交媒体生活当你的评分表。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>别把同事职级、朋友资产、社交媒体生活当你的评分表。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写三个你要主动减少比较的维度。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>比较对象决定主观自由感</p></section>
+  </article>
+<article class="day-card" id="day-58" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 58</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《沟通的艺术》</div>
+    </div>
+    <h2>倾听是获取真实信息的技术</h2>
+    <section class="claim"><h3>核心观点</h3><p>咨询价值来自听见真实问题。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：倾听是获取真实信息的技术不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。倾听不是等待反驳。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。复述能降低误解。 说明这个概念有边界，不能被滥用。高质量咨询来自高质量提问。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>倾听不是等待反驳。</h4><p>倾听不是等待反驳。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你做咨询产品化，最重要能力不是讲方案，而是听出客户真正的约束和恐惧。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>复述能降低误解。</h4><p>复述能降低误解。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你做咨询产品化，最重要能力不是讲方案，而是听出客户真正的约束和恐惧。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>高质量咨询来自高质量提问。</h4><p>高质量咨询来自高质量提问。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：你做咨询产品化，最重要能力不是讲方案，而是听出客户真正的约束和恐惧。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>你做咨询产品化，最重要能力不是讲方案，而是听出客户真正的约束和恐惧。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>设计 5 个客户访谈问题。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>咨询价值来自听见真实问题</p></section>
+  </article>
+<article class="day-card" id="day-59" style="--accent:#be123c">
+    <div class="day-top">
+      <div><span class="day-num">Day 59</span><span class="stage">社会心理与组织</span></div>
+      <div class="book">《管理学》</div>
+    </div>
+    <h2>产品化：把一次性能力变成可复制交付</h2>
+    <section class="claim"><h3>核心观点</h3><p>咨询产品化是经验的商品化。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>先抓住一句话：把一次性能力变成可复制交付不是抽象概念，而是一种“看世界的镜头”。普通人容易把问题看成情绪、努力或运气，但通识训练要把它拆成结构：谁在选择，受什么约束，付出什么代价，得到什么反馈。</p><p>把它讲得更生动一点：你每天看到的是工资、行情、会议、伴侣情绪、身体状态；但这些表象背后都有一套机制。产品化需要边界、流程、模板、定价。 这句话提醒你，真正重要的不是把口号背下来，而是知道它会怎样改变你的下一步行动。专家经验要变成客户能理解的结果。 说明这个概念有边界，不能被滥用。交付越清晰，越容易收费。 则是把概念落到现实选择里的抓手。</p><p>所以今天的学习目标不是“懂一个词”，而是形成一个小判断：以后再遇到类似问题，你能先停半拍，问自己：我现在是在追求表面收益，还是在优化长期自由？我是在被环境推着走，还是在主动设计自己的约束和选择？</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>产品化需要边界、流程、模板、定价。</h4><p>产品化需要边界、流程、模板、定价。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：把你的 AI/云/AI 基础设施经验做成企业 AI 基础设施诊断包。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>专家经验要变成客户能理解的结果。</h4><p>专家经验要变成客户能理解的结果。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：把你的 AI/云/AI 基础设施经验做成企业 AI 基础设施诊断包。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>交付越清晰，越容易收费。</h4><p>交付越清晰，越容易收费。 不是鸡汤，而是在提醒你：人的判断会被状态影响。睡眠、压力、亏损、兴奋、被认可或被否定，都会改变你对风险和回报的感受。真正成熟的做法不是假装自己永远理性，而是提前设计保护栏。对应到你的场景：把你的 AI/云/AI 基础设施经验做成企业 AI 基础设施诊断包。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>以后遇到类似问题时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>把你的 AI/云/AI 基础设施经验做成企业 AI 基础设施诊断包。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要把心理问题简单归因于意志力差。很多时候是压力、环境、反馈和习惯系统设计得不好。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写一个 3 步咨询产品：诊断、路线图、风险清单。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>咨询产品化是经验的商品化</p></section>
+  </article>
+<article class="day-card" id="day-60" style="--accent:#111827">
+    <div class="day-top">
+      <div><span class="day-num">Day 60</span><span class="stage">阶段总复盘</span></div>
+      <div class="book">前四阶段综合</div>
+    </div>
+    <h2>60 天总复盘：从资产、逻辑、心理到组织</h2>
+    <section class="claim"><h3>核心观点</h3><p>跨学科判断力服务自由系统设计。今天不是多记一个知识点，而是把它变成你做投资、工作、健康和关系判断时能调用的一把尺子。</p></section>
+    <section><h3>概念讲透</h3><p>这一篇不是增加新名词，而是把前面几天的概念压成一个可以使用的判断系统。你要做的不是记住“从资产、逻辑、心理到组织”这句话，而是问：当我面对工作、资产、关系和健康的冲突时，它能不能让我少一点本能反应，多一点结构化选择。</p><p>复盘的价值在于把零散知识变成个人流程。一个概念如果不能进入你的仪表盘、日程、预算、复盘模板或沟通方式，它就只是好听的句子。今天要把本周内容整理成一个小型操作系统：先看事实，再看约束，再看代价，最后才下结论。</p></section>
+    <section><h3>今天必须抓住的 3 个能力点</h3><div class="cap-grid"><div class="capability"><div class="cap-num">1</div><div><h4>经济学给你取舍语言。</h4><p>经济学给你取舍语言。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：用这 60 天内容重做一页《学习者 2026-2027 自由系统图》：资产、工作、健康、关系、知识输出。</p></div></div><div class="capability"><div class="cap-num">2</div><div><h4>逻辑法律哲学给你判断边界。</h4><p>逻辑法律哲学给你判断边界。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：用这 60 天内容重做一页《学习者 2026-2027 自由系统图》：资产、工作、健康、关系、知识输出。</p></div></div><div class="capability"><div class="cap-num">3</div><div><h4>心理学给你自我管理。</h4><p>心理学给你自我管理。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：用这 60 天内容重做一页《学习者 2026-2027 自由系统图》：资产、工作、健康、关系、知识输出。</p></div></div><div class="capability"><div class="cap-num">4</div><div><h4>组织沟通给你影响力和产品化能力。</h4><p>组织沟通给你影响力和产品化能力。 是今天的关键抓手。不要把它当成一句口号，而要把它落到一个可执行动作：记录、比较、沟通、拒绝、等待或复盘。对应到你的场景：用这 60 天内容重做一页《学习者 2026-2027 自由系统图》：资产、工作、健康、关系、知识输出。</p></div></div></div></section>
+    <section><h3>判断框架</h3><ol><li>今天复盘时，先把问题写成一句具体判断，不要停留在感觉。</li><li>再列出支持它的证据、反对它的证据，以及你默认相信但没有验证的前提。</li><li>最后写下一个可执行动作：买入、等待、沟通、拒绝、记录、复查、外包，必须落到动词。</li></ol></section>
+    <section><h3>放到学习者的真实场景里</h3><p>用这 60 天内容重做一页《学习者 2026-2027 自由系统图》：资产、工作、健康、关系、知识输出。</p><p class="scene-more">这一步最重要：不要把书里的概念停留在书里。你真正要训练的是把概念翻译成自己的资产配置、职业退出节奏、伴侣沟通方式、健康投入和知识产品化动作。</p></section>
+    <section class="mistake"><h3>今天要避免的误区</h3><p>不要只收藏结论，要把它变成一个下次能复用的判断动作。</p></section>
+    <section class="practice"><h3>5 分钟练习</h3><p>写 10 条你愿意长期保留的个人原则。</p></section>
+    <section class="note"><h3>Obsidian 原子笔记</h3><p>跨学科判断力服务自由系统设计</p></section>
+  </article>
+    <div class="footer">生成日期：2026-06-15。公开版已脱敏，可作为通识学习路线图使用。</div>
+  </div>
+</main>
+</body>
+</html>
