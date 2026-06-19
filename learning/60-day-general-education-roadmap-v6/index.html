@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>60 天通识学习 v6 — 知识库增强版</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --ink: #e6edf3;
+  --muted: #8b949e;
+  --line: #30363d;
+  --paper: #161b22;
+  --accent: #58a6ff;
+  --accent-soft: rgba(56,139,253,.15);
+  --gold: #d29922;
+  --gold-soft: rgba(210,153,34,.12);
+  --green: #3fb950;
+  --green-soft: rgba(46,160,67,.12);
+  --red: #f85149;
+  --purple: #bc8cff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.72;
+}
+.hero {
+  background: #010409;
+  border-bottom: 1px solid var(--line);
+  padding: 34px 20px 28px;
+  text-align: center;
+}
+.wrap { width: min(1200px, calc(100vw - 32px)); margin: 0 auto; }
+.hero h1 { margin: 0 0 10px; font-size: clamp(28px,4vw,44px); }
+.hero p { max-width: 800px; margin: 8px auto 0; color: var(--muted); }
+.hero .v5-link { margin-top: 14px; }
+.hero .v5-link a { color: var(--accent); }
+.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 18px; }
+.stats div { border: 1px solid var(--line); background: var(--paper); padding: 12px; }
+.stats b { display: block; font-size: 24px; line-height: 1.1; }
+.layout { width: min(1200px, calc(100vw - 32px)); margin: 18px auto 40px; }
+.section-title {
+  margin: 28px 0 12px; padding: 12px 0;
+  border-top: 2px solid var(--accent);
+  font-size: 26px;
+}
+.panel { background: var(--paper); border: 1px solid var(--line); padding: 20px; margin-bottom: 16px; }
+.panel h2 { margin: 0 0 12px; font-size: 22px; }
+
+/* 价值点索引 */
+.value-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+.value-card {
+  border: 1px solid var(--line); padding: 14px; background: var(--paper);
+}
+.value-card b { display: block; margin-bottom: 6px; font-size: 15px; }
+.value-card ul { margin: 0; padding-left: 18px; }
+.value-card li { margin: 3px 0; font-size: 14px; }
+
+/* 映射卡片 */
+.mapping-grid { display: grid; gap: 12px; }
+.mapping-card {
+  border: 1px solid var(--line); background: var(--paper); padding: 16px;
+  border-left: 4px solid var(--accent);
+}
+.mapping-card h3 { margin: 0 0 10px; font-size: 17px; color: var(--accent); }
+.mapping-card h3 em { font-style: normal; color: var(--muted); font-size: 13px; }
+.labels { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.label { display: inline-block; padding: 2px 8px; background: var(--accent-soft); color: var(--accent); font-size: 12px; border-radius: 4px; }
+.label.gold { background: var(--gold-soft); color: var(--gold); }
+.label.green { background: var(--green-soft); color: var(--green); }
+.mapping-card table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.mapping-card td, .mapping-card th { padding: 6px 8px; border: 1px solid var(--line); vertical-align: top; }
+.mapping-card th { background: rgba(255,255,255,.04); text-align: left; width: 110px; }
+
+/* 每日示例 */
+.day { border: 1px solid var(--line); background: var(--paper); padding: 20px; margin-bottom: 14px; }
+.day header { margin-bottom: 12px; }
+.day header p { margin: 0; color: var(--accent); font-weight: 600; font-size: 13px; }
+.day header h3 { margin: 4px 0; font-size: 18px; }
+.point {
+  border: 1px solid var(--line); background: rgba(255,255,255,.03);
+  padding: 12px; margin: 8px 0;
+}
+.point b { display: block; color: var(--accent); margin-bottom: 4px; }
+.point p { margin: 4px 0; }
+.review {
+  border: 1px solid var(--gold); background: var(--gold-soft); padding: 12px;
+  margin: 10px 0;
+}
+.review b { display: block; color: var(--gold); }
+.review p { margin: 4px 0; color: #d0d5dd; }
+.bridge { border: 1px solid var(--green); background: var(--green-soft); padding: 12px; margin: 10px 0; }
+.bridge b { display: block; color: var(--green); }
+.bridge p { margin: 4px 0; }
+
+/* 复现排期表 */
+.schedule-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.schedule-table th { background: rgba(255,255,255,.04); padding: 6px; border: 1px solid var(--line); text-align: left; }
+.schedule-table td { padding: 6px; border: 1px solid var(--line); }
+ul, ol { margin: 6px 0; padding-left: 20px; }
+li { margin: 4px 0; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>60 天通识学习 v6</h1>
+    <p style="color:var(--gold);font-weight:600">知识库增强版 · 每日巩固 · 系统映射</p>
+    <p>在原版18本书×60天的基础上，增加了完整的「书籍↔知识库」映射总表，以及每日知识库价值点复现系统。每本书都精确连接到你的投资框架、健康档案、职业画像和决策准则。</p>
+    <div class="stats">
+      <div><b>18</b>本书</div>
+      <div><b>90+</b>关键映射</div>
+      <div><b>18</b>个知识库桥接</div>
+      <div><b>60</b>天每日巩固</div>
+    </div>
+    <p class="v5-link">← 查看原版每日详细内容：<a href="../60-day-general-education-roadmap/">60天通识学习系统 v5</a></p>
+  </div>
+</header>
+
+<main class="layout">
+
+<!-- ============================================================ -->
+<!-- 第零部分：知识库价值点总索引 -->
+<!-- ============================================================ -->
+<section class="panel">
+  <h2>💡 知识库价值点总索引</h2>
+  <p>以下是你知识库中 <strong>每日必须复现的 20 个核心价值点</strong>，六维分配。每天学完当日内容后，从对应维度中抽取一个价值点做提取练习，确保知识库的内容不因学习新书而被遗忘。</p>
+
+  <div class="value-grid">
+    <div class="value-card">
+      <b style="color:var(--accent)">📊 投资准则（5条）</b>
+      <ul>
+        <li><strong>V1</strong> 价格大于故事 — 产业逻辑正确≠股票值得买</li>
+        <li><strong>V2</strong> 仓位大于观点 — 正确的观点如果仓位过重也会变成错误</li>
+        <li><strong>V3</strong> 现金不是废仓，是选择权 — 流动性期权比收益率更重要</li>
+        <li><strong>V4</strong> 好公司≠好投资 — 必须检查价格是否已透支预期</li>
+        <li><strong>V5</strong> 先少犯大错，再谈高收益 — 防守决定长期结果</li>
+      </ul>
+    </div>
+    <div class="value-card">
+      <b style="color:var(--green)">🧠 决策准则（4条）</b>
+      <ul>
+        <li><strong>V6</strong> 结论先行，证据再硬 — 结构化输出</li>
+        <li><strong>V7</strong> 隐含前提比明面理由更危险 — "产业趋势→买入"的隐含前提</li>
+        <li><strong>V8</strong> 坏状态不做不可逆决定 — 投资+职业+关系同理</li>
+        <li><strong>V9</strong> 先写失败条件，再开始执行 — 每个决策附带"如果X发生我就错了"</li>
+      </ul>
+    </div>
+    <div class="value-card">
+      <b style="color:var(--gold)">💼 职业退出（3条）</b>
+      <ul>
+        <li><strong>V10</strong> 退出旧平台前，先建设新跳板 — 作品+产品化+现金流</li>
+        <li><strong>V11</strong> 自由也需要反馈系统 — 没有老板=自己造反馈回路</li>
+        <li><strong>V12</strong> 不要活成只会攒钱和学习的机器 — 时间主权同样重要</li>
+      </ul>
+    </div>
+    <div class="value-card">
+      <b style="color:var(--red)">🏥 健康底盘（3条）</b>
+      <ul>
+        <li><strong>V13</strong> 睡眠是一切的基础 — 凌晨低血氧提示睡眠呼吸暂停风险</li>
+        <li><strong>V14</strong> 趋势大于单点 — 血糖/体重/体脂看14天均值而非单日波动</li>
+        <li><strong>V15</strong> 司美是工具，不是解药 — 药物必须配合训练和营养</li>
+      </ul>
+    </div>
+    <div class="value-card">
+      <b style="color:var(--purple)">🤝 关系系统（2条）</b>
+      <ul>
+        <li><strong>V16</strong> 高质量直接需要先理解对方约束 — 伴侣、客户、上级</li>
+        <li><strong>V17</strong> 仪式把抽象价值变成生活 — 每周复盘、关系仪式</li>
+      </ul>
+    </div>
+    <div class="value-card">
+      <b style="color:var(--muted)">📚 学习系统（3条）</b>
+      <ul>
+        <li><strong>V18</strong> 用原子笔记替代长文档 — 原则式而非散文式</li>
+        <li><strong>V19</strong> 每周用一个真实问题测试跨学科模型 — 投资判断+职业决策+健康实验</li>
+        <li><strong>V20</strong> 知识不沉淀到判断动作就等于没学 — 最终检验是"这改变了我做什么"</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;color:var(--muted);font-size:13px">每日结构：一个主线概念（来自当天书籍）+ 一个知识库价值点复现。60天完成20个价值点各3轮复现（间隔重复）。每轮包含：提取问题 → 提示答案 → 连接本日概念 → 沉淀原则。</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- 第一部分：书籍↔知识库映射总表 -->
+<!-- ============================================================ -->
+<h2 class="section-title" id="mapping">📚 书籍↔知识库映射总表</h2>
+<p style="color:var(--muted)">每本书精确映射到你知识库中的对应文件、概念和真实处境。阅读原版每日内容前，先看此表定位该书的连接点。</p>
+
+<div class="mapping-grid">
+
+<div class="mapping-card">
+<h3>01 经济学的思维方式 <em>— 约束下的选择</em></h3>
+<div class="labels"><span class="label">投资框架</span><span class="label">高频记忆卡</span><span class="label">综合画像</span></div>
+<table>
+<tr><th>核心概念</th><td>稀缺、机会成本、边际、激励、交易成本、制度</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 当前高频记忆卡（资源四合一）· 🧠 投资框架与对话共识（现金=选择权）· 🧠 LFF全量背景提示词（好生活目标）</td></tr>
+<tr><th>→ LFF 处境</th><td>继续高强度工作的机会成本=时间/身体 · 提前降强度=现金流/安全感 · 加仓NVDA=放弃未来等待权 · 现金是流动性期权</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V1 价格>故事</strong> · <strong>V3 现金=选择权</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>02 经济学原理 <em>— 市场、价格与激励</em></h3>
+<div class="labels"><span class="label">投资框架</span><span class="label">产品化</span><span class="label">组织判断</span></div>
+<table>
+<tr><th>核心概念</th><td>供需弹性、价格机制、外部性、信息不对称</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 投资框架与对话共识（价格>故事）· 🧠 当前高频记忆卡（激励错配）· 🧠 鳗鱼模式解析（反共识）</td></tr>
+<tr><th>→ LFF 处境</th><td>咨询产品化需要外部需求验证 · 投资不是猜方向，是理解价格形成 · 组织低效源于考核奖励短期</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V4 好公司≠好投资</strong> · <strong>V7 隐含前提更危险</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>03 经济学（宏观） <em>— 周期、利率、通胀</em></h3>
+<div class="labels"><span class="label">资产配置</span><span class="label">宏观雷达</span><span class="label">四道硬线</span></div>
+<table>
+<tr><th>核心概念</th><td>GDP、CPI、PPI、货币政策、汇率、国际收支</td></tr>
+<tr><th>→ KB 文件</th><td>📈 核心持仓深度分析（结构）· 🧠 当前高频记忆卡（周期仓纪律）· 🧠 当前生效工作流规则（四道硬线）</td></tr>
+<tr><th>→ LFF 处境</th><td>利率=成长股估值重力 · 芯片桶≤33%/NVDA≤18% 源于周期认知 · 跨境配置需理解汇率和制度暴露</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V1 价格>故事</strong> · <strong>V5 先少犯大错</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>04 管理学 <em>— 从专家到系统</em></h3>
+<div class="labels"><span class="label">职业退出</span><span class="label">第二曲线</span><span class="label">知识库</span></div>
+<table>
+<tr><th>核心概念</th><td>计划、组织、领导、控制、PDCA、反馈系统</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（2027退路线）· 🧠 当前生效工作流规则（三形式报告）· 📥 缓存/Air_MEMORY（双机分工）</td></tr>
+<tr><th>→ LFF 处境</th><td>咨询产品化=专家经验→流程化 · 自由职业需要自建反馈系统 · 双机（Pro+Air）本身就是管理系统</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V11 自由需反馈系统</strong> · <strong>V10 先建新跳板</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>05 组织行为学 <em>— 权力、动机、身份</em></h3>
+<div class="labels"><span class="label">组织判断</span><span class="label">职业画像</span><span class="label">产品化</span></div>
+<table>
+<tr><th>核心概念</th><td>个体差异、动机理论、群体行为、组织文化、权力</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（华为8年）· 🧠 投资框架与对话共识（管理层方式）· 🧠 当前高频记忆卡（分析顺序）</td></tr>
+<tr><th>→ LFF 处境</th><td>8年华为经验=可迁移组织理解 · 解释组织先看激励再看性格 · 管理层资本配置也受激励驱动</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V7 隐含前提更危险</strong> · <strong>V12 不活成攒钱机器</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>06 逻辑学导论 <em>— 论证结构拆解</em></h3>
+<div class="labels"><span class="label">投资分析</span><span class="label">决策准则</span><span class="label">输出风格</span></div>
+<table>
+<tr><th>核心概念</th><td>论证、前提、推理形式、归纳、演绎、谬误、隐含前提</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 当前高频记忆卡（结论先行）· 🧠 投资框架与对话共识（五步链条）· 🧠 当前生效工作流规则（anti-generic 4问）</td></tr>
+<tr><th>→ LFF 处境</th><td>投资分析=结论→证据→反例 · "产业趋势=投资机会"是典型隐含前提谬误 · 结论先行=逻辑训练</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V7 隐含前提更危险</strong> · <strong>V6 结论先行</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>07 法律之门 <em>— 资产与关系的可执行边界</em></h3>
+<div class="labels"><span class="label">关系资产</span><span class="label">证据系统</span><span class="label">跨境规则</span></div>
+<table>
+<tr><th>核心概念</th><td>权利、责任、合同、财产、程序公正、证据规则</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（家庭责任/伴侣）· 🧠 当前生效工作流规则（审计流程）· 📈 核心持仓深度分析（IBKR结构）</td></tr>
+<tr><th>→ LFF 处境</th><td>自由=用可执行边界保护重要关系 · 合同/账户/健康记录=保护未来的证据 · 跨境配置需理解税务/平台条款</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V17 仪式变抽象为生活</strong> · <strong>V16 理解对方约束</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>08 大问题：简明哲学导论 <em>— 好生活、自由、身份</em></h3>
+<div class="labels"><span class="label">综合画像</span><span class="label">人生目标</span><span class="label">职业退出</span></div>
+<table>
+<tr><th>核心概念</th><td>好生活、自由意志、自我、知识、道德、正义</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（好生活/2030目标）· 🧠 当前高频记忆卡（生活方式提醒）· 📅 2025-2030财务与资产规划（四合一优化）</td></tr>
+<tr><th>→ LFF 处境</th><td>核心追求不是攒钱，是时间/身体/节奏/体验/选择权 · 每个资产目标翻译成一个拒绝权</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V12 不活成攒钱机器</strong> · <strong>V8 坏状态不做决定</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>09 心理学导论 <em>— 注意力、压力、学习</em></h3>
+<div class="labels"><span class="label">健康底盘</span><span class="label">投资纪律</span><span class="label">学习系统</span></div>
+<table>
+<tr><th>核心概念</th><td>感知、记忆、学习、动机、情绪、压力、人格</td></tr>
+<tr><th>→ KB 文件</th><td>🏥 健康档案（睡眠/压力/血糖）· 🧠 当前高频记忆卡（坏状态不决策）· 🧠 当前生效工作流规则（SLA纪律）</td></tr>
+<tr><th>→ LFF 处境</th><td>睡眠是健康第一基石（凌晨低血氧）· 坏状态不做不可逆决定 · 原子笔记+提取练习=验证过的学习法</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V13 睡眠是一切基础</strong> · <strong>V8 坏状态不做决定</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>10 社会心理学 <em>— 群体、身份、偏差</em></h3>
+<div class="labels"><span class="label">投资纪律</span><span class="label">关系沟通</span><span class="label">组织判断</span></div>
+<table>
+<tr><th>核心概念</th><td>从众、服从、群体极化、认知失调、归因、偏见</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 当前高频记忆卡（反共识）· 🧠 鳗鱼模式解析（反追高）· 🧠 LFF全量背景提示词（关系沟通）</td></tr>
+<tr><th>→ LFF 处境</th><td>共识越强越写反方证据（NVDA叙事）· 情境大于性格（华为环境）· 关系冲突中的归因偏差</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V4 好公司≠好投资</strong> · <strong>V9 先写失败条件</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>11 进化心理学 <em>— 安全、地位、资源</em></h3>
+<div class="labels"><span class="label">资产安全感</span><span class="label">职业身份</span><span class="label">亲密关系</span></div>
+<table>
+<tr><th>核心概念</th><td>配偶选择、亲代投资、互惠利他、地位竞争</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（安全感/伴侣/状态恢复）· 📈 核心持仓深度分析（风险线）· 🏥 健康档案</td></tr>
+<tr><th>→ LFF 处境</th><td>资产焦虑拆成理性需要+进化安全感 · 职业身份迁移阻力=地位归属的进化机制 · "恢复吸引力"有进化根源</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V3 现金=选择权</strong> · <strong>V12 不活成攒钱机器</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>12 实验心理学 <em>— 可验证假设</em></h3>
+<div class="labels"><span class="label">健康实验</span><span class="label">投资假设</span><span class="label">产品化</span></div>
+<table>
+<tr><th>核心概念</th><td>实验设计、变量控制、随机分配、效度</td></tr>
+<tr><th>→ KB 文件</th><td>🏥 健康档案（司美+CGM实验）· 🧠 投资框架与对话共识（失效信号）· 🧠 当前生效工作流规则（最小可用）</td></tr>
+<tr><th>→ LFF 处境</th><td>健康=司美+运动+饮食的变量控制 · 投资=先写"什么发生说明我错了"再买 · 产品化=低风险测试不等完美</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V9 先写失败条件</strong> · <strong>V15 司美是工具不是解药</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>13 行为科学统计 <em>— 基准率、分布、均值回归</em></h3>
+<div class="labels"><span class="label">投资纪律</span><span class="label">健康判断</span><span class="label">产品验证</span></div>
+<table>
+<tr><th>核心概念</th><td>描述统计、推断统计、假设检验、相关、回归、概率</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 当前高频记忆卡（基准率/均值回归）· 🏥 健康档案（CGM趋势分析）· 🧠 投资框架与对话共识（预期判断5问）</td></tr>
+<tr><th>→ LFF 处境</th><td>NVDA的基准概率是周期股 · 健康看14天均值非单日波动 · 均值回归是投资和体重管理中最易遗忘的力量</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V14 趋势>单点</strong> · <strong>V1 价格>故事</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>14 社会学 <em>— 结构、阶层、角色、制度</em></h3>
+<div class="labels"><span class="label">综合画像</span><span class="label">职业退出</span><span class="label">生活系统</span></div>
+<table>
+<tr><th>核心概念</th><td>社会结构、阶层流动、角色理论、制度化、全球化</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（平台/城市/网络）· 🧠 当前高频记忆卡（角色冲突）· 🧠 鳗鱼模式解析（结构性位置）</td></tr>
+<tr><th>→ LFF 处境</th><td>退出华为=退出一个阶层结构 · 平台/城市/网络/资产共同定义可能性 · 退出前先建设新跳板（作品/产品化/现金流）</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V10 先建新跳板</strong> · <strong>V11 自由需反馈系统</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>15 社会研究方法 <em>— 验证真实需求</em></h3>
+<div class="labels"><span class="label">第二曲线</span><span class="label">产品化</span><span class="label">证据系统</span></div>
+<table>
+<tr><th>核心概念</th><td>研究设计、访谈、问卷、抽样、效度、信度</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（第二曲线）· 🧠 当前生效工作流规则（三形式报告）· 📥 缓存/Air_MEMORY（Pro-Air分工）</td></tr>
+<tr><th>→ LFF 处境</th><td>不问客户"会不会买"，问"上次怎么解决的" · 事实型问题>态度型问题 · 需求证据库=访谈+报告+一线信息</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V20 沉淀到判断动作</strong> · <strong>V18 原子笔记</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>16 人类学 <em>— 文化、仪式、意义</em></h3>
+<div class="labels"><span class="label">生活系统</span><span class="label">关系仪式</span><span class="label">职业退出</span></div>
+<table>
+<tr><th>核心概念</th><td>文化相对主义、田野工作、仪式、亲属制度、交换</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（伴侣/体验密度）· 🧠 当前高频记忆卡（生活方式提醒）· 🧠 当前生效工作流规则（复盘机制）</td></tr>
+<tr><th>→ LFF 处境</th><td>仪式把抽象价值变成生活（每周复盘/健康检查/关系仪式） · 自由后需要新仪式替代工作时间框架</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V17 仪式变抽象为生活</strong> · <strong>V8 坏状态不做决定</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>17 国家的常识 <em>— 国家能力、制度、财政</em></h3>
+<div class="labels"><span class="label">资产配置</span><span class="label">跨境规则</span><span class="label">产业研究</span></div>
+<table>
+<tr><th>核心概念</th><td>国家能力、政体、制度、财政、合法性</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 LFF全量背景提示词（出海主线/A股判断）· 📈 核心持仓深度分析（跨境配置）· 🧠 当前高频记忆卡（不赌国运）</td></tr>
+<tr><th>→ LFF 处境</th><td>不赌国运只做配置 · 出海是战略不是收益率微调（制度分散化） · 国家叙事不能直接=投资结论</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V5 先少犯大错</strong> · <strong>V4 好公司≠好投资</strong></td></tr>
+</table>
+</div>
+
+<div class="mapping-card">
+<h3>18 沟通的艺术 <em>— 判断→可接收的表达</em></h3>
+<div class="labels"><span class="label">输出风格</span><span class="label">咨询产品</span><span class="label">关系系统</span></div>
+<table>
+<tr><th>核心概念</th><td>非暴力沟通、倾听、同理心、冲突管理、男女差异</td></tr>
+<tr><th>→ KB 文件</th><td>🧠 当前高频记忆卡（结论先行）· 🧠 LFF全量背景提示词（伴侣沟通/顾问角色）· 🧠 当前生效工作流规则（输出质量8项）</td></tr>
+<tr><th>→ LFF 处境</th><td>高质量直接需先理解对方约束（伴侣/客户/上级）· 结论先行不是最短而是效果最好 · 顾问风格=沟通的艺术</td></tr>
+<tr><th>→ 复现价值点</th><td><strong>V16 理解对方约束</strong> · <strong>V6 结论先行</strong></td></tr>
+</table>
+</div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- 第二部分：增强版学习结构 -->
+<!-- ============================================================ -->
+<h2 class="section-title" id="structure">📅 增强版每日学习结构</h2>
+<p style="color:var(--muted)">每天在原版三层（关键解释→概念拆解→知识库沉淀）之后，增加第四层：<strong style="color:var(--gold)">知识库价值点复现</strong>。</p>
+
+<div class="panel">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+    <div style="border:1px solid var(--line);padding:12px;background:var(--accent-soft)">
+      <b style="color:var(--accent)">① 关键解释</b>
+      <p style="font-size:13px;color:var(--muted)">该书在本天要带走的概念，筛选出可直接迁移的部分。</p>
+    </div>
+    <div style="border:1px solid var(--line);padding:12px;background:var(--green-soft)">
+      <b style="color:var(--green)">② 概念拆解</b>
+      <p style="font-size:13px;color:var(--muted)">概念如何改变真实判断，用LFF场景验证。</p>
+    </div>
+    <div style="border:1px solid var(--line);padding:12px;background:rgba(255,255,255,.03)">
+      <b>③ 知识库互证</b>
+      <p style="font-size:13px;color:var(--muted)">与特定KB文件交叉验证，哪些被加强/修正。</p>
+    </div>
+    <div style="border:1px solid var(--line);padding:12px;background:var(--gold-soft)">
+      <b style="color:var(--gold)">④ 价值点复现</b>
+      <p style="font-size:13px;color:var(--muted)">回顾一个已存储的价值点，做提取练习+场景应用。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 增强版 Day 1 示例 -->
+<h2 class="section-title">📖 增强版 Day 1 示例：经济学的思维方式</h2>
+
+<article class="day">
+  <header>
+    <p>Day 1 / 关键解释 + 知识库复现</p>
+    <h3>《经济学的思维方式》1/3</h3>
+  </header>
+
+  <section>
+    <h3>① 关键解释</h3>
+    <div class="point"><b>稀缺性不是贫穷，而是所有重要资源都有上限</b><p>钱、时间、身体、注意力、关系、风险承受力都稀缺。只说"我想要更多自由"没有意义，必须问自由从哪里换来。</p></div>
+    <div class="point"><b>机会成本必须写成被放弃的具体选项</b><p>真正的机会成本不是"花了多少钱"，而是你因此不能做什么。</p></div>
+  </section>
+
+  <section>
+    <h3>② 概念拆解 → LFF 场景验证</h3>
+    <ul>
+      <li>继续高强度工作12个月 = 放弃身体恢复和早期第二曲线建设</li>
+      <li>清仓SGOV买入NVDA = 放弃未来6个月的选择权和缓冲垫</li>
+      <li>今晚加班到11点 = 放弃这一夜的睡眠质量和明天的状态</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>③ 知识库互证</h3>
+    <div class="bridge"><b>✅ 强化：高频记忆卡</b><p>"当前主线不是继续读更多书，而是把框架落到公司、财报、估值上"——稀缺性原则告诉你时间是最稀缺的资源。</p></div>
+    <div class="bridge"><b>✅ 强化：综合画像</b><p>目标=时间/身体/节奏/体验/选择权联合优化——这正是机会成本定价原则，把工作、投资、健康、关系放进同一张资源表。</p></div>
+  </section>
+
+  <section>
+    <h3>④ 知识库价值点复现（新增）</h3>
+    <div class="review">
+      <b>🔁 今日复现：V3「现金不是废仓，是选择权」</b>
+      <p><strong>提取问题：</strong>你还记得现金/SGOV在你的投资体系中扮演什么角色吗？不是"收益率低"，而是什么？</p>
+      <p><strong>💡 提示答案：</strong>现金是流动性期权。在失去收入后、在市场暴跌时、在出现机会时，现金让你不用被迫在不利条件下卖资产。正如今天学的机会成本原理——持有现金的机会成本是潜在收益，但放弃现金的机会成本是选择权本身。</p>
+      <p><strong>🔗 连接本日概念（机会成本）：</strong>持有现金放弃的是市场上涨时的潜在收益，但放弃现金放弃的是未来决策的自由度。稀缺性原则要求你同时评估这两个方向。</p>
+      <p><strong>📝 今天沉淀原则：</strong>凡是重大选择，写出被放弃的三个具体选项，并标注哪个选项不可逆。</p>
+    </div>
+  </section>
+</article>
+
+<!-- 复现排期表 -->
+<h2 class="section-title">📅 60天知识库价值点复现排期</h2>
+<p style="color:var(--muted)">20个价值点在60天内各被复现3次，间隔3-4周（间隔重复原理）。每轮包含提取问题→提示答案→连接当日概念→沉淀原则四个环节。</p>
+
+<div class="panel">
+<table class="schedule-table">
+<tr><th>价值点</th><th>第1次（Day）</th><th>第2次（Day）</th><th>第3次（Day）</th></tr>
+<tr><td>V1 价格大于故事</td><td>1</td><td>20</td><td>39</td></tr>
+<tr><td>V2 仓位大于观点</td><td>4</td><td>23</td><td>42</td></tr>
+<tr><td>V3 现金是选择权</td><td>1</td><td>22</td><td>43</td></tr>
+<tr><td>V4 好公司≠好投资</td><td>2</td><td>21</td><td>40</td></tr>
+<tr><td>V5 先少犯大错</td><td>3</td><td>24</td><td>45</td></tr>
+<tr><td>V6 结论先行</td><td>5</td><td>26</td><td>47</td></tr>
+<tr><td>V7 隐含前提更危险</td><td>2</td><td>25</td><td>48</td></tr>
+<tr><td>V8 坏状态不做决定</td><td>6</td><td>27</td><td>48</td></tr>
+<tr><td>V9 先写失败条件</td><td>7</td><td>28</td><td>49</td></tr>
+<tr><td>V10 先建设新跳板</td><td>8</td><td>29</td><td>50</td></tr>
+<tr><td>V11 自由需反馈系统</td><td>9</td><td>30</td><td>51</td></tr>
+<tr><td>V12 不活成攒钱机器</td><td>10</td><td>31</td><td>52</td></tr>
+<tr><td>V13 睡眠是一切基础</td><td>11</td><td>32</td><td>53</td></tr>
+<tr><td>V14 趋势大于单点</td><td>12</td><td>33</td><td>54</td></tr>
+<tr><td>V15 司美是工具不是解药</td><td>13</td><td>34</td><td>55</td></tr>
+<tr><td>V16 理解对方约束</td><td>14</td><td>35</td><td>56</td></tr>
+<tr><td>V17 仪式变抽象为生活</td><td>15</td><td>36</td><td>57</td></tr>
+<tr><td>V18 原子笔记</td><td>16</td><td>37</td><td>58</td></tr>
+<tr><td>V19 跨学科测试</td><td>17</td><td>38</td><td>59</td></tr>
+<tr><td>V20 沉淀到判断动作</td><td>18</td><td>39</td><td>60</td></tr>
+</table>
+</div>
+
+<!-- 使用方式 -->
+<h2 class="section-title">🎯 使用方式</h2>
+<div class="panel">
+  <ol>
+    <li><strong>先读原版</strong>：每天先看 <a href="../60-day-general-education-roadmap/" style="color:var(--accent)">v5 原版每日内容</a>，读完①关键解释→②概念拆解→③知识库互证</li>
+    <li><strong>再看映射表</strong>：从本页的映射总表中找到当天书籍行，确认它是如何连接到你的知识库的</li>
+    <li><strong>做价值点复现</strong>：根据复现排期表，找到当天要复现的价值点，回答提取问题，连接当日概念，沉淀一条原则</li>
+    <li><strong>写回 Obsidian</strong>：把当天沉淀的原则写成一条原子笔记，链接到对应的知识库主文档</li>
+  </ol>
+</div>
+
+</main>
+<footer style="text-align:center;color:var(--muted);padding:20px 0 30px;font-size:13px">
+  <p>60 天通识学习 v6 — 知识库增强版 · 配套 <a href="../60-day-general-education-roadmap/" style="color:var(--accent)">v5 原版每日内容</a> 使用</p>
+  <p>知识库来源：🧠 当前高频记忆卡 / 🧠 投资框架与对话共识 / 🏥 健康档案 / 🧠 当前生效工作流规则 / 🧠 LFF全量背景提示词 / 📈 核心持仓深度分析</p>
+</footer>
+</body>
+</html>
