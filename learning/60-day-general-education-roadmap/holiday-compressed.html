@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>60 天通识学习系统 v5｜假期两天压缩复盘</title>
+<style>
+:root {
+  --bg: #f4f7f6;
+  --ink: #17201f;
+  --muted: #66706d;
+  --line: #d7dfdc;
+  --paper: #ffffff;
+  --surface: #eef5f2;
+  --accent: #0b7a6b;
+  --accent-2: #b9502a;
+  --accent-3: #3c64a3;
+  --shadow: 0 18px 45px rgba(23, 32, 31, .08);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.72;
+}
+a { color: inherit; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: rgba(244, 247, 246, .88);
+  border-bottom: 1px solid rgba(215, 223, 220, .9);
+}
+.topbar-inner {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 58px;
+}
+.brand {
+  font-weight: 850;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.nav a {
+  text-decoration: none;
+  color: #43504d;
+  font-size: 13px;
+  font-weight: 760;
+  padding: 7px 10px;
+  border-radius: 999px;
+}
+.nav a:hover { background: #e7efec; color: var(--ink); }
+.hero {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 34px auto 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+  gap: 26px;
+  align-items: stretch;
+}
+.hero-copy {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: clamp(24px, 4vw, 44px);
+}
+h1 {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5.8vw, 72px);
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+.lead {
+  margin: 0;
+  color: #3d4946;
+  font-size: clamp(17px, 2vw, 21px);
+  max-width: 790px;
+}
+.hero-panel {
+  border: 1px solid var(--line);
+  background: #17201f;
+  color: white;
+  padding: 24px;
+  display: grid;
+  align-content: space-between;
+  gap: 20px;
+  min-height: 420px;
+}
+.hero-panel h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.22;
+}
+.hero-panel p {
+  margin: 8px 0 0;
+  color: #c8d2cf;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.metric {
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.07);
+  padding: 14px;
+  min-height: 96px;
+}
+.metric b {
+  display: block;
+  font-size: 30px;
+  line-height: 1;
+}
+.metric span {
+  display: block;
+  margin-top: 8px;
+  color: #c8d2cf;
+  font-size: 13px;
+}
+main {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto 50px;
+}
+.section {
+  padding: 42px 0 0;
+  scroll-margin-top: 96px;
+}
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 2px solid #17201f;
+  padding-top: 18px;
+  margin-bottom: 16px;
+}
+.section-head h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+}
+.section-head p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 540px;
+}
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.track-card, .day-card, .book-row, .finish-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.track-card {
+  padding: 18px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.track-card h3 {
+  margin: 0;
+  font-size: 21px;
+}
+.track-card p {
+  margin: 0;
+  color: var(--muted);
+}
+.track-label {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  color: var(--accent);
+  font-weight: 850;
+}
+.timeline {
+  display: grid;
+  gap: 16px;
+}
+.day-card {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) 320px;
+  gap: 18px;
+  padding: 18px;
+}
+.day-time {
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 18px;
+}
+.day-main h3 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  line-height: 1.25;
+}
+.question {
+  margin: 0 0 12px;
+  color: #3d4946;
+  font-weight: 760;
+}
+.book-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+.book-tags span {
+  background: var(--surface);
+  color: #30514d;
+  border: 1px solid #dce7e3;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 760;
+}
+.day-main ul, .day-output ul, .finish-card ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+.day-output {
+  background: #f9fbfa;
+  border-left: 4px solid var(--accent-2);
+  padding: 14px;
+}
+.day-output strong {
+  display: block;
+  font-size: 14px;
+  color: var(--accent-2);
+  margin-bottom: 6px;
+}
+.book-table {
+  display: grid;
+  gap: 8px;
+}
+.book-row {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 14px;
+}
+.book-row strong {
+  color: var(--accent-3);
+}
+.book-row p {
+  margin: 0;
+  color: #495653;
+}
+.finish-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 16px;
+}
+.finish-card {
+  padding: 22px;
+}
+.finish-card h3 {
+  margin: 0 0 10px;
+  font-size: 25px;
+}
+.quiet {
+  color: var(--muted);
+}
+.callout {
+  background: #17201f;
+  color: white;
+}
+.callout p, .callout li { color: #d5dedb; }
+.footer {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto 36px;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+@media (max-width: 980px) {
+  .hero, .finish-grid { grid-template-columns: 1fr; }
+  .hero-panel { min-height: auto; }
+  .track-grid { grid-template-columns: repeat(2, 1fr); }
+  .day-card { grid-template-columns: 1fr; }
+  .book-row { grid-template-columns: 1fr; }
+  .section-head { align-items: start; flex-direction: column; }
+}
+@media (max-width: 640px) {
+  .topbar-inner { align-items: flex-start; flex-direction: column; padding: 10px 0; }
+  .nav { justify-content: flex-start; }
+  .hero { margin-top: 18px; }
+  .metrics, .track-grid { grid-template-columns: 1fr; }
+  .hero-copy, .hero-panel, .track-card, .day-card, .finish-card { padding: 18px; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">60 天通识学习系统 v5</div>
+    <nav class="nav">
+      <a href="#tracks">四条主线</a>
+      <a href="#schedule">两天安排</a>
+      <a href="#books">18 本书</a>
+      <a href="#finish">完成标准</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>假期两天压缩复盘</h1>
+    <p class="lead">不要把 18 本书当作阅读任务，而要当作一次知识库总校准：用书反向检查投资判断、职业退出、健康关系和证据工作流。</p>
+  </div>
+  <aside class="hero-panel">
+    <div>
+      <h2>本轮目标是产出 4 张可复用卡片。</h2>
+      <p>读书只是输入，写回知识库才算完成。网页按两天节奏组织，让假期第一天就能开始执行。</p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><b>18</b><span>本书压缩为四条知识库主线</span></div>
+      <div class="metric"><b>2</b><span>天完成一次总校准</span></div>
+      <div class="metric"><b>4</b><span>张跨学科模型需要写回</span></div>
+      <div class="metric"><b>6</b><span>件事构成最小完成标准</span></div>
+    </div>
+  </aside>
+</section>
+
+<main>
+  <section id="tracks" class="section">
+    <div class="section-head">
+      <h2>四条主线</h2>
+      <p>这不是重新做 60 天计划，而是把 60 天内容压缩成四个能指挥真实生活的系统。</p>
+    </div>
+    <div class="track-grid">
+      <article class="track-card">
+        <h3>投资判断</h3>
+        <p><strong>校准对象：</strong>仓位、价格、宏观、周期、统计、反例</p>
+        <p><strong>优先书：</strong>经济学三本、逻辑、统计、国家常识</p>
+        <p>把上涨、叙事和高置信度重新压回风险预算。</p>
+        <div class="track-label">持仓论证卡</div>
+      </article><article class="track-card">
+        <h3>职业退出</h3>
+        <p><strong>校准对象：</strong>现金流、外部市场测试、作品证据、咨询产品化</p>
+        <p><strong>优先书：</strong>管理学、组织行为、社会学、研究方法、沟通</p>
+        <p>不是离职后再说，而是现在就开始验证外部价值。</p>
+        <div class="track-label">第二曲线低风险实验</div>
+      </article><article class="track-card">
+        <h3>健康关系</h3>
+        <p><strong>校准对象：</strong>身体、伴侣、家庭责任、法律边界、未来生活</p>
+        <p><strong>优先书：</strong>心理学、社会心理、进化心理、人类学、法律、沟通</p>
+        <p>好生活不是资产数字，而是一周一周能运行起来。</p>
+        <div class="track-label">未来生活试运行清单</div>
+      </article><article class="track-card">
+        <h3>证据工作流</h3>
+        <p><strong>校准对象：</strong>截图、研报、访谈、体检、券商数据、个人判断分层</p>
+        <p><strong>优先书：</strong>逻辑、法律、实验心理、社会研究方法</p>
+        <p>让观点有来源、有日期、有反例、有写回位置。</p>
+        <div class="track-label">观点入库最低标准</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="schedule" class="section">
+    <div class="section-head">
+      <h2>两天安排</h2>
+      <p>每天不是“读多少页”，而是完成一个知识库动作。每个时段都有问题、优先书、理解点和产出卡片。</p>
+    </div>
+    <div class="timeline">
+      <article class="day-card">
+        <div class="day-time">Day 1 上午</div>
+        <div class="day-main">
+          <h3>先重排目标，不急着学书</h3>
+          <p class="question">钱、时间、身体、关系，到底在服务什么？</p>
+          <div class="book-tags"><span>经济学的思维方式</span><span>大问题</span><span>进化心理学</span><span>人类学</span></div>
+          <ul><li>经济学逼你承认资源有限，不只金钱有限。</li><li>哲学把资产目标翻译成拒绝权。</li><li>进化心理学拆开理性安全、情绪安全和社会比较。</li><li>人类学把未来生活变成空间、仪式和日常动作。</li></ul>
+        </div>
+        <div class="day-output">
+          <strong>四账户资源表</strong>
+          <ul><li>钱：当前最重要的选择权是什么？</li><li>时间：哪些事务正在吞掉未来自由？</li><li>身体：哪些健康问题会降低判断质量？</li><li>关系：哪些责任和边界需要提前说清？</li></ul>
+        </div>
+      </article><article class="day-card">
+        <div class="day-time">Day 1 下午</div>
+        <div class="day-main">
+          <h3>用书检查投资系统</h3>
+          <p class="question">如果把当前持仓当作一个论证，它的前提、反例和失效条件是什么？</p>
+          <div class="book-tags"><span>经济学原理</span><span>经济学</span><span>逻辑学导论</span><span>行为科学统计</span><span>国家的常识</span></div>
+          <ul><li>价格是预期压缩器，不是价值判决书。</li><li>宏观新闻必须翻译成利率、汇率、通胀、信用、风险偏好。</li><li>强观点要拆成结论、理由、隐含前提、反例和失效信号。</li><li>高确定性叙事要回到基准率、分布和最坏 10% 情景。</li></ul>
+        </div>
+        <div class="day-output">
+          <strong>持仓论证卡</strong>
+          <ul><li>这笔持仓的核心结论是什么？</li><li>价格隐含了什么预期？</li><li>这个预期需要哪些前提成立？</li><li>如果宏观环境逆转，它会怎样受伤？</li><li>减仓或再平衡触发条件是什么？</li></ul>
+        </div>
+      </article><article class="day-card">
+        <div class="day-time">Day 1 晚上</div>
+        <div class="day-main">
+          <h3>整理证据系统，不再让观点裸奔</h3>
+          <p class="question">知识库里哪些是事实，哪些是判断，哪些只是情绪和叙事？</p>
+          <div class="book-tags"><span>逻辑学导论</span><span>法律之门</span><span>实验心理学</span><span>社会研究方法</span></div>
+          <ul><li>观点不是论证。</li><li>证据要在事情顺利时建立。</li><li>实验不是证明自己对，而是更快发现自己错。</li><li>需求验证要问过去行为，不问未来想象。</li></ul>
+        </div>
+        <div class="day-output">
+          <strong>观点入库最低标准</strong>
+          <ul><li>来源是什么？</li><li>日期是否会过期？</li><li>支持证据是什么？</li><li>反例是什么？</li><li>应该写回哪个主文档？</li></ul>
+        </div>
+      </article><article class="day-card">
+        <div class="day-time">Day 2 上午</div>
+        <div class="day-main">
+          <h3>把职业退出从愿望变成产品实验</h3>
+          <p class="question">第二曲线如何在当前现金流阶段完成外部验证？</p>
+          <div class="book-tags"><span>管理学</span><span>组织行为学</span><span>社会学</span><span>社会研究方法</span><span>沟通的艺术</span></div>
+          <ul><li>能力自信不够，必须变成目标、资源、流程、反馈、纠偏。</li><li>大厂经验的可迁移价值是影响力地图、激励错配和落地风险。</li><li>退出旧平台前，先建设作品、客户、渠道和可信背书。</li><li>客户买的不是你懂行，而是你降低不确定性的能力。</li></ul>
+        </div>
+        <div class="day-output">
+          <strong>第二曲线低风险实验</strong>
+          <ul><li>我能解决哪类人的哪类真实问题？</li><li>他们现在怎么解决？</li><li>谁使用、谁付费、谁决策、谁反对？</li><li>最小作品是什么？</li><li>一个月内能访谈哪 3 个人？</li></ul>
+        </div>
+      </article><article class="day-card">
+        <div class="day-time">Day 2 下午</div>
+        <div class="day-main">
+          <h3>把健康关系变成生活系统</h3>
+          <p class="question">如果未来已经开始，现在的一周应该长什么样？</p>
+          <div class="book-tags"><span>心理学导论</span><span>社会心理学</span><span>进化心理学</span><span>人类学</span><span>法律之门</span><span>沟通的艺术</span></div>
+          <ul><li>健康是判断质量的底盘。</li><li>坏状态不做不可逆决定。</li><li>关系冲突常是需求、安全感和边界没有翻译清楚。</li><li>未来生活必须试运行：训练、睡眠、伴侣仪式、学习仪式、输出仪式。</li></ul>
+        </div>
+        <div class="day-output">
+          <strong>未来生活试运行清单</strong>
+          <ul><li>本周固定训练几次？</li><li>哪个晚上属于伴侣关系？</li><li>哪些家庭责任需要预算化？</li><li>哪个法律/边界事项要先列清单？</li><li>每周哪一天只做低噪音学习和知识库整理？</li></ul>
+        </div>
+      </article><article class="day-card">
+        <div class="day-time">Day 2 晚上</div>
+        <div class="day-main">
+          <h3>写回知识库</h3>
+          <p class="question">哪些内容要进入四张跨学科整合模型？</p>
+          <div class="book-tags"><span>投资判断模型</span><span>职业退出模型</span><span>健康关系模型</span><span>证据系统模型</span></div>
+          <ul><li>没有写回，学习就会退化成短暂兴奋。</li><li>有效原则先写入整合模型，再考虑进入高频记忆卡。</li><li>公共网页更新排在私有知识库整合之后。</li></ul>
+        </div>
+        <div class="day-output">
+          <strong>四张模型更新</strong>
+          <ul><li>写回投资判断模型：持仓论证卡。</li><li>写回职业退出模型：低风险实验。</li><li>写回健康关系模型：生活试运行清单。</li><li>写回证据系统模型：观点入库标准。</li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="books" class="section">
+    <div class="section-head">
+      <h2>18 本书压缩价值表</h2>
+      <p>每本书只保留一个价值点和一个两天内能做的动作，避免假期学习变成继续收藏材料。</p>
+    </div>
+    <div class="book-table">
+      <div class="book-row">
+        <strong>01｜经济学的思维方式</strong>
+        <p>把投资、职业、健康、关系放进同一张稀缺资源表</p>
+        <p>复盘一个最近选择：显性收益、隐性成本、放弃选项</p>
+      </div><div class="book-row">
+        <strong>02｜经济学原理</strong>
+        <p>把价格、政策、激励和市场预期连起来</p>
+        <p>选一个持仓，写价格隐含了什么预期</p>
+      </div><div class="book-row">
+        <strong>03｜经济学</strong>
+        <p>把宏观新闻翻译成利率、汇率、通胀、信用、风险偏好</p>
+        <p>用最近一条宏观新闻测试组合脆弱点</p>
+      </div><div class="book-row">
+        <strong>04｜管理学</strong>
+        <p>把个人能力变成流程和作品</p>
+        <p>为第二曲线写目标、资源、流程、反馈、纠偏</p>
+      </div><div class="book-row">
+        <strong>05｜组织行为学</strong>
+        <p>把大厂经验沉淀为组织诊断能力</p>
+        <p>画一个客户或组织的真实影响力地图</p>
+      </div><div class="book-row">
+        <strong>06｜逻辑学导论</strong>
+        <p>给所有强观点加前提、反例和失效信号</p>
+        <p>拆一条你最相信的投资判断</p>
+      </div><div class="book-row">
+        <strong>07｜法律之门</strong>
+        <p>把资产、关系、承诺和证据放进可执行边界</p>
+        <p>列出伴侣、家庭、跨境账户需要规则化的事项</p>
+      </div><div class="book-row">
+        <strong>08｜大问题：简明哲学导论</strong>
+        <p>防止资产目标吞掉好生活目标</p>
+        <p>把关键海外资产目标翻译成 3 个拒绝权</p>
+      </div><div class="book-row">
+        <strong>09｜心理学导论</strong>
+        <p>把注意力、压力、学习和情绪当成可维护系统</p>
+        <p>写坏状态不做不可逆决定的触发清单</p>
+      </div><div class="book-row">
+        <strong>10｜社会心理学</strong>
+        <p>防止群体共识和身份压力污染判断</p>
+        <p>给一个热门市场观点写反方证据</p>
+      </div><div class="book-row">
+        <strong>11｜进化心理学</strong>
+        <p>拆开安全感、地位、资源、亲密关系的底层驱动</p>
+        <p>把一个资产目标拆成理性、情绪、比较三层</p>
+      </div><div class="book-row">
+        <strong>12｜实验心理学</strong>
+        <p>把计划变成可验证小实验</p>
+        <p>给健康或第二曲线设计一个只改一个变量的实验</p>
+      </div><div class="book-row">
+        <strong>13｜行为科学统计</strong>
+        <p>用基准率、分布、均值回归保护判断</p>
+        <p>对一个高预期资产写最坏 10% 情景</p>
+      </div><div class="book-row">
+        <strong>14｜社会学</strong>
+        <p>看见平台、阶层、城市、网络和作品这些结构资本</p>
+        <p>复盘结构资本：平台、资产、网络、城市、作品</p>
+      </div><div class="book-row">
+        <strong>15｜社会研究方法</strong>
+        <p>用访谈和观察验证真实需求</p>
+        <p>设计 3 个只问过去行为的客户访谈问题</p>
+      </div><div class="book-row">
+        <strong>16｜人类学</strong>
+        <p>把未来生活从抽象目标变成仪式和空间</p>
+        <p>设计一个每周稳定生活、伴侣或学习仪式</p>
+      </div><div class="book-row">
+        <strong>17｜国家的常识</strong>
+        <p>把市场放进制度、财政、政策和规则稳定性里</p>
+        <p>给一个跨境资产写制度暴露表</p>
+      </div><div class="book-row">
+        <strong>18｜沟通的艺术</strong>
+        <p>把判断变成别人能接收、能行动的表达</p>
+        <p>重要沟通前写：对方想要、害怕、我能提供、边界</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="finish" class="section">
+    <div class="section-head">
+      <h2>最小完成标准</h2>
+      <p>如果精力有限，只做这 6 件事也算成功。重点是写回知识库，不是证明自己很努力。</p>
+    </div>
+    <div class="finish-grid">
+      <article class="finish-card callout">
+        <h3>6 件事</h3>
+        <ul><li>写出四账户资源表：钱、时间、身体、关系。</li><li>用持仓论证卡拆 1 个当前最重要持仓。</li><li>写出 1 个第二曲线低风险实验。</li><li>写出 1 个未来生活试运行清单。</li><li>写出 1 套观点入库最低标准。</li><li>把有效内容写回四张跨学科整合模型。</li></ul>
+      </article>
+      <article class="finish-card">
+        <h3>不要做什么</h3>
+        <ul><li>不要重新做 60 天计划。</li><li>不要追求把 18 本书读完。</li><li>不要只摘名言。</li><li>不要把学习变成更多收藏。</li><li>不要把公共网页更新放在私有知识库整合之前。</li></ul>
+        <p class="quiet">本轮假期的核心不是学习更多，而是让现有知识库变得更能指挥真实生活。</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  来源：60 天通识学习系统 v5 假期压缩版｜生成日期：2026-06-19｜公开展示版
+</footer>
+</body>
+</html>

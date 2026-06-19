@@ -60,6 +60,34 @@ body {
   font-size: 24px;
   line-height: 1.1;
 }
+.holiday-entry {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.1);
+  padding: 14px;
+}
+.holiday-entry strong {
+  display: block;
+  color: #fff;
+}
+.holiday-entry span {
+  display: block;
+  color: #d0d5dd;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.holiday-entry a {
+  color: #111827;
+  background: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
 .layout {
   width: min(1220px, calc(100vw - 32px));
   margin: 18px auto 40px;
@@ -291,6 +319,7 @@ li { margin: 5px 0; }
 @media (max-width: 940px) {
   .layout,
   .stats,
+  .holiday-entry,
   .guide,
   .bridge-row,
   .bridge-grid,
@@ -324,6 +353,13 @@ li { margin: 5px 0; }
       <div><b>90</b>个关键解释点</div>
       <div><b>18</b>张知识库桥接卡</div>
       <div><b>60</b>天同步学习路径</div>
+    </div>
+    <div class="holiday-entry">
+      <div>
+        <strong>假期两天压缩复盘</strong>
+        <span>把 60 天系统压缩成两天内可执行的知识库总校准。</span>
+      </div>
+      <a href="./holiday-compressed.html">打开压缩版</a>
     </div>
   </div>
 </header>
