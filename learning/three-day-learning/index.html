@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三晚三天：18本书压缩行动板</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>三晚三天：18本书压缩行动板</h1>
+          <p>每本书只留一个价值点和一个两天内能做的动作。目标不是收藏材料，是留下 18 个可见输出。</p>
+        </div>
+        <div class="date-block">
+          <span>2026.06.19 夜</span>
+          <strong>至 06.21</strong>
+        </div>
+      </header>
+
+      <section class="focus-strip" aria-label="三天学习原则">
+        <div class="strip-art" aria-hidden="true">
+          <div class="paper paper-a"></div>
+          <div class="paper paper-b"></div>
+          <div class="paper paper-c"></div>
+        </div>
+        <div class="principle">
+          <span>今晚的硬规则</span>
+          <strong>不读完整本，不开新资料库。只写一个判断、一张表、一条触发清单。</strong>
+        </div>
+        <button class="reset-button" id="resetButton" type="button">重置勾选</button>
+      </section>
+
+      <section class="workspace">
+        <aside class="timeline" aria-label="学习时间线">
+          <button class="timeline-item active" data-day="tonight" type="button">
+            <span class="day-index">01</span>
+            <span>
+              <strong>今晚</strong>
+              <small>06.19 · 启动</small>
+            </span>
+          </button>
+          <button class="timeline-item" data-day="tomorrow" type="button">
+            <span class="day-index">02</span>
+            <span>
+              <strong>明天</strong>
+              <small>06.20 · 实验</small>
+            </span>
+          </button>
+          <button class="timeline-item" data-day="after" type="button">
+            <span class="day-index">03</span>
+            <span>
+              <strong>后天</strong>
+              <small>06.21 · 固化</small>
+            </span>
+          </button>
+        </aside>
+
+        <section class="board" id="board" aria-live="polite"></section>
+
+        <aside class="right-rail">
+          <section class="panel tonight-panel">
+            <div class="panel-head">
+              <span>今晚只做这 3 件事</span>
+              <strong id="progressText">0/18</strong>
+            </div>
+            <div class="progress-wrap">
+              <svg class="progress-ring" viewBox="0 0 120 120" role="img" aria-label="完成进度">
+                <circle class="ring-bg" cx="60" cy="60" r="48"></circle>
+                <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="48"></circle>
+              </svg>
+              <div class="progress-label">
+                <strong id="progressPercent">0%</strong>
+                <span>完成</span>
+              </div>
+            </div>
+            <ol class="now-list">
+              <li>复盘一个最近选择：显性收益、隐性成本、放弃选项。</li>
+              <li>拆一条最相信的投资判断：前提、反例、失效信号。</li>
+              <li>写一个坏状态触发清单：哪些状态不做不可逆决定。</li>
+            </ol>
+          </section>
+
+          <section class="panel output-panel">
+            <span>三天结束必须留下</span>
+            <ul>
+              <li>1 张稀缺资源表</li>
+              <li>1 条持仓/职业判断拆解</li>
+              <li>1 个健康或第二曲线小实验</li>
+              <li>1 份沟通前置脚本</li>
+            </ul>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <template id="dayTemplate">
+      <article class="day-section">
+        <div class="day-heading">
+          <div>
+            <span class="day-label"></span>
+            <h2></h2>
+          </div>
+          <p></p>
+        </div>
+        <div class="cards"></div>
+      </article>
+    </template>
+
+    <template id="cardTemplate">
+      <article class="study-card">
+        <label class="check-wrap">
+          <input type="checkbox" />
+          <span></span>
+        </label>
+        <div class="card-main">
+          <div class="card-title-row">
+            <span class="book-no"></span>
+            <h3></h3>
+          </div>
+          <p class="value-line"></p>
+          <div class="action-box">
+            <span>两天内动作</span>
+            <strong></strong>
+          </div>
+          <textarea rows="2" placeholder="写下你的最小输出，不写长笔记"></textarea>
+        </div>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
