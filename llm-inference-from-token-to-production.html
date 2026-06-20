@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM推理优化：从Token到部署的完整知识链</title>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --card: #1a1a28;
+  --border: #2a2a3e;
+  --text: #e0e0f0;
+  --text-dim: #8888aa;
+  --accent: #6c5ce7;
+  --accent2: #00cec9;
+  --accent3: #fd79a8;
+  --code-bg: #1e1e30;
+  --green: #00b894;
+  --yellow: #fdcb6e;
+  --red: #e17055;
+  --orange: #e17055;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.7;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* Hero */
+.hero {
+  padding: 80px 0 50px; text-align: center;
+  background: linear-gradient(135deg, #0a0a1f 0%, #12122a 50%, #0a0a1f 100%);
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 {
+  font-size: 2.4em; font-weight: 800; margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent), var(--accent3));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p { color: var(--text-dim); font-size: 1.1em; max-width: 600px; margin: 0 auto; }
+.hero .badge {
+  display: inline-block; margin-top: 20px; padding: 6px 16px;
+  border-radius: 20px; font-size: 0.85em; background: var(--card); color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+
+/* TOC */
+.toc {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 32px; margin: 40px 0;
+}
+.toc h3 { margin-bottom: 16px; font-size: 1em; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.05em; }
+.toc ol { list-style: none; counter-reset: toc; }
+.toc li {
+  counter-increment: toc; padding: 6px 0;
+  font-size: 0.92em; color: var(--text);
+}
+.toc li::before {
+  content: counter(toc); display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; font-size: 0.8em; font-weight: 700;
+  background: var(--accent); color: white; margin-right: 12px;
+}
+.toc li a { color: var(--text); text-decoration: none; }
+.toc li a:hover { color: var(--accent2); }
+
+/* Sections */
+section { margin: 60px 0; }
+.section-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+}
+.section-num {
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1em; flex-shrink: 0;
+}
+.section-num.purple { background: var(--accent); }
+.section-num.teal { background: var(--accent2); color: #000; }
+.section-num.pink { background: var(--accent3); }
+.section-num.green { background: var(--green); }
+.section-num.orange { background: var(--orange); }
+.section-header h2 { font-size: 1.5em; font-weight: 700; }
+
+/* Cards */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px; margin: 16px 0;
+}
+.card h3 { color: var(--accent2); margin-bottom: 12px; font-size: 1.1em; }
+.card h4 { color: var(--accent3); margin: 16px 0 8px; font-size: 0.95em; }
+.card p { margin-bottom: 12px; color: var(--text); font-size: 0.95em; line-height: 1.8; }
+.card ul, .card ol { margin: 8px 0 16px 20px; }
+.card li { margin-bottom: 6px; font-size: 0.92em; line-height: 1.7; }
+
+/* Inline code */
+code {
+  background: var(--code-bg); padding: 2px 8px; border-radius: 4px;
+  font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.9em; color: var(--accent2);
+}
+pre {
+  background: var(--code-bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px; overflow-x: auto; margin: 12px 0;
+  font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85em; line-height: 1.6;
+  color: #a0a0d0;
+}
+
+/* Tables */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table {
+  width: 100%; border-collapse: collapse; font-size: 0.88em;
+}
+th, td {
+  padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--surface); color: var(--accent2); font-weight: 700;
+  white-space: nowrap;
+}
+tr:hover td { background: rgba(108,92,231,0.05); }
+
+/* Highlight boxes */
+.highlight {
+  border-left: 3px solid var(--accent); padding: 16px 20px;
+  margin: 16px 0; border-radius: 0 8px 8px 0; background: rgba(108,92,231,0.08);
+}
+.highlight.teal { border-color: var(--accent2); background: rgba(0,206,201,0.08); }
+.highlight.pink { border-color: var(--accent3); background: rgba(253,121,168,0.08); }
+.highlight.green { border-color: var(--green); background: rgba(0,184,148,0.08); }
+.highlight.yellow { border-color: var(--yellow); background: rgba(253,203,110,0.08); }
+
+/* Formula box */
+.formula-box {
+  background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(0,206,201,0.1));
+  border: 1px solid var(--accent); border-radius: 12px; padding: 24px;
+  text-align: center; margin: 20px 0;
+}
+.formula-box .big { font-size: 2.2em; font-weight: 800; letter-spacing: 0.02em; }
+.formula-box .sub { font-size: 0.9em; color: var(--text-dim); margin-top: 8px; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 24px; margin: 20px 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 7px; top: 0; bottom: 0;
+  width: 2px; background: var(--border);
+}
+.timeline-item { position: relative; margin-bottom: 20px; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -20px; top: 8px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+}
+.timeline-item h4 { color: var(--accent2); margin-bottom: 4px; }
+.timeline-item p { font-size: 0.9em; color: var(--text-dim); }
+
+/* Tag badges */
+.tag {
+  display: inline-block; padding: 2px 10px; border-radius: 10px;
+  font-size: 0.75em; font-weight: 600; margin-right: 4px;
+}
+.tag.blue { background: rgba(108,92,231,0.2); color: var(--accent); }
+.tag.green { background: rgba(0,184,148,0.2); color: var(--green); }
+.tag.red { background: rgba(225,112,85,0.2); color: var(--red); }
+.tag.yellow { background: rgba(253,203,110,0.2); color: var(--yellow); }
+
+/* Visual diagram placeholder */
+.diagram {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 32px; margin: 20px 0;
+  text-align: center; font-size: 0.9em; color: var(--text-dim);
+}
+.diagram .arrow { color: var(--accent2); margin: 0 8px; }
+.diagram .step {
+  display: inline-block; padding: 6px 14px; border-radius: 6px;
+  background: var(--card); border: 1px solid var(--border); margin: 4px;
+}
+
+/* Footer */
+.footer {
+  text-align: center; padding: 40px 0; border-top: 1px solid var(--border);
+  margin-top: 60px; color: var(--text-dim); font-size: 0.85em;
+}
+.footer a { color: var(--accent2); text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8em; }
+  .card { padding: 16px; }
+  section { margin: 40px 0; }
+  .toc { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>LLM 推理优化：从 Token 到部署的完整知识链</h1>
+  <p>一篇看懂：Embedding → KV Cache → Prefill/Decode → 注意力进化 → DeepSeek 三件套 → 投资逻辑</p>
+  <div class="badge">2026-06-20 · 7 篇文章综合 · 技术 × 投资</div>
+</div>
+
+<div class="container">
+
+<div class="toc">
+  <h3>📋 目录</h3>
+  <ol>
+    <li><a href="#s1">Token → Embedding：模型如何理解文字</a></li>
+    <li><a href="#s2">推理为什么"先慢后快"：Prefill × Decode</a></li>
+    <li><a href="#s3">KV Cache：空间换时间的核心瓶颈</a></li>
+    <li><a href="#s4">注意力机制进化史：MHA → GQA → MLA → CSA</a></li>
+    <li><a href="#s5">DeepSeek 三件套：MLA × MoE × MTP = 20x</a></li>
+    <li><a href="#s6">推理瓶颈从算力转向带宽：谁搬得少谁赢</a></li>
+    <li><a href="#s7">投资推演：推理降本 × 存储需求 × AI 应用</a></li>
+  </ol>
+</div>
+
+<!-- Section 1 -->
+<section id="s1">
+<div class="section-header">
+  <div class="section-num teal">1</div>
+  <h2>Token → Embedding：模型如何理解文字</h2>
+</div>
+
+<div class="card">
+  <p>大模型不是"认识"文字。它只认识一种东西：<strong>一串数字</strong>（向量）。从文字到向量的转化，是整个链条的第一步。</p>
+
+  <h4>完整链路</h4>
+  <div class="diagram">
+    <span class="step">文本</span>
+    <span class="arrow">→</span>
+    <span class="step">按词表切分</span>
+    <span class="arrow">→</span>
+    <span class="step">Token ID</span>
+    <span class="arrow">→</span>
+    <span class="step">Embedding 查表</span>
+    <span class="arrow">→</span>
+    <span class="step">向量 [0.12, -0.35, ...]</span>
+    <span class="arrow">→</span>
+    <span class="step">Transformer 计算</span>
+  </div>
+
+  <h4>关键理解</h4>
+  <ul>
+    <li><strong>Token ID ≠ 语义</strong>——"猫→1024"、"狗→1025"编号接近不意味着含义接近，编号只是"图书馆索书号"</li>
+    <li><strong>Embedding 不是人手动标注的</strong>——模型从大量文本统计出：同时出现的词在向量空间中靠近</li>
+    <li><strong>语义地图</strong>——猫/狗/兔子在一个区域，汽车/发动机/轮胎在另一个区域</li>
+    <li><strong>同一个词在不同上下文向量不同</strong>——"苹果"在"苹果很甜"和"苹果发新机"中最终向量不同</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>💡 对程序员的理解：</strong> Embedding 层本质上是一张查表（Lookup Table）——行数 = 词表大小（~100K），列数 = 隐藏维度（~4096）。模型拿 Token ID 直接索引对应行，不需要矩阵乘法。
+  </div>
+</div>
+</section>
+
+<!-- Section 2 -->
+<section id="s2">
+<div class="section-header">
+  <div class="section-num purple">2</div>
+  <h2>推理为什么"先慢后快"：Prefill × Decode</h2>
+</div>
+
+<div class="card">
+  <p>LLM 推理不是一次前向就完事——它分成两个阶段，瓶颈完全不同。</p>
+
+  <table>
+    <tr><th></th><th>Prefill（预填充）</th><th>Decode（解码）</th></tr>
+    <tr><td>做什么</td><td>一次性处理全部输入 token</td><td>逐 token 生成，自回归循环</td></tr>
+    <tr><td>瓶颈</td><td><strong><span style="color:var(--accent2)">计算密集型</span></strong>（吃算力）</td><td><strong><span style="color:var(--accent3)">内存带宽密集型</span></strong>（吃带宽）</td></tr>
+    <tr><td>关键指标</td><td><strong>TTFT</strong>（Time To First Token）</td><td><strong>ITL</strong>（Inter-Token Latency）</td></tr>
+    <tr><td>慢在哪</td><td>长 prompt 时，等"第一句话"</td><td>输出像"挤牙膏"，一句一句来</td></tr>
+    <tr><td>优化方向</td><td>减少 prompt 长度、Prefix Cache</td><td>KV Cache 优化、推测解码</td></tr>
+  </table>
+
+  <div class="highlight teal">
+    <strong>🔑 一句话诊断：</strong><br>
+    长 prompt 慢 → 优化 TTFT（Prefill 问题）<br>
+    输出挤牙膏 → 优化 ITL（Decode 问题）<br>
+    <strong>同一个请求的两个阶段，优化方向完全不同。</strong>
+  </div>
+
+  <h4>为什么 Decode 是内存瓶颈？</h4>
+  <p>每生成一个 token，都要从显存读取全部 KV Cache 到计算单元。一个 70B 模型在 8K 上下文下，KV Cache 可以占满 80GB 显存。<strong>每次读取 80GB 数据所花的时间，远大于计算这 80GB 所花的时间。</strong></p>
+  <p>GPU 计算单元大部分时间在"等数据"——这就是"内存墙"（Memory Wall）。</p>
+</div>
+</section>
+
+<!-- Section 3 -->
+<section id="s3">
+<div class="section-header">
+  <div class="section-num green">3</div>
+  <h2>KV Cache：空间换时间的核心瓶颈</h2>
+</div>
+
+<div class="card">
+  <p>KV Cache 的核心作用是<strong>缓存历史 token 的注意力计算结果</strong>，避免每一步都重新计算全部上下文。但这把双刃剑——省了计算，吃了显存。</p>
+
+  <h4>为什么 KV Cache 这么大？</h4>
+  <pre>KV Cache 大小 = 层数 × 隐藏维度 × 上下文长度 × 批处理大小 × 2（K+V）</pre>
+
+  <div class="diagram">
+    <span>13B 模型：~1MB/token → 4K 上下文 ≈ <strong>4GB</strong></span>
+  </div>
+
+  <h4>KV Cache 的放大效应</h4>
+  <p>KV Cache 越大 → 单卡能同时服务的请求越少 → 摊到每个请求上的 GPU 成本越高。所以：<strong>KV Cache 压缩 10 倍 = 每请求成本降 10 倍。</strong></p>
+
+  <h4>常见的 KV Cache 优化</h4>
+  <ul>
+    <li><strong>量化</strong>：FP16→INT8→INT4，精度换空间（FP32 28GB → FP16 14GB → INT8 7GB → INT4 3.5GB）</li>
+    <li><strong>Sliding Window</strong>：只保留最近的 N 个 token</li>
+    <li><strong>Prefix Cache</strong>：跨请求复用相同的上下文前缀</li>
+    <li><strong>PagedAttention</strong>：分页化管理 KV Cache，消除碎片</li>
+    <li><strong>MLA（终极方案）</strong>：见第5章</li>
+  </ul>
+
+  <div class="highlight yellow">
+    <strong>⚠️ 核心矛盾：</strong> KV Cache 减少计算量，但把系统压力从算力转移到内存。优化计算之后，问题并没有消失，而是被"转移"了。
+  </div>
+</div>
+</section>
+
+<!-- Section 4 -->
+<section id="s4">
+<div class="section-header">
+  <div class="section-num pink">4</div>
+  <h2>注意力机制进化史：MHA → GQA → MLA → CSA</h2>
+</div>
+
+<div class="card">
+  <p>标准的多头注意力（MHA）是"重"的——每个注意力头都有独立的 K、V 投影。进化方向只有一个：<strong>减少 KV 数量，压缩缓存。</strong></p>
+
+  <table>
+    <tr><th>机制</th><th>核心思想</th><th>K/V 头数</th><th>KV Cache 节省</th><th>代表模型</th></tr>
+    <tr>
+      <td><strong>MHA</strong></td>
+      <td>每个注意力头有独立 K、V</td>
+      <td>Q 头数 = K 头数 = V 头数（如 32）</td>
+      <td>1x（基线）</td>
+      <td>GPT-3, LLaMA 1</td>
+    </tr>
+    <tr>
+      <td><strong>MQA</strong></td>
+      <td>所有 Q 共享一组 K、V</td>
+      <td>K=V=1 头</td>
+      <td>~32x</td>
+      <td>PaLM, Falcon</td>
+    </tr>
+    <tr>
+      <td><strong>GQA</strong></td>
+      <td>Q 分组共享 K、V</td>
+      <td>K=V=组数（如 8）</td>
+      <td>~4x</td>
+      <td>LLaMA 2/3, Mistral</td>
+    </tr>
+    <tr>
+      <td><strong>MLA</strong></td>
+      <td>K、V 压缩到低维潜在空间</td>
+      <td>存 c（d_c≈d/5），临时展开</td>
+      <td><strong>~5x</strong></td>
+      <td>DeepSeek V2/V3</td>
+    </tr>
+    <tr>
+      <td><strong>CSA+HCA</strong></td>
+      <td>交叉注意力共享 KV + 混合压缩</td>
+      <td>交叉注意力层共享</td>
+      <td><strong>~5x+</strong></td>
+      <td>DeepSeek-v4</td>
+    </tr>
+  </table>
+
+  <div class="highlight">
+    <strong>📐 MLA 的原理：</strong><br>
+    标准 MHA：x → K 和 V（两个独立的投影矩阵，存 2d 个元素/token）<br>
+    MLA：<br>
+    &nbsp;&nbsp;第一步：x → c（降维到 d_c ≈ d/5）<br>
+    &nbsp;&nbsp;第二步：需要时 c → K, c → V（升维展开）<br>
+    &nbsp;&nbsp;<strong>只存 c，不存 K、V。</strong><br>
+    省内存 5x，省带宽 5x，需要额外计算但远小于省下的带宽。
+  </div>
+</div>
+</section>
+
+<!-- Section 5 - THE MAIN EVENT -->
+<section id="s5">
+<div class="section-header">
+  <div class="section-num orange">5</div>
+  <h2>DeepSeek 三件套：MLA × MoE × MTP = 20x</h2>
+</div>
+
+<div class="formula-box">
+  <div class="big">MLA × MoE × MTP ≈ 20× 成本差</div>
+  <div class="sub">不是补贴烧钱，是架构代差——API 价格差距的技术解释</div>
+</div>
+
+<div class="card">
+  <table>
+    <tr><th>维度</th><th>Baseline 70B Dense</th><th>DeepSeek V3</th><th>优化倍率</th></tr>
+    <tr>
+      <td>KV Cache 显存</td>
+      <td>每 token 每层 2d 元素</td>
+      <td>MLA：d_c ≈ d/5</td>
+      <td><strong>~5x</strong></td>
+    </tr>
+    <tr>
+      <td>激活参数</td>
+      <td>70B 全激活</td>
+      <td>MoE：37B/671B</td>
+      <td><strong>~2x（vs 70B Dense）</strong></td>
+    </tr>
+    <tr>
+      <td>Decode 效率</td>
+      <td>1 token/前向</td>
+      <td>MTP：2 token/前向</td>
+      <td><strong>~2x</strong></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align:right;"><strong>综合（乘法关系）</strong></td>
+      <td><strong>~20x</strong></td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>① MLA — 省显存</h3>
+  <ul>
+    <li>K 和 V 不是独立的信息源，共享底层表示</li>
+    <li>降维到潜在空间（d≈7168 → d_c≈512），存 c 不存 K/V</li>
+    <li><strong>效果：</strong>同样 GPU 可服务 5-10 倍并发请求</li>
+    <li><strong>隐形收益：</strong>支持更长上下文</li>
+    <li><strong>代价：</strong>需要专用 CUDA kernel，不能直接用 FlashAttention</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>② MoE — 省计算</h3>
+  <ul>
+    <li>总参 671B，256 个路由专家 + 共享专家</li>
+    <li>Router 每 token 选 Top-8 激活，每次前向只算 37B 参数</li>
+    <li><strong>效果：</strong>671B 模型，计算量只相当于 37B</li>
+    <li><strong>难点：</strong>负载均衡（"专家坍塌"）、跨节点通信</li>
+  </ul>
+
+  <div class="highlight teal">
+    <strong>🤝 MLA + MoE 互补：</strong><br>
+    MLA 压 KV Cache（显存瓶颈），MoE 压 FFN 计算（算力瓶颈）。两者各管各的瓶颈，互不干扰。
+  </div>
+</div>
+
+<div class="card">
+  <h3>③ MTP — 提吞吐</h3>
+  <ul>
+    <li>标准 Decode：一次前向 1 个 token → MTP：一次前向 2 个 token</li>
+    <li>在主输出层之上加额外预测头，N=2 性价比最优</li>
+    <li><strong>效果：</strong>吞吐量翻倍，可充当投机解码草稿模型</li>
+    <li><strong>成本：</strong>训练时微增，推理时几乎零额外成本</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>为什么 OpenAI / Google 不直接抄？</h3>
+  <ul>
+    <li><strong>MoE 工程复杂度</strong>：671B MoE 训练需要处理负载均衡、节点路由、不稳定性</li>
+    <li><strong>推理部署路径依赖</strong>：大厂用超大规模集中推理 + 定制硬件（TPU）摊薄成本</li>
+    <li><strong>MLA 兼容性成本</strong>：标准 MHA 有成熟 FlashAttention，MLA 需重写 CUDA kernel</li>
+    <li><strong>核心策略差异</strong>：DeepSeek 用算法创新弥补硬件的限（H800），大厂用最强硬件换时间</li>
+  </ul>
+</div>
+
+<div class="diagram">
+  <h4 style="color:var(--text);margin-bottom:16px;">DeepSeek V3 推理过程全景</h4>
+  <div>
+    <strong>Prefill：</strong><br>
+    <span class="step">Tokenize 输入</span>
+    <span class="arrow">→</span>
+    <span class="step">MLA：存压缩 c 到 KV Cache</span>
+    <span class="arrow">→</span>
+    <span class="step">MoE Router：选 8/256 专家</span>
+  </div>
+  <div style="margin-top:16px;">
+    <strong>Decode（逐 token）：</strong><br>
+    <span class="step">MTP：一次预测 2 token</span>
+    <span class="arrow">→</span>
+    <span class="step">Q 标准投影</span>
+    <span class="arrow">→</span>
+    <span class="step">K/V 从 c 展开</span>
+    <span class="arrow">→</span>
+    <span class="step">MoE 选专家子集</span>
+    <span class="arrow">→</span>
+    <span class="step">新 token 的 c 追加到 KV Cache</span>
+  </div>
+  <div style="margin-top:12px;color:var(--text-dim);font-size:0.9em;">
+    MLA 控制显存 · MoE 控制计算量 · MTP 控制吞吐密度
+  </div>
+</div>
+</section>
+
+<!-- Section 6 -->
+<section id="s6">
+<div class="section-header">
+  <div class="section-num teal">6</div>
+  <h2>推理瓶颈从算力转向带宽：谁搬得少谁赢</h2>
+</div>
+
+<div class="card">
+  <div class="highlight pink">
+    <strong>🏆 全文核心命题：</strong> 推理性能的竞争，正在从"谁算得更快"转向<strong>"谁搬得更少"</strong>。
+  </div>
+
+  <p>传统认知：大模型慢 → 参数太多 → 算力不够。这套解释正在失效。</p>
+
+  <p>实际瓶颈是：自回归推理 → 每步加载完整权重 → 数据搬运 >> 计算本身。</p>
+
+  <h4>优化方向在收敛：</h4>
+  <ul>
+    <li><strong>量化</strong> → 降权重精度，减内存占用</li>
+    <li><strong>KV Cache 复用</strong> → 避免重复加载历史</li>
+    <li><strong>推测解码</strong> → 用小模型预测，减大模型调用</li>
+    <li><strong>Prefix Cache</strong> → 跨请求复用上下文</li>
+    <li><strong>MLA</strong> → 压缩 K/V 到潜在空间</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>共通点：</strong> 不再追求"更快算"，而是尽量<strong>少搬数据、少访问权重</strong>。当带宽成为主约束，优化目标就从提升算力利用率转向降低数据访问成本。
+  </div>
+</div>
+</section>
+
+<!-- Section 7 -->
+<section id="s7">
+<div class="section-header">
+  <div class="section-num green">7</div>
+  <h2>投资推演：推理降本 × 存储需求 × AI 应用</h2>
+</div>
+
+<div class="card">
+  <p>技术变化 → 投资映射。今天的技术链对持仓的含义：</p>
+
+  <table>
+    <tr><th>技术趋势</th><th>对持仓</th><th>方向</th></tr>
+    <tr>
+      <td>推理成本 10x 下降</td>
+      <td>更多 AI 应用 → 更多基础设施需求</td>
+      <td><span style="color:var(--green)">↑ 中长期偏多</span></td>
+    </tr>
+    <tr>
+      <td>HBM/DRAM 需求增长</td>
+      <td><strong>MU</strong>：HBM 受益，但单仓 14.8% 超硬线</td>
+      <td><span style="color:var(--yellow)">→ 逻辑在，仓位需控</span></td>
+    </tr>
+    <tr>
+      <td>Vera Rubin 量产</td>
+      <td><strong>TSM</strong>：CoWoS 持续紧张，推理芯片需求</td>
+      <td><span style="color:var(--green)">↑ 偏多</span></td>
+    </tr>
+    <tr>
+      <td>推理成本降低 → 云需求增加</td>
+      <td><strong>GOOG / MSFT</strong>：云 AI 工作负载加速上云</td>
+      <td><span style="color:var(--green)">↑ 偏多</span></td>
+    </tr>
+    <tr>
+      <td>算法可弥补芯片差距</td>
+      <td><strong>NVDA</strong>：短期侵蚀护城河，长期 Jevons 悖论</td>
+      <td><span style="color:var(--yellow)">→ 中性-偏多</span></td>
+    </tr>
+  </table>
+
+  <div class="highlight yellow">
+    <strong>⚠️ 风控提醒：</strong> AI 线暴露 47.7% 已超 33% 硬线。DeepSeek 的降本故事越强，持仓越拥挤——<strong>天大的好消息 + 拥挤的仓位 = 需要纪律的时刻。</strong>
+  </div>
+
+  <h4>Jevons 悖论：降本 ≠ 需求收缩</h4>
+  <p>当某资源变得更便宜、更高效时，使用量反而增加（不是减少）。推理成本 10x 下降 → 更多人部署 AI → 总 GPU/DRAM 需求上升。这是<strong>总量逻辑</strong>。</p>
+</div>
+</section>
+
+<!-- Summary -->
+<section>
+<div class="section-header">
+  <div class="section-num purple">∞</div>
+  <h2>知识链总结</h2>
+</div>
+
+<div class="card">
+  <div class="diagram">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:16px;">
+      <span class="step">Embedding</span>
+      <span class="arrow">→</span>
+      <span class="step">KV Cache</span>
+      <span class="arrow">→</span>
+      <span class="step">Prefill / Decode</span>
+      <span class="arrow">→</span>
+      <span class="step">MHA → GQA → MLA</span>
+      <span class="arrow">→</span>
+      <span class="step">DeepSeek 三件套</span>
+      <span class="arrow">→</span>
+      <span class="step">推理降本</span>
+      <span class="arrow">→</span>
+      <span class="step">AI 应用 × 投资</span>
+    </div>
+    <div style="color:var(--text-dim);font-size:0.9em;">
+      7 篇文章 | 1 条完整知识链 | 技术 → 工程 → 商业 → 投资
+    </div>
+  </div>
+</div>
+</section>
+
+</div>
+
+<div class="footer">
+  <p>基于 2026-06-20 微信公众号文章分析整理</p>
+  <p>来源：AI知识一学就会 / 注意力场 / Morgan Stanley / 公众号合集</p>
+  <p><a href="https://github.com/ewangwo/lff-reports" target="_blank">GitHub → ewangwo/lff-reports</a></p>
+</div>
+
+</body>
+</html>
