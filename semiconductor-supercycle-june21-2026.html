@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>半导体超级周期强化 — 2026年6月21日 8篇研报综合分析</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2333;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #3fb950;
+  --red: #f85149;
+  --orange: #d29922;
+  --purple: #bc8cff;
+  --cyan: #39d2c0;
+  --pink: #f778ba;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; }
+.hero .subtitle { color: var(--text2); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+.hero .meta { margin-top: 20px; color: var(--text2); font-size: .9rem; }
+.hero .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: .8rem;
+  margin: 4px;
+}
+.badge.bull { background: rgba(63,185,80,.15); color: var(--accent2); border: 1px solid rgba(63,185,80,.3); }
+.badge.info { background: rgba(88,166,255,.15); color: var(--accent); border: 1px solid rgba(88,166,255,.3); }
+
+/* TOC */
+.toc {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 32px;
+  margin: 40px auto;
+  max-width: 700px;
+}
+.toc h3 { margin-bottom: 16px; color: var(--accent); }
+.toc ol { padding-left: 20px; }
+.toc li { margin: 8px 0; }
+.toc a { color: var(--text); text-decoration: none; transition: color .2s; }
+.toc a:hover { color: var(--accent); }
+
+/* Sections */
+section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+.section-num {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-size: .85rem;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* Report Cards */
+.report-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 28px;
+  transition: border-color .2s;
+}
+.report-card:hover { border-color: var(--accent); }
+.report-header { margin-bottom: 16px; }
+.report-header h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
+.report-header .source { color: var(--text2); font-size: .85rem; }
+.report-header .date { color: var(--text2); font-size: .8rem; }
+.report-header .rating {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: .78rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.rating.buy { background: rgba(63,185,80,.15); color: var(--accent2); border: 1px solid rgba(63,185,80,.3); }
+.rating.overweight { background: rgba(63,185,80,.15); color: var(--accent2); border: 1px solid rgba(63,185,80,.3); }
+.rating.underperform { background: rgba(248,81,73,.15); color: var(--red); border: 1px solid rgba(248,81,73,.3); }
+
+.report-body { color: var(--text2); font-size: .92rem; line-height: 1.8; }
+.report-body strong { color: var(--text); }
+.report-body .highlight {
+  background: rgba(188,140,255,.12);
+  border-left: 3px solid var(--purple);
+  padding: 10px 16px;
+  margin: 12px 0;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+/* Tables */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+}
+th, td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+th {
+  background: var(--bg3);
+  color: var(--accent);
+  font-weight: 600;
+}
+td { color: var(--text2); }
+td.num { font-variant-numeric: tabular-nums; }
+td.red { color: var(--red); }
+td.green { color: var(--accent2); }
+td.orange { color: var(--orange); }
+td.purple { color: var(--purple); }
+
+/* Tags */
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .75rem; margin: 2px; }
+.tag.green { background: rgba(63,185,80,.12); color: var(--accent2); }
+.tag.red { background: rgba(248,81,73,.12); color: var(--red); }
+.tag.orange { background: rgba(210,153,34,.12); color: var(--orange); }
+.tag.blue { background: rgba(88,166,255,.12); color: var(--accent); }
+.tag.purple { background: rgba(188,140,255,.12); color: var(--purple); }
+
+/* Consensus Matrix */
+.matrix-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 16px;
+  margin: 16px 0;
+}
+.matrix-item {
+  display: contents;
+}
+.matrix-topic {
+  padding: 8px 12px;
+  background: var(--bg3);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: .88rem;
+  white-space: nowrap;
+}
+.matrix-desc {
+  padding: 8px 12px;
+  background: var(--bg2);
+  border-radius: 6px;
+  font-size: .88rem;
+  color: var(--text2);
+}
+
+/* Chain */
+.chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 20px 0;
+}
+.chain-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: .82rem;
+  text-align: center;
+  max-width: 140px;
+}
+.chain-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+/* Action Grid */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.action-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+.action-card .priority {
+  font-size: .75rem;
+  font-weight: 700;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.prio.p0 { background: rgba(248,81,73,.2); color: var(--red); }
+.prio.p1 { background: rgba(210,153,34,.2); color: var(--orange); }
+.prio.p2 { background: rgba(57,210,192,.2); color: var(--cyan); }
+.action-card h4 { font-size: .95rem; margin-bottom: 8px; }
+.action-card p { font-size: .82rem; color: var(--text2); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  color: var(--text2);
+  font-size: .8rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 1.5rem; }
+  .chain { flex-direction: column; align-items: center; }
+  .chain-arrow { transform: rotate(90deg); }
+  .matrix-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <h1>半导体超级周期仍在强化</h1>
+  <p class="subtitle">2026年6月21日 · 8篇投行研报综合分析 — 从AI需求到设备支出到存储升级的完整逻辑链</p>
+  <div class="meta">
+    <span class="badge bull">8篇可解析</span>
+    <span class="badge info">5家投行</span>
+    <span class="badge bull">CSP capex +80%</span>
+    <span class="badge info">WFE $250B</span>
+    <span class="badge bull">Memory Indicator 189</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>📑 目录</h3>
+  <ol>
+    <li><a href="#r1">CoreWeave高管访谈 — AI需求每天加剧</a></li>
+    <li><a href="#r2">DB — Micron F3Q26 Preview（目标价$1,500）</a></li>
+    <li><a href="#r3">BofA — Global Memory Tech Weekly（最强数据面）</a></li>
+    <li><a href="#r4">JPM — Semiconductor/SPE Sector（WFE上修）</a></li>
+    <li><a href="#r5">JPM — ASIC市场（2027超GPU）</a></li>
+    <li><a href="#r6">JPM — KIOXIA Holdings（目标价+94%）</a></li>
+    <li><a href="#r7">Bernstein — Korea HBM出口追踪（5月创纪录）</a></li>
+    <li><a href="#r8">Citi — US Semi Equipment（$250B WFE）</a></li>
+    <li><a href="#synthesis">跨报告综合</a></li>
+    <li><a href="#portfolio">持仓映射</a></li>
+    <li><a href="#action">行动建议</a></li>
+  </ol>
+</div>
+
+<!-- Reports -->
+<section id="r1">
+  <h2 class="section-title"><span class="section-num">1</span>CoreWeave高管访谈：AI需求似乎每天都在加剧</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>An Interview with CoreWeave Executives: AI Demand Seems to 'Intensify' Every Day</h3>
+      <div class="source">📰 Key Context (Tae Kim) · 2026年6月17日</div>
+    </div>
+    <div class="report-body">
+      <p><strong>采访对象：</strong>CoreWeave联合创始人Brannin McBee + VP of Corporate Development Nick Robbins</p>
+      <div class="highlight">
+        <strong>最核心一句话：</strong>Nick Robbins说"AI需求每天找到新的方式加剧"（It finds new ways to intensify seemingly every day）
+      </div>
+      <p><strong>四大要点：</strong></p>
+      <p>① <strong>Agentic AI浪潮始于Q4 2025</strong> — 客户工程对话从那时起爆发，Q1 2026是推理和AI消费的"巨大拐点"，加速态势仍在持续</p>
+      <p>② <strong>CPU+GPU共置已成定局</strong> — CoreWeave自2023年起就跑CPU，去年已重新架构数据中心设计预留大量CPU和存储空间。Nick说"你会看到大量Vera CPU与Vera Rubin服务器紧挨着放置"</p>
+      <p>③ <strong>存储需求相对增长</strong> — Agentic AI和推理模型带动存储需求上升，趋势将持续</p>
+      <p>④ <strong>CoreWeave的独特生态位</strong> — 唯一一家服务所有最尖端AI用户的独立云：Anthropic、OpenAI、Meta、Google、Microsoft、Nvidia都是其客户。这创造了正向信息飞轮</p>
+      <p>📌 <strong>不确定性：</strong>纯定性访谈。但CoreWeave是第一手工程对话源，行业风向标意义强</p>
+    </div>
+  </div>
+</section>
+
+<section id="r2">
+  <h2 class="section-title"><span class="section-num">2</span>DB — Micron F3Q26 Preview</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>Micron F3Q26 Preview: Raising ests/PT in light of strengthening industry dynamics</h3>
+      <div class="source">📰 Deutsche Bank (Melissa Weathers) · 2026年6月16日</div>
+      <span class="rating buy">Buy · 目标价 $1,000 → $1,500 (+50%)</span>
+    </div>
+    <div class="report-body">
+      <p><strong>核心论据：</strong></p>
+      <p>DRAM位需求"远超"供给增长的格局将持续到2028年。尽管DRAM厂已宣布加速产能扩建，供需缺口仍在扩大。新承包机制（SCA战略客户协议）将强化财务稳定性，驱动EPS上修+估值重评向半导体同行靠拢。</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>指标</th><th>F3Q26E (5月季)</th><th>F4Q26E (8月季)</th></tr>
+        <tr><td>收入</td><td class="num green">$35.1B (+47% q/q)</td><td class="num green">$42.6B (+21% q/q)</td></tr>
+        <tr><td>DRAM收入</td><td class="num">$27.7B (+47%)</td><td class="num">$33.4B (+20%)</td></tr>
+        <tr><td>HBM收入</td><td class="num">$2.79B (+10%)</td><td class="num">$2.93B (+5%)</td></tr>
+        <tr><td>NAND收入</td><td class="num">$7.32B (+47%)</td><td class="num">$9.09B (+24%)</td></tr>
+        <tr><td>毛利率</td><td class="num green">81.9% (+700bps)</td><td class="num green">83.4% (+150bps)</td></tr>
+        <tr><td>EPS</td><td class="num green">$20.29</td><td class="num green">$25.35</td></tr>
+      </table>
+      </div>
+      <p><strong>证据链：</strong>NDR后更新供需模型+定价持续顺风+历史LTM平均beat +9%。目标价轨迹：$150→$300→$550→$1,000→$1,500</p>
+      <p>⚠️ <strong>不确定性：</strong>SCA合同谈判中披露有限；目标价每次上修都被验证是否可持续？Bernstein给出$510极度保守目标价</p>
+    </div>
+  </div>
+</section>
+
+<section id="r3">
+  <h2 class="section-title"><span class="section-num">3</span>BofA — Global Memory Tech Weekly（本周最强数据面报告）</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>Global Memory Tech Weekly: Vera memory cut, strong June, Samsung dividend, Kor conf preview</h3>
+      <div class="source">📰 BofA Securities (Simon Woo 等) · 2026年6月13日</div>
+    </div>
+    <div class="report-body">
+      <div class="highlight">
+        <strong>🔑 最重要发现：</strong>Vera CPU内存削减50%是谣言！市场传SOCAMM从1500GB砍到750GB，BofA核查确认仍是1500GB主流。增量SOCAMM需求利好TAM。
+      </div>
+      <p><strong>六大要点：</strong></p>
+      <p>① <strong>韩国半导体出口6月前10天$11bn（+206% YoY，+30% MoM）</strong> — 历史新高</p>
+      <p>② <strong>DRAM现货大涨：</strong>DDR5 16Gb $44.8（YoY +675%）、DDR4 8Gb $36.3（YoY +985%）、DDR4 4Gb $10.1（YoY +475%）</p>
+      <p>③ <strong>BofA Memory Indicator = 189（历史极值）</strong> — 此前天花板~140，因数据超预期已上调至240</p>
+      <p>④ 三星可成为分红标的：FCF或达W200tn+，50% payout ratio，可能提前4-5个月派息</p>
+      <p>⑤ 台湾内存5月销售强劲：南亚科+730% YoY、群联+301%、ADATA +210%</p>
+      <p>⑥ 中国IC进口$57bn（+68% YoY — 但量-1%）</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>现货价格</th><th>当前 ($)</th><th>WoW</th><th>YoY</th></tr>
+        <tr><td>DDR5 16Gb</td><td class="num orange">44.8</td><td>+3%</td><td class="num red">+675%</td></tr>
+        <tr><td>DDR4 8Gb</td><td class="num orange">36.3</td><td>+4%</td><td class="num red">+985%</td></tr>
+        <tr><td>NAND 1Tb wafer</td><td class="num">25.1</td><td>-1%</td><td class="num green">+390%</td></tr>
+      </table>
+      </div>
+      <p>⚠️ <strong>不确定性：</strong>Memory Indicator历史极值需警惕均值回归；中国IC进口量-1%可能是需求端隐忧</p>
+    </div>
+  </div>
+</section>
+
+<section id="r4">
+  <h2 class="section-title"><span class="section-num">4</span>JPM — Semiconductor/SPE Sector（最全面的设备报告）</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>Semiconductor/SPE Sector: Raising our 2026-27 WFE market forecasts</h3>
+      <div class="source">📰 JPMorgan (Mio Shikanai 等11人团队) · 2026年6月17日</div>
+    </div>
+    <div class="report-body">
+      <div class="highlight">
+        <strong>WFE市场上修：</strong>2026E +28%（原+21%）→ 2027E +29%（原+18%）→ 2028E +16%（新增）
+      </div>
+      <p><strong>六大要点：</strong></p>
+      <p>① <strong>四大美国CSP 2026年投资+80% YoY，2027年+50%</strong> — 这是WFE上修的根本驱动力</p>
+      <p>② <strong>全球半导体出货2026年4月+106% YoY（1994年以来最强）</strong>，连续32个月增长</p>
+      <p>③ <strong>CSP的存储投资权重从低个位数→15%→2026年约50%</strong> — DRAM和TSMC是WFE上修主因</p>
+      <p>④ <strong>TSMC CoWoS产能加速：</strong>2026年底115K → 2027年底175K → 2028年底220K wpm（CAGR 80%+）</p>
+      <p>⑤ <strong>TSMC capex：</strong>2026年$56B（+37%）→ 2027年$65B（+16%）→ 2028年$72B（+11%）</p>
+      <p>⑥ <strong>先进制程（N5及以下）供给短缺持续到2027/2028年初</strong></p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>指标</th><th>旧预测</th><th>新预测</th></tr>
+        <tr><td>2026E WFE增长</td><td>+21%</td><td class="green">+28%</td></tr>
+        <tr><td>2027E WFE增长</td><td>+18%</td><td class="green">+29%</td></tr>
+        <tr><td>2028E WFE增长</td><td>—</td><td class="green">+16%（新增）</td></tr>
+      </table>
+      </div>
+      <p><strong>Top Picks：</strong>Tokyo Electron、Advantest、ASML、KLA、ASMPT</p>
+      <p>⚠️ <strong>不确定性：</strong>AI capex放缓风险；HBM4/Rubin时间线不确定</p>
+    </div>
+  </div>
+</section>
+
+<section id="r5">
+  <h2 class="section-title"><span class="section-num">5</span>JPM — AI Drives Resurgence in Custom Chips (ASICs)</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>AI Drives Resurgence in Custom Chips (ASICs) — ASIC Market Overview/Update</h3>
+      <div class="source">📰 JPMorgan (Harlan Sur, Mayur Ramdhani) · 2026年6月</div>
+    </div>
+    <div class="report-body">
+      <div class="highlight">
+        <strong>🚀 AI ASIC出货量预计2027年超过GPU出货量</strong>
+      </div>
+      <p><strong>市场规模：</strong>Custom AI ASIC市场2026年$60-70B，CAGR 40-50%+</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>公司</th><th>AI收入 FY25</th><th>AI收入 FY26E</th><th>AI收入 FY27E</th><th>份额</th></tr>
+        <tr><td><strong>Broadcom</strong></td><td>~$20B</td><td class="green">$60B+</td><td class="green">$150B+</td><td>80-85%</td></tr>
+        <tr><td><strong>Marvell</strong></td><td>~$6.1B (DC)</td><td>~$9.3B</td><td>~$14.6B</td><td>10-12%</td></tr>
+      </table>
+      </div>
+      <p><strong>Broadcom客户管道：</strong></p>
+      <p>• Google TPUv7/v8：6.5M+出货，~$100B收入<br>
+      • Meta：5个program（Athena/Iris/Arke/Astrid/2nm），1GW CY27<br>
+      • OpenAI + Softbank/Arm：首颗芯片已出fab，CY27 ramp<br>
+      • Google v8i延长6个月→v9/v10 2nm无缝衔接，CY28继续70%+增长</p>
+      <p><strong>Marvell客户管道：</strong></p>
+      <p>• Amazon Trainium 3(3nm)已投产→Trainium 4(2nm) 2H27<br>
+      • Microsoft Maia 3nm taping out→CY27 ramp<br>
+      • Google SmartNIC/DPU ASIC multi-billion win</p>
+      <p>⚠️ <strong>不确定性：</strong>Google TPU v9架构年底才定；Trainium供应链约束</p>
+    </div>
+  </div>
+</section>
+
+<section id="r6">
+  <h2 class="section-title"><span class="section-num">6</span>JPM — KIOXIA Holdings (285A)</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>KIOXIA Holdings (285A): Multiple re-rating catalysts, raise our price target to ¥155,000</h3>
+      <div class="source">📰 JPMorgan (Mio Shikanai, Jay Kwon) · 2026年6月19日</div>
+      <span class="rating overweight">Overweight · 目标价 ¥80,000 → ¥155,000 (+94%)</span>
+    </div>
+    <div class="report-body">
+      <div class="highlight">
+        <strong>YTD +941%，但forward P/E仅11x — 与Bernstein目标价¥40K严重分歧</strong>
+      </div>
+      <p><strong>核心论据：</strong>Bain减持压力消退后多重催化剂浮现：LTA合同（收入可见性）、股东回报、AiSAQ+NVIDIA软件方案。3年EPS CAGR 160%。Inference AI驱动NAND从冷存储→热温存储升级。</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>指标</th><th>FY25A</th><th>FY26E</th><th>FY27E</th><th>FY28E</th></tr>
+        <tr><td>收入 (¥B)</td><td>1,706</td><td>2,338</td><td class="green">9,760</td><td class="green">13,510</td></tr>
+        <tr><td>EBIT Margin</td><td>26.5%</td><td>37.2%</td><td class="green">76.0%</td><td class="green">78.2%</td></tr>
+        <tr><td>EPS (¥)</td><td>505</td><td>1,015</td><td class="green">9,897</td><td class="green">14,149</td></tr>
+        <tr><td>P/E</td><td>215x</td><td>107x</td><td>11x</td><td>5.8x</td></tr>
+        <tr><td>ROE</td><td>—</td><td>52%</td><td class="green">137%</td><td>68%</td></tr>
+      </table>
+      </div>
+      <p><strong>eSSD占比：</strong>FY25 34% → FY28 67%，ASP mix改善驱动利润扩张</p>
+      <p>⚠️ <strong>⚠️ 与其他投行严重分歧：</strong>Bernstein目标价仅¥40,000（JPM的1/4），评级Underperform。YTD +941%后任何AI capex放缓信号可致情绪急冻</p>
+    </div>
+  </div>
+</section>
+
+<section id="r7">
+  <h2 class="section-title"><span class="section-num">7</span>Bernstein — Korea Memory Export Tracker (May): A Record High Month</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>Korea Memory Export Tracker (May): A record high month with early signs on HBM4 ramp</h3>
+      <div class="source">📰 Bernstein (Mark Li 等) · 2026年6月18日</div>
+    </div>
+    <div class="report-body">
+      <div class="highlight">
+        <strong>韩国5月多芯片出口$4.2B创历史新高 — HBM4早期信号已现</strong>
+      </div>
+      <p><strong>关键数据：</strong></p>
+      <p>• 韩国多芯片出口(TW+MY)：<strong>$4.2B（历史新高）</strong>，+13% MoM，+15% QoQ，+83% YoY<br>
+      • Samsung（忠清南道）：$1.76B，+79% MoM，+55% QoQ → 回归预测2Q26 HBM $5.6B（+58% QoQ，但距预期-26%因Rubin延迟）<br>
+      • SK hynix（忠北/利川）：-9% MoM，-3% QoQ → 回归预测2Q26 HBM $7.5B（+25% QoQ，略低于预期）<br>
+      • <strong>HBM4信号：</strong>Samsung单位重量价值+30%，指向HBM4 ramp而非整体涨价<br>
+      • HBM价格与常规内存脱钩：常规暴涨，HBM相对稳定</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>公司</th><th>Bernstein评级</th><th>目标价</th><th>当前价</th><th>空间</th></tr>
+        <tr><td>Samsung</td><td>Outperform</td><td>KRW 225K</td><td>KRW 363.5K</td><td class="red">-38%</td></tr>
+        <tr><td>SK hynix</td><td>Outperform</td><td>KRW 1,150K</td><td>KRW 2,699K</td><td class="red">-57%</td></tr>
+        <tr><td>MU</td><td>Outperform</td><td class="orange">$510</td><td>$1,043</td><td class="red">-51%</td></tr>
+        <tr><td>KIOXIA</td><td class="red">Underperform</td><td>¥40,000</td><td>¥96,900</td><td class="red">-59%</td></tr>
+      </table>
+      </div>
+      <p>⚠️ <strong>Bernstein的评级本质上是"基本面好但股价已透支"</strong> — 所有标的当前价均远高于其目标价</p>
+    </div>
+  </div>
+</section>
+
+<section id="r8">
+  <h2 class="section-title"><span class="section-num">8</span>Citi — US Semi Equipment: $250B Reasons to Stay Long</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <h3>US Semiconductor Equipment: $250B Reasons to Stay Long; Lifting PTs on AMAT, LRCX & KLAC</h3>
+      <div class="source">📰 Citi Research (Atif Malik, Elizabeth Sun) · 2026年6月17日</div>
+    </div>
+    <div class="report-body">
+      <div class="highlight">
+        <strong>最具独创性的论点：DRAM瓶颈→利好NAND结构性升级 — KV Cache offloading将SSD变成主动推理内存层</strong>
+      </div>
+      <p><strong>五大要点：</strong></p>
+      <p>① <strong>Bull case WFE：</strong>2026E $145B→2027E $200B→2028E $250B（新增Citi独家预测）</p>
+      <p>② <strong>DRAM瓶颈→NAND受益：</strong>Agentic AI的KV Cache需求爆棚，DRAM供给受限。Nvidia将Vera Rubin SOCAM2减少~50%是因为<strong>供给限制而非需求弱</strong> → 反向验证需求极强。Citi测算需要2-4座新NAND fab或$20-40B capex</p>
+      <p>③ <strong>KV Cache offloading：</strong>热数据在GPU+HBM → 冷数据迁移到DRAM和NAND SSD。SSD变成主动推理内存层而非被动存储</p>
+      <p>④ <strong>行业证据：</strong>Apple AFM 3把LLM存在NAND而非DRAM（6月8日发布）、AMD收购MEXT（让Flash接近DRAM速度，6月15日）、Sandisk HBF提前6个月到2H26 pilot</p>
+      <p>⑤ <strong>KIOXIA XL-Flash：</strong>低延迟高性能NAND+CXL协议，作为HBM和DRAM与常规SSD之间的中间性能层</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>公司</th><th>旧目标价</th><th>新目标价</th><th>涨幅</th><th>P/E</th><th>vs历史均值</th></tr>
+        <tr><td>AMAT</td><td>$550</td><td class="green">$710</td><td>+29%</td><td>31x</td><td>+55%</td></tr>
+        <tr><td>LRCX</td><td>$315</td><td class="green">$450</td><td>+43%</td><td>40x</td><td>+67%</td></tr>
+        <tr><td>KLAC</td><td>$206</td><td class="green">$290</td><td>+41%</td><td>40x</td><td>+60%</td></tr>
+      </table>
+      </div>
+      <p>⚠️ <strong>不确定性：</strong>设备股P/E已+55-67% vs历史均值；$250B WFE是bull case非base；KV Cache offloading仍在早期</p>
+    </div>
+  </div>
+</section>
+
+<!-- Synthesis -->
+<section id="synthesis">
+  <h2 class="section-title"><span class="section-num">9</span>跨报告综合</h2>
+  
+  <h3 style="margin-bottom: 16px;">共识-分歧矩阵</h3>
+  <div class="matrix-grid">
+    <div class="matrix-item"><div class="matrix-topic">AI需求态势</div><div class="matrix-desc"><span class="tag green">完全一致 8/8</span> 极强、加速中、无拐点</div></div>
+    <div class="matrix-item"><div class="matrix-topic">存储周期延续</div><div class="matrix-desc"><span class="tag green">完全一致 7/7</span> 供不应求持续到2028</div></div>
+    <div class="matrix-item"><div class="matrix-topic">WFE/设备前景</div><div class="matrix-desc"><span class="tag green">高度一致 4/4</span> 2026-2028全面扩张。Citi($250B)比JPM($200B)更激进</div></div>
+    <div class="matrix-item"><div class="matrix-topic">Vera内存规格</div><div class="matrix-desc"><span class="tag green">交叉验证</span> BofA核查：削减50%是谣言，TAM利好</div></div>
+    <div class="matrix-item"><div class="matrix-topic">ASIC vs GPU</div><div class="matrix-desc"><span class="tag blue">方向一致</span> 同步增长非零和，JPM说ASIC 2027超GPU</div></div>
+    <div class="matrix-item"><div class="matrix-topic">KIOXIA估值</div><div class="matrix-desc"><span class="tag red">严重分歧</span> JPM +94% vs Bernstein -59%</div></div>
+    <div class="matrix-item"><div class="matrix-topic">MU目标价</div><div class="matrix-desc"><span class="tag orange">有分歧</span> DB $1,500 vs Bernstein $510</div></div>
+    <div class="matrix-item"><div class="matrix-topic">HBM4时间线</div><div class="matrix-desc"><span class="tag blue">方向一致</span> 2H26加速，三星份额有争议</div></div>
+  </div>
+
+  <h3 style="margin: 24px 0 16px;">核心叙事链</h3>
+  <div class="chain">
+    <div class="chain-item">AI推理需求持续加剧<br><small style="color:var(--text2)">CoreWeave</small></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-item">CSP capex +80%/+50%<br><small style="color:var(--text2)">JPM WFE</small></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-item">存储投资占比升至50%<br><small style="color:var(--text2)">JPM</small></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-item">DRAM供不应求到2028<br><small style="color:var(--text2)">DB / BofA</small></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-item">DRAM瓶颈→NAND升级<br><small style="color:var(--text2)">Citi / KIOXIA</small></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-item">WFE $145B/$200B/$250B<br><small style="color:var(--text2)">JPM / Citi</small></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-item">ASIC 2027超GPU<br><small style="color:var(--text2)">JPM ASIC</small></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-item">HBM4下半年加速<br><small style="color:var(--text2)">Bernstein</small></div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio">
+  <h2 class="section-title"><span class="section-num">10</span>持仓映射</h2>
+  
+  <div class="report-card">
+    <div class="report-header">
+      <h3>当前持仓 vs 研报信号</h3>
+      <div class="source">IBKR 2026-06-19 · 净清算价值 $615,017</div>
+    </div>
+    <div class="table-wrap">
+    <table>
+      <tr><th>持仓</th><th>仓位</th><th>状态</th><th>研报信号</th><th>建议</th></tr>
+      <tr>
+        <td><strong>MU</strong> 91股</td><td>17.0%</td><td><span class="tag red">严重超线</span></td>
+        <td>DB $1,500(+30%) vs B $510(-51%)</td>
+        <td class="orange">分批减至12%</td>
+      </tr>
+      <tr>
+        <td><strong>GOOG</strong> 225股</td><td>13.4%</td><td><span class="tag red">超线</span></td>
+        <td>间接受益TPU→ASIC</td>
+        <td class="orange">减至150股</td>
+      </tr>
+      <tr>
+        <td><strong>TSM</strong> 140股</td><td>10.5%</td><td><span class="tag orange">略超</span></td>
+        <td>CoWoS/WFE核心受益</td>
+        <td class="green">持有，暂不加</td>
+      </tr>
+      <tr>
+        <td><strong>NVDA</strong> 60股</td><td>2.1%</td><td><span class="tag green">合规</span></td>
+        <td>ASIC竞争2027年</td>
+        <td class="green">小仓OK</td>
+      </tr>
+      <tr>
+        <td><strong>MSFT</strong> 60股</td><td>3.7%</td><td><span class="tag green">正常</span></td>
+        <td>Maia ASIC+Azure AI</td>
+        <td class="green">稳</td>
+      </tr>
+      <tr>
+        <td><strong>现金+SGOV</strong></td><td>50.3%</td><td><span class="tag green">充足</span></td>
+        <td>研报一致看多=机会成本</td>
+        <td class="blue">保持45%+</td>
+      </tr>
+    </table>
+    </div>
+    <div style="margin-top:16px;">
+      <p><strong>核心矛盾：</strong>AI/芯片暴露46.7% vs 硬线33%（超42%）。所有研报都说看好，但结构不允许加仓。</p>
+      <p><strong>关键变量：</strong>2026年10月~2027年5月将有约$150K新资金入场。这提供约24%的稀释缓冲，可极大缓解集中度问题。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Action -->
+<section id="action">
+  <h2 class="section-title"><span class="section-num">11</span>行动建议</h2>
+  
+  <h3 style="margin-bottom:16px;">更新后的投资铁律（牛市+增量版）</h3>
+  
+  <div class="report-card" style="background:var(--bg3); border-color:var(--accent);">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div style="padding:12px; border-right:1px solid var(--border);">
+        <div style="font-weight:700; color:var(--accent);">📌 总股票仓位</div>
+        <div style="font-size:1.5rem; font-weight:700; margin:8px 0;">≤ 55%</div>
+        <div style="color:var(--text2); font-size:.85rem;">回撤≥15%时弹性到60%</div>
+      </div>
+      <div style="padding:12px;">
+        <div style="font-weight:700; color:var(--red);">📌 AI/芯片暴露</div>
+        <div style="font-size:1.5rem; font-weight:700; margin:8px 0;">≤ 37-40%</div>
+        <div style="color:var(--text2); font-size:.85rem;">原33%，新钱$150K全非芯片方向</div>
+      </div>
+      <div style="padding:12px; border-right:1px solid var(--border);">
+        <div style="font-weight:700; color:var(--orange);">📌 单仓上限</div>
+        <div style="font-size:1.5rem; font-weight:700; margin:8px 0;">≤ 12-13%</div>
+        <div style="color:var(--text2); font-size:.85rem;">原10%，MU仍须减~10股</div>
+      </div>
+      <div style="padding:12px;">
+        <div style="font-weight:700; color:var(--accent2);">📌 现金缓冲</div>
+        <div style="font-size:1.5rem; font-weight:700; margin:8px 0;">≥ 22-25%</div>
+        <div style="color:var(--text2); font-size:.85rem;">新钱至少留$30-40K</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin:24px 0 16px;">立即执行（本周）</h3>
+  <div class="action-grid">
+    <div class="action-card">
+      <span class="priority prio p0">P0 🔴</span>
+      <h4>MU设分批止盈</h4>
+      <p>$1,200卖3股→$1,350卖5股→$1,500卖5股。17%→12-13%</p>
+    </div>
+    <div class="action-card">
+      <span class="priority prio p0">P0 🟡</span>
+      <h4>GOOG减至150股</h4>
+      <p>卖75股（~$27K），13.4%→~8%</p>
+    </div>
+    <div class="action-card">
+      <span class="priority prio p1">P1 🟡</span>
+      <h4>盯6/24 MU财报</h4>
+      <p>重点：SCA披露+GM%+F4Q26指引。DB预期$35.1B</p>
+    </div>
+  </div>
+
+  <h3 style="margin:24px 0 16px;">新钱$150K到账后部署</h3>
+  <div class="action-grid">
+    <div class="action-card">
+      <span class="priority prio p2">🥇</span>
+      <h4>补齐防御 $40K</h4>
+      <p>SGOV $20K + BRK.B加仓 $20K</p>
+    </div>
+    <div class="action-card">
+      <span class="priority prio p2">🥈</span>
+      <h4>宽基指数 $60-80K</h4>
+      <p>SPY/VOO + QQQM。吃beta控alpha风险</p>
+    </div>
+    <div class="action-card">
+      <span class="priority prio p2">🥉</span>
+      <h4>可选Alpha $30-50K</h4>
+      <p>AVGO（ASIC龙头）或AMAT（WFE龙头Citi目标$710）</p>
+    </div>
+  </div>
+
+  <div class="report-card" style="margin-top:24px; border-color:var(--purple);">
+    <div style="font-style:italic; color:var(--purple); font-size:.95rem;">
+      "AI牛市可以让你更积极，但不能让你放弃风险预算。你的目标不是一年翻倍。你的目标是2030年海外资产100万美元、总资产1000万人民币以上。这个目标靠的是连续5年不犯大错，不是靠一次牛市全仓冲刺。"
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <p>Generated by Hermes Agent · 2026-06-21 · Based on 8 research reports from DB/BofA/JPM/Bernstein/Citi</p>
+  <p style="margin-top:8px; font-size:.75rem;">⚠️ 本页面内容仅供参考，不构成投资建议。所有投资决策请自行判断。</p>
+</div>
+
+</div>
+</body>
+</html>
