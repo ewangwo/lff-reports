@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>两天阅读综述：AI的内存瓶颈 — 从LLM推理到半导体基础设施的完整逻辑链</title>
+<style>
+:root {
+  --bg: #0d1117; --bg2: #161b22; --bg3: #1c2333;
+  --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+  --accent: #58a6ff; --accent2: #3fb950; --red: #f85149;
+  --orange: #d29922; --purple: #bc8cff; --cyan: #39d2c0;
+  --pink: #f778ba; --gold: #e6c200;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.7;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* Hero */
+.hero {
+  padding: 70px 0 50px; text-align: center;
+  background: linear-gradient(180deg, rgba(88,166,255,.06) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 12px; }
+.hero .sub { color: var(--text2); font-size: 1rem; max-width: 700px; margin: 0 auto; }
+.hero .meta { margin-top: 16px; font-size: .82rem; color: var(--text2); line-height: 1.9; }
+.badge { display: inline-block; padding: 2px 9px; border-radius: 14px; font-size: .72rem; margin: 2px; }
+.badge.b { background: rgba(88,166,255,.12); color: var(--accent); border: 1px solid rgba(88,166,255,.22); }
+.badge.g { background: rgba(63,185,80,.12); color: var(--accent2); border: 1px solid rgba(63,185,80,.22); }
+.badge.r { background: rgba(248,81,73,.12); color: var(--red); border: 1px solid rgba(248,81,73,.22); }
+.badge.o { background: rgba(210,153,34,.12); color: var(--orange); border: 1px solid rgba(210,153,34,.22); }
+.badge.p { background: rgba(188,140,255,.12); color: var(--purple); border: 1px solid rgba(188,140,255,.22); }
+
+/* TOC */
+.toc { max-width: 720px; margin: 28px auto; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 28px; }
+.toc h3 { margin-bottom: 10px; color: var(--accent); font-size: .9rem; }
+.toc ol { padding-left: 18px; font-size: .85rem; }
+.toc li { margin: 4px 0; }
+.toc a { color: var(--text2); text-decoration: none; }
+.toc a:hover { color: var(--accent); }
+.toc .divider { border-top: 1px solid var(--border); margin: 8px 0; }
+
+/* Sections */
+section { padding: 32px 0; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+.stitle {
+  font-size: 1.25rem; font-weight: 700; margin-bottom: 18px;
+  padding-bottom: 5px; border-bottom: 2px solid var(--accent); display: inline-block;
+}
+
+/* Cards */
+.card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 18px; margin-bottom: 14px;
+}
+.card h4 { font-size: .95rem; font-weight: 600; margin-bottom: 6px; }
+.card .src { color: var(--text2); font-size: .78rem; margin-bottom: 6px; }
+.card p { color: var(--text2); font-size: .85rem; line-height: 1.65; }
+.card ul { color: var(--text2); font-size: .85rem; padding-left: 16px; margin: 4px 0; }
+.card li { margin: 3px 0; }
+.card .hl {
+  background: rgba(188,140,255,.1); border-left: 3px solid var(--purple);
+  padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: .85rem; color: var(--text);
+}
+
+/* Thread */
+.thread { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; padding: 14px 0; }
+.ti {
+  background: var(--bg3); border: 1px solid var(--border); padding: 5px 10px;
+  border-radius: 5px; font-size: .75rem; text-align: center; max-width: 130px;
+}
+.ta { color: var(--accent); font-size: 1rem; display: flex; align-items: center; }
+
+/* Tables */
+.tw { overflow-x: auto; margin: 10px 0; }
+table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+th, td { padding: 5px 8px; border: 1px solid var(--border); text-align: center; }
+th { background: var(--bg3); color: var(--accent); font-weight: 600; }
+
+/* Grid2 */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .g2 { grid-template-columns: 1fr; } }
+
+/* Tags */
+.tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: .7rem; margin: 1px; }
+
+/* Action Grid */
+.ax { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 10px; }
+.ac {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 7px; padding: 14px;
+}
+.ac .pri { font-size: .7rem; font-weight: 700; display: inline-block; padding: 2px 6px; border-radius: 3px; margin-bottom: 5px; }
+
+/* Key insight box */
+.kb {
+  background: linear-gradient(135deg, var(--bg3), var(--bg2));
+  border: 1px solid var(--gold); border-radius: 10px; padding: 22px; margin: 16px 0;
+}
+.kb h3 { color: var(--gold); margin-bottom: 10px; font-size: 1rem; }
+.kb p { color: var(--text2); font-size: .88rem; }
+
+/* Principles */
+.pr {
+  background: var(--bg3); border: 1px solid var(--accent); border-radius: 10px; padding: 20px;
+}
+.pr .r { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.pr .r:last-child { border-bottom: none; }
+.pr .l { font-weight: 600; font-size: .85rem; min-width: 130px; }
+.pr .v { font-size: 1.2rem; font-weight: 700; text-align: center; min-width: 70px; }
+.pr .n { color: var(--text2); font-size: .75rem; text-align: right; }
+
+/* Footer */
+.footer { text-align: center; padding: 22px 0; color: var(--text2); font-size: .75rem; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <h1>🧠 AI的内存瓶颈</h1>
+  <p class="sub">从LLM推理到半导体基础设施的完整逻辑链 — 6月20-21日 两天阅读综述</p>
+  <div class="meta">
+    <span class="badge b">6月20日：LLM推理优化</span>
+    <span class="badge g">6月21日：半导体/AI基础设施</span>
+    <span class="badge r">22+篇阅读材料</span>
+    <span class="badge p">7家分析机构</span>
+    <span class="badge o">3个HTML页面已部署</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>📑 目录</h3>
+  <ol>
+    <li><a href="#bigpic">一、核心主线：内存是AI的通用瓶颈</a></li>
+    <li><a href="#day1">二、Day 1：LLM推理优化（6月20日）</a></li>
+    <li><a href="#day2">三、Day 2：半导体/AI基础设施（6月21日）</a></li>
+    <li><a href="#cross">四、跨日综合：从Token到晶圆的完整链条</a></li>
+    <li><a href="#portfolio">五、持仓映射</a></li>
+    <li><a href="#trade">六、交易建议</a></li>
+    <li><a href="#rules">七、铁律框架</a></li>
+    <li><a href="#kb">八、知识库归档</a></li>
+  </ol>
+</div>
+
+<!-- Big Picture -->
+<section id="bigpic">
+<h2 class="stitle">🧬 核心主线：内存是AI的通用瓶颈</h2>
+<p style="color:var(--text2); margin-bottom:16px;">两天、22+篇文章、覆盖从最底层的GPU指令到最顶层CSP资本开支，所有材料指向同一个结论：</p>
+<div class="kb">
+  <h3>🎯 统一主题：Memory is the Universal Bottleneck</h3>
+  <p>
+    <strong>Day 1 发现：</strong>LLM推理的瓶颈不是算力（FLOPS），而是内存带宽（Memory Wall）。KV Cache、Flash Attention、MLA、MoE路由——所有优化技术的目标都是减少显存搬运和显存占用。<br><br>
+    <strong>Day 2 发现：</strong>AI基础设施的瓶颈也不是算力，而是HBM供给。三星18个月认证延迟、美光售罄、Compute/Byte ratio持续失衡——所有瓶颈最终都落到同一个字：<strong style="color:var(--gold);">Memory</strong>。<br><br>
+    <strong>统一结论：</strong>从微观（一个token的KV Cache）到宏观（全球HBM产能），内存是AI产业链最硬、最短、最难解的约束。这不是周期性短缺，是体系结构级的长期矛盾。
+  </p>
+</div>
+
+<div class="card">
+  <h4>🔗 两天逻辑的完美对接</h4>
+  <div class="thread">
+    <div class="ti">Token级瓶颈<br>KV Cache显存占用</div><div class="ta">→</div>
+    <div class="ti">Kernel级瓶颈<br>Memory Wall</div><div class="ta">→</div>
+    <div class="ti">芯片级瓶颈<br>HBM带宽1.3x vs FLOPS 3x</div><div class="ta">→</div>
+    <div class="ti">系统级瓶颈<br>NVLink域内通信</div><div class="ta">→</div>
+    <div class="ti" style="border-color:var(--red);border-width:2px;">供应链瓶颈<br>HBM供不应求</div><div class="ta">→</div>
+    <div class="ti">产业链瓶颈<br>液冷换热器</div><div class="ta">→</div>
+    <div class="ti">资本开支<br>CSP capex +80%</div>
+  </div>
+</div>
+</section>
+
+<!-- Day 1 -->
+<section id="day1">
+<h2 class="stitle">📖 Day 1：LLM推理优化（6月20日）</h2>
+
+<div class="g2">
+  <div class="card" style="border-left:3px solid var(--accent);">
+    <h4>1️⃣ MS报告：存储行业健康调整</h4>
+    <div class="src">摩根士丹利 · 存储行业</div>
+    <p>存储行业供需正在经历"健康调整"，不是衰退。AI推理带来的存储需求（特别是HBM和企业级SSD）正在结构性增长。结论：<strong>存储是AI基础设施的新瓶颈</strong>。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--accent2);">
+    <h4>2️⃣ KV Cache原理（进阶版）</h4>
+    <div class="src">技术科普</div>
+    <p>KV Cache把历史K/V缓存起来，每步只算新token的K/V。复杂度从O(N²)降到O(N)，但代价是显存占用。单token KV Cache ≈ Layers × KV_heads × dim × 2bytes × 2。A100 80GB理论上限~114K token（极度简化）。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--purple);">
+    <h4>3️⃣ Prefill vs Decode</h4>
+    <div class="src">技术科普</div>
+    <p>Prefill阶段：并行计算（计算密集）。Decode阶段：逐token生成（memory密集）。长上下文时代，Decode阶段的memory-bound特性成为主要瓶颈。系统设计需差异化对待两个阶段。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--orange);">
+    <h4>4️⃣ MHA vs GQA vs MLA</h4>
+    <div class="src">DeepSeek技术拆解</div>
+    <p><strong>MHA</strong>：每Q head独享K/V → 最强表达但最大KV Cache。<strong>GQA</strong>：分组共享K/V → 折中。<strong>MLA</strong>：把K/V压缩到latent space → 最省显存。DeepSeek-V2/V3采用MLA，是推理成本领先的关键。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--red);">
+    <h4>5️⃣ MoE + MTP</h4>
+    <div class="src">DeepSeek技术拆解</div>
+    <p><strong>MoE（混合专家）</strong>：每个token只激活部分参数→训练成本大幅降低。<strong>MTP（多token预测）</strong>：一次预测多个token→推理效率提升。MLA×MoE×MTP组合 = 推理优化的"终极答案"。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--cyan);">
+    <h4>6️⃣ Memory Wall & GPU Tiling</h4>
+    <div class="src">GPU编程教程</div>
+    <p>算力增速远超HBM带宽增速（FLOPS 2-4x vs BW 1.3-1.6x per gen）。Roofline模型：性能 = min(算力峰值, 带宽×算术强度)。Tiling把数据搬上共享内存反复复用，是唯一解法。</p>
+  </div>
+</div>
+
+<div class="card" style="border:1px solid var(--gold);">
+  <h4 style="color:var(--gold);">🌟 Day 1 核心结论</h4>
+  <div class="hl">
+    <strong>LLM推理优化的终极答案 = MLA × MoE × MTP</strong>（DeepSeek路线）。所有优化技术（Flash Attention/KV Cache/GQA/Sliding Window）本质上都在解决同一个问题：<strong>怎么用有限的内存（HBM/显存）装下不断增长的计算需求</strong>。这与Day 2的HBM瓶颈完美对接。
+  </div>
+</div>
+</section>
+
+<!-- Day 2 -->
+<section id="day2">
+<h2 class="stitle">📖 Day 2：半导体/AI基础设施（6月21日）</h2>
+
+<h4 style="margin-bottom:10px; color:var(--text2);">A组：投行研报（8篇）</h4>
+<div class="g2">
+  <div class="card">
+    <h4>1️⃣ CoreWeave高管访谈</h4>
+    <div class="src">Key Context · 6/17</div>
+    <p>AI需求"每天找到新的方式加剧"。Q1是推理/消费的"巨大拐点"。CoreWeave服务所有顶级AI客户→真实需求的活体证据。</p>
+  </div>
+  <div class="card">
+    <h4>2️⃣ DB Micron F3Q26 Preview</h4>
+    <div class="src">Deutsche Bank · 评级<strong style="color:var(--accent2);"> Buy</strong> · 目标价$1,000→<strong style="color:var(--gold);">$1,500</strong></div>
+    <p>DRAM位需求远超供给到2028。F3Q26收入$35.1B (+47% q/q)。毛利率81.9%。SCA战略客户协议将强化财务稳定性。</p>
+  </div>
+  <div class="card">
+    <h4>3️⃣ BofA Memory Weekly</h4>
+    <div class="src">BofA · 6/13</div>
+    <p>Vera内存削减50%是谣言。韩国出口$11bn/10天（+206% YoY）。DDR5 +675% YoY。<strong>Memory Indicator 189历史极值</strong>。中国IC进口量-1%（价格驱动）。</p>
+  </div>
+  <div class="card">
+    <h4>4️⃣ JPM WFE/Semiconductor</h4>
+    <div class="src">JPMorgan · 6/17</div>
+    <p>WFE：2026E +28%，2027E +29%，2028E +16%（新增）。CSP capex +80%/+50%。全球半导体出货+106% YoY（1994年以来最强）。</p>
+  </div>
+  <div class="card">
+    <h4>5️⃣ JPM ASIC</h4>
+    <div class="src">JPMorgan · 2026年6月</div>
+    <p>Custom AI ASIC市场$60-70B（CAGR 40-50%）。<strong>ASIC出货量2027年超GPU</strong>。Broadcom FY27 $150B+ AI收入。</p>
+  </div>
+  <div class="card">
+    <h4>6️⃣ JPM KIOXIA</h4>
+    <div class="src">JPMorgan · 目标价¥80K→<strong style="color:var(--gold);">¥155K</strong></div>
+    <p>3年EPS CAGR 160%。YTD +941%但P/E仅11x。eSSD占比34%→67%。NAND从冷存储升级为热温存储。<strong>但Bernstein目标价仅¥40K——4倍分歧</strong>。</p>
+  </div>
+  <div class="card">
+    <h4>7️⃣ Bernstein HBM Export</h4>
+    <div class="src">Bernstein · 6/18</div>
+    <p>韩国5月HBM相关出口$4.2B（历史新高）。Samsung +79% MoM但距预期-26%。SK hynix +25% QoQ。HBM4早期迹象出现。<strong>目标价：MU $510 vs 市场$1,043</strong>。</p>
+  </div>
+  <div class="card">
+    <h4>8️⃣ Citi Semi Equipment</h4>
+    <div class="src">Citi · 目标价AMAT $710/LRCX $450/KLAC $290</div>
+    <p>WFE bull case：$145B→$200B→<strong>$250B</strong>。DRAM瓶颈→NAND结构性升级。KV Cache offloading将SSD变推理内存层。Apple AFM 3存在NAND而非DRAM。</p>
+  </div>
+</div>
+
+<h4 style="margin:16px 0 10px; color:var(--text2);">B组：深度产业分析（5篇）</h4>
+<div class="g2">
+  <div class="card" style="border-left:3px solid var(--red);">
+    <h4>9️⃣ HBM封装瓶颈 ⭐</h4>
+    <div class="src">wenxida · 6月</div>
+    <p><strong>今天MVP文章。</strong>三星HBM3E认证耗时18个月。SK海力士58% vs 三星21% vs 美光21%。95%单片良率下16层堆叠仅44%。HBM是封装问题不只是内存问题。3家俱乐部+认证门槛+物理极限=最硬瓶颈。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--purple);">
+    <h4>🔟 Rubin HBM4 Memory ⭐</h4>
+    <div class="src">SemiAnalysis · 6月</div>
+    <p>GPU FLOPS每代2-4x vs HBM BW每代1.3-1.6x。Rubin HBM4 ~22TB/s。HBM本质是先进封装≠DRAM。Interposer已成"隐藏芯片"。GPU从"计算芯片"变"数据流处理系统"。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--cyan);">
+    <h4>1️⃣1️⃣ 液冷换热器瓶颈</h4>
+    <div class="src">SemiAnalysis · 6月</div>
+    <p>液冷CDU钎焊板式换热器已成AI算力核心瓶颈。真空钎焊炉扩产周期12-18月。2027年供需比0.9倍（供不应求）。三寡头垄断，高力为台股稀缺纯业务标的。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--accent2);">
+    <h4>1️⃣2️⃣ Apple AFM3架构 ⭐</h4>
+    <div class="src">麒芯 · WWDC 2026后</div>
+    <p>Apple 2端侧+3云端模型。最强AFM 3 Cloud Pro跑在Google Cloud×NVIDIA GPU。端侧AI不是云端替代品而是入口分流器。AI基础设施从"算力堆叠"进入"可信算力"时代。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--accent);">
+    <h4>1️⃣3️⃣ NVIDIA SuperPOD演进</h4>
+    <div class="src">公众号 · 6月</div>
+    <p>H100(256 GPU)→GH200→GB200 NVL72(72 GPU域)→GB200 SuperPOD(576 GPU)。AI算力竞争已从"芯片战争"升级为"系统战争"。NVDA护城河在系统层面。</p>
+  </div>
+</div>
+
+<div class="card" style="border:1px solid var(--gold); margin-top:10px;">
+  <h4 style="color:var(--gold);">🌟 Day 2 核心结论</h4>
+  <div class="hl">
+    <strong>HBM是AI产业链最硬的瓶颈，没有之一。</strong>从三星18个月认证延迟（供给侧）→美光售罄+HBM4加速（需求侧）→Compute/Byte ratio持续失衡（架构侧）→三寡头垄断+物理良率极限（产业侧），所有壁垒汇聚于此。这使美光（MU）的基本面逻辑极强，但也意味着整个AI产业链的弹性受制于HBM产能释放速度。
+  </div>
+</div>
+</section>
+
+<!-- Cross Day -->
+<section id="cross">
+<h2 class="stitle">🔗 跨日综合：从Token到晶圆的完整链条</h2>
+
+<div class="thread" style="gap:4px;">
+  <div class="ti" style="border-color:var(--accent);">Token级<br>KV Cache</div><div class="ta">→</div>
+  <div class="ti" style="border-color:var(--accent);">Kernel级<br>Memory Wall</div><div class="ta">→</div>
+  <div class="ti" style="border-color:var(--accent);">芯片级<br>HBM BW vs FLOPS</div><div class="ta">→</div>
+  <div class="ti" style="border-color:var(--purple);">系统级<br>SuperPOD/NVLink</div><div class="ta">→</div>
+  <div class="ti" style="border-color:var(--red);">供应链级<br>HBM供不应求</div><div class="ta">→</div>
+  <div class="ti" style="border-color:var(--orange);">基础设施级<br>液冷瓶颈</div><div class="ta">→</div>
+  <div class="ti" style="border-color:var(--accent2);">资本级<br>CSP capex +80%</div>
+</div>
+
+<div class="g2" style="margin-top:16px;">
+  <div class="card">
+    <h4>🔵 LLM推理优化（Day 1）→ 对投资的意义</h4>
+    <ul>
+      <li><strong>KV Cache优化→推理成本下降→AI应用加速普及</strong> → 更多推理需求→更多GPU/HBM需求</li>
+      <li><strong>DeepSeek MLA×MoE×MTP→推理效率跃升</strong> → 智能体/长上下文成可能→推理算力需求爆发</li>
+      <li><strong>Memory Wall不可逆→HBM带宽需求持续增长</strong> → HBM供不应求是结构性而非周期性</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>🟢 半导体基础设施（Day 2）→ 对投资的意义</h4>
+    <ul>
+      <li><strong>HBM供给瓶颈→美光（MU）是稀缺的"已验证的HBM供应商"</strong> → 基本面逻辑极强</li>
+      <li><strong>NVIDIA系统护城河→ASIC替代难度被高估</strong> → NVDA小仓持有逻辑成立</li>
+      <li><strong>CSP capex持续高增→WFE设备需求受益</strong> → TSM/AMAT/AVGO</li>
+      <li><strong>液冷瓶颈→供应链新约束</strong> → 算力落地速度可能低于市场预期</li>
+    </ul>
+  </div>
+</div>
+
+<div class="kb">
+  <h3>🔑 跨日统一判断</h3>
+  <p>
+    <strong>AI的内存瓶颈不存在"单一的解决方案"</strong>——技术层面有MLA/KV Cache/Flash Attention缓解，产业层面有HBM扩产/三星追赶/美光进入应对，架构层面有NVLink/Rubin重新设计。但所有缓解措施都只能推迟而非消除这个约束。<br><br>
+    对投资者这意味着：持有HBM受益方（MU/TSM）的基本面逻辑被双重确认（Day 1做技术验证，Day 2做产业验证），但集中度风险同时被放大（如果HBM瓶颈突然缓解或技术路线突变）。<br><br>
+    <strong style="color:var(--gold);">最优策略：持有优质标的，但用仓位纪律保护自己。</strong>
+  </p>
+</div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio">
+<h2 class="stitle">📈 持仓映射（2026-06-19）</h2>
+<div class="tw">
+<table>
+  <tr>
+    <th>持仓</th><th>仓位</th><th>状态</th>
+    <th>Day 1（推理优化）信号</th><th>Day 2（基础设施）信号</th>
+    <th>综合建议</th>
+  </tr>
+  <tr>
+    <td><strong>MU</strong></td>
+    <td>17.0%</td><td><span class="tag" style="background:rgba(248,81,73,.15);color:var(--red);">严重超线</span></td>
+    <td>Memory Wall→HBM需求结构性强</td>
+    <td>HBM售罄+认证+Rubin+HBM4→极强基本面</td>
+    <td><span class="tag" style="background:rgba(210,153,34,.15);color:var(--orange);">$1,350-1,550分批减至12%</span></td>
+  </tr>
+  <tr>
+    <td><strong>GOOG</strong></td>
+    <td>13.4%</td><td><span class="tag" style="background:rgba(248,81,73,.15);color:var(--red);">超线</span></td>
+    <td>Google Gemini/TPU→推理受益</td>
+    <td>Apple选择Google Cloud→模型+云双入口背书</td>
+    <td><span class="tag" style="background:rgba(248,81,73,.15);color:var(--red);">减至~8%（150股）</span></td>
+  </tr>
+  <tr>
+    <td><strong>TSM</strong></td>
+    <td>10.5%</td><td><span class="tag" style="background:rgba(210,153,34,.15);color:var(--orange);">略超</span></td>
+    <td>先进制程是AI芯片基石</td>
+    <td>CoWoS/WFE/HBM封装核心受益</td>
+    <td><span class="tag" style="background:rgba(63,185,80,.15);color:var(--accent2);">持有，暂不加</span></td>
+  </tr>
+  <tr>
+    <td><strong>NVDA</strong></td>
+    <td>2.1%</td><td><span class="tag" style="background:rgba(63,185,80,.15);color:var(--accent2);">合规</span></td>
+    <td>GPU是推理核心硬件→直接受益</td>
+    <td>系统战争护城河+Apple选择NVIDIA→三层验证</td>
+    <td><span class="tag" style="background:rgba(63,185,80,.15);color:var(--accent2);">小仓持有，正确</span></td>
+  </tr>
+  <tr>
+    <td><strong>MSFT</strong></td>
+    <td>3.7%</td><td><span class="tag" style="background:rgba(63,185,80,.15);color:var(--accent2);">正常</span></td>
+    <td>Azure AI推理需求增长</td>
+    <td>Maia ASIC→受今天报告影响有限</td>
+    <td><span class="tag" style="background:rgba(63,185,80,.15);color:var(--accent2);">持有</span></td>
+  </tr>
+  <tr>
+    <td><strong>PDD</strong></td>
+    <td>2.6%</td><td><span class="tag" style="background:rgba(63,185,80,.15);color:var(--accent2);">观察仓</span></td>
+    <td>无关联</td>
+    <td>无关联</td>
+    <td><span class="tag" style="background:rgba(188,140,255,.15);color:var(--purple);">需单独评估</span></td>
+  </tr>
+  <tr>
+    <td><strong>现金+SGOV</strong></td>
+    <td>50.3%</td><td><span class="tag" style="background:rgba(63,185,80,.15);color:var(--accent2);">充足</span></td>
+    <td>—</td>
+    <td>所有报告看多→机会成本vs纪律</td>
+    <td><span class="tag" style="background:rgba(88,166,255,.15);color:var(--accent);">保持40%+, $150K到账后分批部署</span></td>
+  </tr>
+</table>
+</div>
+</section>
+
+<!-- Trade -->
+<section id="trade">
+<h2 class="stitle">💰 交易建议</h2>
+
+<h4 style="margin-bottom:10px;">🔴 优先级P0：必须执行的仓位调整</h4>
+<div class="ax">
+  <div class="ac" style="border-left:3px solid var(--red);">
+    <span class="pri" style="background:rgba(248,81,73,.2);color:var(--red);">P0</span>
+    <h5>MU分批减仓至12%</h5>
+    <p>设限价单：$1,350减3股→$1,500减5股→$1,550减5股。减~13股回收~$18-20K。<br>
+    <strong>理由：</strong>HBM基本面极强，但17%超线是硬约束。利用上涨而非恐慌减仓。<br>
+    <strong>⚠️ 关键时点：</strong>6/24 MU财报后若大涨，是减仓窗口。</p>
+  </div>
+  <div class="ac" style="border-left:3px solid var(--orange);">
+    <span class="pri" style="background:rgba(210,153,34,.2);color:var(--orange);">P0</span>
+    <h5>GOOG减至150股（~8%）</h5>
+    <p>卖75股(~$27K)，13.4%→~8%。<br>
+    <strong>理由：</strong>Apple背书利好（Day 2），但13.4%超线是独立问题。减仓释放集中度和资金。</p>
+  </div>
+  <div class="ac" style="border-left:3px solid var(--cyan);">
+    <span class="pri" style="background:rgba(57,210,192,.2);color:var(--cyan);">P1</span>
+    <h5>盯6/24 MU财报</h5>
+    <p>看点：SCA披露+HBM4进展+GM%(预期81.9%)+F4Q26指引(DB预期$42.6B)。<br>
+    <strong>如果超预期：</strong>利用涨幅执行减仓计划。<br>
+    <strong>如果低于预期：</strong>不急动手，HBM长期逻辑不变。</p>
+  </div>
+</div>
+
+<h4 style="margin:18px 0 10px;">🟡 新钱$150K部署框架（2026年10月~2027年5月）</h4>
+<div class="ax">
+  <div class="ac">
+    <span class="pri" style="background:rgba(57,210,192,.2);color:var(--cyan);">🥇 防御 $40K</span>
+    <h5>SGOV + BRK.B</h5>
+    <p>SGOV $20K（现金管理）+ BRK.B加仓 $20K（防御仓从$2.4K增至$22K）</p>
+  </div>
+  <div class="ac">
+    <span class="pri" style="background:rgba(57,210,192,.2);color:var(--cyan);">🥈 宽基 $60-80K</span>
+    <h5>SPY/VOO + QQQM</h5>
+    <p>吃牛市beta（标普500+纳斯达克），控制alpha风险。分3批建仓，间隔≥5天。</p>
+  </div>
+  <div class="ac">
+    <span class="pri" style="background:rgba(57,210,192,.2);color:var(--cyan);">🥉 Alpha $30-50K</span>
+    <h5>AVGO（ASIC龙头）或 AMAT（WFE龙头）</h5>
+    <p>AVGO：ASIC报告FY27 $150B+收入，CAGR最确定。<br>
+    AMAT：Citi目标$710，WFE $250B bull case受益。</p>
+  </div>
+</div>
+
+<div class="card" style="border-left:3px solid var(--red); margin-top:12px;">
+  <h4>🚫 不建议的操作</h4>
+  <ul>
+    <li><strong>不因HBM逻辑加仓MU</strong> — 17%已超线，基本面再好也不加</li>
+    <li><strong>不因NVDA护城河加仓NVDA</strong> — 2.1%仓位正确，AI/芯片暴露已46.7%</li>
+    <li><strong>不追高ASIC/设备股</strong> — 等回撤机会，Citi自己说P/E已+55-67% vs历史均值</li>
+    <li><strong>不因一天大涨改变计划</strong> — 6/24 MU财报后如果大涨，是减仓窗口不是加仓窗口</li>
+  </ul>
+</div>
+</section>
+
+<!-- Rules -->
+<section id="rules">
+<h2 class="stitle">⚖️ 铁律框架 v3.0</h2>
+<div class="pr">
+  <div class="r">
+    <div class="l">📌 总股票仓位</div><div class="v" style="color:var(--accent);">≤ 55%</div><div class="n">回撤≥15%弹性到60%</div>
+  </div>
+  <div class="r">
+    <div class="l">📌 AI/芯片暴露</div><div class="v" style="color:var(--red);">≤ 37-40%</div><div class="n">原33%，前提$150K新钱全非芯片方向</div>
+  </div>
+  <div class="r">
+    <div class="l">📌 单仓上限</div><div class="v" style="color:var(--orange);">≤ 12-13%</div><div class="n">原10%。MU仍需从17%减至~12%</div>
+  </div>
+  <div class="r">
+    <div class="l">📌 现金缓冲</div><div class="v" style="color:var(--accent2);">≥ 22-25%</div><div class="n">新钱至少留$30-40K</div>
+  </div>
+  <div class="r" style="border-bottom:none;">
+    <div class="l">📌 增量资金纪律</div><div class="v" style="color:var(--purple);">分批+间隔</div><div class="n">分3-5批，≥5天间隔，不追高</div>
+  </div>
+</div>
+</section>
+
+<!-- KB Archive -->
+<section id="kb">
+<h2 class="stitle">📚 知识库归档</h2>
+<div class="g2">
+  <div class="card">
+    <h4>6月20日 · LLM推理优化（已部署）</h4>
+    <div class="src">📄 <a href="https://ewangwo.github.io/lff-reports/llm-inference-from-token-to-production.html" style="color:var(--accent);" target="_blank">llm-inference-from-token-to-production.html</a></div>
+    <ul>
+      <li>MS报告：存储行业健康调整</li>
+      <li>KV Cache原理（进阶版）</li>
+      <li>Prefill/Decode分析</li>
+      <li>MHA vs GQA vs MLA</li>
+      <li>DeepSeek：MoE+MTP</li>
+      <li>Memory Wall & GPU Tiling</li>
+      <li>Embedding基础</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>6月21日 · 半导体/AI基础设施</h4>
+    <div class="src">📄 <a href="https://ewangwo.github.io/lff-reports/semiconductor-supercycle-june21-2026.html" style="color:var(--accent);" target="_blank">8投行研报合成页</a> · <a href="https://ewangwo.github.io/lff-reports/2026-06-21-review.html" style="color:var(--accent);" target="_blank">综述页</a></div>
+    <ul>
+      <li>8篇投行研报（DB/BofA/JPM/Citi/Bernstein）</li>
+      <li>HBM封装瓶颈（wenxida）· KB已存</li>
+      <li>Rubin HBM4 Memory（SemiAnalysis）· KB已存</li>
+      <li>液冷换热器瓶颈· KB已存</li>
+      <li>Apple AFM3架构· KB已存</li>
+      <li>NVIDIA SuperPOD演进· KB已存</li>
+      <li>GB300推理工厂· KB已存</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- Quote -->
+<div style="padding:20px 0; text-align:center;">
+  <div style="max-width:600px; margin:0 auto; padding:18px; background:var(--bg3); border-radius:8px; border-left:4px solid var(--purple);">
+    <p style="font-style:italic; color:var(--purple); font-size:.9rem;">
+      "AI的内存瓶颈不是周期问题，是体系结构的长期矛盾。<br>
+      短期看它是约束，长期看它是壁垒。<br>
+      持有受益方，但用纪律保护自己。"
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Generated by Hermes Agent · 2026-06-22</p>
+  <p style="margin-top:2px; font-size:.7rem;">阅读材料：22+篇 · 覆盖7家机构 · 跨2天综合分析</p>
+  <p style="font-size:.7rem;">⚠️ 本页面仅供参考，不构成投资建议。所有投资决策请自行判断。</p>
+</div>
+
+</div>
+</body>
+</html>
