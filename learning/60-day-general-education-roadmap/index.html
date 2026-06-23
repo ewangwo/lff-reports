@@ -60,6 +60,31 @@ body {
   font-size: 24px;
   line-height: 1.1;
 }
+.versions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+.versions span {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.16);
+  color: #d0d5dd;
+  line-height: 1.5;
+}
+.versions .current {
+  background: #0f766e;
+  color: #fff;
+  border-color: #0f766e;
+}
+.versions .dead {
+  background: rgba(255,255,255,.05);
+  color: #6b7280;
+  text-decoration: line-through;
+}
 .holiday-entry {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -353,6 +378,12 @@ li { margin: 5px 0; }
       <div><b>90</b>个关键解释点</div>
       <div><b>18</b>张知识库桥接卡</div>
       <div><b>60</b>天同步学习路径</div>
+    </div>
+    <div class="versions">
+      <span class="dead">v1 · 初始版 · ❌ Day 7-11 重复内容</span>
+      <span>v2 · 独立判断版 · 7 模块 60 天 ✅</span>
+      <span>v3 · 内容加厚版 · 每日 4 内容块 ✅</span>
+      <span class="current">v5 · 精读替代层 · 18本书↔知识库桥接 🟢 当前</span>
     </div>
     <div class="holiday-entry">
       <div>
