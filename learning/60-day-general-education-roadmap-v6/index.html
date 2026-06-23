@@ -40,6 +40,36 @@ body {
 .hero p { max-width: 800px; margin: 8px auto 0; color: var(--muted); }
 .hero .v5-link { margin-top: 14px; }
 .hero .v5-link a { color: var(--accent); }
+.version-board {
+  width: min(1200px, calc(100vw - 32px));
+  margin: 18px auto 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 16px;
+}
+.version-board h2 { margin: 0 0 10px; font-size: 18px; }
+.version-board > p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+.version-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.version-card {
+  display: block;
+  min-height: 138px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  padding: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.version-card:hover { border-color: var(--accent); background: var(--accent-soft); }
+.version-card strong { display: block; margin-bottom: 6px; color: var(--accent); font-size: 14px; }
+.version-card span { display: block; color: var(--ink); font-weight: 700; line-height: 1.35; }
+.version-card em {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.5;
+}
 .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 18px; }
 .stats div { border: 1px solid var(--line); background: var(--paper); padding: 12px; }
 .stats b { display: block; font-size: 24px; line-height: 1.1; }
@@ -104,6 +134,14 @@ body {
 .schedule-table td { padding: 6px; border: 1px solid var(--line); }
 ul, ol { margin: 6px 0; padding-left: 20px; }
 li { margin: 4px 0; }
+@media (max-width: 900px) {
+  .version-grid { grid-template-columns: repeat(2, 1fr); }
+  .version-card { min-height: auto; }
+}
+@media (max-width: 560px) {
+  .version-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -119,9 +157,40 @@ li { margin: 4px 0; }
       <div><b>18</b>个知识库桥接</div>
       <div><b>60</b>天每日巩固</div>
     </div>
-    <p class="v5-link">← 查看原版每日详细内容：<a href="../60-day-general-education-roadmap/">60天通识学习系统 v5</a></p>
   </div>
 </header>
+
+<section class="version-board" aria-label="历史版本导航">
+  <h2>历史版本导航</h2>
+  <p>不同版本解决不同学习场景：v6 用来总览和连接知识库，v5 用来逐日精读，压缩版用来假期快速复盘，模型驱动版适合手机点选，三天行动板适合短时间集中推进。</p>
+  <div class="version-grid">
+    <a class="version-card" href="./">
+      <strong>当前最新版</strong>
+      <span>v6 知识库增强版</span>
+      <em>把18本书、知识库价值点、投资/职业/健康/关系映射到一张系统表，适合先建立全局地图。</em>
+    </a>
+    <a class="version-card" href="../60-day-general-education-roadmap/">
+      <strong>历史版本</strong>
+      <span>v5 每日详细版</span>
+      <em>每天有完整概念、应用场景、练习和 Obsidian 原子笔记，适合按60天节奏逐章学习。</em>
+    </a>
+    <a class="version-card" href="../60-day-general-education-roadmap/holiday-compressed.html">
+      <strong>历史版本</strong>
+      <span>v5 假期两天压缩复盘</span>
+      <em>把60天系统压缩成两天内可执行的校准任务，适合周末或假期快速补课。</em>
+    </a>
+    <a class="version-card" href="../60-day-model-driven-roadmap/">
+      <strong>历史版本</strong>
+      <span>模型驱动版</span>
+      <em>以60个判断模型为主线，手机上点日期学习，适合碎片时间快速抽取一个思维工具。</em>
+    </a>
+    <a class="version-card" href="../three-day-learning/">
+      <strong>历史版本</strong>
+      <span>三晚三天行动板</span>
+      <em>每本书只保留一个价值点和一个可见动作，适合短期冲刺和检查学习是否落到输出。</em>
+    </a>
+  </div>
+</section>
 
 <main class="layout">
 
