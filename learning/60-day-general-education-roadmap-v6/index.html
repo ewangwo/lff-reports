@@ -6,31 +6,35 @@
 <title>60 天通识学习 v6 — 知识库增强版</title>
 <style>
 :root {
-  --bg: #0d1117;
-  --ink: #e6edf3;
-  --muted: #8b949e;
-  --line: #30363d;
-  --paper: #161b22;
-  --accent: #58a6ff;
-  --accent-soft: rgba(56,139,253,.15);
-  --gold: #d29922;
-  --gold-soft: rgba(210,153,34,.12);
-  --green: #3fb950;
-  --green-soft: rgba(46,160,67,.12);
-  --red: #f85149;
-  --purple: #bc8cff;
+  --bg: #f4f7fb;
+  --ink: #172033;
+  --muted: #64748b;
+  --line: #d6dee9;
+  --paper: #ffffff;
+  --paper-soft: #f8fafc;
+  --table-head: #eef3f8;
+  --accent: #2563eb;
+  --accent-soft: rgba(37,99,235,.10);
+  --gold: #a16207;
+  --gold-soft: rgba(245,158,11,.14);
+  --green: #0f766e;
+  --green-soft: rgba(15,118,110,.10);
+  --red: #c2410c;
+  --red-soft: rgba(194,65,12,.10);
+  --purple: #7c3aed;
+  --purple-soft: rgba(124,58,237,.10);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--bg);
+  background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 42%, #f7f9fc 100%);
   color: var(--ink);
   font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.72;
 }
 .hero {
-  background: #010409;
+  background: linear-gradient(135deg, #eef6ff 0%, #f8fbff 58%, #eefdf8 100%);
   border-bottom: 1px solid var(--line);
   padding: 34px 20px 28px;
   text-align: center;
@@ -54,7 +58,7 @@ body {
   display: block;
   min-height: 138px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,.03);
+  background: var(--paper-soft);
   padding: 12px;
   color: var(--ink);
   text-decoration: none;
@@ -94,7 +98,7 @@ body {
 .focus-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .focus-meta span {
   border: 1px solid var(--line);
-  background: rgba(255,255,255,.04);
+  background: var(--paper);
   color: var(--ink);
   padding: 4px 9px;
   font-size: 12px;
@@ -103,7 +107,7 @@ body {
 .study-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
 .study-card {
   border: 1px solid var(--line);
-  background: rgba(255,255,255,.03);
+  background: var(--paper-soft);
   padding: 14px;
   min-height: 250px;
 }
@@ -114,7 +118,7 @@ body {
 .practice-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 10px; }
 .practice-card {
   border: 1px solid var(--line);
-  background: rgba(255,255,255,.03);
+  background: var(--paper-soft);
   padding: 14px;
 }
 .practice-card h3 { margin: 0 0 8px; color: var(--green); font-size: 16px; }
@@ -128,7 +132,7 @@ body {
 .output-box b { color: var(--green); }
 .mini-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .mini-table th, .mini-table td { border: 1px solid var(--line); padding: 7px; vertical-align: top; }
-.mini-table th { background: rgba(255,255,255,.04); text-align: left; color: var(--muted); }
+.mini-table th { background: var(--table-head); text-align: left; color: #334155; }
 
 /* 价值点索引 */
 .value-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
@@ -153,7 +157,7 @@ body {
 .label.green { background: var(--green-soft); color: var(--green); }
 .mapping-card table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .mapping-card td, .mapping-card th { padding: 6px 8px; border: 1px solid var(--line); vertical-align: top; }
-.mapping-card th { background: rgba(255,255,255,.04); text-align: left; width: 110px; }
+.mapping-card th { background: var(--table-head); text-align: left; width: 110px; }
 
 /* 每日示例 */
 .day { border: 1px solid var(--line); background: var(--paper); padding: 20px; margin-bottom: 14px; }
@@ -161,7 +165,7 @@ body {
 .day header p { margin: 0; color: var(--accent); font-weight: 600; font-size: 13px; }
 .day header h3 { margin: 4px 0; font-size: 18px; }
 .point {
-  border: 1px solid var(--line); background: rgba(255,255,255,.03);
+  border: 1px solid var(--line); background: var(--paper-soft);
   padding: 12px; margin: 8px 0;
 }
 .point b { display: block; color: var(--accent); margin-bottom: 4px; }
@@ -171,14 +175,14 @@ body {
   margin: 10px 0;
 }
 .review b { display: block; color: var(--gold); }
-.review p { margin: 4px 0; color: #d0d5dd; }
+.review p { margin: 4px 0; color: #475467; }
 .bridge { border: 1px solid var(--green); background: var(--green-soft); padding: 12px; margin: 10px 0; }
 .bridge b { display: block; color: var(--green); }
 .bridge p { margin: 4px 0; }
 
 /* 复现排期表 */
 .schedule-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.schedule-table th { background: rgba(255,255,255,.04); padding: 6px; border: 1px solid var(--line); text-align: left; }
+.schedule-table th { background: var(--table-head); padding: 6px; border: 1px solid var(--line); text-align: left; }
 .schedule-table td { padding: 6px; border: 1px solid var(--line); }
 ul, ol { margin: 6px 0; padding-left: 20px; }
 li { margin: 4px 0; }
@@ -693,7 +697,7 @@ li { margin: 4px 0; }
         <li><strong>30min</strong> 跨学科决策演习：用3本书以上模型分析"今晚该不该加班"→找机会成本+心理学+社会学+哲学角度</li>
       </ol>
     </div>
-    <div style="border:1px solid var(--line);padding:12px;background:rgba(188,140,255,.12)">
+    <div style="border:1px solid var(--line);padding:12px;background:var(--purple-soft)">
       <b style="color:var(--purple)">🌤️ 下午（3h）：系统整合+知识工程</b>
       <ol style="font-size:13px;padding-left:18px">
         <li><strong>40min</strong> 四张整合模型：读v5原版的55-58天整合模型页：<br>
@@ -745,7 +749,7 @@ li { margin: 4px 0; }
       <b style="color:var(--accent);font-size:16px">🏛️ 第1层：身份与背景层（不可变事实）</b>
       <p style="font-size:13px;margin:4px 0 0;color:var(--muted)">决定所有决策的约束条件</p>
       <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:6px">
-        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:80px">状态</th></tr>
+        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:80px">状态</th></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🧠 LFF全量背景提示词</td><td style="padding:4px;border:1px solid var(--line)">身份(1982/华为13年) · 2030目标(1000万+100万USD) · 2027离职 · ESOP 42万股 · IBKR $588K · 伴侣(1994) · 健康(脂肪肝/斑块/CGM)</td><td style="padding:4px;border:1px solid var(--line);color:var(--gold)">2026-04-22⚠️</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🧠 当前高频记忆卡</td><td style="padding:4px;border:1px solid var(--line)">一句话定位 · 五步分析顺序 · 八问模板 · 四本书框架 · 预期判断5问 · 输出风格</td><td style="padding:4px;border:1px solid var(--line);color:var(--green)">活跃</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">📥 缓存/Air_MEMORY</td><td style="padding:4px;border:1px solid var(--line)">双机架构(Pro底座+Air随身) · 工作流版本 · 同步协议</td><td style="padding:4px;border:1px solid var(--line);color:var(--green)">活跃</td></tr>
@@ -756,7 +760,7 @@ li { margin: 4px 0; }
       <b style="color:var(--gold);font-size:16px">🧠 第2层：投资决策层（最厚、最高频）</b>
       <p style="font-size:13px;margin:4px 0 0;color:var(--muted)">你的核心能力区域，也是知识库中最完善的部分</p>
       <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:6px">
-        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:80px">状态</th></tr>
+        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:80px">状态</th></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🧠 投资框架与对话共识</td><td style="padding:4px;border:1px solid var(--line)">四本书核心(Outsiders/Important/Expectations/F.Shenanigans) · 五步链条 · 八问模板 · 预期判断5问 · 持仓分层<br><em>← 18本书中最直接对应的：01经济学思维/02经济学原理/03宏观/06逻辑学/13行为统计</em></td><td style="padding:4px;border:1px solid var(--line);color:var(--green)">活跃</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">📈 核心持仓深度分析</td><td style="padding:4px;border:1px solid var(--line)">IBKR持仓 · 四道硬线(股票≤55%/芯片≤33%/NVDA≤18%/缓冲≥22%) · 核心仓/MSFT/GOOG/META · 机会仓/MU</td><td style="padding:4px;border:1px solid var(--line);color:var(--gold)">2026-05-08⚠️</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🧠 鳗鱼模式解析</td><td style="padding:4px;border:1px solid var(--line)">反共识·反追高·买得便宜·先拆幻觉再算代价 · 五阶段演化(底稿→立法→执行→升华→自由)</td><td style="padding:4px;border:1px solid var(--line);color:var(--green)">活跃</td></tr>
@@ -764,11 +768,11 @@ li { margin: 4px 0; }
       </table>
     </div>
 
-    <div style="border:1px solid var(--purple);padding:12px;background:rgba(188,140,255,.12)">
+    <div style="border:1px solid var(--purple);padding:12px;background:var(--purple-soft)">
       <b style="color:var(--purple);font-size:16px">🛠️ 第3层：执行与工作流层（可复用的判断引擎）</b>
       <p style="font-size:13px;margin:4px 0 0;color:var(--muted)">把知识转化成可执行动作的模板和纪律</p>
       <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:6px">
-        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:80px">状态</th></tr>
+        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:80px">状态</th></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🧠 当前生效工作流规则</td><td style="padding:4px;border:1px solid var(--line)">三形式报告·五源采集·高价值门禁·输出质量8项·SLA纪律·8条禁犯·5种反模式·审计7步·Agent分工<br><em>← 18本书中最直接对应的：04管理学(系统)/06逻辑学(门禁)/18沟通艺术(输出质量)</em></td><td style="padding:4px;border:1px solid var(--line);color:var(--green)">活跃</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🧭 当前决策索引</td><td style="padding:4px;border:1px solid var(--line)">KB主入口·定位6大主文档·3条提醒(不赌国运/保流动性/不破坏选择权)</td><td style="padding:4px;border:1px solid var(--line);color:var(--green)">活跃</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🤝 Hermes-Codex同步协议</td><td style="padding:4px;border:1px solid var(--line)">双机分工·Pro调度/Air深度·iCloud同步·写回纪律</td><td style="padding:4px;border:1px solid var(--line);color:var(--green)">活跃</td></tr>
@@ -779,7 +783,7 @@ li { margin: 4px 0; }
       <b style="color:var(--green);font-size:16px">🏥 第4层：健康·生活·关系层（知识库缺口区）</b>
       <p style="font-size:13px;margin:4px 0 0;color:var(--muted)">相比投资层厚度明显不足，需要重点加强</p>
       <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:6px">
-        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.04);width:80px">状态</th></tr>
+        <tr><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:100px">文件</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head)">核心内容</th><th style="text-align:left;padding:4px;border:1px solid var(--line);background:var(--table-head);width:80px">状态</th></tr>
         <tr><td style="padding:4px;border:1px solid var(--line)">🏥 健康档案</td><td style="padding:4px;border:1px solid var(--line)">体脂20-22%·CGM 6.2·司美格鲁肽·脂肪肝·斑块·凌晨低血氧·冈上肌腱损伤<br><em>← 18本书中最直接对应的：09心理学导论(压力/睡眠)/12实验心理学(健康实验)/13行为统计(趋势分析)</em></td><td style="padding:4px;border:1px solid var(--line);color:var(--gold)">2026-05-11⚠️</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line);color:var(--muted)">家庭/关系文档</td><td style="padding:4px;border:1px solid var(--line);color:var(--muted)">❌ 没有独立文档。相关信息分散在LFF全量背景提示词中：父母养老、弟弟支持(7-8万/年+20万医疗预备)、伴侣(1994/男性/价值观差异)</td><td style="padding:4px;border:1px solid var(--line);color:var(--red)">缺失</td></tr>
         <tr><td style="padding:4px;border:1px solid var(--line);color:var(--muted)">职业退出计划</td><td style="padding:4px;border:1px solid var(--line);color:var(--muted)">❌ 没有独立文档。相关目标在LFF全量背景提示词中：2027年6月离职、体面退出、第二曲线</td><td style="padding:4px;border:1px solid var(--line);color:var(--gold)">弱</td></tr>
@@ -847,7 +851,7 @@ li { margin: 4px 0; }
         <li>健康管理已启动数据化——CGM+司美+训练，比大多数人早3-5年</li>
       </ul>
     </div>
-    <div style="border:1px solid var(--red);padding:10px;background:rgba(248,81,73,.08)">
+    <div style="border:1px solid var(--red);padding:10px;background:var(--red-soft)">
       <b style="color:var(--red)">🔴 需要立刻建设的</b>
       <ul style="margin:4px 0 0;font-size:13px;padding-left:16px">
         <li><strong>职业退出计划独立文档</strong>——现在分散在3个文件中，不成体系</li>
@@ -887,7 +891,7 @@ li { margin: 4px 0; }
       </div>
     </div>
 
-    <div style="border:1px solid var(--purple);padding:10px;background:rgba(188,140,255,.12)">
+    <div style="border:1px solid var(--purple);padding:10px;background:var(--purple-soft)">
       <b style="color:var(--purple);font-size:14px">🛠️ 执行层 →</b>
       <p style="font-size:12px;color:var(--muted);margin:2px 0">你的可重复引擎</p>
       <div style="font-size:11px;margin-top:4px">
@@ -899,7 +903,7 @@ li { margin: 4px 0; }
       </div>
     </div>
 
-    <div style="border:1px solid var(--red);padding:10px;background:rgba(248,81,73,.08)">
+    <div style="border:1px solid var(--red);padding:10px;background:var(--red-soft)">
       <b style="color:var(--red);font-size:14px">🏥 健康层 →</b>
       <p style="font-size:12px;color:var(--muted);margin:2px 0">有数据缺系统</p>
       <div style="font-size:11px;margin-top:4px">
@@ -951,7 +955,7 @@ li { margin: 4px 0; }
       <b style="color:var(--green)">② 概念拆解</b>
       <p style="font-size:13px;color:var(--muted)">概念如何改变真实判断，用LFF场景验证。</p>
     </div>
-    <div style="border:1px solid var(--line);padding:12px;background:rgba(255,255,255,.03)">
+    <div style="border:1px solid var(--line);padding:12px;background:var(--paper-soft)">
       <b>③ 知识库互证</b>
       <p style="font-size:13px;color:var(--muted)">与特定KB文件交叉验证，哪些被加强/修正。</p>
     </div>
