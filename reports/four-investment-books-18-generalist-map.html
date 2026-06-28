@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四本投资书 × 18本通识书｜投资判断能力地图</title>
+<style>
+:root{
+  --bg:#f7f8fb;
+  --ink:#172033;
+  --muted:#667085;
+  --line:#d9e0ea;
+  --panel:#ffffff;
+  --deep:#132238;
+  --blue:#2563eb;
+  --green:#0f766e;
+  --orange:#c2410c;
+  --purple:#6d28d9;
+  --red:#b42318;
+  --shadow:0 16px 36px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.65}
+.hero{background:linear-gradient(135deg,#132238 0%,#1f3b5d 58%,#0f766e 100%);color:#fff;padding:56px 24px 46px}
+.wrap{max-width:1160px;margin:0 auto}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#b9d6ff;font-weight:700;margin-bottom:12px}
+h1{font-size:42px;line-height:1.12;margin:0 0 16px;font-weight:850;letter-spacing:0}
+.hero p{max-width:820px;margin:0;color:#e6eef8;font-size:18px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.badge{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);border-radius:999px;padding:7px 12px;font-size:13px;color:#f8fbff}
+main{padding:30px 24px 70px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-46px}
+.gate{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow);min-height:210px}
+.gate .num{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:800;margin-bottom:12px}
+.gate h2{font-size:19px;line-height:1.28;margin:0 0 8px}
+.gate p{font-size:14px;color:var(--muted);margin:0 0 12px}
+.gate ul{margin:0;padding-left:18px;color:#344054;font-size:14px}
+.n1{background:var(--red)}.n2{background:var(--green)}.n3{background:var(--blue)}.n4{background:var(--purple)}
+section{margin-top:34px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:14px}
+h2.title{font-size:26px;margin:0;line-height:1.25}
+.hint{color:var(--muted);font-size:14px;max-width:540px;margin:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}
+.formula{padding:22px;font-size:18px;display:grid;gap:12px}
+.formula strong{color:#0f172a}
+.formula code{background:#eef4ff;color:#1e3a8a;border:1px solid #c7d7fe;border-radius:6px;padding:3px 7px;font-family:"SF Mono",Menlo,monospace;font-size:.9em}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:860px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f1f5f9;color:#334155;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+td{font-size:14px;color:#263448}
+tr:last-child td{border-bottom:0}
+.book{font-weight:800;color:#111827}
+.tag{display:inline-block;border-radius:6px;padding:2px 7px;font-size:12px;font-weight:700;margin:0 4px 6px 0}
+.t-red{background:#fee4e2;color:#b42318}.t-green{background:#dff7ef;color:#0f766e}.t-blue{background:#dbeafe;color:#1d4ed8}.t-purple{background:#ede9fe;color:#6d28d9}.t-gray{background:#eef2f7;color:#475467}
+.matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-height:178px}
+.card h3{margin:0 0 8px;font-size:16px}
+.card p{margin:0;color:#475467;font-size:14px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;position:relative}
+.step h3{font-size:15px;margin:0 0 8px}
+.step p{font-size:13px;margin:0;color:#475467}
+.note{background:#132238;color:#edf4ff;border-radius:10px;padding:22px;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+.note h2{margin:0 0 8px;font-size:24px}
+.note p{margin:0;color:#d7e4f4}
+.note ul{margin:0;padding-left:20px;color:#d7e4f4}
+.footer{margin-top:44px;color:#667085;font-size:13px;border-top:1px solid var(--line);padding-top:16px}
+a{color:#2563eb}
+@media(max-width:920px){
+  h1{font-size:32px}
+  .grid4,.matrix,.flow,.note{grid-template-columns:1fr}
+  .grid4{margin-top:-34px}
+  .hero{padding-top:42px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Investment judgment map · 2026-06-28</div>
+    <h1>四本投资书 × 18 本通识书</h1>
+    <p>把估值、管理层、财报质量和风险防守，接到经济学、逻辑、统计、心理、组织、制度与沟通。目标不是多读书，而是让每次公司分析都能过四个闸门。</p>
+    <div class="badges">
+      <span class="badge">Financial Shenanigans：财报真实吗</span>
+      <span class="badge">The Outsiders：钱花得对吗</span>
+      <span class="badge">Expectations Investing：价格信了什么</span>
+      <span class="badge">The Most Important Thing：错了会怎样</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="grid4">
+    <article class="gate">
+      <div class="num n1">1</div>
+      <h2>财报质量闸门</h2>
+      <p>利润和现金流是否真实，还是会计口径、一次性项目、资本化和并购包装。</p>
+      <ul><li>收入确认</li><li>费用递延</li><li>OCF / FCF 质量</li></ul>
+    </article>
+    <article class="gate">
+      <div class="num n2">2</div>
+      <h2>资本配置闸门</h2>
+      <p>管理层是否把自由现金流转成每股价值，而不是规模、叙事或个人帝国。</p>
+      <ul><li>回购价格</li><li>并购纪律</li><li>CapEx 回报</li></ul>
+    </article>
+    <article class="gate">
+      <div class="num n3">3</div>
+      <h2>预期定价闸门</h2>
+      <p>当前价格已经相信了什么，现实要多好才能超过市场预期。</p>
+      <ul><li>增长年限</li><li>利润率假设</li><li>竞争强度</li></ul>
+    </article>
+    <article class="gate">
+      <div class="num n4">4</div>
+      <h2>风险防守闸门</h2>
+      <p>即使判断正确，仓位、周期、流动性和心理承受力是否会把好观点变坏结果。</p>
+      <ul><li>永久损失</li><li>周期位置</li><li>仓位纪律</li></ul>
+    </article>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <h2 class="title">一句话总模型</h2>
+      <p class="hint">四本投资书给投资判断的乘法结构；18 本通识书降低每个乘数被污染的概率。</p>
+    </div>
+    <div class="panel formula">
+      <div><strong>好投资</strong> = <code>真实财报</code> × <code>理性资本配置</code> × <code>低于现实的市场预期</code> × <code>可承受的风险</code></div>
+      <div><strong>18 本书的作用</strong> = 防止叙事、情绪、组织话术、小样本、制度风险和表达误差污染这四个乘数。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="title">四本书如何连接 18 本书</h2>
+      <p class="hint">这不是书单对应，而是判断能力对应。</p>
+    </div>
+    <div class="panel table-wrap">
+      <table>
+        <thead><tr><th>投资书</th><th>核心问题</th><th>18 本书支撑</th><th>实战用法</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="book">Financial Shenanigans</span></td>
+            <td>利润和现金流真实吗？</td>
+            <td><span class="tag t-red">逻辑</span><span class="tag t-red">法律</span><span class="tag t-red">实验</span><span class="tag t-red">统计</span><span class="tag t-red">研究方法</span></td>
+            <td>先找收入确认、费用资本化、非经常项、现金流分类、补贴口径。</td>
+          </tr>
+          <tr>
+            <td><span class="book">The Outsiders</span></td>
+            <td>管理层怎样分配资本？</td>
+            <td><span class="tag t-green">管理学</span><span class="tag t-green">组织行为</span><span class="tag t-green">经济学思维</span><span class="tag t-green">社会学</span><span class="tag t-green">人类学</span></td>
+            <td>看回购、并购、CapEx、分红、资本结构是否提高每股价值。</td>
+          </tr>
+          <tr>
+            <td><span class="book">Expectations Investing</span></td>
+            <td>当前价格相信了什么？</td>
+            <td><span class="tag t-blue">经济学原理</span><span class="tag t-blue">宏观经济</span><span class="tag t-blue">逻辑</span><span class="tag t-blue">统计</span><span class="tag t-blue">社会心理</span></td>
+            <td>从价格倒推增长、利润率、竞争、兑现节奏，而不是只问公司好不好。</td>
+          </tr>
+          <tr>
+            <td><span class="book">The Most Important Thing</span></td>
+            <td>错了会不会造成永久损失？</td>
+            <td><span class="tag t-purple">宏观周期</span><span class="tag t-purple">心理学</span><span class="tag t-purple">进化心理</span><span class="tag t-purple">国家制度</span><span class="tag t-purple">哲学</span></td>
+            <td>先防永久损失，再谈高收益；强叙事不能越过仓位和现金缓冲。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="title">18 本书逐本映射</h2>
+      <p class="hint">每本书只保留最能强化投资判断的一句话。</p>
+    </div>
+    <div class="matrix">
+      <div class="card"><h3>01 经济学的思维方式</h3><p>把投资看成稀缺资源配置，强化机会成本、边际加仓和风险预算。</p></div>
+      <div class="card"><h3>02 经济学原理</h3><p>价格是信息压缩器，直接支撑从价格倒推隐含预期。</p></div>
+      <div class="card"><h3>03 经济学</h3><p>利率、通胀、汇率和周期改变折现率与风险偏好。</p></div>
+      <div class="card"><h3>04 管理学</h3><p>目标、资源、流程、反馈、纠偏，对应资本配置和组织能力。</p></div>
+      <div class="card"><h3>05 组织行为学</h3><p>正式组织图不等于真实权力图，帮助判断激励和执行。</p></div>
+      <div class="card"><h3>06 逻辑学导论</h3><p>所有投资观点都拆成结论、理由、前提、反例、失效信号。</p></div>
+      <div class="card"><h3>07 法律之门</h3><p>权利、义务、程序和证据，强化财报、合同和制度边界。</p></div>
+      <div class="card"><h3>08 大问题</h3><p>投资服务什么生活目标，防止资产目标脱离自由和意义。</p></div>
+      <div class="card"><h3>09 心理学导论</h3><p>情绪和压力会改变买卖动作，风险管理先保护状态。</p></div>
+      <div class="card"><h3>10 社会心理学</h3><p>共识、身份和社会证明解释高预期与拥挤交易。</p></div>
+      <div class="card"><h3>11 进化心理学</h3><p>地位、安全感和资源焦虑解释追高、恐慌和身份性持仓。</p></div>
+      <div class="card"><h3>12 实验心理学</h3><p>把投资假设变成可证伪试验，每个观点都要有失效信号。</p></div>
+      <div class="card"><h3>13 行为科学统计</h3><p>基准率、分布和均值回归，防止个案和线性外推欺骗。</p></div>
+      <div class="card"><h3>14 社会学</h3><p>平台、角色和制度影响企业与个人努力的回报率。</p></div>
+      <div class="card"><h3>15 社会研究方法</h3><p>用访谈和观察验证客户需求、产品采用和真实摩擦。</p></div>
+      <div class="card"><h3>16 人类学</h3><p>文化、仪式和身份解释消费者、组织、客户的非经济行为。</p></div>
+      <div class="card"><h3>17 国家的常识</h3><p>国家能力、财政和制度稳定性影响资本成本与市场边界。</p></div>
+      <div class="card"><h3>18 沟通的艺术</h3><p>把判断变成他人和自己能执行的表达，降低误解成本。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="title">每次公司分析的执行顺序</h2>
+      <p class="hint">先过四闸门，再补 18 本书的底层证据。</p>
+    </div>
+    <div class="flow">
+      <div class="step"><h3>1. 账是真的吗？</h3><p>利润、现金流、资本化、一次性项目、补贴和并购口径。</p></div>
+      <div class="step"><h3>2. 钱花得对吗？</h3><p>回购、分红、并购、CapEx、资本结构是否提升每股价值。</p></div>
+      <div class="step"><h3>3. 价格信了什么？</h3><p>当前估值隐含几年增长、多少利润率、多少竞争压力。</p></div>
+      <div class="step"><h3>4. 我错了会怎样？</h3><p>永久损失、周期位置、仓位上限、现金缓冲和心理承受力。</p></div>
+    </div>
+  </section>
+
+  <section class="note">
+    <div>
+      <h2>巴菲特信件与穷查理宝典的位置</h2>
+      <p>它们不是和四本书并列的“第五、第六本”，而是上层操作系统：能力圈、内在价值、安全边际、激励、反过来想、长期复利。它们把现代投资工具重新接回长期主义和常识。</p>
+    </div>
+    <ul>
+      <li>先避免愚蠢，再追求聪明。</li>
+      <li>先看如何失败，再看如何成功。</li>
+      <li>少数关键决策决定长期复利。</li>
+      <li>好公司也要有好价格和好仓位。</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    <p>Based on LFF Knowledge-Base: 投资框架与对话共识、通识学习 18 本书精读替代、投资判断的跨学科底层模型。Public version, no private holdings.</p>
+  </div>
+</div>
+</main>
+</body>
+</html>
