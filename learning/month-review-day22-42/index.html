@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 22-42｜60天通识学习复习增强版</title>
+<style>
+:root{
+  --bg:#f7f8fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;
+  --blue:#2563eb;--blue-soft:#eaf2ff;--green:#12805c;--green-soft:#e7f7ef;
+  --orange:#b45309;--orange-soft:#fff3df;--purple:#7c3aed;--purple-soft:#f4edff;
+  --teal:#0f766e;--teal-soft:#e5f7f4;--rose:#be123c;--rose-soft:#fff1f3;--gold:#a16207;--gold-soft:#fff8df;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;line-height:1.7}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:24px}
+.hero{border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#ffffff,#eef6ff 45%,#f4fff8);padding:32px;box-shadow:0 18px 48px rgba(31,41,55,.08)}
+.kicker{font-size:13px;color:var(--teal);font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+h1{font-size:36px;line-height:1.18;margin:10px 0 12px;letter-spacing:0}
+.lead{max-width:850px;color:#334155;font-size:17px;margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.metric{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.8);padding:14px}
+.metric b{display:block;font-size:24px;line-height:1.1}.metric span{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.section{margin-top:24px;border:1px solid var(--line);border-radius:16px;background:var(--paper);padding:22px;box-shadow:0 12px 34px rgba(31,41,55,.05)}
+h2{font-size:23px;margin:0 0 14px}h3{font-size:17px;margin:0 0 8px}.muted{color:var(--muted)}
+.pill{display:inline-flex;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:800;background:var(--blue-soft);color:var(--blue);margin:0 6px 6px 0}
+.map{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stage{border:1px solid var(--line);border-radius:12px;padding:15px;background:#fbfdff}.stage b{color:var(--blue)}
+.cards{display:grid;gap:15px}.day{border:1px solid var(--line);border-radius:16px;background:#fff;padding:17px;overflow:hidden}
+.day header{display:flex;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}
+.num{min-width:54px;height:54px;border-radius:14px;background:#162033;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+.day-title{font-size:20px;line-height:1.32;margin:0}.book{color:var(--muted);font-size:13px;margin-top:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.box{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfdff}.box p{margin:5px 0 0;color:#334155}
+.value{background:var(--gold-soft)}.concepts{background:var(--blue-soft)}.scene{background:var(--green-soft)}.mistake{background:var(--orange-soft)}.practice{background:var(--purple-soft)}.obsidian{background:var(--teal-soft)}
+ul{padding-left:19px;margin:6px 0 0}li{margin:2px 0}
+.review-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.plan{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:15px}
+.source{font-size:13px;color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 38px}
+@media(max-width:860px){.wrap{padding:14px}.hero{padding:22px;border-radius:14px}h1{font-size:28px}.metrics,.map,.grid2,.review-plan{grid-template-columns:1fr}.num{min-width:48px;height:48px}.day-title{font-size:18px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="kicker">60-day general education · enhanced review</div>
+    <h1>Day 22-42｜从好生活到结构资本</h1>
+    <p class="lead">这 21 天的主线不是“多懂一点心理学和社会学”，而是把自由、注意力、关系、实验、统计和结构资本变成可执行的个人系统。它回答一个更深的问题：当资产、职业和知识系统都有进展后，你怎样不被情绪、共识、身份和结构拖回旧轨道。</p>
+    <div class="metrics">
+      <div class="metric"><b>21</b><span>天增强复习卡</span></div>
+      <div class="metric"><b>7</b><span>本书模块</span></div>
+      <div class="metric"><b>4</b><span>能力层：意义/心理/证据/结构</span></div>
+      <div class="metric"><b>2h</b><span>建议本次学习时长</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>本页怎么用</h2>
+    <span class="pill">今日价值</span><span class="pill">3 个核心概念</span><span class="pill">现实场景</span><span class="pill">误区</span><span class="pill">5 分钟练习</span><span class="pill">Obsidian 原子笔记</span>
+    <p class="muted">沿用 v6 的增强版 Day 1 结构，但这一次重点放在“人的系统”：好生活定义、注意力保护、群体共识、关系安全感、小实验、基准率、社会资本。</p>
+  </section>
+
+  <section class="section">
+    <h2>21 天总图</h2>
+    <div class="map">
+      <div class="stage"><h3>Day 22-24｜哲学</h3><p><b>问题：</b>资产目标服务什么？自由是能做什么，还是能拒绝什么？</p></div>
+      <div class="stage"><h3>Day 25-33｜心理与关系</h3><p><b>问题：</b>注意力、压力、共识、身份、地位和安全感如何影响判断？</p></div>
+      <div class="stage"><h3>Day 34-39｜实验与统计</h3><p><b>问题：</b>如何避免被故事、个案、短期波动和错误指标带走？</p></div>
+      <div class="stage"><h3>Day 40-42｜社会学</h3><p><b>问题：</b>努力放在哪个结构里？退出旧平台前有没有新跳板？</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Day 22-42 逐日增强复习卡</h2>
+    <div class="cards">
+
+      <article class="day" id="day-22"><header><div class="num">D22</div><div><h3 class="day-title">每个资产目标，都要翻译成一个拒绝权</h3><div class="book">《大问题：简明哲学导论》1/3 · 关键解释</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它防止资产增长变成新绩效主义，让钱重新服务时间、身体、节奏、体验、关系和选择权。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>好生活不是财富最大化。</li><li>自由包含能做和能拒绝。</li><li>身份需要被行为持续证明。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>评估职业退出时，不只看资产数字，还要写清楚它让你拒绝哪些坏项目、坏节奏和坏关系模式。</p></div><div class="box mistake"><h3>一个误区</h3><p>以为“继续赚更多”天然正确；如果不定义好生活，财富只会复制旧系统。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>写一句：我的下一个资产目标，让我可以拒绝____。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>资产目标的拒绝权翻译</b></p><ul><li>钱是生活结构工具。</li><li>拒绝权是自由的核心产品。</li><li>资产目标必须连接真实生活。</li></ul></div></div></article>
+
+      <article class="day" id="day-23"><header><div class="num">D23</div><div><h3 class="day-title">新身份不是宣布出来的，是作品证明出来的</h3><div class="book">《大问题》2/3 · 概念拆解</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它提醒你：离开组织头衔前，必须提前建设外部作品、生活节奏和可信反馈。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>身份是持续行为叙事。</li><li>价值冲突不能靠拖延解决。</li><li>意义来自实践，不来自自我描述。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>想成为产业研究/咨询产品化的人，就要持续发布可被检查的页面、模板和案例，而不是等待某一天离职。</p></div><div class="box mistake"><h3>一个误区</h3><p>把未来身份当想象。没有作品和反馈，新身份只是心理安慰。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>为一个未来身份写 1 个可见作品：页面、清单、模板、案例或服务说明。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>身份需要作品证据</b></p><ul><li>头衔会消失，作品会留下。</li><li>新身份要提前试运行。</li><li>实践比宣布更可靠。</li></ul></div></div></article>
+
+      <article class="day" id="day-24"><header><div class="num">D24</div><div><h3 class="day-title">价值排序必须进入资源分配</h3><div class="book">《大问题》3/3 · 知识库沉淀</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把“自由、体验、关系、健康、意义”从口号变成日程、预算和作品安排。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>资产目标要写拒绝权。</li><li>未来身份要配作品。</li><li>年度计划要写价值排序。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>年度规划里，如果健康、伴侣、输出没有获得固定时间和预算，它们就不是有效优先级。</p></div><div class="box mistake"><h3>一个误区</h3><p>把价值观写得很漂亮，但资源仍然全部流向工作和市场波动。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>列出今年前三价值，并分别写出一个已投入资源的证据。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>价值排序的资源证据</b></p><ul><li>价值观看资源分配。</li><li>作品证明身份。</li><li>拒绝权证明自由。</li></ul></div></div></article>
+
+      <article class="day" id="day-25"><header><div class="num">D25</div><div><h3 class="day-title">坏状态不做不可逆决定</h3><div class="book">《心理学导论》1/3 · 关键解释</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把注意力、睡眠、压力和情绪状态纳入投资、职业、关系判断，而不是把人当成意志力机器。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>注意力是稀缺资源。</li><li>压力会缩窄视野。</li><li>情绪状态会改变风险判断。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>连续加班、睡眠不足或关系冲突后，不做清仓、辞职、摊牌、重仓这类不可逆动作。</p></div><div class="box mistake"><h3>一个误区</h3><p>把焦虑误认为洞察。焦虑可能提示风险，也可能只是系统过载。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>给自己写一条“坏状态禁令”：哪些状态下不做哪些决定。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>坏状态决策禁令</b></p><ul><li>睡眠不足不做不可逆决定。</li><li>情绪先翻译成具体担心。</li><li>先恢复状态，再做判断。</li></ul></div></div></article>
+
+      <article class="day" id="day-26"><header><div class="num">D26</div><div><h3 class="day-title">学习不是收藏，是提取和应用</h3><div class="book">《心理学导论》2/3 · 概念拆解</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把 60 天学习从“读完”转成“未来能调用”，直接服务你的第二大脑和咨询产品化。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>学习依赖提取和应用。</li><li>习惯依赖环境提示。</li><li>情绪是信号，不是命令。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>每次读书后必须生成一条可检索原子笔记，并链接到投资、职业退出、健康或关系主文档。</p></div><div class="box mistake"><h3>一个误区</h3><p>以为收藏、划线、截图等于学会。真正学会是能在新问题里提取出来。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>从今天读到的一个概念，写出“我明天能在哪个场景使用它”。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>提取式学习闭环</b></p><ul><li>读完必须输出。</li><li>笔记必须可链接。</li><li>概念必须进入现实场景。</li></ul></div></div></article>
+
+      <article class="day" id="day-27"><header><div class="num">D27</div><div><h3 class="day-title">先保护注意力，再追求信息量</h3><div class="book">《心理学导论》3/3 · 知识库沉淀</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把学习系统、投资纪律和健康系统统一起来：状态不好时，正确观点也会变成错误操作。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>坏状态不做不可逆决定。</li><li>每天输出一条原子笔记。</li><li>注意力保护优先于信息量。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>市场信息很多时，先减少噪音源，再做持仓复盘；不要用刷信息缓解不确定性。</p></div><div class="box mistake"><h3>一个误区</h3><p>把“知道更多”误认为“判断更好”。信息过载会降低判断质量。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>删掉或静音一个低质量信息源，并写下你保留它的真实心理原因。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>注意力预算表</b></p><ul><li>信息源要有准入标准。</li><li>输出比输入更能证明学习。</li><li>注意力是投资资产。</li></ul></div></div></article>
+
+      <article class="day" id="day-28"><header><div class="num">D28</div><div><h3 class="day-title">共识越强，越要写反方证据</h3><div class="book">《社会心理学》1/3 · 关键解释</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它帮你抵抗市场共识、组织氛围和群体情绪，尤其适合高共识 AI/半导体主线。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>群体共识制造安全感。</li><li>社会证明会替代个人证据。</li><li>情境会塑造判断。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>当所有人都看多某条产业链时，不是马上反向，而是检查价格、仓位、预期是否已经过度拥挤。</p></div><div class="box mistake"><h3>一个误区</h3><p>把“大家都这么看”当成证据。它可能只是拥挤交易。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>选一个高共识观点，写 3 条最强反方证据。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>高共识反证清单</b></p><ul><li>共识不等于安全。</li><li>高共识要看价格拥挤度。</li><li>反方证据保护仓位。</li></ul></div></div></article>
+
+      <article class="day" id="day-29"><header><div class="num">D29</div><div><h3 class="day-title">冲突常常是需求冲突，不是人格审判</h3><div class="book">《社会心理学》2/3 · 概念拆解</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它让你在组织和亲密关系里少做性格归因，多看角色、激励、信息和安全感。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>身份威胁会引发防御。</li><li>归因错误伤害关系。</li><li>冲突先看双方需求。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>对方没有配合时，先问“他在保护什么需求或身份”，再决定沟通方式。</p></div><div class="box mistake"><h3>一个误区</h3><p>把对方的反应直接解释成“不重视我”或“不专业”。这会让冲突升级。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>把一次冲突写成两列：我的需求、对方可能的需求。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>冲突的需求翻译</b></p><ul><li>先写需求，再写方案。</li><li>少做人格审判。</li><li>身份威胁会降低理性。</li></ul></div></div></article>
+
+      <article class="day" id="day-30"><header><div class="num">D30</div><div><h3 class="day-title">受到挑战时，先问我在保护真相还是身份</h3><div class="book">《社会心理学》3/3 · 知识库沉淀</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它让第二大脑成为挑战者，而不是镜子：真正的学习发生在身份被挑战但还能更新证据时。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>共识强时写反证。</li><li>挑战来临时辨认真相/身份。</li><li>冲突先写双方需求。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>当投资观点被事实挑战时，先更新前提，不急着找新故事保护旧仓位。</p></div><div class="box mistake"><h3>一个误区</h3><p>把修正观点当丢脸。真正丢脸的是证据变了还硬撑。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>写一个最近不愿承认的反证，并说明它挑战的是事实还是身份。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>真相还是身份</b></p><ul><li>被挑战时先停一下。</li><li>识别自尊防御。</li><li>让证据更新行动。</li></ul></div></div></article>
+
+      <article class="day" id="day-31"><header><div class="num">D31</div><div><h3 class="day-title">把财务目标拆成理性、情绪和比较三层</h3><div class="book">《进化心理学》1/3 · 关键解释</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它解释资产焦虑、地位压力和退出组织后的失重感，避免简单道德化自己。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>资源追求背后有安全系统。</li><li>地位不是简单虚荣。</li><li>旧身份退出会带来失重。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>追求海外资产和现金缓冲时，同时识别理性规划、心理安全和社会比较各占多少。</p></div><div class="box mistake"><h3>一个误区</h3><p>把所有资产焦虑都骂成贪婪，结果没有处理真实安全需求。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>选一个财务目标，分成三行：理性用途、情绪用途、比较用途。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>财务目标三层拆解</b></p><ul><li>钱有安全功能。</li><li>地位也有心理功能。</li><li>比较会扭曲目标。</li></ul></div></div></article>
+
+      <article class="day" id="day-32"><header><div class="num">D32</div><div><h3 class="day-title">关系投入要同时有体验和边界</h3><div class="book">《进化心理学》2/3 · 概念拆解</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把亲密关系安全感从抽象爱意落到时间、注意力、共同体验、边界和责任安排。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>亲密关系需要可预期投入。</li><li>损失厌恶会放大波动。</li><li>社会比较扭曲目标函数。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>伴侣体验预算和法律/财务边界不是相互冲突，而是共同建设安全感。</p></div><div class="box mistake"><h3>一个误区</h3><p>只谈体验不谈边界，或只谈边界不投入体验，都会让安全感不足。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>写一个本周的关系投入动作和一个边界说明动作。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>关系安全感的两条腿</b></p><ul><li>体验建立温度。</li><li>边界降低未来风险。</li><li>投入要可预期。</li></ul></div></div></article>
+
+      <article class="day" id="day-33"><header><div class="num">D33</div><div><h3 class="day-title">退出旧身份前，先建设新地位来源</h3><div class="book">《进化心理学》3/3 · 知识库沉淀</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把职业退出从“钱够不够”扩展为“新地位、新作品、新反馈是否已经运行”。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>财务目标三层拆解。</li><li>退出前建设新地位来源。</li><li>关系投入要有体验和边界。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>把公开研究页、客户访谈、行业模板和稳定运动节奏作为新地位系统的早期证据。</p></div><div class="box mistake"><h3>一个误区</h3><p>以为离职后自然会找到新身份。旧地位断裂会制造真实心理成本。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>写出 3 个未来可替代组织头衔的地位来源。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>新地位来源清单</b></p><ul><li>作品是外部地位。</li><li>客户信任是地位。</li><li>健康节奏也是自我尊严。</li></ul></div></div></article>
+
+      <article class="day" id="day-34"><header><div class="num">D34</div><div><h3 class="day-title">每个计划只改变一个核心变量</h3><div class="book">《实验心理学》1/3 · 关键解释</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把健康、学习、投资和职业产品化都变成可证伪的小实验，而不是大幻想。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>好假设必须可被推翻。</li><li>变量太多会让反馈失效。</li><li>实验要预设观察窗口。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>同时改饮食、训练、睡眠和工作节奏，会让健康反馈不可解释；咨询产品测试也是一样。</p></div><div class="box mistake"><h3>一个误区</h3><p>一次性改变太多，然后用混乱结果证明自己没天赋。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>选一个计划，只保留一个变量、一个指标和一个观察窗口。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>单变量个人实验</b></p><ul><li>变量少，反馈才清楚。</li><li>假设要能失败。</li><li>窗口要提前写。</li></ul></div></div></article>
+
+      <article class="day" id="day-35"><header><div class="num">D35</div><div><h3 class="day-title">实验不是证明自己对，而是更快发现错</h3><div class="book">《实验心理学》2/3 · 概念拆解</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它让你的第二曲线从“我要不要创业/咨询”变成低风险市场测试。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>测量对象要对应真实目标。</li><li>观察窗口提前设定。</li><li>低成本试错优于一次性押注。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>测试咨询产品时，不用先做完整品牌，而是找 3 个真实对象验证问题、预算和交付形式。</p></div><div class="box mistake"><h3>一个误区</h3><p>用“有人说感兴趣”当验证。兴趣不是付费，不是预算，不是复购。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>为一个产品化想法写一个 7 天低成本测试。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>低风险市场测试</b></p><ul><li>问真实行为。</li><li>看付费路径。</li><li>用小实验替代大押注。</li></ul></div></div></article>
+
+      <article class="day" id="day-36"><header><div class="num">D36</div><div><h3 class="day-title">先写失败条件，再开始执行</h3><div class="book">《实验心理学》3/3 · 知识库沉淀</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它给投资、健康、职业退出和咨询产品化都加上“什么时候承认无效”的保护机制。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>每个计划只改一个核心变量。</li><li>先写失败条件。</li><li>用小实验替代大幻想。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>投资观点、训练方案、内容输出、客户测试都要先写失效信号，避免后期找理由硬撑。</p></div><div class="box mistake"><h3>一个误区</h3><p>认为失败条件会削弱信念。其实它让行动更清醒。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>为一个正在执行的计划补上 3 条失败条件。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>失败条件先行</b></p><ul><li>开始前定义失败。</li><li>失败条件防止自欺。</li><li>小实验降低后悔成本。</li></ul></div></div></article>
+
+      <article class="day" id="day-37"><header><div class="num">D37</div><div><h3 class="day-title">基准率先于故事</h3><div class="book">《行为科学统计》1/3 · 关键解释</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它是防故事中毒的工具：投资、健康、职业和产品化都要先问同类样本通常怎样。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>基准率先于个案。</li><li>均值回归是底噪。</li><li>极端表现要找结构性原因。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>看到某公司、某产品或某个人路径特别成功时，先找同类样本分布，而不是被故事打动。</p></div><div class="box mistake"><h3>一个误区</h3><p>用一个强个案推导自己的人生/投资策略。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>选一个判断，写一句：同类事情的基准率是多少？我有没有样本？</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>基准率先于故事</b></p><ul><li>先样本，后叙事。</li><li>极端表现会回归。</li><li>结构原因才能抵抗回归。</li></ul></div></div></article>
+
+      <article class="day" id="day-38"><header><div class="num">D38</div><div><h3 class="day-title">分布比平均数更重要</h3><div class="book">《行为科学统计》2/3 · 概念拆解</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它让你在退休、投资、健康和产品测试里看坏情景，而不是被平均值安慰。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>样本量决定确信度。</li><li>分布比平均数重要。</li><li>显著不等于重要。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>同样平均收益，尾部风险不同，退休体验完全不同；产品测试也不能只看几个正反馈。</p></div><div class="box mistake"><h3>一个误区</h3><p>只看平均收益、平均体重、平均反馈，不看最坏 10% 情景。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>为一个计划写出最坏 10% 情景和你是否承受得起。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>最坏 10% 情景</b></p><ul><li>平均值会遮蔽尾部。</li><li>样本少时少下结论。</li><li>实际意义比显著性重要。</li></ul></div></div></article>
+
+      <article class="day" id="day-39"><header><div class="num">D39</div><div><h3 class="day-title">看到极端表现，先问能否均值回归</h3><div class="book">《行为科学统计》3/3 · 知识库沉淀</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把统计思维写回投资纪律、健康复盘和产品验证，防止被单次波动带走。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>任何判断先问基准率。</li><li>极端表现先问均值回归。</li><li>平均值之外看尾部情景。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>高增长、高估值、高利润率、高热度都需要问：是结构性提升，还是周期/情绪高点？</p></div><div class="box mistake"><h3>一个误区</h3><p>把一次好结果理解为能力，把一次差结果理解为失败。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>拿一个最近变好的指标，写出它可能回归的原因和不可回归的证据。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>均值回归检查表</b></p><ul><li>极端值先谨慎。</li><li>结构原因要独立证明。</li><li>趋势看多期，不看单点。</li></ul></div></div></article>
+
+      <article class="day" id="day-40"><header><div class="num">D40</div><div><h3 class="day-title">努力总在结构里发生</h3><div class="book">《社会学》1/3 · 关键解释</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它让你不再把成败全归因于努力，而是评估平台、城市、资产、教育、网络和制度如何改变回报率。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>个人努力总在结构里发生。</li><li>社会资本是可积累资源。</li><li>第二曲线需要社会资本再配置。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>职业退出不是离开一个公司，而是从旧平台切换到作品、客户、网络和资产组成的新结构。</p></div><div class="box mistake"><h3>一个误区</h3><p>只问“我够不够努力”，不问“努力放在哪个结构里”。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>列出你当前五类结构资本：平台、资产、网络、城市、作品。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>结构资本五项复盘</b></p><ul><li>平台影响努力回报率。</li><li>社会资本要积累。</li><li>作品是可迁移结构资本。</li></ul></div></div></article>
+
+      <article class="day" id="day-41"><header><div class="num">D41</div><div><h3 class="day-title">流动需要跳板</h3><div class="book">《社会学》2/3 · 概念拆解</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它提醒你：退出旧平台前，要保留或替换教育、资产、城市、身份、作品和关系网络这些跳板。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>角色期待塑造压力。</li><li>流动需要跳板。</li><li>制度决定风险分配。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>如果要从组织人转向自由研究/咨询者，必须先建立作品入口、客户入口、现金缓冲和医疗/法律安排。</p></div><div class="box mistake"><h3>一个误区</h3><p>把“离开旧平台”当自由本身。没有新跳板，离开只会增加脆弱性。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>写下你未来 12 个月必须建设的 3 个新跳板。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>退出前的新跳板</b></p><ul><li>跳板比勇气更重要。</li><li>城市和网络也是资产。</li><li>制度成本要提前算。</li></ul></div></div></article>
+
+      <article class="day" id="day-42"><header><div class="num">D42</div><div><h3 class="day-title">退出旧平台前，先建设新跳板</h3><div class="book">《社会学》3/3 · 知识库沉淀</div></div></header><div class="grid2"><div class="box value"><h3>今天为什么有价值</h3><p>它把 Day 22-42 收束成一条硬原则：自由不是切断结构，而是主动重建更适合你的结构。</p></div><div class="box concepts"><h3>3 个核心概念</h3><ul><li>每年复盘结构资本。</li><li>努力要放进正确结构。</li><li>退出旧平台前建设新跳板。</li></ul></div><div class="box scene"><h3>现实应用场景</h3><p>职业退出计划要同时检查资产、作品、客户、关系、城市、健康、法律和制度风险。</p></div><div class="box mistake"><h3>一个误区</h3><p>把结构分析当宿命论。正确用法是找杠杆点，调整自己所在的结构。</p></div><div class="box practice"><h3>5 分钟练习</h3><p>给你的 2027 退出计划写一张“旧平台依赖 vs 新跳板”表。</p></div><div class="box obsidian"><h3>Obsidian 原子笔记</h3><p><b>旧平台依赖与新跳板</b></p><ul><li>自由需要新结构。</li><li>结构资本每年复盘。</li><li>退出前先降低脆弱性。</li></ul></div></div></article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2 小时学习路线</h2>
+    <div class="review-plan">
+      <div class="plan"><h3>0-35 分钟｜好生活与心理状态</h3><p>读 Day 22-27，输出：拒绝权翻译、坏状态禁令、提取式学习闭环。</p></div>
+      <div class="plan"><h3>35-80 分钟｜群体、关系与安全感</h3><p>读 Day 28-33，输出：高共识反证清单、冲突需求翻译、财务目标三层拆解。</p></div>
+      <div class="plan"><h3>80-120 分钟｜实验、统计与结构资本</h3><p>读 Day 34-42，输出：单变量实验、最坏 10% 情景、结构资本五项复盘。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>本阶段必须带走的 9 条原则</h2>
+    <ol>
+      <li>每个资产目标都翻译成一个具体拒绝权。</li>
+      <li>每个未来身份都配一个可见作品。</li>
+      <li>坏状态不做不可逆决定。</li>
+      <li>共识越强，越要写反方证据。</li>
+      <li>冲突中先写双方需求，再写解决方案。</li>
+      <li>把财务目标拆成理性用途、情绪用途和社会比较三层。</li>
+      <li>每个计划只改变一个核心变量。</li>
+      <li>任何判断先问：同类事情的基准率是多少？</li>
+      <li>退出旧平台前，先建设新跳板。</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>来源与边界</h2>
+    <p class="source">来源：60 天通识学习 v5 原版 Day 22-42、v6 增强版 Day 1 示例、iCloud Knowledge-Base《18 本书关键内容总表》。公开页已做脱敏处理：保留学习、职业退出、资产配置、健康关系、知识产品化等主题，不展示私人账户、持仓明细、真实关系身份和敏感金额。</p>
+  </section>
+</main>
+<footer>
+  <p>60天通识学习 · Day 22-42 复习增强版 · 2026-06-28</p>
+  <p><a href="../month-review-day6-22/">上一页：Day 6-22</a> · <a href="../60-day-general-education-roadmap-v6/">返回 v6 增强版总页</a> · <a href="../../hermes.html">返回 Hermes 报告索引</a></p>
+</footer>
+</body>
+</html>
