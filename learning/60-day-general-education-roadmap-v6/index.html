@@ -82,6 +82,54 @@ body {
 .panel { background: var(--paper); border: 1px solid var(--line); padding: 20px; margin-bottom: 16px; }
 .panel h2 { margin: 0 0 12px; font-size: 22px; }
 
+/* 2 小时复习模式 */
+.focus-box {
+  border: 1px solid var(--gold);
+  background: linear-gradient(135deg, rgba(210,153,34,.16), rgba(56,139,253,.08));
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.focus-box h2 { margin: 0 0 8px; color: var(--gold); font-size: 24px; }
+.focus-box p { margin: 6px 0; }
+.focus-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.focus-meta span {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--ink);
+  padding: 4px 9px;
+  font-size: 12px;
+  border-radius: 999px;
+}
+.study-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.study-card {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  padding: 14px;
+  min-height: 250px;
+}
+.study-card h3 { margin: 0 0 6px; font-size: 16px; color: var(--accent); }
+.study-card .time { color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+.study-card ul { font-size: 13px; padding-left: 18px; margin: 8px 0; }
+.study-card li { margin: 3px 0; }
+.practice-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 10px; }
+.practice-card {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  padding: 14px;
+}
+.practice-card h3 { margin: 0 0 8px; color: var(--green); font-size: 16px; }
+.prompt-list li { margin: 6px 0; }
+.output-box {
+  border: 1px solid var(--green);
+  background: var(--green-soft);
+  padding: 14px;
+  margin-top: 10px;
+}
+.output-box b { color: var(--green); }
+.mini-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.mini-table th, .mini-table td { border: 1px solid var(--line); padding: 7px; vertical-align: top; }
+.mini-table th { background: rgba(255,255,255,.04); text-align: left; color: var(--muted); }
+
 /* 价值点索引 */
 .value-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
 .value-card {
@@ -137,6 +185,7 @@ li { margin: 4px 0; }
 @media (max-width: 900px) {
   .version-grid { grid-template-columns: repeat(2, 1fr); }
   .version-card { min-height: auto; }
+  .study-grid, .practice-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .version-grid { grid-template-columns: 1fr; }
@@ -193,6 +242,119 @@ li { margin: 4px 0; }
 </section>
 
 <main class="layout">
+
+<!-- ============================================================ -->
+<!-- 端午后：2 小时复习模式 -->
+<!-- ============================================================ -->
+<section class="focus-box" id="two-hour-review">
+  <h2>⏱️ 端午后 2 小时复习模式：先把四本投资书真正吃透</h2>
+  <p><strong>今天不要补 60 天，不要追求读完。</strong>你现在只有 2 小时，目标是把四本投资书压成一套可立即使用的投资判断动作：先验账，再看人，再倒推价格，最后控制风险。</p>
+  <p style="color:var(--muted)">这 2 小时只做一件事：把「好公司」拆成四个可检验问题。读完后，你应该能拿任意一个 AI/半导体/云计算公司，用 10 分钟判断自己是在看事实、看管理层、看预期，还是在被叙事推着走。</p>
+  <div class="focus-meta">
+    <span>学习时长：120 分钟</span>
+    <span>主线：四本投资书</span>
+    <span>方法：提取练习 > 被动阅读</span>
+    <span>产出：1 张四闸门卡片 + 4 条原子笔记</span>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>今天的 120 分钟安排</h2>
+  <div class="study-grid">
+    <article class="study-card">
+      <div class="time">00-25 min</div>
+      <h3>Financial Shenanigans：先问账是否可信</h3>
+      <p style="font-size:13px;color:var(--muted)">核心不是学会计技巧，而是建立防骗顺序。利润、收入和现金流都可能被包装，账不真，估值和管理层判断都会失真。</p>
+      <ul>
+        <li><strong>看收入：</strong>有没有提前确认、渠道压货、一次性项目。</li>
+        <li><strong>看费用：</strong>有没有费用资本化、研发/营销被美化。</li>
+        <li><strong>看现金流：</strong>OCF 是否靠应付、库存、客户预收撑起来。</li>
+        <li><strong>看口径：</strong>Non-GAAP 是否持续排除真实成本。</li>
+      </ul>
+      <p style="font-size:13px"><strong>误区：</strong>不要因为公司处在大赛道，就跳过财报质量检查。</p>
+    </article>
+
+    <article class="study-card">
+      <div class="time">25-50 min</div>
+      <h3>The Outsiders：管理层真正的价值观在资本配置里</h3>
+      <p style="font-size:13px;color:var(--muted)">这本书不是夸 CEO，而是让你看管理层如何处理自由现金流。真正优秀的管理层会把每一块钱当成股东资本，而不是拿来扩大帝国。</p>
+      <ul>
+        <li><strong>回购：</strong>便宜时回购，还是高估时也机械回购。</li>
+        <li><strong>并购：</strong>买能力、买客户，还是买规模和叙事。</li>
+        <li><strong>CapEx：</strong>能否形成更强单位经济，而不是只抢位置。</li>
+        <li><strong>激励：</strong>考核每股价值、ROIC，还是收入规模。</li>
+      </ul>
+      <p style="font-size:13px"><strong>误区：</strong>不要把「创始人/明星 CEO」自动等同于资本配置高手。</p>
+    </article>
+
+    <article class="study-card">
+      <div class="time">50-80 min</div>
+      <h3>Expectations Investing：价格已经相信了什么</h3>
+      <p style="font-size:13px;color:var(--muted)">估值不是给好公司打分，而是倒推市场已经写进价格里的增长、利润率、持续时间和竞争格局。</p>
+      <ul>
+        <li><strong>增长：</strong>价格隐含未来几年高增长。</li>
+        <li><strong>利润率：</strong>是否假设成本、竞争和周期都很友好。</li>
+        <li><strong>兑现节奏：</strong>市场愿意等多久。</li>
+        <li><strong>反事实：</strong>什么发生时，当前价格就不再合理。</li>
+      </ul>
+      <p style="font-size:13px"><strong>误区：</strong>「公司很好」不是买入理由，只有「现实会好过价格预期」才是。</p>
+    </article>
+
+    <article class="study-card">
+      <div class="time">80-105 min</div>
+      <h3>The Most Important Thing：最后问错了会怎样</h3>
+      <p style="font-size:13px;color:var(--muted)">风险不是波动本身，而是永久损失、错误仓位、错误周期和坏状态下的不可逆决定。</p>
+      <ul>
+        <li><strong>二阶思维：</strong>别人都知道的好消息是否已进价格。</li>
+        <li><strong>周期：</strong>现在是预期扩张，还是现金流验证阶段。</li>
+        <li><strong>安全边际：</strong>不是低 PE，而是错了也不伤筋动骨。</li>
+        <li><strong>仓位：</strong>观点强度不能越过组合承受力。</li>
+      </ul>
+      <p style="font-size:13px"><strong>误区：</strong>不要用「长期看好」掩盖短期仓位过重。</p>
+    </article>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>最后 15 分钟：把四本书合成一个动作</h2>
+  <div class="practice-grid">
+    <div class="practice-card">
+      <h3>拿一个你关心的公司，现场跑四闸门</h3>
+      <ol class="prompt-list">
+        <li><strong>账：</strong>它最近 4 个季度的收入、毛利率、OCF/FCF，有没有不协调？</li>
+        <li><strong>人：</strong>管理层的 CapEx、回购、并购、股权激励，是否提升每股价值？</li>
+        <li><strong>价：</strong>当前价格隐含的是温和增长、强增长，还是近乎完美兑现？</li>
+        <li><strong>险：</strong>如果判断错了，最大损失来自业务恶化、估值压缩、周期反转，还是仓位过重？</li>
+      </ol>
+      <div class="output-box">
+        <b>今日最小产出：</b>
+        <p style="margin:4px 0 0">写一句话：我现在对这家公司最大的误判风险是 ______，因为我可能把 ______ 当成了事实。</p>
+      </div>
+    </div>
+
+    <div class="practice-card">
+      <h3>写入 Obsidian 的 4 条原子笔记</h3>
+      <table class="mini-table">
+        <tr><th>标题</th><th>一句话</th></tr>
+        <tr><td>财报质量闸门</td><td>账不真，后面的估值、管理层和风险判断都会污染。</td></tr>
+        <tr><td>资本配置闸门</td><td>管理层的真实价值观，不在发布会里，在钱花到哪里。</td></tr>
+        <tr><td>预期定价闸门</td><td>买股票不是买好公司，而是买现实超过价格预期的差额。</td></tr>
+        <tr><td>风险防守闸门</td><td>风险管理的底线是：错了也不能破坏下一次选择权。</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>今天只需要记住这一张表</h2>
+  <table class="mini-table">
+    <tr><th>顺序</th><th>投资书</th><th>你要问的问题</th><th>18 本通识书提供的底层能力</th></tr>
+    <tr><td>1</td><td>Financial Shenanigans</td><td>账是真的吗？</td><td>逻辑学、法律、实验、统计、研究方法</td></tr>
+    <tr><td>2</td><td>The Outsiders</td><td>钱花得对吗？</td><td>管理学、组织行为、经济学、社会学、人类学</td></tr>
+    <tr><td>3</td><td>Expectations Investing</td><td>价格信了什么？</td><td>经济学原理、宏观、逻辑、统计、社会心理</td></tr>
+    <tr><td>4</td><td>The Most Important Thing</td><td>错了会怎样？</td><td>心理学、社会心理、进化心理、国家制度、哲学</td></tr>
+  </table>
+</section>
 
 <!-- ============================================================ -->
 <!-- 第零部分：知识库价值点总索引 -->
