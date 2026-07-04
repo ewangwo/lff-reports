@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>何庭波τ缩放：多层电子系统的时间缩放理论 · 韬定律V2</title>
+<style>
+  :root {
+    --bg: #0f1117; --card: #1a1d28; --border: #2a2d3a;
+    --text: #e4e6ed; --text2: #8b8fa3;
+    --green: #4ade80; --orange: #f89a3a; --blue: #60a5fa; --red: #f87171; --purple: #a78bfa;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 28px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .subtitle { color: var(--text2); font-size: 15px; margin-bottom: 4px; }
+  .meta { color: var(--text2); font-size: 13px; margin-bottom: 36px; line-height: 1.6; }
+  .meta span { display: inline-block; margin-right: 16px; }
+  h2 { font-size: 20px; color: var(--green); margin: 36px 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  h2 .section-num { color: var(--text2); font-weight: 400; margin-right: 6px; }
+  h3 { font-size: 17px; color: var(--orange); margin: 24px 0 12px; }
+  h4 { font-size: 15px; color: var(--blue); margin: 20px 0 10px; }
+  p { margin: 12px 0; }
+  .highlight { color: var(--orange); font-weight: 600; }
+  .highlight-g { color: var(--green); font-weight: 600; }
+  .highlight-b { color: var(--blue); font-weight: 600; }
+  .highlight-r { color: var(--red); font-weight: 600; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .card-green { border-left: 3px solid var(--green); }
+  .card-orange { border-left: 3px solid var(--orange); }
+  .card-blue { border-left: 3px solid var(--blue); }
+  .card-purple { border-left: 3px solid var(--purple); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  th { background: var(--card); color: var(--green); font-weight: 600; }
+  tr:hover { background: rgba(255,255,255,0.03); }
+  .tag { display:inline-block; padding:2px 10px; border-radius:4px; font-size:12px; margin:2px; font-weight:500; }
+  .tag-g { background:rgba(74,222,128,0.15); color:var(--green); }
+  .tag-o { background:rgba(248,154,58,0.15); color:var(--orange); }
+  .tag-b { background:rgba(96,165,250,0.15); color:var(--blue); }
+  .tag-r { background:rgba(248,113,113,0.15); color:var(--red); }
+  .tag-p { background:rgba(167,139,250,0.15); color:var(--purple); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+  .stat-num { font-size: 30px; font-weight: 700; color: var(--orange); display: block; }
+  .stat-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+  .stat-num-g { color: var(--green); }
+  .stat-num-b { color: var(--blue); }
+  ul, ol { margin: 8px 0 8px 20px; }
+  li { margin: 5px 0; }
+  blockquote { border-left: 3px solid var(--green); background: rgba(74,222,128,0.08); padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0; color: var(--text); font-size: 14px; }
+  .insight { border-left: 3px solid var(--purple); background: rgba(167,139,250,0.08); padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  .signature { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text2); font-size: 13px; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-left: 4px; vertical-align: middle; }
+  .badge-v { background: #14532d; color: #4ade80; }
+  .badge-p { background: #1e1b4b; color: #a78bfa; }
+  .badge-u { background: #422006; color: #fbbf24; }
+  @media (max-width: 600px) { .container { padding: 20px 16px; } h1 { font-size: 20px; } .grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>多层电子系统的时间缩放理论</h1>
+<div class="subtitle">τ缩放 · 韬定律 V2 · LogicFolding 逻辑折叠</div>
+<div class="meta">
+  <span>📄 何庭波 · 华为海思半导体负责人</span>
+  <span>📅 2026-07-04 · 中科院科技论文预发布平台</span>
+  <span><span class="tag tag-g">半导体</span><span class="tag tag-b">3D封装</span><span class="tag tag-o">AI芯片</span></span>
+</div>
+
+<blockquote>
+几何缩放的时代已经终结。未来十年电子系统的演进不应由几何缩放来引导，而应由时间缩放——即系统性地减少堆栈每一层的一个单一特征时间常数τ——来指引，从皮秒级开关的晶体管到秒级响应的数据中心负载。
+</blockquote>
+
+<!-- ===== 核心数据 ===== -->
+<h2><span class="section-num">⚡</span> 麒麟2026 · LogicFolding 量产验证</h2>
+
+<div class="grid-2">
+  <div class="stat-box">
+    <span class="stat-num stat-num-g">+53.5%</span>
+    <span class="stat-label">晶体管密度提升<br>155 → 238 MTr/mm²</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-num stat-num-g">-41%</span>
+    <span class="stat-label">等性能功耗降低<br>功率密度下降 5.6%</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-num stat-num-b">3.1 GHz</span>
+    <span class="stat-label">CPU主频 (1.1V)<br>+13% 相对基线</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-num stat-num-b">+40%</span>
+    <span class="stat-label">SRAM工作频率提升<br>位线和字线路径缩短</span>
+  </div>
+</div>
+
+<table>
+  <tr><th>指标</th><th>基线（麒麟9030 Pro）</th><th>麒麟2026 (LogicFolding)</th><th>改善</th></tr>
+  <tr><td>晶体管密度</td><td>155 MTr/mm²</td><td><span class="highlight">238 MTr/mm²</span></td><td><span class="highlight-g">+53.5%</span></td></tr>
+  <tr><td>等性能功耗</td><td>基准</td><td><span class="highlight">-41%</span></td><td><span class="highlight-g">-41%</span></td></tr>
+  <tr><td>CPU主频 (1.1V)</td><td>~2.74 GHz</td><td><span class="highlight">3.1 GHz</span></td><td><span class="highlight-g">+13%</span></td></tr>
+  <tr><td>SRAM工作频率</td><td>基准</td><td><span class="highlight">+40%+</span></td><td><span class="highlight-g">+40%+</span></td></tr>
+  <tr><td>时钟缓冲器</td><td>基准</td><td>-50%</td><td><span class="highlight-g">-50%</span></td></tr>
+  <tr><td>时钟偏移</td><td>基准</td><td>-25%</td><td><span class="highlight-g">-25%</span></td></tr>
+  <tr><td>线长</td><td>基准</td><td>-30%</td><td><span class="highlight-g">-30%</span></td></tr>
+</table>
+
+<div class="card card-green">
+<p><strong>生产级验证：</strong>2020年5月至2026年5月期间，华为海思设计并将 <span class="highlight">381颗芯片</span> 投入量产，覆盖移动、AI、汽车、工业和基础设施市场。LogicFolding已在麒麟2026中<span class="highlight-g">量产</span>，混合键合间距1.5μm，套刻精度 &lt;0.5μm。</p>
+</div>
+
+<!-- ===== τ缩放理论 ===== -->
+<h2><span class="section-num">📐</span> τ缩放理论：从空间到时间</h2>
+
+<p>六十年来，摩尔定律的几何缩放一直驱动半导体行业进步。然而这一行业契约已不再成立：纯粹依靠缩小尺寸的回报趋于平缓，前沿芯片设计预算超过<span class="highlight">每颗10亿美元</span>，单位晶体管成本也不再下降。</p>
+
+<h3>τ = f(τ_transistor, τ_circuit, τ_chip, τ_system)</h3>
+
+<p>τ缩放提出以<b>时间本身</b>而非晶体管面积作为衡量进步的主要指标，将单一的特征时间常数τ作为横跨<b>十二个数量级</b>的统一优化目标——从晶体管的开关速度到数据中心的负载响应。</p>
+
+<h4>年度缩放因子（应用特定）</h4>
+<table>
+  <tr><th>应用领域</th><th>年度τ缩放因子</th><th>约束</th></tr>
+  <tr><td>移动设备</td><td>~1.3×</td><td>功耗/散热预算限制</td></tr>
+  <tr><td>自动驾驶</td><td>~1.5×</td><td>安全关键实时响应</td></tr>
+  <tr><td><strong>AI token 生成</strong></td><td><span class="highlight">~10×</span></td><td>吞吐量直接转化经济价值</td></tr>
+</table>
+
+<div class="insight">
+<strong>核心洞察：</strong>τ是能够实现端到端堆栈协同优化的语言——工艺工程师、电路设计师和系统架构师可以用相同的单位讨论同一个量。各层独立优化、时序仅作为事后考量的时代已经结束。
+</div>
+
+<!-- ===== LogicFolding ===== -->
+<h2><span class="section-num">🔬</span> LogicFolding：逻辑折叠方法论</h2>
+
+<p>LogicFolding是一种设计方法论，将数字、模拟和存储电路分区到垂直堆叠的有源层中，通过超精细间距的混合键合连接，遵循时间缩放原理共同优化PPA（性能、功耗、面积）。</p>
+
+<h3>齿轮比（关键约束）</h3>
+<div class="card card-orange">
+<p>当垂直互连间距接近顶部金属层尺寸时，设计空间的本质发生根本性转变——从离散优化变为<b>连续优化</b>。LogicFolding要求齿轮比 &lt; 3，目标 ≈ 1。</p>
+</div>
+
+<h4>工艺技术要求</h4>
+<table>
+  <tr><th>参数</th><th>规格</th></tr>
+  <tr><td>混合键合间距</td><td><strong>1.5 μm</strong>（麒麟2026）→ &lt;2 μm（目标）</td></tr>
+  <tr><td>套刻精度</td><td>&lt; 0.5 μm</td></tr>
+  <tr><td>TSV临界尺寸/保持区</td><td>&lt; 1.5 μm；间距 &lt; 6 μm</td></tr>
+  <tr><td>TSV失效率</td><td>&lt; 100 ppm（修复率 99.9%）</td></tr>
+  <tr><td>良率</td><td>接近100%（智能冗余设计）</td></tr>
+</table>
+
+<!-- ===== 系统层面 ===== -->
+<h2><span class="section-num">🏗️</span> AI系统层面的τ缩放</h2>
+
+<div class="card card-blue">
+<p>在大型AI集群中，超过<span class="highlight-r">80%</span>的能源消耗于数据移动；超过<span class="highlight-r">70%</span>的系统成本用于数据存储。减少数据在传输途中的时间，至少与减少计算本身所花费的时间同等重要。</p>
+</div>
+
+<h3>统一总线 · "系统即单芯片"</h3>
+<p>传统的多节点架构通过多个堆叠协议传输数据（PCIe、NVLink、以太网、InfiniBand），每层涉及协议转换和额外的DMA缓冲。统一总线用一个对等架构取代这一堆栈，在整个系统中本地化地暴露内存语义。</p>
+
+<div class="grid-2">
+  <div class="stat-box">
+    <span class="stat-num stat-num-b">~500×</span>
+    <span class="stat-label">τ缩减<br>数十μs → ~100 ns</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-num stat-num-b">8 Tb/s</span>
+    <span class="stat-label">Hi-ONE单模块带宽<br>与单芯片统一总线匹配</span>
+  </div>
+</div>
+
+<h3>Hi-ONE · 近封装光学引擎</h3>
+<table>
+  <tr><th>指标</th><th>传统方案</th><th>Hi-ONE</th></tr>
+  <tr><td>SerDes传输距离</td><td>~100 cm</td><td><span class="highlight">~5 cm</span></td></tr>
+  <tr><td>面板间传输距离</td><td>&lt; 1 m</td><td><span class="highlight">100 m</span></td></tr>
+  <tr><td>DSP方案</td><td>重型DSP</td><td>线性方案（模拟均衡）</td></tr>
+</table>
+
+<h3>3D折叠 · 突破扇出困境</h3>
+<div class="card card-purple">
+<p><strong>扇出困境</strong>：在2.5D AI芯片中，计算能力∝N²（面积），但内存带宽/互连/供电∝N（周长）。二次方与线性曲线之间日益扩大的差距，无论底层逻辑节点多么激进都无法解决。</p>
+<p><strong>3D折叠</strong>将供电（背面供电）、高速内存（混合键合）、光学I/O（近封装Hi-ONE）从<strong>边缘</strong>重新定位到<strong>表面</strong>——一旦位于表面上，它们便按N²扩展。</p>
+</div>
+
+<!-- ===== 路线图 ===== -->
+<h2><span class="section-num">🗺️</span> 2026–2035 路线图</h2>
+
+<table>
+  <tr><th>年份</th><th>里程碑</th><th>关键指标</th></tr>
+  <tr><td>2025</td><td>麒麟9030 Pro (基线)</td><td>155 MTr/mm², ~2.74 GHz</td></tr>
+  <tr><td><strong>2026</strong></td><td><strong>麒麟2026 · LogicFolding量产</strong></td><td><strong>238 MTr/mm², 3.1 GHz</strong></td></tr>
+  <tr><td>~2029</td><td>CPU频率预计</td><td>4 GHz+</td></tr>
+  <tr><td>~2030</td><td>昇腾990引入LogicFolding</td><td>AI加速器3D折叠</td></tr>
+  <tr><td>2026→2035</td><td>硬件集成度</td><td><span class="highlight">>100×</span></td></tr>
+  <tr><td>远期</td><td>晶体管密度</td><td>400+ MTr/mm²</td></tr>
+</table>
+
+<!-- ===== 行业影响 ===== -->
+<h2><span class="section-num">💡</span> 行业影响与战略判断</h2>
+
+<h3>逻辑与内存：从解耦到再融合</h3>
+<div class="card card-orange">
+<p>AI时代正在逆转8086时代的CPU-内存解耦。计算密度的持续扩展正将内存带宽、延迟、功耗和封装推向极限。<strong>供应链中的影响力正在向内存和封装供应商转移。</strong>在未来十年，持久的成功将属于那些能够技术上融合逻辑与内存，并建立一种经济伙伴关系使两个行业都能长期分享这种融合收益的参与者。</p>
+</div>
+
+<h3>EDA工具链（开放挑战）</h3>
+<p>当今EDA为"面积、时序和功耗独立优化"的时代而设计。全面的LogicFolding要求工具链将多个堆叠芯片视为单一连续设计实体——以单元粒度而非模块粒度进行逻辑分区。华为海思已开发出初步内部工具，方法细节将在未来几个月内公布。</p>
+
+<div class="insight">
+<strong>方法论层面的意义：</strong>τ缩放是自邓纳德缩放（1974）以来，第一个为整个计算堆栈建立统一优化目标的缩放原理。它向行业战略家和资本配置者发出信号：下一美元应追随τ，而非节点——封装、内存带宽和架构设计现在拥有了先前仅由前沿逻辑节点单独占据的战略权重。
+</div>
+
+<!-- ===== 关键数据汇总 ===== -->
+<h2><span class="section-num">📊</span> 关键数据汇总</h2>
+
+<table>
+  <tr><th width="200">领域</th><th>指标</th><th>数值</th></tr>
+  <tr><td rowspan="3">麒麟2026</td><td>晶体管密度</td><td>155 → 238 MTr/mm² (+53.5%)</td></tr>
+  <tr><td>等性能功耗</td><td>-41%</td></tr>
+  <tr><td>CPU主频</td><td>3.1 GHz (+13%)</td></tr>
+  <tr><td rowspan="2">系统</td><td>统一总线延迟</td><td>~100 ns (~500× τ缩减)</td></tr>
+  <tr><td>Hi-ONE带宽</td><td>8 Tb/s/模块</td></tr>
+  <tr><td rowspan="2">制造</td><td>混合键合间距</td><td>1.5 μm</td></tr>
+  <tr><td>TSV间距</td><td>&lt; 6 μm</td></tr>
+  <tr><td rowspan="2">路线图</td><td>2026→2035硬件集成度</td><td>>100×</td></tr>
+  <tr><td>2029 CPU频率</td><td>4 GHz+</td></tr>
+  <tr><td>量产规模</td><td>2020-2026芯片总数</td><td>381颗</td></tr>
+</table>
+
+<!-- ===== 历史背景 ===== -->
+<h2><span class="section-num">📜</span> 背景</h2>
+<p>2026年7月4日，华为海思半导体业务负责人何庭波发布了V2版的《多层电子系统的时间缩放理论》论文，正式在中国科学院科技论文预发布平台上线。该论文在之前发布的"韬定律"论文基础上，进一步补充了更多的工程细节和实测数据。论文核心展示了LogicFolding（逻辑折叠）技术在麒麟2026移动SoC中的量产验证成果，并提出τ缩放作为后摩尔时代的半导体演进指导原则。</p>
+
+<p>论文借鉴了2020年5月至2026年5月期间381颗量产芯片的经验教训，覆盖移动、AI、汽车、工业和基础设施市场。</p>
+
+<hr>
+
+<div class="signature">
+  <p>公开稿件 | 基于华为海思何庭波论文整理 · 2026-07-04</p>
+  <p style="margin-top:4px;">来源：中国科学院科技论文预发布平台 | 本文为公开技术解读，不包含非公开信息</p>
+  <p style="margin-top:4px; font-size:12px;">
+    <span class="tag tag-g">τ缩放</span>
+    <span class="tag tag-b">LogicFolding</span>
+    <span class="tag tag-o">3D封装</span>
+    <span class="tag tag-p">统一总线</span>
+    <span class="tag tag-r">Hi-ONE</span>
+    <span class="tag tag-g">麒麟2026</span>
+  </p>
+</div>
+
+</div>
+</body>
+</html>
