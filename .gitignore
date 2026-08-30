@@ -4,6 +4,9 @@ __pycache__/
 radar-app/node_modules/
 radar-app/coverage/
 radar-app/dist/
+radar-app/*.tsbuildinfo
+radar-app/vite.config.js
+radar-app/vite.config.d.ts
 .env
 .env.*
 !.env.example
