@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+radar-app/node_modules/
+radar-app/coverage/
+radar-app/dist/
+.env
+.env.*
+!.env.example
