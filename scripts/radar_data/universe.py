@@ -1,0 +1,26 @@
+"""A broad public universe prevents a public repository from identifying private holdings."""
+
+PUBLIC_UNIVERSE = [
+    {"symbol": "AAPL", "name": "Apple", "securityType": "stock", "cik": "320193"},
+    {"symbol": "MSFT", "name": "Microsoft", "securityType": "stock", "cik": "789019"},
+    {"symbol": "AMZN", "name": "Amazon", "securityType": "stock", "cik": "1018724"},
+    {"symbol": "GOOG", "name": "Alphabet", "securityType": "stock", "cik": "1652044"},
+    {"symbol": "META", "name": "Meta Platforms", "securityType": "stock", "cik": "1326801"},
+    {"symbol": "NVDA", "name": "NVIDIA", "securityType": "stock", "cik": "1045810"},
+    {"symbol": "AVGO", "name": "Broadcom", "securityType": "stock", "cik": "1730168"},
+    {"symbol": "TSM", "name": "Taiwan Semiconductor ADR", "securityType": "stock", "cik": "1046179"},
+    {"symbol": "AMD", "name": "AMD", "securityType": "stock", "cik": "2488"},
+    {"symbol": "MU", "name": "Micron", "securityType": "stock", "cik": "723125"},
+    {"symbol": "ORCL", "name": "Oracle", "securityType": "stock", "cik": "1341439"},
+    {"symbol": "TSLA", "name": "Tesla", "securityType": "stock", "cik": "1318605"},
+    {"symbol": "NFLX", "name": "Netflix", "securityType": "stock", "cik": "1065280"},
+    {"symbol": "BRK-B", "name": "Berkshire Hathaway", "securityType": "stock", "cik": "1067983"},
+    {"symbol": "JPM", "name": "JPMorgan Chase", "securityType": "stock", "cik": "19617"},
+    {"symbol": "LLY", "name": "Eli Lilly", "securityType": "stock", "cik": "59478"},
+    {"symbol": "XOM", "name": "Exxon Mobil", "securityType": "stock", "cik": "34088"},
+    {"symbol": "QQQ", "name": "Invesco QQQ", "securityType": "etf", "cik": None},
+    {"symbol": "SPY", "name": "SPDR S&P 500", "securityType": "etf", "cik": None},
+    {"symbol": "SGOV", "name": "iShares 0-3 Month Treasury", "securityType": "etf", "cik": None},
+    {"symbol": "TLT", "name": "iShares 20+ Year Treasury", "securityType": "etf", "cik": None},
+    {"symbol": "DRAM", "name": "Memory / semiconductor ETF", "securityType": "etf", "cik": None},
+]
