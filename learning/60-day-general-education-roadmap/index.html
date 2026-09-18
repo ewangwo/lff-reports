@@ -259,6 +259,28 @@
     .book b { display: block; margin-bottom: 4px; }
     .book p { margin: 0; color: var(--muted); font-size: 14px; }
     .book i { color: var(--ink); font-style: normal; font-weight: 650; }
+    .focus-entry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 22px;
+      border-top: 1px solid var(--line);
+      background: #173c32;
+      color: white;
+    }
+    .focus-entry b { display: block; font-size: 18px; }
+    .focus-entry span { color: rgba(255,255,255,.72); font-size: 14px; }
+    .focus-entry a {
+      flex: 0 0 auto;
+      padding: 9px 15px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      font-weight: 750;
+    }
+    .focus-entry a:hover { background: white; color: var(--green); }
     .gates { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .gate {
       position: relative;
@@ -392,6 +414,7 @@
       .books, .gates, .lab-grid, .source-grid { grid-template-columns: 1fr; }
       .book:nth-child(odd) { border-right: 0; }
       .gate-map-grid, .filters { grid-template-columns: repeat(2, 1fr); }
+      .focus-entry { align-items: flex-start; flex-direction: column; }
     }
     @media (max-width: 520px) {
       .topbar-inner { padding-inline: 16px; }
@@ -558,6 +581,10 @@
               <div class="book"><span class="book-no">12</span><div><b>《实验心理学》</b><p><i>假设、变量、对照、可证伪。</i> 哪种观察结果会让我改变判断？</p></div></div>
               <div class="book"><span class="book-no">13</span><div><b>《行为科学统计》</b><p><i>基准率、分布、回归、相关。</i> 平均值背后藏着怎样的分布？</p></div></div>
               <div class="book"><span class="book-no">15</span><div><b>《社会研究方法》</b><p><i>抽样、访谈、观察、测量。</i> 我问的是对的人、对的问题吗？</p></div></div>
+            </div>
+            <div class="focus-entry">
+              <div><b>这 5 本理解不够？先走一遍 90 分钟重点课</b><span>从论证、规则、实验、统计到真实世界取证，配一个贯穿案例与闭卷自测。</span></div>
+              <a href="evidence-causality-boundaries.html">进入重点学习 →</a>
             </div>
           </article>
 

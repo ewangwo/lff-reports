@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用 90 分钟理解逻辑学、法律思维、实验设计、行为统计和社会研究方法，建立证据、因果与边界的完整判断链。">
+  <title>证据、因果与边界｜5 本书重点学习</title>
+  <style>
+    :root {
+      --ink: #17211d;
+      --muted: #5d6a64;
+      --paper: #f3f0e8;
+      --card: #fffdf8;
+      --line: #d7d8cf;
+      --green: #0f604a;
+      --green-dark: #153b31;
+      --mint: #dcece4;
+      --orange: #b75332;
+      --orange-soft: #f3ddd1;
+      --gold: #e6ad42;
+      --blue: #315f78;
+      --blue-soft: #dce8ee;
+      --shadow: 0 18px 56px rgba(23,33,29,.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(230,173,66,.13), transparent 32rem),
+        radial-gradient(circle at 90% 8%, rgba(15,96,74,.12), transparent 36rem),
+        var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(243,240,232,.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(23,33,29,.1);
+    }
+    .topbar-inner {
+      max-width: 1160px;
+      min-height: 58px;
+      margin: auto;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .back { text-decoration: none; font-weight: 800; }
+    .back span { color: var(--orange); }
+    nav { display: flex; gap: 16px; overflow-x: auto; white-space: nowrap; font-size: 13px; color: var(--muted); }
+    nav a { text-decoration: none; }
+    .progress-track { position: absolute; left: 0; bottom: -1px; width: 100%; height: 3px; }
+    #progressBar { width: 0; height: 100%; background: linear-gradient(90deg,var(--orange),var(--gold),var(--green)); transition: width .25s; }
+    .wrap { max-width: 1160px; margin: auto; padding: 0 24px; }
+    .hero { padding: 74px 0 54px; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr .6fr; gap: 42px; align-items: end; }
+    .eyebrow { color: var(--green); font-size: 13px; font-weight: 850; letter-spacing: .12em; }
+    h1 {
+      margin: 16px 0 18px;
+      font: clamp(44px,7vw,84px)/1.03 Georgia, "Songti SC", serif;
+      letter-spacing: -.045em;
+    }
+    h1 em { color: var(--orange); font-style: normal; }
+    .lead { max-width: 780px; margin: 0; color: #3d4943; font-size: clamp(18px,2vw,22px); }
+    .hero-card { padding: 26px; border-radius: 22px 22px 22px 6px; background: var(--green-dark); color: white; box-shadow: var(--shadow); }
+    .hero-card b { display: block; font-size: 20px; margin-bottom: 8px; }
+    .hero-card p { margin: 0; color: rgba(255,255,255,.76); }
+    .badges { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+    .badge { padding: 7px 11px; border: 1px solid rgba(23,33,29,.2); border-radius: 999px; background: rgba(255,255,255,.42); font-size: 13px; }
+    .metrics { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 40px; }
+    .metric { padding: 17px; border-top: 1px solid var(--ink); }
+    .metric b { display: block; font: 36px/1 Georgia,serif; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    section { padding: 68px 0; border-top: 1px solid rgba(23,33,29,.12); }
+    .section-head { display: grid; grid-template-columns: .72fr 1.28fr; gap: 28px; margin-bottom: 32px; }
+    .kicker { color: var(--orange); font-size: 12px; font-weight: 850; letter-spacing: .13em; }
+    h2 { margin: 7px 0 0; font: clamp(32px,4.7vw,54px)/1.1 Georgia,"Songti SC",serif; letter-spacing: -.035em; }
+    .intro { margin: 8px 0 0; color: var(--muted); font-size: 17px; }
+    .chain {
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      gap: 10px;
+    }
+    .chain-step {
+      position: relative;
+      min-height: 190px;
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+    .chain-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -17px;
+      top: 47%;
+      z-index: 2;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--orange);
+      font-weight: 800;
+    }
+    .chain-step small { color: var(--orange); font-weight: 850; }
+    .chain-step h3 { margin: 7px 0; font-size: 20px; }
+    .chain-step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .route { display: grid; gap: 10px; }
+    .route-row {
+      display: grid;
+      grid-template-columns: 92px 55px 1fr auto;
+      gap: 14px;
+      align-items: start;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,253,248,.72);
+    }
+    .route-row .time { color: var(--green); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .route-row .mins { color: var(--muted); font-size: 13px; }
+    .route-row b { display: block; }
+    .route-row p { margin: 2px 0 0; color: var(--muted); }
+    .check { width: 23px; height: 23px; accent-color: var(--green); }
+    .book-section { padding-top: 78px; }
+    .book-shell {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .book-hero {
+      display: grid;
+      grid-template-columns: 120px 1.2fr .8fr;
+      gap: 24px;
+      align-items: start;
+      padding: 30px;
+      background: var(--mint);
+    }
+    .book-index { color: var(--green); font: 60px/1 Georgia,serif; }
+    .book-hero h2 { margin: 0 0 6px; font-size: clamp(32px,4vw,48px); }
+    .book-meta { color: var(--muted); font-size: 13px; }
+    .book-answer {
+      padding-left: 20px;
+      border-left: 1px solid rgba(15,96,74,.25);
+      color: var(--green);
+      font-weight: 800;
+    }
+    .book-grid { display: grid; grid-template-columns: 1.05fr .95fr; }
+    .concepts, .example { padding: 28px 30px; }
+    .example { background: #f8f5ee; border-left: 1px solid var(--line); }
+    .book-grid h3 { margin: 0 0 14px; font-size: 21px; }
+    .concept { display: grid; grid-template-columns: 28px 1fr; gap: 12px; margin: 15px 0; }
+    .concept-no { color: var(--orange); font: 800 18px/1.5 Georgia,serif; }
+    .concept b { display: block; }
+    .concept p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+    .formula {
+      margin: 16px 0;
+      padding: 16px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: white;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+    }
+    .example .case { color: var(--orange); font-size: 12px; font-weight: 850; letter-spacing: .1em; }
+    .example blockquote { margin: 9px 0 16px; font: 22px/1.45 Georgia,"Songti SC",serif; }
+    .example ol { padding-left: 20px; }
+    .example li { margin: 8px 0; }
+    .trap {
+      margin-top: 18px;
+      padding: 15px 17px;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      background: var(--orange-soft);
+      color: #6c3322;
+    }
+    .exercise {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 30px;
+      background: var(--green-dark);
+      color: white;
+    }
+    .exercise b { display: block; }
+    .exercise span { color: rgba(255,255,255,.72); font-size: 14px; }
+    .exercise .tag { white-space: nowrap; color: #f0c870; font-weight: 850; }
+    .logic .book-hero { background: #dfece5; }
+    .law .book-hero { background: #e7e6d9; }
+    .experiment .book-hero { background: #dce8ee; }
+    .statistics .book-hero { background: #eee3d3; }
+    .research .book-hero { background: #e4e0ec; }
+    .compare { overflow-x: auto; border: 1px solid var(--line); border-radius: 17px; background: var(--card); }
+    table { width: 100%; min-width: 820px; border-collapse: collapse; }
+    th, td { padding: 15px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    th { background: var(--green-dark); color: white; font-size: 13px; }
+    td:first-child { font-weight: 800; color: var(--green); }
+    tr:last-child td { border-bottom: 0; }
+    .quiz { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    details { padding: 17px 18px; border: 1px solid var(--line); border-radius: 13px; background: var(--card); }
+    summary { cursor: pointer; font-weight: 750; }
+    details p { margin: 12px 0 0; color: var(--muted); }
+    .cheat {
+      display: grid;
+      grid-template-columns: .68fr 1.32fr;
+      border-radius: 24px;
+      overflow: hidden;
+      color: white;
+      background: var(--ink);
+      box-shadow: var(--shadow);
+    }
+    .cheat-intro { padding: 32px; background: var(--orange); }
+    .cheat-intro h3 { margin: 7px 0 10px; font: 34px/1.1 Georgia,serif; }
+    .cheat-list { padding: 28px 32px; display: grid; gap: 13px; }
+    .cheat-row { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding-bottom: 11px; border-bottom: 1px solid rgba(255,255,255,.17); }
+    .cheat-row b { color: #edc76e; }
+    .cheat-row span { color: rgba(255,255,255,.76); }
+    .status {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+    }
+    .status b { font-size: 18px; }
+    .status span { display: block; color: var(--muted); font-size: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 15px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .sources { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .source { padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,253,248,.68); }
+    .source b { display: block; }
+    .source span { color: var(--muted); font-size: 13px; }
+    footer { padding: 32px 0 56px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) {
+      .hero-grid, .section-head, .book-grid, .cheat { grid-template-columns: 1fr; }
+      .chain { grid-template-columns: 1fr; }
+      .chain-step { min-height: 0; }
+      .chain-step:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -17px; transform: translateX(50%); }
+      .book-hero { grid-template-columns: 72px 1fr; }
+      .book-answer { grid-column: 2; padding: 0; border: 0; }
+      .example { border-left: 0; border-top: 1px solid var(--line); }
+      .metrics { grid-template-columns: repeat(2,1fr); }
+      .quiz, .sources { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .topbar-inner, .wrap { padding-inline: 16px; }
+      nav { display: none; }
+      .hero { padding-top: 48px; }
+      h1 { font-size: 46px; }
+      section { padding: 52px 0; }
+      .route-row { grid-template-columns: 72px 1fr auto; gap: 10px; }
+      .route-row .mins { display: none; }
+      .book-hero { grid-template-columns: 46px 1fr; padding: 22px 18px; }
+      .book-index { font-size: 40px; }
+      .concepts, .example { padding: 22px 18px; }
+      .exercise { align-items: flex-start; flex-direction: column; padding: 19px; }
+      .cheat-intro, .cheat-list { padding: 24px; }
+      .cheat-row { grid-template-columns: 1fr; gap: 2px; }
+      .status { align-items: flex-start; flex-direction: column; }
+    }
+    @media print {
+      .topbar, .status button { display: none !important; }
+      body { background: white; }
+      section { padding: 30px 0; }
+      .book-shell, .cheat { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="back" href="./"><span>←</span> 返回一下午学习台</a>
+      <nav aria-label="页面导航">
+        <a href="#chain">总链条</a>
+        <a href="#logic">逻辑</a>
+        <a href="#law">法律</a>
+        <a href="#experiment">实验</a>
+        <a href="#statistics">统计</a>
+        <a href="#research">研究</a>
+        <a href="#quiz">自测</a>
+      </nav>
+      <div class="progress-track" aria-hidden="true"><div id="progressBar"></div></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="border-top:0">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">C · EVIDENCE, CAUSALITY & BOUNDARIES</span>
+            <h1>先把这 <em>5 本书</em><br>真正弄懂</h1>
+            <p class="lead">它们共同回答一个问题：面对一个听起来很有道理的判断，怎样从“我感觉是真的”，走到“它的论证成立、规则清楚、可以检验、数据支持，而且在真实世界仍然有效”。</p>
+            <div class="badges">
+              <span class="badge">90 分钟重点课</span>
+              <span class="badge">5 个核心模型</span>
+              <span class="badge">1 个贯穿案例</span>
+              <span class="badge">10 道闭卷自测</span>
+            </div>
+          </div>
+          <aside class="hero-card">
+            <b>先建立一个关键区别</b>
+            <p>逻辑正确，不代表事实为真；实验有效，不代表外部世界都适用；统计显著，不代表值得行动；有人表达需求，也不代表有人付费。五本书正好分别补上这些缺口。</p>
+          </aside>
+        </div>
+        <div class="metrics">
+          <div class="metric"><b>01</b><span>拆论证</span></div>
+          <div class="metric"><b>02</b><span>定边界</span></div>
+          <div class="metric"><b>03</b><span>做检验</span></div>
+          <div class="metric"><b>04–05</b><span>解释并外推</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chain">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">01 · THE WHOLE CHAIN</span><h2>五本书不是并列<br>而是一条证据链</h2></div>
+          <p class="intro">先不要背概念。只记住下面五个动作。任何投资判断、健康方案、工作承诺或产品假设，都可以沿这条链检查；其中任何一环断裂，结论都需要降级。</p>
+        </div>
+        <div class="chain">
+          <article class="chain-step"><small>LOGIC</small><h3>说得通吗？</h3><p>结论由哪些前提推出？推理形式有效吗？有没有偷换概念或遗漏前提？</p></article>
+          <article class="chain-step"><small>LAW</small><h3>算得数吗？</h3><p>谁拥有什么权利、承担什么义务？程序、证据和执行条件是否成立？</p></article>
+          <article class="chain-step"><small>EXPERIMENT</small><h3>能检验吗？</h3><p>怎样把抽象判断变成变量、对照、测量窗口与明确的失败条件？</p></article>
+          <article class="chain-step"><small>STATISTICS</small><h3>结果稳吗？</h3><p>样本、分布、基准率、不确定性和实际效应是否支持强结论？</p></article>
+          <article class="chain-step"><small>RESEARCH</small><h3>现实适用吗？</h3><p>是否问了对的人、观察了真实行为，并理解了场景、角色和伦理边界？</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="route">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">02 · 90-MIN ROUTE</span><h2>今天先用<br>90 分钟过一遍</h2></div>
+          <p class="intro">阅读顺序不能倒：统计不能修复一个错误问题，实验不能修复一个含糊命题，法律文件也不能自动证明承诺已经履行。每段学完立即做一个微练习。</p>
+        </div>
+        <div class="route">
+          <div class="route-row"><span class="time">00:00</span><span class="mins">10 min</span><div><b>读懂五段证据链</b><p>用自己的话解释“说得通、算得数、能检验、结果稳、现实适用”。</p></div><input class="check task-check" data-key="chain" type="checkbox" aria-label="完成五段证据链"></div>
+          <div class="route-row"><span class="time">00:10</span><span class="mins">15 min</span><div><b>《逻辑学导论》</b><p>掌握论证、隐含前提、必要与充分、演绎与归纳。</p></div><input class="check task-check" data-key="logic" type="checkbox" aria-label="完成逻辑学导论"></div>
+          <div class="route-row"><span class="time">00:25</span><span class="mins">15 min</span><div><b>《法律之门》</b><p>掌握事实—争点—规则—适用—结论，以及权利义务与证明。</p></div><input class="check task-check" data-key="law" type="checkbox" aria-label="完成法律之门"></div>
+          <div class="route-row"><span class="time">00:40</span><span class="mins">15 min</span><div><b>《实验心理学》</b><p>掌握操作化、变量、对照、混淆、效度和可证伪。</p></div><input class="check task-check" data-key="experiment" type="checkbox" aria-label="完成实验心理学"></div>
+          <div class="route-row"><span class="time">00:55</span><span class="mins">15 min</span><div><b>《行为科学统计》</b><p>掌握基准率、分布、抽样误差、效应大小和均值回归。</p></div><input class="check task-check" data-key="statistics" type="checkbox" aria-label="完成行为科学统计"></div>
+          <div class="route-row"><span class="time">01:10</span><span class="mins">15 min</span><div><b>《社会研究方法》</b><p>掌握抽样、访谈、观察、测量、效度与定性/定量组合。</p></div><input class="check task-check" data-key="research" type="checkbox" aria-label="完成社会研究方法"></div>
+          <div class="route-row"><span class="time">01:25</span><span class="mins">5 min</span><div><b>闭卷写出五个问题</b><p>不看页面，写出遇到一个新主张时你会依次问什么。</p></div><input class="check task-check" data-key="recall" type="checkbox" aria-label="完成闭卷回忆"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="book-section logic" id="logic">
+      <div class="wrap">
+        <article class="book-shell">
+          <header class="book-hero">
+            <div class="book-index">06</div>
+            <div><h2>《逻辑学导论》</h2><div class="book-meta">Copi / Cohen / Rodych · 中文第 15 版 · 中国人民大学出版社 · 2022</div></div>
+            <div class="book-answer">它解决的不是“你赞不赞成”，而是：结论究竟由什么理由推出，推理能否承受反例。</div>
+          </header>
+          <div class="book-grid">
+            <div class="concepts">
+              <h3>先掌握 5 个核心概念</h3>
+              <div class="concept"><span class="concept-no">1</span><div><b>命题不等于论证</b><p>“这个方案有效”只是命题。论证必须包含前提，以及前提为何支持结论的推理关系。</p></div></div>
+              <div class="concept"><span class="concept-no">2</span><div><b>演绎看有效性，归纳看强度</b><p>演绎有效：若前提真，结论不可能假；但前提本身仍可能是假。归纳只能提高结论概率，不能保证结论。</p></div></div>
+              <div class="concept"><span class="concept-no">3</span><div><b>必要条件 ≠ 充分条件</b><p>必要条件缺了就不行；充分条件一旦满足就足以推出结果。“有资金”可能是自由的必要条件之一，却绝不是充分条件。</p></div></div>
+              <div class="concept"><span class="concept-no">4</span><div><b>隐含前提决定脆弱点</b><p>推理中没说出口的桥梁最危险，例如默认需求持续、竞争不变、关系稳定或规则不会调整。</p></div></div>
+              <div class="concept"><span class="concept-no">5</span><div><b>反例与可修正性</b><p>一个观点若任何结果都能解释，就无法被检验。好论证要提前说明什么事实会降低置信度。</p></div></div>
+              <div class="formula">前提 P1 + 前提 P2 + 推理规则 → 结论 C<br>检查：前提是真的吗？形式有效吗？有没有漏掉 P3？</div>
+            </div>
+            <aside class="example">
+              <span class="case">贯穿案例 · 一个决策方法是否值得产品化？</span>
+              <blockquote>“我有多年经验，所以企业会愿意购买我的决策方法。”</blockquote>
+              <ol>
+                <li><b>结论：</b>企业会购买。</li>
+                <li><b>明示前提：</b>我有多年经验，并形成了方法。</li>
+                <li><b>隐含前提：</b>方法解决真实痛点；买方信任；预算存在；交付成本可接受。</li>
+                <li><b>逻辑问题：</b>“有经验”既不是“有人购买”的充分条件，也未证明需求存在。</li>
+                <li><b>可修正表达：</b>若目标客户过去为同类问题付过费，且试用后关键指标改善，则购买可能性上升。</li>
+              </ol>
+              <div class="trap"><b>常见误用：</b>逻辑形式正确不等于事实正确；也不要把“抓到逻辑漏洞”当作压制关系沟通的武器。</div>
+            </aside>
+          </div>
+          <footer class="exercise"><div><b>3 分钟练习</b><span>找一个你今天相信的强观点，写出结论、两个前提、一个隐含前提、一个反例。</span></div><div class="tag">产出：P1 / P2 / C</div></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="book-section law" id="law">
+      <div class="wrap">
+        <article class="book-shell">
+          <header class="book-hero">
+            <div class="book-index">07</div>
+            <div><h2>《法律之门》</h2><div class="book-meta">Bonsignore 等 · 第 8 版中文校订本 · 华夏出版社 · 2017</div></div>
+            <div class="book-answer">它训练你看到：法律不是抽象正义口号，而是社会如何用规则、程序和证据处理冲突。</div>
+          </header>
+          <div class="book-grid">
+            <div class="concepts">
+              <h3>先掌握 5 个核心概念</h3>
+              <div class="concept"><span class="concept-no">1</span><div><b>事实与规范必须分开</b><p>“发生了什么”是事实问题；“应该如何处理”取决于适用规则。道德直觉可能重要，但不能替代法律依据。</p></div></div>
+              <div class="concept"><span class="concept-no">2</span><div><b>权利、义务、权力与责任相互对应</b><p>一方的请求权通常对应另一方的义务；能否改变法律关系，还取决于主体、授权和条件。</p></div></div>
+              <div class="concept"><span class="concept-no">3</span><div><b>实体正确不等于程序成立</b><p>期限、管辖、身份、授权、通知和材料都可能改变结果。程序不是装饰，而是减少任意性的保护。</p></div></div>
+              <div class="concept"><span class="concept-no">4</span><div><b>证明责任与证据强度</b><p>谁主张、谁需要提供什么证据？口头记忆、聊天记录、正式文件与第三方记录的证明力不同。</p></div></div>
+              <div class="concept"><span class="concept-no">5</span><div><b>可执行性才是承诺的落点</b><p>承诺需要清楚的主体、内容、期限、条件和救济方式。模糊善意在冲突时很难保护任何一方。</p></div></div>
+              <div class="formula">IRAC 思考法：事实 Facts → 争点 Issue → 规则 Rule<br>→ 适用 Application → 结论 Conclusion</div>
+            </div>
+            <aside class="example">
+              <span class="case">贯穿案例 · 把方法交付给客户</span>
+              <blockquote>“双方都认可价值，所以先做，合同以后再补。”</blockquote>
+              <ol>
+                <li><b>权利：</b>谁可以使用成果？可否复制、转售或训练内部系统？</li>
+                <li><b>义务：</b>交付范围、资料提供、付款、保密分别由谁负责？</li>
+                <li><b>程序：</b>谁有权确认验收？修改几轮？争议如何处理？</li>
+                <li><b>证据：</b>需求、版本、确认、变更和交付是否可追溯？</li>
+                <li><b>边界：</b>经验判断不等于专业法律、医疗或财务意见。</li>
+              </ol>
+              <div class="trap"><b>常见误用：</b>把所有关系“法律化”并不等于更安全。真正目标是减少歧义、保护合作；具体文件仍需要专业人士。</div>
+            </aside>
+          </div>
+          <footer class="exercise"><div><b>3 分钟练习</b><span>选一项重要承诺，写出主体、权利、义务、期限、证据、最坏后果六栏。</span></div><div class="tag">产出：六栏边界表</div></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="book-section experiment" id="experiment">
+      <div class="wrap">
+        <article class="book-shell">
+          <header class="book-hero">
+            <div class="book-index">12</div>
+            <div><h2>《实验心理学》</h2><div class="book-meta">Kantowitz / Roediger / Elmes · 据原书第 9 版译出 · 华东师范大学出版社 · 2010</div></div>
+            <div class="book-answer">它教你把一个抽象说法转成可能被推翻的假设，并尽量排除“其实是别的原因”。</div>
+          </header>
+          <div class="book-grid">
+            <div class="concepts">
+              <h3>先掌握 5 个核心概念</h3>
+              <div class="concept"><span class="concept-no">1</span><div><b>操作化：抽象概念怎样被观察</b><p>“理解更深”“压力更低”“方案有效”都不能直接测量，必须定义可观察指标及测量方法。</p></div></div>
+              <div class="concept"><span class="concept-no">2</span><div><b>自变量、因变量与混淆变量</b><p>自变量是你改变的因素，因变量是结果；混淆变量同时随自变量变化，让你无法知道真正原因。</p></div></div>
+              <div class="concept"><span class="concept-no">3</span><div><b>对照、随机与基线</b><p>没有比较，就不知道变化来自干预、时间、期待还是自然波动。个人试验至少要有干预前基线。</p></div></div>
+              <div class="concept"><span class="concept-no">4</span><div><b>内部效度与外部效度</b><p>内部效度问“真是 X 导致 Y 吗”；外部效度问“换个人、时间、环境还成立吗”。两者不能混为一谈。</p></div></div>
+              <div class="concept"><span class="concept-no">5</span><div><b>预先写失败条件</b><p>先定时间窗、指标和阈值，避免看到结果后改口径。实验目的是更快发现错，不是证明自己对。</p></div></div>
+              <div class="formula">假设：改变 X 会使 Y 改善<br>设计：控制 Z；先测基线；设观察窗；预先写出否定条件</div>
+            </div>
+            <aside class="example">
+              <span class="case">贯穿案例 · 小规模试用</span>
+              <blockquote>“使用这套决策方法后，客户的决策质量会提高。”</blockquote>
+              <ol>
+                <li><b>操作化：</b>把“质量”定义为关键假设识别率、反证数量、决策返工率或复盘一致性。</li>
+                <li><b>自变量：</b>是否使用结构化决策卡。</li>
+                <li><b>因变量：</b>决策完成时间、遗漏风险数、复盘评分。</li>
+                <li><b>混淆：</b>客户资历、问题难度、主持人参与、当日状态。</li>
+                <li><b>失败条件：</b>在约定的 3 次决策中，使用组没有出现任何实质改善。</li>
+              </ol>
+              <div class="trap"><b>常见误用：</b>一次改变太多变量，最后只能得到一个好故事。个人生活不必追求完美实验，但必须知道证据有多弱。</div>
+            </aside>
+          </div>
+          <footer class="exercise"><div><b>3 分钟练习</b><span>把“我想变得更健康/更高效/更会判断”改写成一个 X、一个 Y、一个时间窗和一个失败条件。</span></div><div class="tag">产出：可证伪假设</div></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="book-section statistics" id="statistics">
+      <div class="wrap">
+        <article class="book-shell">
+          <header class="book-hero">
+            <div class="book-index">13</div>
+            <div><h2>《行为科学统计》</h2><div class="book-meta">Gravetter / Wallnau · 原书第 9 版 · 机械工业出版社 · 2023</div></div>
+            <div class="book-answer">它不是让你迷信公式，而是让你知道：观察到的差异有多大、稳不稳、可能只是噪音吗。</div>
+          </header>
+          <div class="book-grid">
+            <div class="concepts">
+              <h3>先掌握 5 个核心概念</h3>
+              <div class="concept"><span class="concept-no">1</span><div><b>总体、样本与基准率</b><p>你真正关心的是总体，但通常只看到样本。判断个案前，先问同类情况通常怎样。</p></div></div>
+              <div class="concept"><span class="concept-no">2</span><div><b>中心趋势之外必须看分布</b><p>平均数相同，离散程度、偏态和尾部完全可能不同。风险往往藏在平均值看不见的地方。</p></div></div>
+              <div class="concept"><span class="concept-no">3</span><div><b>抽样误差与不确定性</b><p>样本统计量会波动。样本越小，估计通常越不稳定；区间比单点更诚实。</p></div></div>
+              <div class="concept"><span class="concept-no">4</span><div><b>统计显著 ≠ 实际重要</b><p>p 值回答的是特定零假设下数据有多意外，不等于效果大、不等于因果，也不等于值得行动。要同时看效应大小。</p></div></div>
+              <div class="concept"><span class="concept-no">5</span><div><b>相关、回归与均值回归</b><p>相关不证明因果；极端表现后回到常态，可能只是均值回归，不应自动归功于干预。</p></div></div>
+              <div class="formula">结果解释 = 效应大小 + 不确定区间 + 样本质量 + 分布形状<br>不是：看到平均值变化 → 立刻宣布有效</div>
+            </div>
+            <aside class="example">
+              <span class="case">贯穿案例 · 试用数据</span>
+              <blockquote>“5 位试用者平均评分 9 分，所以市场验证成功。”</blockquote>
+              <ol>
+                <li><b>样本：</b>5 人从哪里来？是否本来就信任你？</li>
+                <li><b>分布：</b>是所有人都给 9 分，还是 3 人满分、2 人低分？</li>
+                <li><b>基准：</b>不用该方法时评分与结果怎样？</li>
+                <li><b>效应：</b>评分高有没有转化为真实采用、复购或更好结果？</li>
+                <li><b>确信度：</b>这只是“值得继续测试”，远不是“市场已验证”。</li>
+              </ol>
+              <div class="trap"><b>常见误用：</b>不要把小样本的精确数字当确定性；也不要因样本不完美就拒绝所有信息。正确做法是降低结论强度。</div>
+            </aside>
+          </div>
+          <footer class="exercise"><div><b>3 分钟练习</b><span>找一个“平均表现很好”的数据，补问样本来源、分布、基准、效应大小和最坏 10% 情景。</span></div><div class="tag">产出：五问数据卡</div></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="book-section research" id="research">
+      <div class="wrap">
+        <article class="book-shell">
+          <header class="book-hero">
+            <div class="book-index">15</div>
+            <div><h2>《社会研究方法》</h2><div class="book-meta">W. Lawrence Neuman · 定性和定量的取向，第 5 版 · 中国人民大学出版社 · 2007</div></div>
+            <div class="book-answer">它解决“实验室里成立”之后的难题：到复杂社会中，怎样选人、提问、观察和解释，才不被场景与偏差骗过。</div>
+          </header>
+          <div class="book-grid">
+            <div class="concepts">
+              <h3>先掌握 5 个核心概念</h3>
+              <div class="concept"><span class="concept-no">1</span><div><b>研究问题决定方法</b><p>“多少人有这个问题”适合定量；“问题如何发生、为什么这样做”常需要定性；复杂问题可以混合使用。</p></div></div>
+              <div class="concept"><span class="concept-no">2</span><div><b>概念化与操作化</b><p>先说明“信任、需求、满意、自由”等概念包含什么，再决定用哪些问题或行为去测量。</p></div></div>
+              <div class="concept"><span class="concept-no">3</span><div><b>抽样决定你能外推到谁</b><p>便利样本容易取得，却不代表目标人群。还要注意选择偏差、非响应和幸存者偏差。</p></div></div>
+              <div class="concept"><span class="concept-no">4</span><div><b>信度与效度</b><p>信度是重复测量是否稳定；效度是你是否真的测到了目标。稳定地测错，仍然没有效度。</p></div></div>
+              <div class="concept"><span class="concept-no">5</span><div><b>问行为、看流程、保护研究对象</b><p>过去行为比未来意愿可靠；观察真实流程比抽象态度更接近约束；研究还要考虑知情、隐私与伤害。</p></div></div>
+              <div class="formula">研究设计：问题 → 概念 → 样本 → 方法 → 数据 → 解释 → 行动<br>每一步都要问：偏差从哪里进入？</div>
+            </div>
+            <aside class="example">
+              <span class="case">贯穿案例 · 验证真实需求</span>
+              <blockquote>“大家都说这个方法很有价值，所以应该开发完整产品。”</blockquote>
+              <ol>
+                <li><b>不要问：</b>“如果有这个产品，你会买吗？”</li>
+                <li><b>改问过去：</b>“上一次遇到这个问题是什么时候？怎么解决？花了什么成本？”</li>
+                <li><b>分清角色：</b>使用者、受益者、预算方、决策者和反对者可能不是同一个人。</li>
+                <li><b>观察流程：</b>问题卡在哪里？谁等待谁？哪份材料反复返工？</li>
+                <li><b>改变行动：</b>每次访谈必须能让目标用户、交付边界、价格或下一轮测试至少改变一项。</li>
+              </ol>
+              <div class="trap"><b>常见误用：</b>把访谈当销售会污染证据；把三五个礼貌反馈当需求，会把社交支持误判为支付意愿。</div>
+            </aside>
+          </div>
+          <footer class="exercise"><div><b>3 分钟练习</b><span>写 3 个不诱导的问题：过去一次怎么处理？谁决定？付出了什么真实成本？</span></div><div class="tag">产出：三问访谈卡</div></footer>
+        </article>
+      </div>
+    </section>
+
+    <section id="compare">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">03 · DO NOT CONFUSE</span><h2>最容易混淆的<br>五组问题</h2></div>
+          <p class="intro">真正理解的标志不是能解释术语，而是知道一个问题应该交给哪门方法，以及另一门方法为什么无法替代它。</p>
+        </div>
+        <div class="compare">
+          <table>
+            <thead><tr><th>你遇到的问题</th><th>主要调用</th><th>它能回答</th><th>它不能单独回答</th></tr></thead>
+            <tbody>
+              <tr><td>推理有没有漏洞？</td><td>逻辑学</td><td>前提与结论的关系是否成立</td><td>前提在现实中是否为真</td></tr>
+              <tr><td>承诺是否受保护？</td><td>法律思维</td><td>权利、义务、程序、证据与执行</td><td>这项安排是否最符合个人价值</td></tr>
+              <tr><td>X 是否导致 Y？</td><td>实验设计</td><td>在控制条件下因果关系是否更可信</td><td>换场景、换人群后是否仍成立</td></tr>
+              <tr><td>结果有多稳？</td><td>统计</td><td>差异、分布、不确定性与效应大小</td><td>研究问题是否问对、样本为何这样形成</td></tr>
+              <tr><td>现实中人们为何这样做？</td><td>社会研究</td><td>场景、角色、过程、意义与外部适用性</td><td>仅凭访谈直接证明因果</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">04 · CLOSED-BOOK TEST</span><h2>10 道题检查<br>是否真的理解</h2></div>
+          <p class="intro">先闭卷回答，再点开参考答案。只要有 3 题说不清，就回到对应书，而不是继续读新内容。</p>
+        </div>
+        <div class="quiz">
+          <details><summary>1. 一个演绎论证“有效”，是否意味着结论为真？</summary><p>不一定。有效只说明：如果前提都真，结论不可能假。若前提是假，仍可能得到错误结论。</p></details>
+          <details><summary>2. “有钱是自由的必要条件”与“有钱是自由的充分条件”有何区别？</summary><p>必要条件意味着缺少它就难以实现；充分条件意味着有它就足够实现。财富可能提供资源，但健康、关系、制度与时间同样影响自由。</p></details>
+          <details><summary>3. 为什么口头承诺和正式权利不是一回事？</summary><p>权利能否成立还取决于主体、内容、规则、证据、程序与可执行性；善意本身未必能证明或强制履行。</p></details>
+          <details><summary>4. 程序为什么不仅是“麻烦”？</summary><p>程序限制任意性，明确通知、期限、授权与举证方式，使各方有可预期的保护和纠错路径。</p></details>
+          <details><summary>5. 操作化是什么意思？</summary><p>把抽象概念转成可观察、可测量的指标与步骤，例如把“理解”转成闭卷解释、迁移应用和隔日提取表现。</p></details>
+          <details><summary>6. 什么是混淆变量？</summary><p>它与自变量一起变化，同时影响结果，使你无法确定观察到的效应究竟由哪个因素造成。</p></details>
+          <details><summary>7. 为什么平均数相同，风险仍可能完全不同？</summary><p>两组数据的方差、偏态、尾部和极端值可能不同；平均数无法展示最坏情景及体验差异。</p></details>
+          <details><summary>8. p 值小，是否代表效果很大且值得行动？</summary><p>不代表。还需看效应大小、不确定区间、研究设计、样本质量、成本与实际意义。</p></details>
+          <details><summary>9. 为什么“你会买吗？”通常不是好访谈问题？</summary><p>它询问假想意愿，容易受礼貌和自我形象影响。过去行为、真实成本、预算路径和决策过程更可靠。</p></details>
+          <details><summary>10. 信度高是否一定效度高？</summary><p>不一定。一个测量可以每次都很稳定，却持续测错对象；稳定地测量阅读时长，并不等于测到理解。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="cheat">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">05 · FINAL CARD</span><h2>最后只记住<br>这五个问题</h2></div>
+          <p class="intro">以后看到任何强观点，不需要先想起五本书名。只要按顺序问完这五句，就已经把五本书转成了你的判断系统。</p>
+        </div>
+        <div class="cheat">
+          <div class="cheat-intro"><span class="kicker" style="color:#fff2d8">ONE-MINUTE FILTER</span><h3>五问证据卡</h3><p>观点不因说得坚定而更真；证据不因数字精确而更强。</p></div>
+          <div class="cheat-list">
+            <div class="cheat-row"><b>逻辑</b><span>结论是什么？它依赖哪些明示与隐含前提？</span></div>
+            <div class="cheat-row"><b>法律</b><span>谁拥有什么权利、承担什么义务，如何证明与执行？</span></div>
+            <div class="cheat-row"><b>实验</b><span>改变哪个变量、测量什么结果，什么观察会推翻判断？</span></div>
+            <div class="cheat-row"><b>统计</b><span>基准率、样本、分布、效应大小与不确定性如何？</span></div>
+            <div class="cheat-row"><b>社会研究</b><span>我问了谁、漏了谁；人们真实做了什么，而不是说会做什么？</span></div>
+          </div>
+        </div>
+        <div class="status">
+          <div><b id="progressText">0 / 7 个学习节点完成</b><span>勾选状态只保存在当前浏览器；它记录学习进度，不代表已经精读原书。</span></div>
+          <button class="button" id="resetProgress" type="button">清空进度</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">06 · SOURCE BOUNDARY</span><h2>版本依据与<br>内容边界</h2></div>
+          <p class="intro">版本来自知识库中已确认的中文书目；本页是在现有 KB 应用型笔记上扩展的学习提炼，尚未逐章对照五本书全文。因此它适合先理解核心框架，不应冒充原著摘要、法律意见或统计课程替代品。</p>
+        </div>
+        <div class="sources">
+          <div class="source"><b>《逻辑学导论》第 15 版</b><span>Copi / Cohen / Rodych；人大出版社，2022；ISBN 9787300311487。</span></div>
+          <div class="source"><b>《法律之门》第 8 版中文校订本</b><span>Bonsignore 等；华夏出版社，2017；ISBN 9787508091891。</span></div>
+          <div class="source"><b>《实验心理学》据原书第 9 版译出</b><span>Kantowitz / Roediger / Elmes；华东师大出版社，2010；ISBN 9787561776186。</span></div>
+          <div class="source"><b>《行为科学统计》原书第 9 版</b><span>Gravetter / Wallnau；机械工业出版社，2023；ISBN 9787111716334。</span></div>
+          <div class="source"><b>《社会研究方法》第 5 版</b><span>W. Lawrence Neuman；人大出版社，2007；ISBN 9787300075648。</span></div>
+          <div class="source"><b>页面更新</b><span>2026-09-18；主域：学习输出；次域：知识工作流；公开安全版。</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">建议顺序：先完成本页 90 分钟重点课，再回到 <a href="./">一下午学习台</a> 继续四本投资书和真实决策实验。</div>
+  </footer>
+
+  <script>
+    (() => {
+      const storageKey = "lff-evidence-five-books-2026-09-18";
+      const checks = Array.from(document.querySelectorAll(".task-check"));
+      const bar = document.getElementById("progressBar");
+      const text = document.getElementById("progressText");
+      const read = () => {
+        try { return JSON.parse(localStorage.getItem(storageKey)) || {}; }
+        catch (_) { return {}; }
+      };
+      const save = () => {
+        const state = Object.fromEntries(checks.map(item => [item.dataset.key, item.checked]));
+        try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch (_) {}
+      };
+      const render = () => {
+        const done = checks.filter(item => item.checked).length;
+        bar.style.width = Math.round(done / checks.length * 100) + "%";
+        text.textContent = done + " / " + checks.length + " 个学习节点完成";
+      };
+      const state = read();
+      checks.forEach(item => {
+        item.checked = Boolean(state[item.dataset.key]);
+        item.addEventListener("change", () => { save(); render(); });
+      });
+      document.getElementById("resetProgress").addEventListener("click", () => {
+        checks.forEach(item => { item.checked = false; });
+        try { localStorage.removeItem(storageKey); } catch (_) {}
+        render();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
