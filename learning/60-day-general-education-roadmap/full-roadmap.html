@@ -1,0 +1,2974 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>60 天通识学习系统 v5</title>
+<style>
+:root {
+  --bg: #f7f8fb;
+  --ink: #101828;
+  --muted: #667085;
+  --line: #d9dee7;
+  --paper: #fff;
+  --accent: #0f766e;
+  --accent-soft: #ecfdf3;
+  --gold: #92400e;
+  --gold-soft: #fffbeb;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.72;
+}
+.hero {
+  background: #111827;
+  color: white;
+  padding: 34px 20px 28px;
+}
+.wrap {
+  width: min(1220px, calc(100vw - 32px));
+  margin: 0 auto;
+}
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(30px, 4vw, 50px);
+  letter-spacing: 0;
+}
+.hero p {
+  max-width: 920px;
+  margin: 0;
+  color: #d0d5dd;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+.stats div {
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  padding: 12px;
+}
+.stats b {
+  display: block;
+  font-size: 24px;
+  line-height: 1.1;
+}
+.versions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+.versions span {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.16);
+  color: #d0d5dd;
+  line-height: 1.5;
+}
+.versions .current {
+  background: #0f766e;
+  color: #fff;
+  border-color: #0f766e;
+}
+.versions .dead {
+  background: rgba(255,255,255,.05);
+  color: #6b7280;
+  text-decoration: line-through;
+}
+.holiday-entry {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.1);
+  padding: 14px;
+}
+.holiday-entry strong {
+  display: block;
+  color: #fff;
+}
+.holiday-entry span {
+  display: block;
+  color: #d0d5dd;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.holiday-entry a {
+  color: #111827;
+  background: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.layout {
+  width: min(1220px, calc(100vw - 32px));
+  margin: 18px auto 40px;
+  display: grid;
+  grid-template-columns: 292px 1fr;
+  gap: 18px;
+}
+.sidebar {
+  position: sticky;
+  top: 14px;
+  align-self: start;
+  max-height: calc(100vh - 28px);
+  overflow: auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 12px;
+}
+.sidebar h2 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.sidebar a {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 8px;
+  padding: 8px 6px;
+  color: #344054;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.sidebar a:hover { background: #f2f4f7; }
+.sidebar span {
+  display: grid;
+  place-items: center;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 900;
+}
+.sidebar b {
+  font-size: 12px;
+  line-height: 1.35;
+}
+.sidebar em {
+  display: block;
+  font-style: normal;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 2px;
+}
+.content {
+  display: grid;
+  gap: 16px;
+}
+.panel,
+.book,
+.day,
+.model {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 20px;
+}
+.panel h2,
+.book h2,
+.day h2,
+.model h2 {
+  margin: 0 0 10px;
+  font-size: 25px;
+  letter-spacing: 0;
+}
+.panel p { margin: 0 0 10px; }
+.section-title {
+  margin: 10px 0 0;
+  padding: 12px 0 0;
+  border-top: 2px solid #111827;
+  font-size: 28px;
+}
+.guide {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.guide div {
+  border: 1px solid #e4e7ec;
+  background: #fbfcfe;
+  padding: 12px;
+}
+.guide b {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.bridge-table {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+.bridge-row {
+  display: grid;
+  grid-template-columns: 1.05fr 1.45fr 1.2fr;
+  gap: 10px;
+  align-items: start;
+  border: 1px solid #e4e7ec;
+  background: #fbfcfe;
+  padding: 10px;
+}
+.bridge-row b {
+  color: #101828;
+}
+.bridge-row span,
+.bridge-row em {
+  color: #475467;
+  font-style: normal;
+}
+.book,
+.day {
+  border-left: 6px solid var(--accent);
+}
+.book header,
+.day header {
+  margin-bottom: 14px;
+}
+.book header p,
+.day header p {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-weight: 800;
+}
+.book header strong,
+.day header strong {
+  display: inline-block;
+  color: #344054;
+  background: #f2f4f7;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+.book section,
+.day section {
+  border-top: 1px solid #edf0f5;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+.book h3,
+.day h3,
+.model h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  color: #344054;
+}
+.point {
+  border: 1px solid #e4e7ec;
+  background: #fbfcfe;
+  padding: 12px;
+  margin: 8px 0;
+}
+.point b {
+  display: block;
+  color: #101828;
+}
+.point p,
+.reading p,
+.output p {
+  margin: 5px 0 0;
+}
+.twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.warning,
+.output {
+  background: var(--gold-soft);
+  border: 1px solid #fde68a;
+  padding: 12px;
+}
+.bridge {
+  background: #f6fefc;
+  border: 1px solid #bfe6dc;
+  padding: 12px;
+}
+.bridge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.bridge-grid > div {
+  border: 1px solid #d7e7e4;
+  background: #ffffff;
+  padding: 10px;
+}
+.bridge-grid .full {
+  grid-column: 1 / -1;
+  background: var(--gold-soft);
+  border-color: #fde68a;
+}
+.bridge-grid b {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.bridge-grid p {
+  margin: 0;
+  color: #344054;
+}
+.model {
+  border-left: 6px solid var(--gold);
+}
+.model p,
+.model li {
+  color: #344054;
+}
+.quote {
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+  color: #475467;
+}
+ul,
+ol {
+  margin: 0;
+  padding-left: 22px;
+}
+li { margin: 5px 0; }
+.footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 16px 0 6px;
+}
+@media (max-width: 940px) {
+  .layout,
+  .stats,
+  .holiday-entry,
+  .guide,
+  .bridge-row,
+  .bridge-grid,
+  .twocol {
+    grid-template-columns: 1fr;
+  }
+  .bridge-grid .full {
+    grid-column: auto;
+  }
+  .sidebar {
+    position: static;
+    max-height: none;
+  }
+}
+@media print {
+  .sidebar { display: none; }
+  .layout { display: block; }
+  .book,
+  .day,
+  .model { break-inside: avoid; margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>60 天通识学习系统 v5</h1>
+    <p>这版不再只是学习大纲，而是精读替代层：替你从 18 本书中抽取关键内容，解释它为什么重要，并强化“书籍知识 ↔ 现有知识库”的对应关系，最后沉淀到 Obsidian 和网页两端同步学习。</p>
+    <div class="stats">
+      <div><b>18</b>本书精读替代</div>
+      <div><b>90</b>个关键解释点</div>
+      <div><b>18</b>张知识库桥接卡</div>
+      <div><b>60</b>天同步学习路径</div>
+    </div>
+    <div class="versions">
+      <span class="dead">v1 · 初始版 · ❌ Day 7-11 重复内容</span>
+      <span>v2 · 独立判断版 · 7 模块 60 天 ✅</span>
+      <span>v3 · 内容加厚版 · 每日 4 内容块 ✅</span>
+      <span class="current">v5 · 精读替代层 · 18本书↔知识库桥接 🟢 当前</span>
+    </div>
+    <div class="holiday-entry">
+      <div>
+        <strong>假期两天压缩复盘</strong>
+        <span>把 60 天系统压缩成两天内可执行的知识库总校准。</span>
+      </div>
+      <a href="./holiday-compressed.html">打开压缩版</a>
+    </div>
+  </div>
+</header>
+<main class="layout">
+  <nav class="sidebar">
+    <h2>18 本书</h2>
+    <a href="#book-1"><span>01</span><b>经济学的思维方式</b><em>把人生和投资都看成约束下的选择</em></a><a href="#book-2"><span>02</span><b>经济学原理</b><em>把市场、价格、政策和激励连成一张图</em></a><a href="#book-3"><span>03</span><b>经济学</b><em>理解宏观周期、利率、通胀、货币与跨境配置</em></a><a href="#book-4"><span>04</span><b>管理学</b><em>从个人专家劳动转向可复制系统</em></a><a href="#book-5"><span>05</span><b>组织行为学</b><em>理解组织权力、动机、身份和真实影响链</em></a><a href="#book-6"><span>06</span><b>逻辑学导论</b><em>给投资观点、人生选择和公共叙事做结构拆解</em></a><a href="#book-7"><span>07</span><b>法律之门</b><em>把自由、资产和关系放进可执行边界</em></a><a href="#book-8"><span>08</span><b>大问题：简明哲学导论</b><em>重新定义好生活、自由、身份和意义</em></a><a href="#book-9"><span>09</span><b>心理学导论</b><em>把注意力、压力、学习、情绪当成可维护系统</em></a><a href="#book-10"><span>10</span><b>社会心理学</b><em>识别群体情绪、身份压力和关系互动中的偏差</em></a><a href="#book-11"><span>11</span><b>进化心理学</b><em>理解安全感、地位、资源和亲密关系背后的古老系统</em></a><a href="#book-12"><span>12</span><b>实验心理学</b><em>把个人判断变成可验证假设</em></a><a href="#book-13"><span>13</span><b>行为科学统计</b><em>用基准率、分布、样本和均值回归保护判断</em></a><a href="#book-14"><span>14</span><b>社会学</b><em>看到个人选择背后的结构、阶层、角色和制度</em></a><a href="#book-15"><span>15</span><b>社会研究方法</b><em>用访谈、观察和研究设计验证真实需求</em></a><a href="#book-16"><span>16</span><b>人类学</b><em>理解文化、仪式、意义和陌生化观察</em></a><a href="#book-17"><span>17</span><b>国家的常识</b><em>理解国家能力、制度、财政和合法性如何塑造市场</em></a><a href="#book-18"><span>18</span><b>沟通的艺术</b><em>把判断转换成对方能接收、能行动的表达</em></a>
+    <h2 style="margin-top:14px">60 天路径</h2>
+    <a href="#day-1"><span>1</span><b>《经济学的思维方式》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-2"><span>2</span><b>《经济学的思维方式》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-3"><span>3</span><b>《经济学的思维方式》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-4"><span>4</span><b>《经济学原理》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-5"><span>5</span><b>《经济学原理》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-6"><span>6</span><b>《经济学原理》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-7"><span>7</span><b>《经济学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-8"><span>8</span><b>《经济学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-9"><span>9</span><b>《经济学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-10"><span>10</span><b>《管理学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-11"><span>11</span><b>《管理学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-12"><span>12</span><b>《管理学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-13"><span>13</span><b>《组织行为学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-14"><span>14</span><b>《组织行为学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-15"><span>15</span><b>《组织行为学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-16"><span>16</span><b>《逻辑学导论》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-17"><span>17</span><b>《逻辑学导论》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-18"><span>18</span><b>《逻辑学导论》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-19"><span>19</span><b>《法律之门》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-20"><span>20</span><b>《法律之门》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-21"><span>21</span><b>《法律之门》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-22"><span>22</span><b>《大问题：简明哲学导论》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-23"><span>23</span><b>《大问题：简明哲学导论》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-24"><span>24</span><b>《大问题：简明哲学导论》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-25"><span>25</span><b>《心理学导论》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-26"><span>26</span><b>《心理学导论》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-27"><span>27</span><b>《心理学导论》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-28"><span>28</span><b>《社会心理学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-29"><span>29</span><b>《社会心理学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-30"><span>30</span><b>《社会心理学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-31"><span>31</span><b>《进化心理学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-32"><span>32</span><b>《进化心理学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-33"><span>33</span><b>《进化心理学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-34"><span>34</span><b>《实验心理学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-35"><span>35</span><b>《实验心理学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-36"><span>36</span><b>《实验心理学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-37"><span>37</span><b>《行为科学统计》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-38"><span>38</span><b>《行为科学统计》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-39"><span>39</span><b>《行为科学统计》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-40"><span>40</span><b>《社会学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-41"><span>41</span><b>《社会学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-42"><span>42</span><b>《社会学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-43"><span>43</span><b>《社会研究方法》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-44"><span>44</span><b>《社会研究方法》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-45"><span>45</span><b>《社会研究方法》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-46"><span>46</span><b>《人类学》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-47"><span>47</span><b>《人类学》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-48"><span>48</span><b>《人类学》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-49"><span>49</span><b>《国家的常识》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-50"><span>50</span><b>《国家的常识》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-51"><span>51</span><b>《国家的常识》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-52"><span>52</span><b>《沟通的艺术》1/3：这本书真正替你解决什么</b><em>关键解释</em></a><a href="#day-53"><span>53</span><b>《沟通的艺术》2/3：概念怎样改变真实判断</b><em>概念拆解</em></a><a href="#day-54"><span>54</span><b>《沟通的艺术》3/3：与我的知识库互证并沉淀</b><em>知识库沉淀</em></a><a href="#day-55"><span>55</span><b>投资判断的跨学科底层模型</b><em>系统整合</em></a><a href="#day-56"><span>56</span><b>职业退出与第二曲线模型</b><em>系统整合</em></a><a href="#day-57"><span>57</span><b>健康关系与好生活模型</b><em>系统整合</em></a><a href="#day-58"><span>58</span><b>证据系统与知识库工作流</b><em>系统整合</em></a><a href="#day-59"><span>59</span><b>原子笔记工厂：把 18 本书变成可检索知识</b><em>知识工程</em></a><a href="#day-60"><span>60</span><b>个人通识操作系统 v1：把学习变成判断动作</b><em>最终沉淀</em></a>
+  </nav>
+  <div class="content">
+    <section class="panel">
+      <h2>怎么用这版</h2>
+      <p>网页用于每天学习和复盘，Obsidian 用于长期沉淀。每天不是读原书章节，而是读关键解释、看它与你已有知识库怎样互证，然后写下一条可复用原则。</p>
+      <div class="guide">
+        <div><b>先理解</b>读“替你省掉的阅读时间”和关键内容解释。</div>
+        <div><b>再互证</b>看它如何印证或修正你的投资、职业、健康关系和知识库主线。</div>
+        <div><b>后沉淀</b>把当天原则写成 Obsidian 原子笔记。</div>
+        <div><b>最后应用</b>每周至少用一个真实问题测试三本书以上的模型。</div>
+      </div>
+    </section>
+
+    <section class="panel">
+    <h2>18 本书与知识库桥接总表</h2>
+    <p>每本书都不再孤立学习，而是连接到你已有知识库中的一个判断位置：投资、职业退出、健康关系、证据系统或知识产品化。</p>
+    <div class="bridge-table">
+      <div class="bridge-row">
+          <b>《经济学的思维方式》</b>
+          <span>高频记忆卡：四账合一 / 综合画像：时间、身体、节奏、体验和选择权 / 投资纪律：现金是选择权</span>
+          <em>原子笔记：机会成本必须写成被放弃的具体选项</em>
+        </div><div class="bridge-row">
+          <b>《经济学原理》</b>
+          <span>高频记忆卡：价格大于故事 / 知识产品化：外部需求验证 / 组织判断：激励错配</span>
+          <em>原子笔记：需求不是喜欢，而是有支付能力的痛点</em>
+        </div><div class="bridge-row">
+          <b>《经济学》</b>
+          <span>资产配置：现金/短债角色 / 宏观雷达：利率、通胀、汇率 / 周期判断：半导体与成长资产</span>
+          <em>原子笔记：利率是长期资产的重力</em>
+        </div><div class="bridge-row">
+          <b>《管理学》</b>
+          <span>第二曲线：咨询产品化 / 自由后自我管理 / 知识库工作流：模板与质检</span>
+          <em>原子笔记：自由也需要反馈系统</em>
+        </div><div class="bridge-row">
+          <b>《组织行为学》</b>
+          <span>职业画像：组织经验可迁移 / 组织判断：真实影响链 / 产品化：客户组织诊断</span>
+          <em>原子笔记：解释组织行为先看激励，再看性格</em>
+        </div><div class="bridge-row">
+          <b>《逻辑学导论》</b>
+          <span>投资分析：结论、证据、反例 / 高频记忆卡：好公司不等于好投资 / 输出风格：结论先行但证据要硬</span>
+          <em>原子笔记：隐含前提通常比明面理由更危险</em>
+        </div><div class="bridge-row">
+          <b>《法律之门》</b>
+          <span>关系与资产边界 / 证据系统：合同、账户、健康、沟通记录 / 跨境规则：平台条款与责任</span>
+          <em>原子笔记：没有记录，就很难保护未来的自己</em>
+        </div><div class="bridge-row">
+          <b>《大问题：简明哲学导论》</b>
+          <span>综合画像：好生活目标 / 高频记忆卡：不要活成学习和攒钱机器 / 职业退出：新身份证据</span>
+          <em>原子笔记：每个资产目标都要翻译成一个拒绝权</em>
+        </div><div class="bridge-row">
+          <b>《心理学导论》</b>
+          <span>健康底盘：睡眠、压力、训练 / 投资纪律：坏状态不决策 / 学习系统：原子笔记与提取练习</span>
+          <em>原子笔记：坏状态不做不可逆决定</em>
+        </div><div class="bridge-row">
+          <b>《社会心理学》</b>
+          <span>投资纪律：反共识与群体情绪 / 关系沟通：需求冲突 / 组织判断：情境大于性格</span>
+          <em>原子笔记：共识越强，越要写反方证据</em>
+        </div><div class="bridge-row">
+          <b>《进化心理学》</b>
+          <span>资产安全感 / 职业身份迁移 / 亲密关系：投入与边界</span>
+          <em>原子笔记：资产焦虑要拆成理性需要和安全感需要</em>
+        </div><div class="bridge-row">
+          <b>《实验心理学》</b>
+          <span>健康实验：变量控制 / 投资假设：失效信号 / 产品化：低风险测试</span>
+          <em>原子笔记：先写失败条件，再开始执行</em>
+        </div><div class="bridge-row">
+          <b>《行为科学统计》</b>
+          <span>投资：基准率与均值回归 / 健康：趋势大于单点 / 产品验证：样本量与分布</span>
+          <em>原子笔记：基准率先于故事</em>
+        </div><div class="bridge-row">
+          <b>《社会学》</b>
+          <span>综合画像：平台、资产、城市、网络 / 职业退出：结构资本迁移 / 生活系统：角色冲突</span>
+          <em>原子笔记：退出旧平台前，先建设新跳板</em>
+        </div><div class="bridge-row">
+          <b>《社会研究方法》</b>
+          <span>第二曲线：客户访谈 / 知识产品化：需求证据库 / 证据系统：事实问题优于态度问题</span>
+          <em>原子笔记：不要问会不会买，要问上一次怎么解决</em>
+        </div><div class="bridge-row">
+          <b>《人类学》</b>
+          <span>生活系统：仪式和城市体验 / 关系沟通：意义与安全感 / 职业退出：新生活试运行</span>
+          <em>原子笔记：仪式把抽象价值变成生活</em>
+        </div><div class="bridge-row">
+          <b>《国家的常识》</b>
+          <span>资产配置：不赌国运，只做配置 / 跨境资产：制度暴露 / 产业研究：政策与商业质量分开</span>
+          <em>原子笔记：国家叙事不能直接翻译成投资结论</em>
+        </div><div class="bridge-row">
+          <b>《沟通的艺术》</b>
+          <span>输出风格：结论先行 / 咨询产品：听真实约束 / 关系系统：需求与边界</span>
+          <em>原子笔记：高质量直接需要先理解对方约束</em>
+        </div>
+    </div>
+  </section>
+
+    <h2 class="section-title">四张整合模型</h2>
+    <article class="model" id="投资判断的跨学科底层模型">
+    <p class="quote">来源：18 本通识书 + 投资框架与对话共识 + 🧠 当前高频记忆卡</p>
+<h3>结论</h3>
+<p>投资判断不是单一金融问题，而是五层系统：价格与宏观、公司与财务、管理层资本配置、市场预期、个人仓位和心理承受力。</p>
+<h3>五层模型</h3>
+<ol>
+<li>经济学层：价格、利率、通胀、供需、周期。</li>
+</ol>
+<p>作用：防止只听公司故事，忘记折现率和周期位置。</p>
+<ol>
+<li>逻辑与统计层：前提、反例、基准率、均值回归。</li>
+</ol>
+<p>作用：防止被强叙事和小样本拖走。</p>
+<ol>
+<li>财务与资本配置层：现金流质量、Capex、回购、并购、管理层花钱能力。</li>
+</ol>
+<p>作用：连接 投资框架与对话共识 里的 Financial Shenanigans 与 The Outsiders。</p>
+<ol>
+<li>预期层：价格已经相信什么，现实是否能超过它。</li>
+</ol>
+<p>作用：连接 Expectations Investing，识别“好公司但高预期”的陷阱。</p>
+<ol>
+<li>个人系统层：仓位、流动性、睡眠、压力、机会成本。</li>
+</ol>
+<p>作用：连接 The Most Important Thing。正确观点如果仓位过重，也会变成错误结果。</p>
+<h3>可执行模板</h3>
+<p>每次分析公司或持仓，按八问写：</p>
+<ol>
+<li>业务质量高不高？</li>
+<li>财报质量是否可信？</li>
+<li>自由现金流质量如何？</li>
+<li>管理层怎样分配资本？</li>
+<li>当前价格隐含了什么预期？</li>
+<li>如果公司只是“很好”而不是“极好”，估值会怎样？</li>
+<li>当前在周期什么位置？</li>
+<li>它在组合里是什么角色？</li>
+</ol>
+<h3>需要写入长期记忆的原则</h3>
+<ul>
+<li>价格大于故事。</li>
+<li>仓位大于观点。</li>
+<li>现金不是废仓，是选择权。</li>
+<li>高预期股最怕的不是变差，而是没那么完美。</li>
+<li>周期资产必须同时看供需、Capex 和情绪位置。</li>
+</ul>
+  </article>
+<article class="model" id="职业退出与第二曲线模型">
+    <p class="quote">来源：管理学、组织行为学、社会学、社会研究方法、哲学 + 🧠 LFF_综合画像_2026-05-31</p>
+<h3>结论</h3>
+<p>职业退出不是“离开组织”这个动作，而是把现金流、身份、社会资本、产品化能力和生活节奏逐步迁移到组织之外。</p>
+<h3>五个必须同时建设的模块</h3>
+<ol>
+<li>现金流缓冲：保留足够选择权，避免被迫回到高消耗系统。</li>
+<li>新身份：用作品证明自己，而不是等待头衔消失后再重建自我。</li>
+<li>外部需求：用访谈和小交付验证市场，不靠自我感觉创业。</li>
+<li>可复制交付：把专家经验拆成输入、流程、模板、输出和质检。</li>
+<li>生活系统：自由后需要周节奏、健康指标、关系仪式和复盘机制。</li>
+</ol>
+<h3>与知识库互证</h3>
+<ul>
+<li>综合画像里，2026-2027 是战略收割期，不是无限加码组织身份。</li>
+<li>当前高频记忆卡提醒：不要把自己活成只会攒钱和学习的机器。</li>
+<li>工作流地图把学习计划目标定义为跨学科判断力，而不是读完教材。</li>
+</ul>
+<h3>可执行动作</h3>
+<ul>
+<li>每月完成 1 个外部可见作品。</li>
+<li>每月做 3 次事实型客户访谈。</li>
+<li>每季度打磨 1 个可复用咨询模板。</li>
+<li>每周固定复盘：现金流、健康、输出、关系、学习。</li>
+</ul>
+  </article>
+<article class="model" id="健康关系与好生活模型">
+    <p class="quote">来源：心理学、社会心理学、进化心理学、人类学、哲学、沟通 + 🧠 LFF_综合画像_2026-05-31</p>
+<h3>结论</h3>
+<p>资产自由只是好生活的必要条件之一。真正的目标函数还包括身体状态、亲密关系、安全感、日常仪式、城市体验和拒绝权。</p>
+<h3>核心解释</h3>
+<ol>
+<li>心理学：坏状态会毁掉好判断。睡眠不足、连续高压和冲突之后，不做不可逆决定。</li>
+<li>进化心理学：资产焦虑有理性部分，也有安全系统报警。要拆开处理。</li>
+<li>社会心理学：关系冲突常常是需求同时出现，不是人格审判。</li>
+<li>人类学：生活质量需要仪式。散步、训练、共餐、旅行、复盘不是装饰。</li>
+<li>哲学：自由首先是拒绝权。能拒绝坏节奏，才算资产真正转化成生活。</li>
+</ol>
+<h3>写入个人系统的原则</h3>
+<ul>
+<li>健康不是投资之外的事，而是判断质量的底盘。</li>
+<li>关系投入要预算化，但边界也要规则化。</li>
+<li>未来生活必须提前试运行，不能等资产数字达标后才开始。</li>
+<li>每个资产目标都要翻译成一个生活动作或拒绝权。</li>
+</ul>
+  </article>
+<article class="model" id="证据系统与知识库工作流">
+    <p class="quote">来源：逻辑学、法律之门、实验心理学、行为科学统计、社会研究方法 + 🧭 Codex主干对话知识库调用地图_2026-06-15</p>
+<h3>结论</h3>
+<p>Obsidian 不只是收藏夹，而应成为个人证据系统。它要帮助你区分事实、观点、假设、证据、反例和行动。</p>
+<h3>五类笔记</h3>
+<ol>
+<li>原始事实：截图、体检单、账户导出、合同、访谈记录。</li>
+<li>判断卡片：结论、理由、前提、反例、失效信号。</li>
+<li>研究笔记：来源、关键数字、证据链、不确定性、适用边界。</li>
+<li>原子原则：可以跨场景复用的一句话。</li>
+<li>复盘记录：原判断、发生了什么、哪里错、下一次怎样改。</li>
+</ol>
+<h3>每条重要观点的最低标准</h3>
+<ul>
+<li>它来自哪里？</li>
+<li>支持证据是什么？</li>
+<li>反例是什么？</li>
+<li>在什么条件下失效？</li>
+<li>需要写回哪个主文档？</li>
+</ul>
+<h3>与现有知识库互证</h3>
+<p>主干调用地图已经要求：输出时明确结论、依据、风险、行动、是否需要写回 Obsidian。</p>
+<p>这条规则可以升级为所有学习笔记的默认结构。</p>
+  </article>
+
+    <h2 class="section-title">18 本书精读替代</h2>
+    <article class="book" id="book-1">
+    <header>
+      <p>Book 01</p>
+      <h2>《经济学的思维方式》</h2>
+      <strong>把人生和投资都看成约束下的选择</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书不用按章节细读，真正要带走的是一套语言：稀缺、机会成本、边际、激励、交易、制度。它的价值不是让你变成经济学学生，而是让你在工作、投资、健康、关系之间不再用愿望做决策。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 稀缺性不是贫穷，而是所有重要资源都有上限</b><p>钱、时间、身体、注意力、关系、风险承受力都稀缺。只说“我想要更多自由”没有意义，必须问自由从哪里换来，是用更少现金流、更少组织身份、更少安全感，还是更高的不确定性换。</p></div><div class="point"><b>2. 机会成本必须写成被放弃的具体选项</b><p>真正的机会成本不是“花了多少钱”，而是你因此不能做什么。继续高强度工作，成本可能是身体和第二曲线；提前降强度，成本可能是现金流和安全感；加仓热门资产，成本可能是未来的等待权。</p></div><div class="point"><b>3. 边际思维比总量思维更接近真实选择</b><p>很多决策不是要不要工作、要不要投资、要不要学习，而是再多一年、再多一仓、再多一小时是否值得。边际问题能防止你被过去成绩或长期愿景绑架。</p></div><div class="point"><b>4. 激励比道德评价更能解释系统行为</b><p>组织里很多低效不是人坏，而是考核、预算、晋升和问责机制在奖励短期动作。投资市场里的拥挤交易也是激励系统的结果。</p></div><div class="point"><b>5. 交易成本决定很多看似理性的选择为什么做不成</b><p>外包、咨询、跨境配置、家庭协议、健康训练都不只看理论收益，还要看搜索、沟通、执行、信任和纠错成本。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的高频记忆卡印证：当前主线不是继续读更多书，而是把框架落到公司、财报、估值、资本配置和仓位决策上。</li><li>与综合画像印证：你的目标不是单一赚钱最大化，而是时间、身体、节奏、体验和选择权的联合优化。</li><li>与投资框架印证：现金/短债的机会成本不能只看收益率，还要看它提供的流动性期权。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>凡是重大选择，都写出被放弃的三个具体选项。</li><li>不要问“这件事好不好”，先问“再多投入一单位是否值得”。</li><li>把工作、投资、健康、关系放进同一张资源表，不要分账欺骗自己。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>高频记忆卡：四账合一</li><li>综合画像：时间、身体、节奏、体验和选择权</li><li>投资纪律：现金是选择权</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已经把投资、职业、健康、关系放在同一张长期约束表里；这本书给它补上“稀缺、机会成本、边际”的底层语言。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>书中最该吸收的不是定义，而是把任何选择翻译成：我用什么资源，换什么结果，放弃什么可能性。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>复盘一个近期选择：继续高强度工作、加仓、压缩休息、关系投入。写出显性收益、隐性成本和不可逆风险。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：机会成本必须写成被放弃的具体选项</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把经济学误用成冷酷算计。很多关系和健康问题不能只用金钱收益衡量。</li><li>不要只算显性成本，忽略注意力、身体和身份依赖。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-2">
+    <header>
+      <p>Book 02</p>
+      <h2>《经济学原理》</h2>
+      <strong>把市场、价格、政策和激励连成一张图</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书的阅读重点不是十大原理本身，而是理解市场如何把分散信息压缩成价格，以及政府、企业、个人如何在激励约束下行动。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 价格是信息压缩器，不是价值判决书</b><p>价格把供需、稀缺、预期、利率、情绪和风险偏好压缩到一个数字里。它可能有效，也可能过度反应。投资时要从价格倒推隐含预期，而不是只被公司故事吸引。</p></div><div class="point"><b>2. 市场有效不等于市场永远正确</b><p>价格通常比个人直觉包含更多信息，但在情绪极端、流动性变化、政策冲击和叙事拥挤时也会偏离。有效市场提醒你谦逊，行为偏差提醒你保留怀疑。</p></div><div class="point"><b>3. 外部性解释很多私人选择为什么会造成系统后果</b><p>组织加班、医疗负担、家庭照护、环境和公共政策都存在外部性。个人收益和系统成本不一致时，单靠自愿很难修复。</p></div><div class="point"><b>4. 比较优势说明高手也不应亲自做所有事</b><p>绝对能力强不代表每件事都值得自己做。你的高价值时间应留给判断、关系、健康和高杠杆输出，低杠杆事务应工具化或外包。</p></div><div class="point"><b>5. 政策不是口号，而是激励重写</b><p>税收、补贴、利率、监管和资本流动规则都会改变行为。看政策要问它改变谁的收益、成本和约束。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的投资共识印证：价格大于故事，仓位大于观点。</li><li>与你的职业规划印证：外部市场价值不是你自认有能力，而是别人愿意付费且能完成预算流程。</li><li>与你的生活系统印证：比较优势支持把低杠杆事务从个人时间里移出去。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>看到价格先问：它隐含了什么预期？</li><li>看到政策先问：它改变了谁的激励？</li><li>看到能力先问：这是我该亲自做，还是该系统化？</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>高频记忆卡：价格大于故事</li><li>知识产品化：外部需求验证</li><li>组织判断：激励错配</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你已有“价格大于故事、结构大于判断”的原则；这本书把它扩展为市场价格、组织激励、政策激励的统一分析框架。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>供需、价格、比较优势、外部性和政策激励，分别对应你的资产定价、咨询产品、组织协作和生活系统。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>选一个项目或资产，写清楚谁有需求、谁付费、谁承担风险、谁真正被激励。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：需求不是喜欢，而是有支付能力的痛点</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把市场价格当神谕，也不要把个人观点当真理。</li><li>不要把比较优势理解成什么都外包；涉及核心判断和关系责任的事仍需亲自承担。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-3">
+    <header>
+      <p>Book 03</p>
+      <h2>《经济学》</h2>
+      <strong>理解宏观周期、利率、通胀、货币与跨境配置</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>宏观部分最值得你读，因为它直接影响海外资产、现金/短债价值、成长股估值和职业现金流。读它不是为了预测宏观，而是为了知道哪些变量会改变你的边界。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 利率是长期资产的重力</b><p>成长资产的大部分价值来自远期现金流，折现率上升时估值承压；现金和短债收益率上升时，等待本身变得更有价值。</p></div><div class="point"><b>2. 通胀不是平均涨价，而是再分配</b><p>通胀改变现金、债务、工资、定价权资产和长久期资产的真实价值。强定价权企业比弱议价收入更能穿越通胀。</p></div><div class="point"><b>3. 货币政策通过预期而非新闻本身影响市场</b><p>CPI、就业、央行发言重要，是因为它们改变市场对利率路径、流动性和风险偏好的判断。</p></div><div class="point"><b>4. 汇率是购买力、资本流动和制度信任的相对价格</b><p>跨境资产配置不能只看收益率，还要看币种、税务、法律、监管、流动性和未来生活选择权。</p></div><div class="point"><b>5. 周期不是日历，而是供需、信用和情绪的互动</b><p>半导体、地产、信贷和消费都有周期。周期位置决定同样的公司质量在不同时间对应不同风险收益比。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的资产系统印证：现金/短债 是期权价值，不只是低收益资产。</li><li>与你的投资框架印证：AI/半导体主线不能覆盖周期位置和仓位纪律。</li><li>与你的财务规划印证：跨境资产是收益、选择权和制度暴露的组合。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>宏观新闻必须翻译成利率、汇率、通胀、信用和风险偏好五条链。</li><li>任何长期资产判断都必须经过折现率压力测试。</li><li>周期资产要先问供需位置，再问故事是否动听。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>资产配置：现金/短债角色</li><li>宏观雷达：利率、通胀、汇率</li><li>周期判断：半导体与成长资产</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已经有现金作为期权、AI/半导体不能无限上仓的纪律；宏观经济学把这些纪律放进利率、通胀和周期框架。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>折现率解释成长资产估值，通胀解释财富再分配，汇率解释跨境资产的购买力和制度暴露。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>为当前资产组合写三种宏观情景：降息、利率维持高位、通胀反复；每种情景下重写现金、核心仓、机会仓角色。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：利率是长期资产的重力</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要用宏观预测做短线交易理由。</li><li>不要把跨境配置浪漫化；它同时带来规则、税务和流动性复杂度。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-4">
+    <header>
+      <p>Book 04</p>
+      <h2>《管理学》</h2>
+      <strong>从个人专家劳动转向可复制系统</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>管理学对你最有价值的部分不是公司管理，而是把未来的自由生活、咨询产品和学习系统设计成可运行机制。离开组织后，管理能力要从管团队变成管自己和管交付。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 管理不是亲自做更多，而是让系统稳定产出</b><p>目标、资源、流程、反馈和纠偏构成管理闭环。专家劳动如果不能复制，就会把你困在出售时间的模式里。</p></div><div class="point"><b>2. 战略首先是选择不做什么</b><p>资源有限时，战略不是愿望清单，而是牺牲清单。你的 2026-2027 如果既要职级反馈、资产收益、健康修复、伴侣体验、第二曲线，就必须明确不追什么。</p></div><div class="point"><b>3. 控制不是压迫，而是反馈机制</b><p>自由后没有老板和绩效，并不代表不需要控制。你需要周节奏、健康指标、输出指标、现金流仪表盘和复盘机制。</p></div><div class="point"><b>4. 组织能力来自流程而非英雄主义</b><p>咨询产品化需要输入标准、分析步骤、输出模板和质量检查，否则每次交付都从零开始。</p></div><div class="point"><b>5. 资源配置决定战略真实性</b><p>如果日程、预算、注意力没有向某个目标倾斜，那个目标只是口头目标。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的第二曲线主线印证：AI/半导体投研和行业咨询需要从经验变成产品。</li><li>与你的生活目标印证：自由不是无约束，而是由你自己设计反馈系统。</li><li>与你的工作经验印证：组织里的流程消耗也可以反向沉淀成外部交付能力。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>每个长期目标必须有目标、资源、流程、反馈、纠偏五件套。</li><li>写不做清单比写愿望清单更能保护主线。</li><li>把一次判断变成可复用模板，才算知识资产。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>第二曲线：咨询产品化</li><li>自由后自我管理</li><li>知识库工作流：模板与质检</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库里已经有从组织现金流转向外部产品化的路线；管理学把它拆成目标、资源、流程、反馈和纠偏。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>管理学不是让你更像经理，而是让你的学习、咨询、健康和自由生活都能稳定运行。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>把一个你擅长的判断任务写成输入、流程、输出、质检和复盘五段。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：自由也需要反馈系统</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把管理学变成更多表格；管理的目标是降低摩擦。</li><li>不要把自由误解成没有节奏，失去组织后更需要自我管理。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-5">
+    <header>
+      <p>Book 05</p>
+      <h2>《组织行为学》</h2>
+      <strong>理解组织权力、动机、身份和真实影响链</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书能解释为什么组织里很多事不是“讲道理”能解决。它帮你把过去的大厂经验沉淀成组织诊断能力，也能用于未来咨询。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 正式组织图不等于真实权力图</b><p>真正能推动事情的人，可能掌握信息、预算、客户关系、技术稀缺性或风险承担权，而不是最高头衔。</p></div><div class="point"><b>2. 动机来自可感知回报，而不是口号</b><p>团队会响应绩效、晋升、公平感、自主感和反馈。长期高压能推动短期动作，但会损害质量和信任。</p></div><div class="point"><b>3. 组织文化是默认行为脚本</b><p>文化不是墙上的价值观，而是人们在没有明确指令时默认怎么做、什么能说、什么不能说。</p></div><div class="point"><b>4. 角色冲突会消耗人</b><p>职业人、投资者、伴侣、家庭成员、未来自由人这些角色有不同期待。如果不设边界，最强势的组织角色会吞掉其他角色。</p></div><div class="point"><b>5. 影响力是资源、关系和可信度的函数</b><p>外部咨询也一样：客户不是因为你聪明就采纳，而是因为你降低了他的风险，并且他相信你理解他的约束。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的职业画像印证：当前工作价值与消耗并存，需要识别哪些组织资本可迁移。</li><li>与你的知识产品化印证：组织诊断可转化为客户影响链、激励错配和落地风险分析。</li><li>与你的生活系统印证：角色冲突不是意志力问题，而是系统期待不一致。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>任何项目先画真实影响力地图，再看正式汇报链。</li><li>解释行为先看激励，再看性格。</li><li>把大厂经验沉淀为组织诊断模板，而不是只留下疲惫。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>职业画像：组织经验可迁移</li><li>组织判断：真实影响链</li><li>产品化：客户组织诊断</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库中有大量组织经验，但需要从疲惫记忆转成可迁移模型；组织行为学提供权力、动机、文化、角色的解释框架。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>正式结构、非正式权力、激励和角色冲突，能把大厂经验转化为未来咨询中的组织诊断能力。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>画一张真实项目影响力地图：决策者、资源方、阻力方、信息源、风险承担者。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：解释组织行为先看激励，再看性格</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把组织行为学用成犬儒主义；看清权力不是放弃价值。</li><li>不要把影响力误解成讨好，真正影响力来自可信的约束理解。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-6">
+    <header>
+      <p>Book 06</p>
+      <h2>《逻辑学导论》</h2>
+      <strong>给投资观点、人生选择和公共叙事做结构拆解</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书的重点不是形式符号，而是训练你看到任何观点时自动拆成结论、理由、前提、反例和证据等级。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 观点不是论证</b><p>一句“某公司一定会涨”只是结论。要成立，必须有理由、证据、前提和排除反例的能力。</p></div><div class="point"><b>2. 隐含前提通常比明面理由更危险</b><p>很多市场叙事默认需求持续、利润率不降、竞争不恶化、估值不收缩。真正风险往往藏在这些没说出来的前提里。</p></div><div class="point"><b>3. 必要条件和充分条件不能混用</b><p>有钱是自由的必要条件之一，但不是充分条件。健康、关系、法律安排、身份迁移、现金流同样参与自由。</p></div><div class="point"><b>4. 相关性不是因果</b><p>资产上涨、健康指标改善、职业机会出现，可能有多个共同原因。没有反事实，就不要急着下结论。</p></div><div class="point"><b>5. 好推理必须允许自己被反例修正</b><p>如果一个解释永远不会错，它就不是判断工具，而是自我安慰。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的输出偏好印证：结论先行，但必须有证据链和风险。</li><li>与你的投资框架印证：从价格倒推预期，本质是拆隐含前提。</li><li>与你的职业退出印证：自由不是单条件命题，而是多条件联合命题。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>任何强观点都写：结论、理由、前提、反例、失效信号。</li><li>把“我确定”改成“在这些条件成立时，我的置信度是”。</li><li>先拆逻辑，再谈情绪和立场。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>投资分析：结论、证据、反例</li><li>高频记忆卡：好公司不等于好投资</li><li>输出风格：结论先行但证据要硬</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库要求结论先行、证据链、风险和行动；逻辑学把这个要求形式化为结论、理由、前提、反例和失效条件。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>必要/充分、因果、隐含前提、反例，是拆解市场叙事和人生选择的基本工具。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>拆一个你认同的强观点：结论是什么，依赖哪些前提，什么证据会推翻它。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：隐含前提通常比明面理由更危险</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要用逻辑压制关系沟通；关系中先处理安全感，再处理推理。</li><li>不要以为形式正确就事实正确，逻辑需要证据喂养。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-7">
+    <header>
+      <p>Book 07</p>
+      <h2>《法律之门》</h2>
+      <strong>把自由、资产和关系放进可执行边界</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书对你最重要的不是法学知识，而是法律思维：权利、义务、程序、证据、责任、可执行性。越想自由，越不能靠感觉处理规则。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 法律世界重视可执行性，不重视你心里怎么想</b><p>资产安排、家庭承诺、账户规则、雇佣关系、跨境事务，都要看文件、证据和程序。好意愿如果不可证明，就很难保护未来。</p></div><div class="point"><b>2. 权利和义务总是成对出现</b><p>账户、合同、平台条款、劳动关系、家庭安排里，不能只看自己有什么权利，也要看触发了什么义务。</p></div><div class="point"><b>3. 程序是保护，不只是麻烦</b><p>很多风险不是实体上一定输，而是因为材料、期限、主体、授权和证据链没准备好。</p></div><div class="point"><b>4. 证据要在事情顺利时建立</b><p>等冲突发生后再补证据，成本高且可信度低。长期知识库应承担一部分证据系统功能。</p></div><div class="point"><b>5. 关系越非标准，越需要规则设计</b><p>非婚姻伴侣、跨境资产、家庭责任、未来照护安排，都不能只靠默契。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的综合画像印证：伴侣关系、遗产、意定监护、财产边界是高优先级未完成项。</li><li>与你的资产系统印证：跨境账户和平台条款不能只按收益率理解。</li><li>与你的知识库工作流印证：Obsidian 不只是笔记，也可成为长期证据目录。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>重大承诺必须留下可追溯记录。</li><li>读规则时标出权利、义务、禁止事项、最坏后果。</li><li>越是亲密关系，越要提前设计边界，避免未来靠情绪解决。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>关系与资产边界</li><li>证据系统：合同、账户、健康、沟通记录</li><li>跨境规则：平台条款与责任</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库里已经把关系保障、账户规则、合同和证据列为长期风险；法律思维把它们连接成可执行边界。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>权利、义务、程序、证据和可执行性，是把自由从愿望变成安全结构的工具。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>选一项重要安排，写四栏：我以为、规则实际写什么、触发条件、最坏后果。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：没有记录，就很难保护未来的自己</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>这不是法律意见，具体文件仍需专业律师。</li><li>不要把法律化等同于不信任；规则是为了保护关系不被未来压力摧毁。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-8">
+    <header>
+      <p>Book 08</p>
+      <h2>《大问题：简明哲学导论》</h2>
+      <strong>重新定义好生活、自由、身份和意义</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>哲学对你不是抽象兴趣，而是防止财务自由后仍然活在旧系统里。它逼你回答：资产目标服务什么？自由是拒绝什么？没有组织头衔后你是谁？</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 好生活不是财富最大化</b><p>财富是强必要条件，但不是最终目标。你真正追求的是时间、身体、节奏、体验、关系和选择权的组合。</p></div><div class="point"><b>2. 自由包含能做什么，也包含能拒绝什么</b><p>财务自由最重要的购买品是拒绝权：拒绝坏项目、坏节奏、坏仓位、过度消耗和错误关系模式。</p></div><div class="point"><b>3. 身份不是名片，而是持续被行为证明的叙事</b><p>退出组织身份之前，需要用作品、生活节奏、学习输出和外部反馈支撑新身份。</p></div><div class="point"><b>4. 价值冲突不能靠拖延解决</b><p>安全、自由、体验、关系、意义会互相竞争。如果不主动排序，组织、市场和家庭默认期待会替你排序。</p></div><div class="point"><b>5. 意义来自实践，不来自宣布</b><p>想成为产业研究者、投资系统设计者、咨询产品化者，需要作品和重复行动，而不是自我描述。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的综合画像印证：目标不是赚更多钱，而是时间、身体、节奏、体验和选择权。</li><li>与你的高频记忆卡印证：不要把自己活成只会攒钱和学习的机器。</li><li>与你的第二曲线印证：新身份需要作品证据，而不是等待离职那一刻。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>每个资产目标都翻译成一个具体拒绝权。</li><li>每个未来身份都配一个可见作品。</li><li>年度计划必须同时写价值排序和资源分配。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>综合画像：好生活目标</li><li>高频记忆卡：不要活成学习和攒钱机器</li><li>职业退出：新身份证据</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已经明确财富不是最终目标；哲学导论把这个判断升级为价值排序、自由、身份和意义的问题。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>好生活、自由、身份和意义，能解释为什么资产目标必须服务时间、身体、节奏、体验和选择权。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>把一个资产目标翻译成具体拒绝权：拒绝什么消耗、什么坏节奏、什么错误风险。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：每个资产目标都要翻译成一个拒绝权</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要用哲学逃避执行；价值排序必须落到日程和预算。</li><li>不要把自由误解成完全没有责任。真正自由包含自愿承担。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-9">
+    <header>
+      <p>Book 09</p>
+      <h2>《心理学导论》</h2>
+      <strong>把注意力、压力、学习、情绪当成可维护系统</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书应该服务你的日常运行质量。它提醒你：你不是一台意志力机器，注意力、睡眠、压力和情绪状态会直接改变投资、职业和关系判断。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 注意力是稀缺资源，不是无限容器</b><p>市场消息、工作群、社交输入会争夺同一块认知带宽。信息越多，未必判断越好，可能只是更焦虑。</p></div><div class="point"><b>2. 压力会缩窄视野</b><p>高压下人会短视、冲动或保守，把解除痛苦误以为正确决策。睡眠不足、连续加班、关系冲突后，不适合做不可逆决定。</p></div><div class="point"><b>3. 学习依赖提取和应用，不依赖收藏</b><p>真正学会不是读过，而是能在真实场景里提取概念并做判断。每天原子笔记比囤书更重要。</p></div><div class="point"><b>4. 习惯需要环境提示，而不是道德要求</b><p>固定入口、固定时间、固定最小动作能降低启动成本。</p></div><div class="point"><b>5. 情绪是信号，不是命令</b><p>焦虑可能提示风险，也可能只是安全系统过载。要把情绪翻译成具体担心和行动边界。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的健康主线印证：身体状态影响决策质量，不能把健康当投资之外的事。</li><li>与你的学习目标印证：目标是形成判断系统，不是读完 18 本书。</li><li>与你的投资纪律印证：压力和波动会把正确观点变成错误操作。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>坏状态不做不可逆决定。</li><li>每天学习必须输出一条可检索原子笔记。</li><li>先保护注意力，再追求信息量。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>健康底盘：睡眠、压力、训练</li><li>投资纪律：坏状态不决策</li><li>学习系统：原子笔记与提取练习</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已经把身体状态和决策质量连接起来；心理学导论把注意力、压力、习惯、情绪变成可维护系统。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>注意力不是无限容器，压力会缩窄视野，学习要靠提取和应用，不靠收藏。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>列出三个不适合做重大决定的状态，并为每个状态写替代动作。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：坏状态不做不可逆决定</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把心理学变成自我诊断标签。</li><li>不要用情绪合理化冲动交易或逃避沟通。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-10">
+    <header>
+      <p>Book 10</p>
+      <h2>《社会心理学》</h2>
+      <strong>识别群体情绪、身份压力和关系互动中的偏差</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书能帮你抵抗市场共识、组织氛围和亲密关系中的误读。重点不是背实验，而是理解人如何被群体、身份和情境塑造。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 群体共识会制造虚假的安全感</b><p>当所有人都说某条主线确定时，风险不是主线不存在，而是价格、仓位和预期已经过度拥挤。</p></div><div class="point"><b>2. 社会证明会替代个人证据</b><p>大 V、群聊、朋友圈、同事共识都可能让人误以为自己在独立思考。</p></div><div class="point"><b>3. 身份威胁会让人防御</b><p>当职业身份、投资判断、关系选择被挑战时，人会倾向于保护自尊，而不是更新证据。</p></div><div class="point"><b>4. 归因错误会伤害关系和组织判断</b><p>别人没有配合，不一定是态度问题，也可能是角色、激励、信息和安全感不同。</p></div><div class="point"><b>5. 冲突常常是需求冲突，不是人格审判</b><p>关系沟通中先识别需求，再讨论方案，比直接证明谁对更有效。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的投资框架印证：高共识主线需要更强仓位纪律。</li><li>与你的组织经验印证：行为解释先看情境和激励，不能只看性格。</li><li>与你的关系议题印证：亲密关系需要安全感、边界和需求翻译。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>共识越强，越要写反方证据。</li><li>受到挑战时先问：我是在保护真相，还是保护身份？</li><li>冲突中先写双方需求，再写解决方案。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>投资纪律：反共识与群体情绪</li><li>关系沟通：需求冲突</li><li>组织判断：情境大于性格</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库强调不要被市场共识和热门叙事推着走；社会心理学解释从众、社会证明、身份防御如何发生。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>群体情绪、归因错误和身份威胁，能同时解释市场拥挤、组织误判和关系冲突。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>选一个热门叙事，写共识观点、自己的证据、反方证据、仓位边界。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：共识越强，越要写反方证据</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把社会心理学变成操控他人的技巧。</li><li>不要因为群体可能错，就自动反向操作；反共识也需要证据。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-11">
+    <header>
+      <p>Book 11</p>
+      <h2>《进化心理学》</h2>
+      <strong>理解安全感、地位、资源和亲密关系背后的古老系统</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书对你有用的部分，是把资产焦虑、地位压力、关系安全感从道德判断里拿出来，放进人类长期适应机制里理解。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 资源追求背后有安全系统</b><p>钱不只是购买力，也代表生存缓冲、地位信号、选择权和抗风险能力。所以资产焦虑不一定是贪婪，也可能是威胁系统报警。</p></div><div class="point"><b>2. 地位不是虚荣那么简单</b><p>职业头衔、专业声誉、投资能力、外部影响力都提供身份安全。退出组织时，旧地位系统会产生失重感。</p></div><div class="point"><b>3. 亲密关系需要安全感和可预期投入</b><p>关系不是只靠爱。时间、注意力、共同体验、边界和长期责任安排都会影响安全感。</p></div><div class="point"><b>4. 损失厌恶有生存根源</b><p>人对损失更敏感，所以仓位过重时会更容易在波动中犯错。</p></div><div class="point"><b>5. 社会比较会扭曲目标函数</b><p>你可能本来追求的是自由，却被他人的收入、资产、头衔重新拖回比较游戏。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的资产目标印证：海外资产和现金缓冲同时服务理性规划与心理安全。</li><li>与你的职业退出印证：退出不是收入问题，也涉及地位系统重构。</li><li>与你的关系主线印证：伴侣体验预算和法律边界都属于关系安全感建设。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>把财务目标拆成理性用途、情绪用途和社会比较三层。</li><li>退出旧身份前，先建设新地位来源。</li><li>关系投入要同时有体验和边界。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>资产安全感</li><li>职业身份迁移</li><li>亲密关系：投入与边界</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库里资产目标既是理性规划，也是安全感系统；进化心理学解释资源、地位和亲密关系为什么会牵动决策。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>资源、地位、损失厌恶和关系安全感，能把资产焦虑从道德判断转成系统理解。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>拆一个财务目标：理性用途、情绪用途、社会比较、真实生活动作。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：资产焦虑要拆成理性需要和安全感需要</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把进化心理学用成决定论；理解倾向不是服从倾向。</li><li>不要把所有关系问题都还原成资源和地位，具体沟通仍然重要。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-12">
+    <header>
+      <p>Book 12</p>
+      <h2>《实验心理学》</h2>
+      <strong>把个人判断变成可验证假设</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书可以直接改造你的学习、健康、投资和职业试验。核心不是实验室知识，而是可证伪、变量控制和反馈。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 好假设必须可能被推翻</b><p>如果一个投资观点、健康方案或职业路径无论结果如何都能解释，那它只是叙事，不是判断工具。</p></div><div class="point"><b>2. 变量太多会让反馈失效</b><p>同时改变饮食、训练、睡眠、药物、工作强度，你很难知道哪个动作有效。投资和学习也是一样。</p></div><div class="point"><b>3. 测量对象必须对应真实目标</b><p>体重不等于健康，阅读时长不等于理解，收益率不等于风险调整后的能力。</p></div><div class="point"><b>4. 观察窗口要提前设定</b><p>没有时间窗口，所有判断都会无限延期。</p></div><div class="point"><b>5. 实验不是为了证明自己对，而是为了更快发现错</b><p>个人系统进步来自低成本试错，而不是一次性押注。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的健康系统印证：身体管理需要指标、窗口和变量控制。</li><li>与你的投资系统印证：每个强观点都应有失效信号。</li><li>与你的第二曲线印证：咨询产品应先做低风险市场测试。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>每个计划只改变一个核心变量。</li><li>先写失败条件，再开始执行。</li><li>用小实验替代大幻想。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>健康实验：变量控制</li><li>投资假设：失效信号</li><li>产品化：低风险测试</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已经要求低风险外部市场测试和健康复盘；实验心理学把这些要求变成假设、变量、观察窗口和证伪条件。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>好假设必须可能被推翻；如果一个判断永远不会错，它只是叙事。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>为一个计划写实验卡：只改一个变量，观察一个指标，设定一个窗口，提前写失败条件。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：先写失败条件，再开始执行</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要追求完美实验，个人生活里可用的粗粒度反馈也有价值。</li><li>不要用短期噪音否定长期趋势。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-13">
+    <header>
+      <p>Book 13</p>
+      <h2>《行为科学统计》</h2>
+      <strong>用基准率、分布、样本和均值回归保护判断</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>统计是防故事中毒的工具。你不需要变成统计专家，但必须在投资、健康、职业判断里先问基准率和样本，而不是先被个案打动。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 基准率先于故事</b><p>个案很有感染力，但判断应先看同类样本通常怎样。热门公司、转型路径、健康干预、创业产品都需要参照组。</p></div><div class="point"><b>2. 均值回归是世界的底噪</b><p>极高增长、极高利润率、极高估值、极强情绪通常会回归，除非有结构性原因证明它不会。</p></div><div class="point"><b>3. 样本量决定确信度</b><p>几次成功交易、几周训练反馈、几个客户口头兴趣，都不足以支撑强结论。</p></div><div class="point"><b>4. 分布比平均数更重要</b><p>同样平均收益，尾部风险不同，体验完全不同。退休和投资尤其要看坏情景。</p></div><div class="point"><b>5. 显著不等于重要</b><p>统计上有变化，不代表对生活、资产或健康有足够大的实际意义。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的投资纪律印证：高预期股最怕没那么完美，本质是分布尾部风险。</li><li>与你的健康目标印证：不能被单次指标波动带节奏，要看趋势和实际意义。</li><li>与你的产品化验证印证：客户口头兴趣不是足够样本。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>任何判断先问：同类事情的基准率是多少？</li><li>看到极端表现，先问能否均值回归。</li><li>看平均值之外，必须看最坏 10% 情景。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>投资：基准率与均值回归</li><li>健康：趋势大于单点</li><li>产品验证：样本量与分布</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已有高预期、周期仓、风险线等纪律；统计学给这些纪律补上基准率、样本量、分布和均值回归。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>统计不是复杂公式，而是防止个案故事、短期收益和小样本让你产生错误确信。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>给一个强判断找基准率：同类样本通常如何，最坏 10% 情景是什么。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：基准率先于故事</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把统计变成冷冰冰的否定一切；少数极端机会仍可能重要。</li><li>不要用小样本给自己制造确定性。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-14">
+    <header>
+      <p>Book 14</p>
+      <h2>《社会学》</h2>
+      <strong>看到个人选择背后的结构、阶层、角色和制度</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>社会学让你不再把一切成败归因于个人努力。它帮助你理解平台、城市、资产、教育、关系网络和制度如何改变努力的回报率。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 个人努力总在结构里发生</b><p>同样努力放在不同平台、城市、行业、资产起点和关系网络里，回报率不同。</p></div><div class="point"><b>2. 社会资本是可积累资源</b><p>职业网络、客户信任、专业声誉、同侪质量都影响未来选择权。第二曲线不是凭空出现，而是社会资本再配置。</p></div><div class="point"><b>3. 角色期待会塑造压力</b><p>组织人、家庭成员、伴侣、投资者、未来自由人之间的期待不同。冲突不是个人失败，而是角色系统不一致。</p></div><div class="point"><b>4. 流动需要跳板</b><p>教育、平台、资产、城市、身份和作品都是流动跳板。退出组织前要保留或替换关键跳板。</p></div><div class="point"><b>5. 制度会决定风险分配</b><p>医疗、养老、法律、资本流动和劳动制度，会影响个人自由的真实成本。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的综合画像印证：大厂平台、资产积累和未来退出是同一条结构线。</li><li>与你的第二曲线印证：外部市场测试需要社会资本和作品证据。</li><li>与你的生活目标印证：城市和关系网络本身也是生活系统资产。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>每年复盘自己的结构资本：平台、资产、网络、城市、作品。</li><li>不要只问我够不够努力，要问努力放在哪个结构里。</li><li>退出旧平台前，先建设新跳板。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>综合画像：平台、资产、城市、网络</li><li>职业退出：结构资本迁移</li><li>生活系统：角色冲突</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已经把职业平台、资产、城市和关系网络视为长期结构资源；社会学把它们命名为结构资本和社会资本。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>个人努力总在结构里发生。退出旧平台前，需要建设新跳板。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>复盘当前结构资本：平台、资产、网络、城市、作品。标出哪一项最需要加强。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：退出旧平台前，先建设新跳板</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把结构理解成宿命；结构是约束，也是杠杆。</li><li>不要用社会学替自己逃避具体行动。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-15">
+    <header>
+      <p>Book 15</p>
+      <h2>《社会研究方法》</h2>
+      <strong>用访谈、观察和研究设计验证真实需求</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书对你的咨询产品化尤其重要。它能让你从“我觉得别人需要”转向“我知道谁在什么场景下付费解决什么问题”。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 问过去行为，比问未来意愿可靠</b><p>“你会不会买”通常虚高。更好的问题是：上一次怎么解决、花了多少钱、谁审批、哪里失败。</p></div><div class="point"><b>2. 观察流程比听观点更能发现约束</b><p>客户、组织、家庭都会说一套做一套。真实摩擦藏在流程、责任、预算和时间成本里。</p></div><div class="point"><b>3. 问题设计不能诱导答案</b><p>如果问题里已经暗示正确答案，访谈只是求认同，不是研究。</p></div><div class="point"><b>4. 需求要区分使用者、付费者、决策者和反对者</b><p>企业服务尤其如此。使用者痛，不代表预算方愿意付。</p></div><div class="point"><b>5. 研究输出要能改变行动</b><p>访谈不是收集故事，而是决定产品边界、交付形式、价格假设和下一个试验。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的职业退出印证：第二曲线需要低风险市场测试，而不是直接创业。</li><li>与你的行业咨询线索印证：AI/半导体经验要通过客户事实验证能否收费。</li><li>与你的知识库工作流印证：访谈记录应进入 Obsidian，形成需求证据库。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>所有需求访谈都问过去，不问想象。</li><li>每次访谈输出一个可调整的产品假设。</li><li>区分痛点强度、预算路径和决策权。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>第二曲线：客户访谈</li><li>知识产品化：需求证据库</li><li>证据系统：事实问题优于态度问题</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已经强调咨询产品化不能只靠自我感觉；社会研究方法提供访谈、观察和需求验证工具。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>过去行为比未来意愿可靠。真正需求要看预算、流程、失败经历和替代方案。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>把一个咨询产品想法改成 8 个事实型访谈问题。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：不要问会不会买，要问上一次怎么解决</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把访谈当销售；太早说服会污染信息。</li><li>不要把三五个礼貌反馈当市场需求。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-16">
+    <header>
+      <p>Book 16</p>
+      <h2>《人类学》</h2>
+      <strong>理解文化、仪式、意义和陌生化观察</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>人类学能补上经济学和管理学解释不了的部分：人为什么为面子、仪式、身份、地方文化和共同记忆行动。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 别人不是不理性，可能是在另一套意义系统里理性</b><p>客户、家人、伴侣、同事的行动常常服务身份、体面、安全感和群体规范，而不只是经济利益。</p></div><div class="point"><b>2. 仪式让抽象价值变成生活</b><p>散步、共餐、旅行、训练、复盘、节日安排，都在重复确认“我们是谁”和“什么重要”。</p></div><div class="point"><b>3. 陌生化观察能打破默认人生</b><p>把自己的工作、消费、关系和学习当作异文化观察，会看见很多习以为常的荒谬。</p></div><div class="point"><b>4. 物品和空间承载身份</b><p>城市、家、咖啡馆、健身房、办公场所不是背景，而是生活方式和身份迁移的载体。</p></div><div class="point"><b>5. 文化解释不是认同，而是减少误判</b><p>理解对方为什么这样做，不等于你必须接受对方的要求。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的生活系统印证：当前城市生活、伴侣体验、训练和学习仪式都应提前试运行。</li><li>与你的关系议题印证：很多冲突不能只用效率解释，需要意义和安全感翻译。</li><li>与你的职业退出印证：新生活需要新仪式，而不只是少上班。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>每个重要关系都设计稳定仪式。</li><li>观察冲突时同时写经济理由和意义理由。</li><li>把未来生活从抽象目标变成空间和日常动作。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>生活系统：仪式和城市体验</li><li>关系沟通：意义与安全感</li><li>职业退出：新生活试运行</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库里生活升级不只是消费，而是节奏、体验和关系质量；人类学把它解释为仪式、意义和地方生活。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>很多行为不是效率问题，而是在维护身份、体面、安全感和共同意义。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>设计三个可持续仪式：个人恢复、关系连接、学习输出。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：仪式把抽象价值变成生活</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要用文化解释替代边界；理解之后仍可拒绝。</li><li>不要把仪式变成消费主义，关键是重复确认价值。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-17">
+    <header>
+      <p>Book 17</p>
+      <h2>《国家的常识》</h2>
+      <strong>理解国家能力、制度、财政和合法性如何塑造市场</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书的价值在于提醒你：市场不是漂浮的，企业、资产、职业和生活选择都嵌在国家能力与制度环境里。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 国家能力是市场的底层操作系统</b><p>征税、执法、产权保护、基础设施、公共服务和秩序维护，决定长期资本愿不愿意停留。</p></div><div class="point"><b>2. 财政能力影响政策空间</b><p>政府想做什么和能做什么不是一回事。财政、债务、人口和产业结构会限制政策。</p></div><div class="point"><b>3. 合法性影响规则稳定性</b><p>制度可信度越高，资本成本越低，长期规划越容易。规则频繁变化会提高折价。</p></div><div class="point"><b>4. 产业政策既可能创造机会，也可能扭曲激励</b><p>补贴、国产替代、技术路线选择会改变企业行为，但不能替代商业质量和现金流质量。</p></div><div class="point"><b>5. 跨境配置是制度分散，不只是收益追求</b><p>不同国家和地区的法律、税务、资本流动和监管差异，本身就是资产配置变量。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的跨境资产主线印证：不赌国运，只做配置。</li><li>与你的 AI/半导体研究印证：产业政策重要，但不能覆盖资本配置和财务质量。</li><li>与你的退出规划印证：个人自由度受制度环境、税务和医疗养老系统影响。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>分析市场前先看国家能力和规则稳定性。</li><li>看产业政策时同时问商业闭环和激励扭曲。</li><li>跨境配置要写制度暴露表。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>资产配置：不赌国运，只做配置</li><li>跨境资产：制度暴露</li><li>产业研究：政策与商业质量分开</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库已有跨境配置和制度分散的原则；这本书把它放进国家能力、财政、产权和合法性框架。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>市场不是悬浮的，企业和资产都嵌在国家能力、监管稳定性和产权保护里。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>为一个市场写制度四格：产权、监管、财政、资本流动。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：国家叙事不能直接翻译成投资结论</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要把国家叙事直接翻译成投资结论。</li><li>不要把制度风险泛化成恐惧，关键是配置和边界。</li></ul>
+    </section>
+  </article>
+<article class="book" id="book-18">
+    <header>
+      <p>Book 18</p>
+      <h2>《沟通的艺术》</h2>
+      <strong>把判断转换成对方能接收、能行动的表达</strong>
+    </header>
+    <section>
+      <h3>替你省掉的阅读时间</h3>
+      <p>这本书不是教你说漂亮话，而是让你在咨询、伴侣、家庭、组织里减少误解，提高真实约束的获取能力。</p>
+    </section>
+    <section>
+      <h3>关键内容解释</h3>
+      <div class="point"><b>1. 倾听是获取约束，不是等待反驳</b><p>客户、伴侣、上级真正怕什么，往往比他们说想要什么更重要。先复述和确认，再给建议。</p></div><div class="point"><b>2. 表达要匹配关系和场景</b><p>同一结论给客户、伴侣、上级、同事，信息量、顺序、语气和可行动程度都不同。</p></div><div class="point"><b>3. 冲突是需求同时出现</b><p>消费、工作时间、家庭责任、法律安排等冲突，背后通常是安全、尊重、自由、责任和公平的竞争。</p></div><div class="point"><b>4. 反馈决定沟通是否完成</b><p>你说完不等于对方接收。要看对方是否理解、是否愿意行动、是否还有未表达顾虑。</p></div><div class="point"><b>5. 边界要用可执行语言表达</b><p>模糊的不舒服很难被尊重，具体的请求、条件和后果才可执行。</p></div>
+    </section>
+    <section class="twocol">
+      <div>
+        <h3>与我的知识库互证</h3>
+        <ul><li>与你的输出偏好印证：结论先行，但对不同对象需要不同接收路径。</li><li>与你的咨询产品化印证：客户买的是降低不确定性，沟通必须先听真实约束。</li><li>与你的关系主线印证：关系投入和边界都需要被说清楚。</li></ul>
+      </div>
+      <div>
+        <h3>可沉淀为个人原则</h3>
+        <ul><li>重要沟通前先写：对方想要、对方害怕、我能提供、我的边界。</li><li>把建议改成可选择方案，而不是压迫式结论。</li><li>冲突中先确认需求，再谈方案。</li></ul>
+      </div>
+    </section>
+    <section class="bridge">
+      <h3>知识库关联强化</h3>
+      <div class="bridge-grid">
+        <div>
+          <b>对应知识库节点</b>
+          <ul><li>输出风格：结论先行</li><li>咨询产品：听真实约束</li><li>关系系统：需求与边界</li></ul>
+        </div>
+        <div>
+          <b>已有判断</b>
+          <p>你的知识库要求直接、高密度、能落到动作；沟通的艺术提醒你：不同对象需要不同接收路径，尤其在关系和咨询里。</p>
+        </div>
+        <div>
+          <b>书籍如何强化/修正</b>
+          <p>倾听是获取约束，表达是降低误解，冲突是需求同时出现。</p>
+        </div>
+        <div>
+          <b>复盘动作</b>
+          <p>把一个强判断改写成三种版本：客户版、伴侣版、组织版。</p>
+        </div>
+        <div class="full">
+          <b>应沉淀的原子笔记</b>
+          <p>原子笔记：高质量直接需要先理解对方约束</p>
+        </div>
+      </div>
+    </section>
+    <section class="warning">
+      <h3>误用提醒</h3>
+      <ul><li>不要用沟通技巧包装控制欲。</li><li>不要把直接等同于粗暴；高质量直接需要理解对方约束。</li></ul>
+    </section>
+  </article>
+
+    <h2 class="section-title">60 天同步学习路径</h2>
+    <article class="day" id="day-1">
+    <header>
+      <p>Day 1 / 关键解释</p>
+      <h2>《经济学的思维方式》1/3：这本书真正替你解决什么</h2>
+      <strong>经济学的思维方式</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书不用按章节细读，真正要带走的是一套语言：稀缺、机会成本、边际、激励、交易、制度。它的价值不是让你变成经济学学生，而是让你在工作、投资、健康、关系之间不再用愿望做决策。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>稀缺性不是贫穷，而是所有重要资源都有上限</b><p>钱、时间、身体、注意力、关系、风险承受力都稀缺。只说“我想要更多自由”没有意义，必须问自由从哪里换来，是用更少现金流、更少组织身份、更少安全感，还是更高的不确定性换。</p></div><div class="point"><b>机会成本必须写成被放弃的具体选项</b><p>真正的机会成本不是“花了多少钱”，而是你因此不能做什么。继续高强度工作，成本可能是身体和第二曲线；提前降强度，成本可能是现金流和安全感；加仓热门资产，成本可能是未来的等待权。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的高频记忆卡印证：当前主线不是继续读更多书，而是把框架落到公司、财报、估值、资本配置和仓位决策上。</li><li>与综合画像印证：你的目标不是单一赚钱最大化，而是时间、身体、节奏、体验和选择权的联合优化。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：凡是重大选择，都写出被放弃的三个具体选项。</p>
+    </section>
+  </article>
+<article class="day" id="day-2">
+    <header>
+      <p>Day 2 / 概念拆解</p>
+      <h2>《经济学的思维方式》2/3：概念怎样改变真实判断</h2>
+      <strong>经济学的思维方式</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>边际思维比总量思维更接近真实选择</b><p>很多决策不是要不要工作、要不要投资、要不要学习，而是再多一年、再多一仓、再多一小时是否值得。边际问题能防止你被过去成绩或长期愿景绑架。</p></div><div class="point"><b>激励比道德评价更能解释系统行为</b><p>组织里很多低效不是人坏，而是考核、预算、晋升和问责机制在奖励短期动作。投资市场里的拥挤交易也是激励系统的结果。</p></div><div class="point"><b>交易成本决定很多看似理性的选择为什么做不成</b><p>外包、咨询、跨境配置、家庭协议、健康训练都不只看理论收益，还要看搜索、沟通、执行、信任和纠错成本。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与综合画像印证：你的目标不是单一赚钱最大化，而是时间、身体、节奏、体验和选择权的联合优化。</li><li>与投资框架印证：现金/短债的机会成本不能只看收益率，还要看它提供的流动性期权。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-3">
+    <header>
+      <p>Day 3 / 知识库沉淀</p>
+      <h2>《经济学的思维方式》3/3：与我的知识库互证并沉淀</h2>
+      <strong>经济学的思维方式</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>凡是重大选择，都写出被放弃的三个具体选项。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>不要问“这件事好不好”，先问“再多投入一单位是否值得”。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>把工作、投资、健康、关系放进同一张资源表，不要分账欺骗自己。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的高频记忆卡印证：当前主线不是继续读更多书，而是把框架落到公司、财报、估值、资本配置和仓位决策上。</li><li>与综合画像印证：你的目标不是单一赚钱最大化，而是时间、身体、节奏、体验和选择权的联合优化。</li><li>与投资框架印证：现金/短债的机会成本不能只看收益率，还要看它提供的流动性期权。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-4">
+    <header>
+      <p>Day 4 / 关键解释</p>
+      <h2>《经济学原理》1/3：这本书真正替你解决什么</h2>
+      <strong>经济学原理</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书的阅读重点不是十大原理本身，而是理解市场如何把分散信息压缩成价格，以及政府、企业、个人如何在激励约束下行动。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>价格是信息压缩器，不是价值判决书</b><p>价格把供需、稀缺、预期、利率、情绪和风险偏好压缩到一个数字里。它可能有效，也可能过度反应。投资时要从价格倒推隐含预期，而不是只被公司故事吸引。</p></div><div class="point"><b>市场有效不等于市场永远正确</b><p>价格通常比个人直觉包含更多信息，但在情绪极端、流动性变化、政策冲击和叙事拥挤时也会偏离。有效市场提醒你谦逊，行为偏差提醒你保留怀疑。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资共识印证：价格大于故事，仓位大于观点。</li><li>与你的职业规划印证：外部市场价值不是你自认有能力，而是别人愿意付费且能完成预算流程。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：看到价格先问：它隐含了什么预期？</p>
+    </section>
+  </article>
+<article class="day" id="day-5">
+    <header>
+      <p>Day 5 / 概念拆解</p>
+      <h2>《经济学原理》2/3：概念怎样改变真实判断</h2>
+      <strong>经济学原理</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>外部性解释很多私人选择为什么会造成系统后果</b><p>组织加班、医疗负担、家庭照护、环境和公共政策都存在外部性。个人收益和系统成本不一致时，单靠自愿很难修复。</p></div><div class="point"><b>比较优势说明高手也不应亲自做所有事</b><p>绝对能力强不代表每件事都值得自己做。你的高价值时间应留给判断、关系、健康和高杠杆输出，低杠杆事务应工具化或外包。</p></div><div class="point"><b>政策不是口号，而是激励重写</b><p>税收、补贴、利率、监管和资本流动规则都会改变行为。看政策要问它改变谁的收益、成本和约束。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的职业规划印证：外部市场价值不是你自认有能力，而是别人愿意付费且能完成预算流程。</li><li>与你的生活系统印证：比较优势支持把低杠杆事务从个人时间里移出去。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-6">
+    <header>
+      <p>Day 6 / 知识库沉淀</p>
+      <h2>《经济学原理》3/3：与我的知识库互证并沉淀</h2>
+      <strong>经济学原理</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>看到价格先问：它隐含了什么预期？</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>看到政策先问：它改变了谁的激励？</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>看到能力先问：这是我该亲自做，还是该系统化？</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资共识印证：价格大于故事，仓位大于观点。</li><li>与你的职业规划印证：外部市场价值不是你自认有能力，而是别人愿意付费且能完成预算流程。</li><li>与你的生活系统印证：比较优势支持把低杠杆事务从个人时间里移出去。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-7">
+    <header>
+      <p>Day 7 / 关键解释</p>
+      <h2>《经济学》1/3：这本书真正替你解决什么</h2>
+      <strong>经济学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>宏观部分最值得你读，因为它直接影响海外资产、现金/短债价值、成长股估值和职业现金流。读它不是为了预测宏观，而是为了知道哪些变量会改变你的边界。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>利率是长期资产的重力</b><p>成长资产的大部分价值来自远期现金流，折现率上升时估值承压；现金和短债收益率上升时，等待本身变得更有价值。</p></div><div class="point"><b>通胀不是平均涨价，而是再分配</b><p>通胀改变现金、债务、工资、定价权资产和长久期资产的真实价值。强定价权企业比弱议价收入更能穿越通胀。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的资产系统印证：现金/短债 是期权价值，不只是低收益资产。</li><li>与你的投资框架印证：AI/半导体主线不能覆盖周期位置和仓位纪律。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：宏观新闻必须翻译成利率、汇率、通胀、信用和风险偏好五条链。</p>
+    </section>
+  </article>
+<article class="day" id="day-8">
+    <header>
+      <p>Day 8 / 概念拆解</p>
+      <h2>《经济学》2/3：概念怎样改变真实判断</h2>
+      <strong>经济学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>货币政策通过预期而非新闻本身影响市场</b><p>CPI、就业、央行发言重要，是因为它们改变市场对利率路径、流动性和风险偏好的判断。</p></div><div class="point"><b>汇率是购买力、资本流动和制度信任的相对价格</b><p>跨境资产配置不能只看收益率，还要看币种、税务、法律、监管、流动性和未来生活选择权。</p></div><div class="point"><b>周期不是日历，而是供需、信用和情绪的互动</b><p>半导体、地产、信贷和消费都有周期。周期位置决定同样的公司质量在不同时间对应不同风险收益比。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资框架印证：AI/半导体主线不能覆盖周期位置和仓位纪律。</li><li>与你的财务规划印证：跨境资产是收益、选择权和制度暴露的组合。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-9">
+    <header>
+      <p>Day 9 / 知识库沉淀</p>
+      <h2>《经济学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>经济学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>宏观新闻必须翻译成利率、汇率、通胀、信用和风险偏好五条链。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>任何长期资产判断都必须经过折现率压力测试。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>周期资产要先问供需位置，再问故事是否动听。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的资产系统印证：现金/短债 是期权价值，不只是低收益资产。</li><li>与你的投资框架印证：AI/半导体主线不能覆盖周期位置和仓位纪律。</li><li>与你的财务规划印证：跨境资产是收益、选择权和制度暴露的组合。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-10">
+    <header>
+      <p>Day 10 / 关键解释</p>
+      <h2>《管理学》1/3：这本书真正替你解决什么</h2>
+      <strong>管理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>管理学对你最有价值的部分不是公司管理，而是把未来的自由生活、咨询产品和学习系统设计成可运行机制。离开组织后，管理能力要从管团队变成管自己和管交付。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>管理不是亲自做更多，而是让系统稳定产出</b><p>目标、资源、流程、反馈和纠偏构成管理闭环。专家劳动如果不能复制，就会把你困在出售时间的模式里。</p></div><div class="point"><b>战略首先是选择不做什么</b><p>资源有限时，战略不是愿望清单，而是牺牲清单。你的 2026-2027 如果既要职级反馈、资产收益、健康修复、伴侣体验、第二曲线，就必须明确不追什么。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的第二曲线主线印证：AI/半导体投研和行业咨询需要从经验变成产品。</li><li>与你的生活目标印证：自由不是无约束，而是由你自己设计反馈系统。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：每个长期目标必须有目标、资源、流程、反馈、纠偏五件套。</p>
+    </section>
+  </article>
+<article class="day" id="day-11">
+    <header>
+      <p>Day 11 / 概念拆解</p>
+      <h2>《管理学》2/3：概念怎样改变真实判断</h2>
+      <strong>管理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>控制不是压迫，而是反馈机制</b><p>自由后没有老板和绩效，并不代表不需要控制。你需要周节奏、健康指标、输出指标、现金流仪表盘和复盘机制。</p></div><div class="point"><b>组织能力来自流程而非英雄主义</b><p>咨询产品化需要输入标准、分析步骤、输出模板和质量检查，否则每次交付都从零开始。</p></div><div class="point"><b>资源配置决定战略真实性</b><p>如果日程、预算、注意力没有向某个目标倾斜，那个目标只是口头目标。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的生活目标印证：自由不是无约束，而是由你自己设计反馈系统。</li><li>与你的工作经验印证：组织里的流程消耗也可以反向沉淀成外部交付能力。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-12">
+    <header>
+      <p>Day 12 / 知识库沉淀</p>
+      <h2>《管理学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>管理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>每个长期目标必须有目标、资源、流程、反馈、纠偏五件套。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>写不做清单比写愿望清单更能保护主线。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>把一次判断变成可复用模板，才算知识资产。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的第二曲线主线印证：AI/半导体投研和行业咨询需要从经验变成产品。</li><li>与你的生活目标印证：自由不是无约束，而是由你自己设计反馈系统。</li><li>与你的工作经验印证：组织里的流程消耗也可以反向沉淀成外部交付能力。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-13">
+    <header>
+      <p>Day 13 / 关键解释</p>
+      <h2>《组织行为学》1/3：这本书真正替你解决什么</h2>
+      <strong>组织行为学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书能解释为什么组织里很多事不是“讲道理”能解决。它帮你把过去的大厂经验沉淀成组织诊断能力，也能用于未来咨询。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>正式组织图不等于真实权力图</b><p>真正能推动事情的人，可能掌握信息、预算、客户关系、技术稀缺性或风险承担权，而不是最高头衔。</p></div><div class="point"><b>动机来自可感知回报，而不是口号</b><p>团队会响应绩效、晋升、公平感、自主感和反馈。长期高压能推动短期动作，但会损害质量和信任。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的职业画像印证：当前工作价值与消耗并存，需要识别哪些组织资本可迁移。</li><li>与你的知识产品化印证：组织诊断可转化为客户影响链、激励错配和落地风险分析。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：任何项目先画真实影响力地图，再看正式汇报链。</p>
+    </section>
+  </article>
+<article class="day" id="day-14">
+    <header>
+      <p>Day 14 / 概念拆解</p>
+      <h2>《组织行为学》2/3：概念怎样改变真实判断</h2>
+      <strong>组织行为学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>组织文化是默认行为脚本</b><p>文化不是墙上的价值观，而是人们在没有明确指令时默认怎么做、什么能说、什么不能说。</p></div><div class="point"><b>角色冲突会消耗人</b><p>职业人、投资者、伴侣、家庭成员、未来自由人这些角色有不同期待。如果不设边界，最强势的组织角色会吞掉其他角色。</p></div><div class="point"><b>影响力是资源、关系和可信度的函数</b><p>外部咨询也一样：客户不是因为你聪明就采纳，而是因为你降低了他的风险，并且他相信你理解他的约束。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的知识产品化印证：组织诊断可转化为客户影响链、激励错配和落地风险分析。</li><li>与你的生活系统印证：角色冲突不是意志力问题，而是系统期待不一致。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-15">
+    <header>
+      <p>Day 15 / 知识库沉淀</p>
+      <h2>《组织行为学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>组织行为学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>任何项目先画真实影响力地图，再看正式汇报链。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>解释行为先看激励，再看性格。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>把大厂经验沉淀为组织诊断模板，而不是只留下疲惫。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的职业画像印证：当前工作价值与消耗并存，需要识别哪些组织资本可迁移。</li><li>与你的知识产品化印证：组织诊断可转化为客户影响链、激励错配和落地风险分析。</li><li>与你的生活系统印证：角色冲突不是意志力问题，而是系统期待不一致。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-16">
+    <header>
+      <p>Day 16 / 关键解释</p>
+      <h2>《逻辑学导论》1/3：这本书真正替你解决什么</h2>
+      <strong>逻辑学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书的重点不是形式符号，而是训练你看到任何观点时自动拆成结论、理由、前提、反例和证据等级。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>观点不是论证</b><p>一句“某公司一定会涨”只是结论。要成立，必须有理由、证据、前提和排除反例的能力。</p></div><div class="point"><b>隐含前提通常比明面理由更危险</b><p>很多市场叙事默认需求持续、利润率不降、竞争不恶化、估值不收缩。真正风险往往藏在这些没说出来的前提里。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的输出偏好印证：结论先行，但必须有证据链和风险。</li><li>与你的投资框架印证：从价格倒推预期，本质是拆隐含前提。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：任何强观点都写：结论、理由、前提、反例、失效信号。</p>
+    </section>
+  </article>
+<article class="day" id="day-17">
+    <header>
+      <p>Day 17 / 概念拆解</p>
+      <h2>《逻辑学导论》2/3：概念怎样改变真实判断</h2>
+      <strong>逻辑学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>必要条件和充分条件不能混用</b><p>有钱是自由的必要条件之一，但不是充分条件。健康、关系、法律安排、身份迁移、现金流同样参与自由。</p></div><div class="point"><b>相关性不是因果</b><p>资产上涨、健康指标改善、职业机会出现，可能有多个共同原因。没有反事实，就不要急着下结论。</p></div><div class="point"><b>好推理必须允许自己被反例修正</b><p>如果一个解释永远不会错，它就不是判断工具，而是自我安慰。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资框架印证：从价格倒推预期，本质是拆隐含前提。</li><li>与你的职业退出印证：自由不是单条件命题，而是多条件联合命题。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-18">
+    <header>
+      <p>Day 18 / 知识库沉淀</p>
+      <h2>《逻辑学导论》3/3：与我的知识库互证并沉淀</h2>
+      <strong>逻辑学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>任何强观点都写：结论、理由、前提、反例、失效信号。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>把“我确定”改成“在这些条件成立时，我的置信度是”。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>先拆逻辑，再谈情绪和立场。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的输出偏好印证：结论先行，但必须有证据链和风险。</li><li>与你的投资框架印证：从价格倒推预期，本质是拆隐含前提。</li><li>与你的职业退出印证：自由不是单条件命题，而是多条件联合命题。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-19">
+    <header>
+      <p>Day 19 / 关键解释</p>
+      <h2>《法律之门》1/3：这本书真正替你解决什么</h2>
+      <strong>法律之门</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书对你最重要的不是法学知识，而是法律思维：权利、义务、程序、证据、责任、可执行性。越想自由，越不能靠感觉处理规则。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>法律世界重视可执行性，不重视你心里怎么想</b><p>资产安排、家庭承诺、账户规则、雇佣关系、跨境事务，都要看文件、证据和程序。好意愿如果不可证明，就很难保护未来。</p></div><div class="point"><b>权利和义务总是成对出现</b><p>账户、合同、平台条款、劳动关系、家庭安排里，不能只看自己有什么权利，也要看触发了什么义务。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的综合画像印证：伴侣关系、遗产、意定监护、财产边界是高优先级未完成项。</li><li>与你的资产系统印证：跨境账户和平台条款不能只按收益率理解。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：重大承诺必须留下可追溯记录。</p>
+    </section>
+  </article>
+<article class="day" id="day-20">
+    <header>
+      <p>Day 20 / 概念拆解</p>
+      <h2>《法律之门》2/3：概念怎样改变真实判断</h2>
+      <strong>法律之门</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>程序是保护，不只是麻烦</b><p>很多风险不是实体上一定输，而是因为材料、期限、主体、授权和证据链没准备好。</p></div><div class="point"><b>证据要在事情顺利时建立</b><p>等冲突发生后再补证据，成本高且可信度低。长期知识库应承担一部分证据系统功能。</p></div><div class="point"><b>关系越非标准，越需要规则设计</b><p>非婚姻伴侣、跨境资产、家庭责任、未来照护安排，都不能只靠默契。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的资产系统印证：跨境账户和平台条款不能只按收益率理解。</li><li>与你的知识库工作流印证：Obsidian 不只是笔记，也可成为长期证据目录。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-21">
+    <header>
+      <p>Day 21 / 知识库沉淀</p>
+      <h2>《法律之门》3/3：与我的知识库互证并沉淀</h2>
+      <strong>法律之门</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>重大承诺必须留下可追溯记录。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>读规则时标出权利、义务、禁止事项、最坏后果。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>越是亲密关系，越要提前设计边界，避免未来靠情绪解决。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的综合画像印证：伴侣关系、遗产、意定监护、财产边界是高优先级未完成项。</li><li>与你的资产系统印证：跨境账户和平台条款不能只按收益率理解。</li><li>与你的知识库工作流印证：Obsidian 不只是笔记，也可成为长期证据目录。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-22">
+    <header>
+      <p>Day 22 / 关键解释</p>
+      <h2>《大问题：简明哲学导论》1/3：这本书真正替你解决什么</h2>
+      <strong>大问题：简明哲学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>哲学对你不是抽象兴趣，而是防止财务自由后仍然活在旧系统里。它逼你回答：资产目标服务什么？自由是拒绝什么？没有组织头衔后你是谁？</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>好生活不是财富最大化</b><p>财富是强必要条件，但不是最终目标。你真正追求的是时间、身体、节奏、体验、关系和选择权的组合。</p></div><div class="point"><b>自由包含能做什么，也包含能拒绝什么</b><p>财务自由最重要的购买品是拒绝权：拒绝坏项目、坏节奏、坏仓位、过度消耗和错误关系模式。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的综合画像印证：目标不是赚更多钱，而是时间、身体、节奏、体验和选择权。</li><li>与你的高频记忆卡印证：不要把自己活成只会攒钱和学习的机器。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：每个资产目标都翻译成一个具体拒绝权。</p>
+    </section>
+  </article>
+<article class="day" id="day-23">
+    <header>
+      <p>Day 23 / 概念拆解</p>
+      <h2>《大问题：简明哲学导论》2/3：概念怎样改变真实判断</h2>
+      <strong>大问题：简明哲学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>身份不是名片，而是持续被行为证明的叙事</b><p>退出组织身份之前，需要用作品、生活节奏、学习输出和外部反馈支撑新身份。</p></div><div class="point"><b>价值冲突不能靠拖延解决</b><p>安全、自由、体验、关系、意义会互相竞争。如果不主动排序，组织、市场和家庭默认期待会替你排序。</p></div><div class="point"><b>意义来自实践，不来自宣布</b><p>想成为产业研究者、投资系统设计者、咨询产品化者，需要作品和重复行动，而不是自我描述。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的高频记忆卡印证：不要把自己活成只会攒钱和学习的机器。</li><li>与你的第二曲线印证：新身份需要作品证据，而不是等待离职那一刻。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-24">
+    <header>
+      <p>Day 24 / 知识库沉淀</p>
+      <h2>《大问题：简明哲学导论》3/3：与我的知识库互证并沉淀</h2>
+      <strong>大问题：简明哲学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>每个资产目标都翻译成一个具体拒绝权。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>每个未来身份都配一个可见作品。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>年度计划必须同时写价值排序和资源分配。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的综合画像印证：目标不是赚更多钱，而是时间、身体、节奏、体验和选择权。</li><li>与你的高频记忆卡印证：不要把自己活成只会攒钱和学习的机器。</li><li>与你的第二曲线印证：新身份需要作品证据，而不是等待离职那一刻。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-25">
+    <header>
+      <p>Day 25 / 关键解释</p>
+      <h2>《心理学导论》1/3：这本书真正替你解决什么</h2>
+      <strong>心理学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书应该服务你的日常运行质量。它提醒你：你不是一台意志力机器，注意力、睡眠、压力和情绪状态会直接改变投资、职业和关系判断。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>注意力是稀缺资源，不是无限容器</b><p>市场消息、工作群、社交输入会争夺同一块认知带宽。信息越多，未必判断越好，可能只是更焦虑。</p></div><div class="point"><b>压力会缩窄视野</b><p>高压下人会短视、冲动或保守，把解除痛苦误以为正确决策。睡眠不足、连续加班、关系冲突后，不适合做不可逆决定。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的健康主线印证：身体状态影响决策质量，不能把健康当投资之外的事。</li><li>与你的学习目标印证：目标是形成判断系统，不是读完 18 本书。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：坏状态不做不可逆决定。</p>
+    </section>
+  </article>
+<article class="day" id="day-26">
+    <header>
+      <p>Day 26 / 概念拆解</p>
+      <h2>《心理学导论》2/3：概念怎样改变真实判断</h2>
+      <strong>心理学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>学习依赖提取和应用，不依赖收藏</b><p>真正学会不是读过，而是能在真实场景里提取概念并做判断。每天原子笔记比囤书更重要。</p></div><div class="point"><b>习惯需要环境提示，而不是道德要求</b><p>固定入口、固定时间、固定最小动作能降低启动成本。</p></div><div class="point"><b>情绪是信号，不是命令</b><p>焦虑可能提示风险，也可能只是安全系统过载。要把情绪翻译成具体担心和行动边界。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的学习目标印证：目标是形成判断系统，不是读完 18 本书。</li><li>与你的投资纪律印证：压力和波动会把正确观点变成错误操作。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-27">
+    <header>
+      <p>Day 27 / 知识库沉淀</p>
+      <h2>《心理学导论》3/3：与我的知识库互证并沉淀</h2>
+      <strong>心理学导论</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>坏状态不做不可逆决定。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>每天学习必须输出一条可检索原子笔记。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>先保护注意力，再追求信息量。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的健康主线印证：身体状态影响决策质量，不能把健康当投资之外的事。</li><li>与你的学习目标印证：目标是形成判断系统，不是读完 18 本书。</li><li>与你的投资纪律印证：压力和波动会把正确观点变成错误操作。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-28">
+    <header>
+      <p>Day 28 / 关键解释</p>
+      <h2>《社会心理学》1/3：这本书真正替你解决什么</h2>
+      <strong>社会心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书能帮你抵抗市场共识、组织氛围和亲密关系中的误读。重点不是背实验，而是理解人如何被群体、身份和情境塑造。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>群体共识会制造虚假的安全感</b><p>当所有人都说某条主线确定时，风险不是主线不存在，而是价格、仓位和预期已经过度拥挤。</p></div><div class="point"><b>社会证明会替代个人证据</b><p>大 V、群聊、朋友圈、同事共识都可能让人误以为自己在独立思考。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资框架印证：高共识主线需要更强仓位纪律。</li><li>与你的组织经验印证：行为解释先看情境和激励，不能只看性格。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：共识越强，越要写反方证据。</p>
+    </section>
+  </article>
+<article class="day" id="day-29">
+    <header>
+      <p>Day 29 / 概念拆解</p>
+      <h2>《社会心理学》2/3：概念怎样改变真实判断</h2>
+      <strong>社会心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>身份威胁会让人防御</b><p>当职业身份、投资判断、关系选择被挑战时，人会倾向于保护自尊，而不是更新证据。</p></div><div class="point"><b>归因错误会伤害关系和组织判断</b><p>别人没有配合，不一定是态度问题，也可能是角色、激励、信息和安全感不同。</p></div><div class="point"><b>冲突常常是需求冲突，不是人格审判</b><p>关系沟通中先识别需求，再讨论方案，比直接证明谁对更有效。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的组织经验印证：行为解释先看情境和激励，不能只看性格。</li><li>与你的关系议题印证：亲密关系需要安全感、边界和需求翻译。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-30">
+    <header>
+      <p>Day 30 / 知识库沉淀</p>
+      <h2>《社会心理学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>社会心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>共识越强，越要写反方证据。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>受到挑战时先问：我是在保护真相，还是保护身份？</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>冲突中先写双方需求，再写解决方案。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资框架印证：高共识主线需要更强仓位纪律。</li><li>与你的组织经验印证：行为解释先看情境和激励，不能只看性格。</li><li>与你的关系议题印证：亲密关系需要安全感、边界和需求翻译。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-31">
+    <header>
+      <p>Day 31 / 关键解释</p>
+      <h2>《进化心理学》1/3：这本书真正替你解决什么</h2>
+      <strong>进化心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书对你有用的部分，是把资产焦虑、地位压力、关系安全感从道德判断里拿出来，放进人类长期适应机制里理解。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>资源追求背后有安全系统</b><p>钱不只是购买力，也代表生存缓冲、地位信号、选择权和抗风险能力。所以资产焦虑不一定是贪婪，也可能是威胁系统报警。</p></div><div class="point"><b>地位不是虚荣那么简单</b><p>职业头衔、专业声誉、投资能力、外部影响力都提供身份安全。退出组织时，旧地位系统会产生失重感。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的资产目标印证：海外资产和现金缓冲同时服务理性规划与心理安全。</li><li>与你的职业退出印证：退出不是收入问题，也涉及地位系统重构。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：把财务目标拆成理性用途、情绪用途和社会比较三层。</p>
+    </section>
+  </article>
+<article class="day" id="day-32">
+    <header>
+      <p>Day 32 / 概念拆解</p>
+      <h2>《进化心理学》2/3：概念怎样改变真实判断</h2>
+      <strong>进化心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>亲密关系需要安全感和可预期投入</b><p>关系不是只靠爱。时间、注意力、共同体验、边界和长期责任安排都会影响安全感。</p></div><div class="point"><b>损失厌恶有生存根源</b><p>人对损失更敏感，所以仓位过重时会更容易在波动中犯错。</p></div><div class="point"><b>社会比较会扭曲目标函数</b><p>你可能本来追求的是自由，却被他人的收入、资产、头衔重新拖回比较游戏。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的职业退出印证：退出不是收入问题，也涉及地位系统重构。</li><li>与你的关系主线印证：伴侣体验预算和法律边界都属于关系安全感建设。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-33">
+    <header>
+      <p>Day 33 / 知识库沉淀</p>
+      <h2>《进化心理学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>进化心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>把财务目标拆成理性用途、情绪用途和社会比较三层。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>退出旧身份前，先建设新地位来源。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>关系投入要同时有体验和边界。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的资产目标印证：海外资产和现金缓冲同时服务理性规划与心理安全。</li><li>与你的职业退出印证：退出不是收入问题，也涉及地位系统重构。</li><li>与你的关系主线印证：伴侣体验预算和法律边界都属于关系安全感建设。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-34">
+    <header>
+      <p>Day 34 / 关键解释</p>
+      <h2>《实验心理学》1/3：这本书真正替你解决什么</h2>
+      <strong>实验心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书可以直接改造你的学习、健康、投资和职业试验。核心不是实验室知识，而是可证伪、变量控制和反馈。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>好假设必须可能被推翻</b><p>如果一个投资观点、健康方案或职业路径无论结果如何都能解释，那它只是叙事，不是判断工具。</p></div><div class="point"><b>变量太多会让反馈失效</b><p>同时改变饮食、训练、睡眠、药物、工作强度，你很难知道哪个动作有效。投资和学习也是一样。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的健康系统印证：身体管理需要指标、窗口和变量控制。</li><li>与你的投资系统印证：每个强观点都应有失效信号。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：每个计划只改变一个核心变量。</p>
+    </section>
+  </article>
+<article class="day" id="day-35">
+    <header>
+      <p>Day 35 / 概念拆解</p>
+      <h2>《实验心理学》2/3：概念怎样改变真实判断</h2>
+      <strong>实验心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>测量对象必须对应真实目标</b><p>体重不等于健康，阅读时长不等于理解，收益率不等于风险调整后的能力。</p></div><div class="point"><b>观察窗口要提前设定</b><p>没有时间窗口，所有判断都会无限延期。</p></div><div class="point"><b>实验不是为了证明自己对，而是为了更快发现错</b><p>个人系统进步来自低成本试错，而不是一次性押注。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资系统印证：每个强观点都应有失效信号。</li><li>与你的第二曲线印证：咨询产品应先做低风险市场测试。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-36">
+    <header>
+      <p>Day 36 / 知识库沉淀</p>
+      <h2>《实验心理学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>实验心理学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>每个计划只改变一个核心变量。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>先写失败条件，再开始执行。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>用小实验替代大幻想。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的健康系统印证：身体管理需要指标、窗口和变量控制。</li><li>与你的投资系统印证：每个强观点都应有失效信号。</li><li>与你的第二曲线印证：咨询产品应先做低风险市场测试。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-37">
+    <header>
+      <p>Day 37 / 关键解释</p>
+      <h2>《行为科学统计》1/3：这本书真正替你解决什么</h2>
+      <strong>行为科学统计</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>统计是防故事中毒的工具。你不需要变成统计专家，但必须在投资、健康、职业判断里先问基准率和样本，而不是先被个案打动。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>基准率先于故事</b><p>个案很有感染力，但判断应先看同类样本通常怎样。热门公司、转型路径、健康干预、创业产品都需要参照组。</p></div><div class="point"><b>均值回归是世界的底噪</b><p>极高增长、极高利润率、极高估值、极强情绪通常会回归，除非有结构性原因证明它不会。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资纪律印证：高预期股最怕没那么完美，本质是分布尾部风险。</li><li>与你的健康目标印证：不能被单次指标波动带节奏，要看趋势和实际意义。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：任何判断先问：同类事情的基准率是多少？</p>
+    </section>
+  </article>
+<article class="day" id="day-38">
+    <header>
+      <p>Day 38 / 概念拆解</p>
+      <h2>《行为科学统计》2/3：概念怎样改变真实判断</h2>
+      <strong>行为科学统计</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>样本量决定确信度</b><p>几次成功交易、几周训练反馈、几个客户口头兴趣，都不足以支撑强结论。</p></div><div class="point"><b>分布比平均数更重要</b><p>同样平均收益，尾部风险不同，体验完全不同。退休和投资尤其要看坏情景。</p></div><div class="point"><b>显著不等于重要</b><p>统计上有变化，不代表对生活、资产或健康有足够大的实际意义。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的健康目标印证：不能被单次指标波动带节奏，要看趋势和实际意义。</li><li>与你的产品化验证印证：客户口头兴趣不是足够样本。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-39">
+    <header>
+      <p>Day 39 / 知识库沉淀</p>
+      <h2>《行为科学统计》3/3：与我的知识库互证并沉淀</h2>
+      <strong>行为科学统计</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>任何判断先问：同类事情的基准率是多少？</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>看到极端表现，先问能否均值回归。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>看平均值之外，必须看最坏 10% 情景。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的投资纪律印证：高预期股最怕没那么完美，本质是分布尾部风险。</li><li>与你的健康目标印证：不能被单次指标波动带节奏，要看趋势和实际意义。</li><li>与你的产品化验证印证：客户口头兴趣不是足够样本。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-40">
+    <header>
+      <p>Day 40 / 关键解释</p>
+      <h2>《社会学》1/3：这本书真正替你解决什么</h2>
+      <strong>社会学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>社会学让你不再把一切成败归因于个人努力。它帮助你理解平台、城市、资产、教育、关系网络和制度如何改变努力的回报率。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>个人努力总在结构里发生</b><p>同样努力放在不同平台、城市、行业、资产起点和关系网络里，回报率不同。</p></div><div class="point"><b>社会资本是可积累资源</b><p>职业网络、客户信任、专业声誉、同侪质量都影响未来选择权。第二曲线不是凭空出现，而是社会资本再配置。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的综合画像印证：大厂平台、资产积累和未来退出是同一条结构线。</li><li>与你的第二曲线印证：外部市场测试需要社会资本和作品证据。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：每年复盘自己的结构资本：平台、资产、网络、城市、作品。</p>
+    </section>
+  </article>
+<article class="day" id="day-41">
+    <header>
+      <p>Day 41 / 概念拆解</p>
+      <h2>《社会学》2/3：概念怎样改变真实判断</h2>
+      <strong>社会学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>角色期待会塑造压力</b><p>组织人、家庭成员、伴侣、投资者、未来自由人之间的期待不同。冲突不是个人失败，而是角色系统不一致。</p></div><div class="point"><b>流动需要跳板</b><p>教育、平台、资产、城市、身份和作品都是流动跳板。退出组织前要保留或替换关键跳板。</p></div><div class="point"><b>制度会决定风险分配</b><p>医疗、养老、法律、资本流动和劳动制度，会影响个人自由的真实成本。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的第二曲线印证：外部市场测试需要社会资本和作品证据。</li><li>与你的生活目标印证：城市和关系网络本身也是生活系统资产。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-42">
+    <header>
+      <p>Day 42 / 知识库沉淀</p>
+      <h2>《社会学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>社会学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>每年复盘自己的结构资本：平台、资产、网络、城市、作品。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>不要只问我够不够努力，要问努力放在哪个结构里。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>退出旧平台前，先建设新跳板。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的综合画像印证：大厂平台、资产积累和未来退出是同一条结构线。</li><li>与你的第二曲线印证：外部市场测试需要社会资本和作品证据。</li><li>与你的生活目标印证：城市和关系网络本身也是生活系统资产。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-43">
+    <header>
+      <p>Day 43 / 关键解释</p>
+      <h2>《社会研究方法》1/3：这本书真正替你解决什么</h2>
+      <strong>社会研究方法</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书对你的咨询产品化尤其重要。它能让你从“我觉得别人需要”转向“我知道谁在什么场景下付费解决什么问题”。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>问过去行为，比问未来意愿可靠</b><p>“你会不会买”通常虚高。更好的问题是：上一次怎么解决、花了多少钱、谁审批、哪里失败。</p></div><div class="point"><b>观察流程比听观点更能发现约束</b><p>客户、组织、家庭都会说一套做一套。真实摩擦藏在流程、责任、预算和时间成本里。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的职业退出印证：第二曲线需要低风险市场测试，而不是直接创业。</li><li>与你的行业咨询线索印证：AI/半导体经验要通过客户事实验证能否收费。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：所有需求访谈都问过去，不问想象。</p>
+    </section>
+  </article>
+<article class="day" id="day-44">
+    <header>
+      <p>Day 44 / 概念拆解</p>
+      <h2>《社会研究方法》2/3：概念怎样改变真实判断</h2>
+      <strong>社会研究方法</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>问题设计不能诱导答案</b><p>如果问题里已经暗示正确答案，访谈只是求认同，不是研究。</p></div><div class="point"><b>需求要区分使用者、付费者、决策者和反对者</b><p>企业服务尤其如此。使用者痛，不代表预算方愿意付。</p></div><div class="point"><b>研究输出要能改变行动</b><p>访谈不是收集故事，而是决定产品边界、交付形式、价格假设和下一个试验。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的行业咨询线索印证：AI/半导体经验要通过客户事实验证能否收费。</li><li>与你的知识库工作流印证：访谈记录应进入 Obsidian，形成需求证据库。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-45">
+    <header>
+      <p>Day 45 / 知识库沉淀</p>
+      <h2>《社会研究方法》3/3：与我的知识库互证并沉淀</h2>
+      <strong>社会研究方法</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>所有需求访谈都问过去，不问想象。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>每次访谈输出一个可调整的产品假设。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>区分痛点强度、预算路径和决策权。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的职业退出印证：第二曲线需要低风险市场测试，而不是直接创业。</li><li>与你的行业咨询线索印证：AI/半导体经验要通过客户事实验证能否收费。</li><li>与你的知识库工作流印证：访谈记录应进入 Obsidian，形成需求证据库。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-46">
+    <header>
+      <p>Day 46 / 关键解释</p>
+      <h2>《人类学》1/3：这本书真正替你解决什么</h2>
+      <strong>人类学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>人类学能补上经济学和管理学解释不了的部分：人为什么为面子、仪式、身份、地方文化和共同记忆行动。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>别人不是不理性，可能是在另一套意义系统里理性</b><p>客户、家人、伴侣、同事的行动常常服务身份、体面、安全感和群体规范，而不只是经济利益。</p></div><div class="point"><b>仪式让抽象价值变成生活</b><p>散步、共餐、旅行、训练、复盘、节日安排，都在重复确认“我们是谁”和“什么重要”。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的生活系统印证：当前城市生活、伴侣体验、训练和学习仪式都应提前试运行。</li><li>与你的关系议题印证：很多冲突不能只用效率解释，需要意义和安全感翻译。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：每个重要关系都设计稳定仪式。</p>
+    </section>
+  </article>
+<article class="day" id="day-47">
+    <header>
+      <p>Day 47 / 概念拆解</p>
+      <h2>《人类学》2/3：概念怎样改变真实判断</h2>
+      <strong>人类学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>陌生化观察能打破默认人生</b><p>把自己的工作、消费、关系和学习当作异文化观察，会看见很多习以为常的荒谬。</p></div><div class="point"><b>物品和空间承载身份</b><p>城市、家、咖啡馆、健身房、办公场所不是背景，而是生活方式和身份迁移的载体。</p></div><div class="point"><b>文化解释不是认同，而是减少误判</b><p>理解对方为什么这样做，不等于你必须接受对方的要求。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的关系议题印证：很多冲突不能只用效率解释，需要意义和安全感翻译。</li><li>与你的职业退出印证：新生活需要新仪式，而不只是少上班。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-48">
+    <header>
+      <p>Day 48 / 知识库沉淀</p>
+      <h2>《人类学》3/3：与我的知识库互证并沉淀</h2>
+      <strong>人类学</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>每个重要关系都设计稳定仪式。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>观察冲突时同时写经济理由和意义理由。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>把未来生活从抽象目标变成空间和日常动作。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的生活系统印证：当前城市生活、伴侣体验、训练和学习仪式都应提前试运行。</li><li>与你的关系议题印证：很多冲突不能只用效率解释，需要意义和安全感翻译。</li><li>与你的职业退出印证：新生活需要新仪式，而不只是少上班。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-49">
+    <header>
+      <p>Day 49 / 关键解释</p>
+      <h2>《国家的常识》1/3：这本书真正替你解决什么</h2>
+      <strong>国家的常识</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书的价值在于提醒你：市场不是漂浮的，企业、资产、职业和生活选择都嵌在国家能力与制度环境里。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>国家能力是市场的底层操作系统</b><p>征税、执法、产权保护、基础设施、公共服务和秩序维护，决定长期资本愿不愿意停留。</p></div><div class="point"><b>财政能力影响政策空间</b><p>政府想做什么和能做什么不是一回事。财政、债务、人口和产业结构会限制政策。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的跨境资产主线印证：不赌国运，只做配置。</li><li>与你的 AI/半导体研究印证：产业政策重要，但不能覆盖资本配置和财务质量。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：分析市场前先看国家能力和规则稳定性。</p>
+    </section>
+  </article>
+<article class="day" id="day-50">
+    <header>
+      <p>Day 50 / 概念拆解</p>
+      <h2>《国家的常识》2/3：概念怎样改变真实判断</h2>
+      <strong>国家的常识</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>合法性影响规则稳定性</b><p>制度可信度越高，资本成本越低，长期规划越容易。规则频繁变化会提高折价。</p></div><div class="point"><b>产业政策既可能创造机会，也可能扭曲激励</b><p>补贴、国产替代、技术路线选择会改变企业行为，但不能替代商业质量和现金流质量。</p></div><div class="point"><b>跨境配置是制度分散，不只是收益追求</b><p>不同国家和地区的法律、税务、资本流动和监管差异，本身就是资产配置变量。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的 AI/半导体研究印证：产业政策重要，但不能覆盖资本配置和财务质量。</li><li>与你的退出规划印证：个人自由度受制度环境、税务和医疗养老系统影响。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-51">
+    <header>
+      <p>Day 51 / 知识库沉淀</p>
+      <h2>《国家的常识》3/3：与我的知识库互证并沉淀</h2>
+      <strong>国家的常识</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>分析市场前先看国家能力和规则稳定性。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>看产业政策时同时问商业闭环和激励扭曲。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>跨境配置要写制度暴露表。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的跨境资产主线印证：不赌国运，只做配置。</li><li>与你的 AI/半导体研究印证：产业政策重要，但不能覆盖资本配置和财务质量。</li><li>与你的退出规划印证：个人自由度受制度环境、税务和医疗养老系统影响。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-52">
+    <header>
+      <p>Day 52 / 关键解释</p>
+      <h2>《沟通的艺术》1/3：这本书真正替你解决什么</h2>
+      <strong>沟通的艺术</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>这本书不是教你说漂亮话，而是让你在咨询、伴侣、家庭、组织里减少误解，提高真实约束的获取能力。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>倾听是获取约束，不是等待反驳</b><p>客户、伴侣、上级真正怕什么，往往比他们说想要什么更重要。先复述和确认，再给建议。</p></div><div class="point"><b>表达要匹配关系和场景</b><p>同一结论给客户、伴侣、上级、同事，信息量、顺序、语气和可行动程度都不同。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的输出偏好印证：结论先行，但对不同对象需要不同接收路径。</li><li>与你的咨询产品化印证：客户买的是降低不确定性，沟通必须先听真实约束。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写一条原则：重要沟通前先写：对方想要、对方害怕、我能提供、我的边界。</p>
+    </section>
+  </article>
+<article class="day" id="day-53">
+    <header>
+      <p>Day 53 / 概念拆解</p>
+      <h2>《沟通的艺术》2/3：概念怎样改变真实判断</h2>
+      <strong>沟通的艺术</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天只读这本书中最能迁移的概念，不追求覆盖章节。重点是把概念解释到可以用于投资、职业、健康关系或知识产品化。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>冲突是需求同时出现</b><p>消费、工作时间、家庭责任、法律安排等冲突，背后通常是安全、尊重、自由、责任和公平的竞争。</p></div><div class="point"><b>反馈决定沟通是否完成</b><p>你说完不等于对方接收。要看对方是否理解、是否愿意行动、是否还有未表达顾虑。</p></div><div class="point"><b>边界要用可执行语言表达</b><p>模糊的不舒服很难被尊重，具体的请求、条件和后果才可执行。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的咨询产品化印证：客户买的是降低不确定性，沟通必须先听真实约束。</li><li>与你的关系主线印证：关系投入和边界都需要被说清楚。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>把一个现实问题改写成这本书能处理的问题。</p>
+    </section>
+  </article>
+<article class="day" id="day-54">
+    <header>
+      <p>Day 54 / 知识库沉淀</p>
+      <h2>《沟通的艺术》3/3：与我的知识库互证并沉淀</h2>
+      <strong>沟通的艺术</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天不再补更多概念，而是把这本书和个人知识库互相印证：哪些旧判断被加强，哪些需要修正，哪些原则值得写入长期系统。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>重要沟通前先写：对方想要、对方害怕、我能提供、我的边界。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>把建议改成可选择方案，而不是压迫式结论。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div><div class="point"><b>冲突中先确认需求，再谈方案。</b><p>把这条原则放到一个真实场景中检验：投资、职业退出、关系沟通、健康系统或咨询产品化。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>与你的输出偏好印证：结论先行，但对不同对象需要不同接收路径。</li><li>与你的咨询产品化印证：客户买的是降低不确定性，沟通必须先听真实约束。</li><li>与你的关系主线印证：关系投入和边界都需要被说清楚。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>在 Obsidian 对应书摘里补一条原子笔记，并链接到相关主文档。</p>
+    </section>
+  </article>
+<article class="day" id="day-55">
+    <header>
+      <p>Day 55 / 系统整合</p>
+      <h2>投资判断的跨学科底层模型</h2>
+      <strong>跨学科整合</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>把前面 18 本书中分散的概念合成一个可执行模型。今天不学新书，只做整合。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>整合模型</b><p>投资判断的跨学科底层模型</p></div><div class="point"><b>知识库位置</b><p>对应 Obsidian：学习笔记/通识学习/跨学科整合/投资判断的跨学科底层模型.md</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>把模型与你现有高频记忆卡、投资框架、综合画像互相印证。</li><li>找出至少一个需要写回长期知识库的原则。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>完成《投资判断的跨学科底层模型》的一次真实案例应用。</p>
+    </section>
+  </article>
+<article class="day" id="day-56">
+    <header>
+      <p>Day 56 / 系统整合</p>
+      <h2>职业退出与第二曲线模型</h2>
+      <strong>跨学科整合</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>把前面 18 本书中分散的概念合成一个可执行模型。今天不学新书，只做整合。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>整合模型</b><p>职业退出与第二曲线模型</p></div><div class="point"><b>知识库位置</b><p>对应 Obsidian：学习笔记/通识学习/跨学科整合/职业退出与第二曲线模型.md</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>把模型与你现有高频记忆卡、投资框架、综合画像互相印证。</li><li>找出至少一个需要写回长期知识库的原则。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>完成《职业退出与第二曲线模型》的一次真实案例应用。</p>
+    </section>
+  </article>
+<article class="day" id="day-57">
+    <header>
+      <p>Day 57 / 系统整合</p>
+      <h2>健康关系与好生活模型</h2>
+      <strong>跨学科整合</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>把前面 18 本书中分散的概念合成一个可执行模型。今天不学新书，只做整合。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>整合模型</b><p>健康关系与好生活模型</p></div><div class="point"><b>知识库位置</b><p>对应 Obsidian：学习笔记/通识学习/跨学科整合/健康关系与好生活模型.md</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>把模型与你现有高频记忆卡、投资框架、综合画像互相印证。</li><li>找出至少一个需要写回长期知识库的原则。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>完成《健康关系与好生活模型》的一次真实案例应用。</p>
+    </section>
+  </article>
+<article class="day" id="day-58">
+    <header>
+      <p>Day 58 / 系统整合</p>
+      <h2>证据系统与知识库工作流</h2>
+      <strong>跨学科整合</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>把前面 18 本书中分散的概念合成一个可执行模型。今天不学新书，只做整合。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>整合模型</b><p>证据系统与知识库工作流</p></div><div class="point"><b>知识库位置</b><p>对应 Obsidian：学习笔记/通识学习/跨学科整合/证据系统与知识库工作流.md</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>把模型与你现有高频记忆卡、投资框架、综合画像互相印证。</li><li>找出至少一个需要写回长期知识库的原则。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>完成《证据系统与知识库工作流》的一次真实案例应用。</p>
+    </section>
+  </article>
+<article class="day" id="day-59">
+    <header>
+      <p>Day 59 / 知识工程</p>
+      <h2>原子笔记工厂：把 18 本书变成可检索知识</h2>
+      <strong>Obsidian 工作流</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>今天的目标是把学习成果从阅读材料变成可复用卡片。每条卡片必须有来源、解释、适用场景、反例和链接。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>原子化</b><p>一个概念只解决一个问题，不把整本书塞进一条笔记。</p></div><div class="point"><b>互证</b><p>每条新原则都要链接到至少一个已有主文档。</p></div><div class="point"><b>复盘</b><p>写清楚这条原则改变了哪一个旧判断。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>这一步对应知识库工作流：事实、观点、假设、证据、反例、行动分开记录。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>生成 10 条原子笔记标题，并放进对应主题。</p>
+    </section>
+  </article>
+<article class="day" id="day-60">
+    <header>
+      <p>Day 60 / 最终沉淀</p>
+      <h2>个人通识操作系统 v1：把学习变成判断动作</h2>
+      <strong>总复盘</strong>
+    </header>
+    <section class="reading">
+      <h3>今天真正要读懂</h3>
+      <p>最后一天不再添加内容，而是选择保留什么。目标是形成投资、职业、健康关系、知识产品化四套判断清单。</p>
+    </section>
+    <section>
+      <h3>关键解释</h3>
+      <div class="point"><b>投资</b><p>价格、预期、财报、资本配置、仓位。</p></div><div class="point"><b>职业</b><p>机会成本、结构资本、身份迁移、外部需求、产品化。</p></div><div class="point"><b>生活</b><p>健康底盘、关系投入、仪式、拒绝权。</p></div><div class="point"><b>知识库</b><p>证据链、原子笔记、复盘、写回机制。</p></div>
+    </section>
+    <section>
+      <h3>与知识库互证</h3>
+      <ul><li>检查这些原则是否真的符合你的长期目标：时间、身体、节奏、体验和选择权。</li></ul>
+    </section>
+    <section class="output">
+      <h3>当天沉淀</h3>
+      <p>写《我的跨学科判断系统 v1》并链接到 4 张整合模型。</p>
+    </section>
+  </article>
+
+    <div class="footer">生成日期：2026-06-18。Obsidian 与 GitHub Pages 同步版。</div>
+  </div>
+</main>
+</body>
+</html>
