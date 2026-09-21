@@ -10,3 +10,4 @@ radar-app/vite.config.d.ts
 .env
 .env.*
 !.env.example
+.superpowers/
