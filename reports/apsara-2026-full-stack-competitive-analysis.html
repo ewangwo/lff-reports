@@ -1,0 +1,1573 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>云栖2026 · 产品发布与全栈竞争分析</title><style>
+:root{--ink:#17302f;--body:#243a39;--muted:#60706c;--paper:#f7f7f1;--line:#dce3da;--green:#005f50;--gold:#d79d43}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--paper);color:var(--body);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.85}a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}aside{position:fixed;inset:0 auto 0 0;width:250px;background:#112f2b;color:#e6eee6;padding:28px 18px;overflow:auto}aside .label{color:#c6a769;font-size:11px;letter-spacing:2px}.brand{font-size:24px;line-height:1.4;font-weight:700;margin:12px 0 18px}nav a{display:block;color:#cedbd2;text-decoration:none;font-size:12px;padding:8px 9px;line-height:1.55;border-left:2px solid transparent}nav a:hover,nav a.active{background:#20463c;border-left-color:var(--gold);color:white}.nav-meta{font-size:11px;color:#a6beb0;margin-top:18px}.layout{margin-left:250px}header{background:#e8eee3;padding:56px 6vw 40px;border-bottom:1px solid #d0daca}.eyebrow{font-size:12px;letter-spacing:2px;color:var(--green);font-weight:700}h1{font-size:clamp(30px,3.7vw,49px);line-height:1.3;letter-spacing:-1px;color:var(--ink);max-width:980px;margin:16px 0 24px}.dek{max-width:870px;font-size:18px;line-height:1.9}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.meta span{font-size:12px;border:1px solid #b7c8b5;padding:3px 10px;border-radius:3px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 0}.toolbar a,.toolbar button{font:inherit;font-size:13px;border:1px solid #779886;background:transparent;color:var(--green);padding:7px 12px;text-decoration:none;cursor:pointer;border-radius:4px}.toolbar .solid{background:var(--green);color:white}.metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #cad8c7;background:#f6f8f2;margin-top:28px}.metrics>div{padding:19px 17px;border-right:1px solid #dce3da;border-bottom:1px solid #dce3da;display:flex;flex-direction:column}.metrics strong{font-size:27px;color:var(--green);font-weight:650;line-height:1.5}.metrics b{font-size:12px}.metrics small{font-size:11px;color:var(--muted)}main{max-width:1220px;margin:auto;padding:15px 5vw 65px}.reading-note{font-size:13px;background:#fff7e6;padding:16px 20px;border-left:3px solid #b6863c;margin:30px 0}.chapter{padding:36px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px}h2{font-size:25px;color:var(--ink);line-height:1.55;margin:0 0 24px}h3{font-size:18px;color:var(--green);margin-top:32px;line-height:1.7}p{margin:16px 0}strong{color:var(--ink)}.table-scroll{overflow-x:auto;width:100%;border:1px solid var(--line);border-radius:5px;background:white;margin:22px 0}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.8}th{background:#e7eee2;color:#244d3c;text-align:left;font-weight:650;min-width:110px}td,th{padding:12px 13px;vertical-align:top;border-bottom:1px solid var(--line)}td{min-width:105px}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fafbf7}.cite{font-size:11px;padding:1px 3px;white-space:nowrap}.picture{display:block;width:100%;padding:0;margin-top:28px;border:1px solid #c8d0c6;background:#eef2e9;cursor:zoom-in;text-align:left;border-radius:5px;overflow:hidden}.picture img{width:100%;height:auto;display:block}.picture span{display:block;padding:7px 13px;font-size:11px;color:var(--muted)}p:has(em){font-size:12px;color:var(--muted)}.stack{display:grid;gap:6px;margin:20px 0}.stack div{display:flex;align-items:center;gap:22px;padding:16px 20px;border:1px solid #c8d8ca;background:#edf3e8;border-radius:5px}.stack b{width:200px;flex-shrink:0;color:var(--green)}.stack span{font-size:13px}.stack i{text-align:center;font-size:11px;font-style:normal;color:var(--muted)}.caption{font-size:12px;color:var(--muted)}code{background:#eaf0e6;padding:2px 4px;border-radius:3px}footer{font-size:12px;color:var(--muted);padding:24px 0}dialog{border:0;border-radius:8px;padding:12px;max-width:96vw;max-height:95vh;background:#f4f5ee}dialog::backdrop{background:#071710df}dialog img{max-width:90vw;max-height:82vh;object-fit:contain;display:block}dialog button{border:1px solid #8b9e91;background:white;border-radius:4px;padding:8px 14px;cursor:pointer;float:right}.mobile-nav{display:none}#progress{position:fixed;top:0;left:250px;height:3px;width:0;background:var(--gold);z-index:10}button:focus-visible,a:focus-visible{outline:3px solid #c3913e;outline-offset:4px}td[id]{scroll-margin-top:30px;overflow-wrap:anywhere}
+@media(max-width:1000px){aside{width:210px;padding:24px 12px}.layout{margin-left:210px}#progress{left:210px}header{padding:36px 30px}.metrics{grid-template-columns:repeat(2,1fr)}main{padding:12px 28px}.stack div{display:block}.stack b{display:block;width:auto}.stack span{display:block;margin-top:5px}}
+@media(max-width:720px){aside{display:none}.layout{margin:0}#progress{left:0}header{padding:28px 20px}h1{font-size:30px}.dek{font-size:16px}.metrics>div{padding:14px 12px}.metrics strong{font-size:24px}main{padding:8px 18px 36px}.chapter{padding:27px 0}h2{font-size:22px}h3{font-size:17px}p{font-size:15px;line-height:1.95}.mobile-nav{display:block;margin-top:22px;width:100%;padding:12px;font-size:13px;color:var(--ink);border:1px solid #b5c8b7;background:#f9fbf4}table{min-width:700px}.table-scroll{max-width:100%}.reading-note{padding:12px 14px}.stack span{font-size:12px}.toolbar a,.toolbar button{font-size:12px}.caption{font-size:12px}}
+@media print{aside,#progress,.toolbar,.mobile-nav,.picture span{display:none}.layout{margin:0}header{padding:10px 0;background:white}main{padding:0;max-width:none}.metrics{grid-template-columns:repeat(4,1fr)}body{background:white;color:black;font-size:10pt}.chapter{padding:18px 0}h2,h3{break-after:avoid}table{font-size:8pt;min-width:0!important}.table-scroll{overflow:visible}tr,.picture{break-inside:avoid}.picture img{max-height:220px;object-fit:contain}a{color:inherit}.reading-note{background:white}}
+</style></head><body><div id="progress"></div><aside><div class="label">APSARA / SEPT 2026</div><div class="brand">产品发布<br>与全栈竞争</div><nav><a href="#chapter-0">0 管理层摘要</a><a href="#chapter-1">1 发布全景：新增、升级与既有能力分开看</a><a href="#chapter-2">2 总体布局：模型、运行环境与数据形成业务闭环</a><a href="#chapter-3">3 模型与Agent：计算需求从一次回答变成持续任务</a><a href="#chapter-4">4 真武与昇腾：当前产品化与下一代能力分别比较</a><a href="#chapter-5">5 倚天与通用计算：核数、单核性能和互联是三条轴</a><a href="#chapter-6">6 磐久与超节点：看拓扑、工程和有效产出</a><a href="#chapter-7">7 网络与光互联：先区分四张网络，再讨论竞争</a><a href="#chapter-8">8 存储与数据基础设施：训练供给、推理缓存和Agent状态分开</a><a href="#chapter-9">9 数据库与数据平台：价值从保存数据向提供可用上下文延伸</a><a href="#chapter-10">10 云平台、OS、企业Agent与安全：运行环境成为产品</a><a href="#chapter-11">11 商业化与生态：从计算资源到任务服务</a><a href="#chapter-12">12 综合竞争判断：差异在控制点与交付方式，不宜给单一总分</a><a href="#chapter-13">13 阿里作为客户：需求增长与外部份额是两件事</a><a href="#chapter-14">14 证据缺口、冲突与本次研究覆盖</a><a href="#chapter-15">附录A 来源台账</a><a href="#chapter-16">附录B 原始图片索引</a><a href="#chapter-17">附录C 关键术语</a><a href="#chapter-18">版本与使用说明</a></nav><div class="nav-meta">截至 2026.09.23<br>公开资料研究 · v1.0</div></aside><div class="layout"><header><div class="eyebrow">云栖大会 · 产品与解决方案研究</div><h1>云栖大会产品发布<br>与阿里全栈竞争力分析</h1><p class="dek">从真武、倚天与磐久，到网络、存储、模型和Agent平台：理解阿里作为竞争者的能力变化，以及作为客户的需求变化。</p><div class="meta"><span>截至 2026年9月23日</span><span>14个主体章节 + 管理层摘要</span><span>34条来源记录</span><span>49张原图索引</span><span>事实 / 主张 / 路线图 / 分析分层</span></div><div class="toolbar"><a class="solid" href="#chapter-0">阅读管理层摘要 ↓</a><a href="#chapter-12">综合竞争矩阵</a><a href="#chapter-13">阿里客户需求</a><button onclick="window.print()">打印 / 保存PDF</button></div><select class="mobile-nav" aria-label="跳转章节"><option value="">选择章节</option><option value="chapter-0">0 管理层摘要</option><option value="chapter-1">1 发布全景：新增、升级与既有能力分开看</option><option value="chapter-2">2 总体布局：模型、运行环境与数据形成业务闭环</option><option value="chapter-3">3 模型与Agent：计算需求从一次回答变成持续任务</option><option value="chapter-4">4 真武与昇腾：当前产品化与下一代能力分别比较</option><option value="chapter-5">5 倚天与通用计算：核数、单核性能和互联是三条轴</option><option value="chapter-6">6 磐久与超节点：看拓扑、工程和有效产出</option><option value="chapter-7">7 网络与光互联：先区分四张网络，再讨论竞争</option><option value="chapter-8">8 存储与数据基础设施：训练供给、推理缓存和Agent状态分开</option><option value="chapter-9">9 数据库与数据平台：价值从保存数据向提供可用上下文延伸</option><option value="chapter-10">10 云平台、OS、企业Agent与安全：运行环境成为产品</option><option value="chapter-11">11 商业化与生态：从计算资源到任务服务</option><option value="chapter-12">12 综合竞争判断：差异在控制点与交付方式，不宜给单一总分</option><option value="chapter-13">13 阿里作为客户：需求增长与外部份额是两件事</option><option value="chapter-14">14 证据缺口、冲突与本次研究覆盖</option><option value="chapter-15">附录A 来源台账</option><option value="chapter-16">附录B 原始图片索引</option><option value="chapter-17">附录C 关键术语</option><option value="chapter-18">版本与使用说明</option></select><div class="metrics"><div><strong>216 GB</strong><b>V900显存</b><small>2027Q1路线</small></div><div><strong>1.2 TB/s</strong><b>V900片间互联</b><small>不是HBM带宽</small></div><div><strong>2027 Q3</strong><b>倚天720 / 730</b><small>原图计划时间</small></div><div><strong>1,024卡</strong><b>ICN拓扑展示</b><small>非单柜卡数</small></div><div><strong>13万+</strong><b>HPN 800G端口</b><small>不能直接换算卡数</small></div><div><strong>4,096卡</strong><b>昇腾960超节点</b><small>官方最大规格</small></div><div><strong>9月18日</strong><b>AgentCore开始计费</b><small>早于大会</small></div><div><strong>20 GW+</strong><b>阿里2032容量目标</b><small>不是当前已建容量</small></div></div><p class="caption">数据卡摘自原图、官方发布与文档。路线及最大规格不等于现网交付；详细来源与限制见正文。</p></header><main><div class="reading-note">本版汇总产品发布，分析全栈竞争关系与客户需求。大会9月24日内容尚未覆盖，部分分论坛只取得预告或线索。数字与结论按证据状态呈现；原图可点击放大。正文中的参数比较不替代同条件测试。</div><section class="chapter" id="chapter-0"><h2>0 管理层摘要</h2><p><strong>核心判断：阿里正在把“模型生产、Agent运行、企业数据”连接为一套云服务体系，并将这种体系向下延伸至自研芯片、互联、服务器和存储。对华为而言，竞争已经同时发生在器件、系统架构、软件平台与客户业务入口；阿里作为客户的基础设施需求仍可能增长，但外部供应商可参与的部分需要逐层判断。</strong></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>核心判断</th>
+<th>主要证据</th>
+<th>竞争与客户需求含义</th>
+<th>判断把握</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. 真武已有云交付基础，V900是下一代路线</td>
+<td>GP9A正式规格、ACK部署文档；V900计划2027Q1</td>
+<td>当前比较M890可用服务，未来比较V900；不要把路线图当现货</td>
+<td>高，交付数量未知</td>
+</tr>
+<tr>
+<td>2. CPU、网络、存储重新成为Agent关键路径</td>
+<td>倚天双路线、ICN、HPN、CPFS及沙箱</td>
+<td>仅以AI卡性能理解客户需求将漏掉通算与数据系统</td>
+<td>高，具体采购量未知</td>
+</tr>
+<tr>
+<td>3. 芯片竞争正转为系统与软件竞争</td>
+<td>真武—ICN—磐久—SAIL；昇腾—灵衢—超节点—CANN</td>
+<td>有效产出、迁移成本和运维效率比孤立参数更接近客户决策</td>
+<td>中高，缺同条件测试</td>
+</tr>
+<tr>
+<td>4. 两家的Agent基础设施方向趋同</td>
+<td>阿里Agent Native Cloud；华为Agentic Infra、AgentArts及记忆存储</td>
+<td>不能把华为仅看成硬件方，也不能把阿里仅看成云服务方</td>
+<td>高，平台强弱仍待实测</td>
+</tr>
+<tr>
+<td>5. 阿里将数据与Agent运行一起产品化</td>
+<td>Agent Context、OpenLake、AgentCore、Agent Sandbox</td>
+<td>客户依赖可能从模型API延伸到身份、状态、数据与运行环境</td>
+<td>中高，黏性为分析</td>
+</tr>
+<tr>
+<td>6. 开放生态与自研控制同时增强</td>
+<td>SAIL、开源模型、Kubernetes/E2B兼容；自研芯片与互联</td>
+<td>软件开放不等于采购开放；参与边界取决于接口和架构</td>
+<td>高，采购边界未披露</td>
+</tr>
+<tr>
+<td>7. 全球化扩张增加部署复杂性</td>
+<td>9月23日新增地域规划及国际AI产品</td>
+<td>海外部署、网络与服务交付是独立需求维度</td>
+<td>高，新增容量及供应商未知</td>
+</tr>
+<tr>
+<td>8. 2027年是新一轮产品兑现窗口</td>
+<td>V900与960DT计划2027Q1；倚天720/730、960PR在2027年后续节点</td>
+<td>比较需要按实际可交付月份更新，不能用2025旧路线图固定结论</td>
+<td>高，计划可能变化</td>
+</tr>
+</tbody></table></div>
+<p>上述判断主要对应用户原图30—49及<a class="cite" href="#source-A01">[A01]</a><a class="cite" href="#source-A02">[A02]</a><a class="cite" href="#source-A03">[A03]</a><a class="cite" href="#source-A04">[A04]</a><a class="cite" href="#source-H01">[H01]</a><a class="cite" href="#source-H02">[H02]</a><a class="cite" href="#source-H05">[H05]</a>。<strong>目前证据不足以判定V900与960的综合性能胜负，也不足以确认阿里对华为的采购份额或供货关系已发生变化。</strong></p>
+</section><section class="chapter" id="chapter-1"><h2>1 发布全景：新增、升级与既有能力分开看</h2><h3>1.1 重点发布与产品状态总表</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>领域</th>
+<th>产品/事项</th>
+<th>本届信息增量</th>
+<th>截至9月23日的状态</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>总体规模</td>
+<td>2032年运营数据中心容量超过20GW</td>
+<td>长期容量目标</td>
+<td>路线目标，非已建容量/订单</td>
+<td>图02、A01</td>
+</tr>
+<tr>
+<td>基础模型</td>
+<td>Qwen4及后续代际</td>
+<td>新架构训练与扩展路线</td>
+<td>Qwen4在训练；后续5—10T参数为规划</td>
+<td>图14—15、A01</td>
+</tr>
+<tr>
+<td>多模态</td>
+<td>Qwen3.8-LiveTranslate、音频3.1系列</td>
+<td>同传、音效、识别和实时交互</td>
+<td>官方发布；各接口商用范围未逐项实测</td>
+<td>A01</td>
+</tr>
+<tr>
+<td>图像/世界模型</td>
+<td>Qwen-Image 3.1、Happy Oyster 2.0 Preview等</td>
+<td>创作与持续交互能力</td>
+<td>图像3.1计划年内；世界模型保留Preview</td>
+<td>图20—26、A01</td>
+</tr>
+<tr>
+<td>手机Agent</td>
+<td>Qwen Intelligence</td>
+<td>面向手机厂商的Agent方案</td>
+<td>官方发布，非所有终端已安装</td>
+<td>A01</td>
+</tr>
+<tr>
+<td>AI加速</td>
+<td>真武M890/GP9A</td>
+<td>当前产品化与模型运行展示</td>
+<td>既有正式产品入口</td>
+<td>图30、A03—A04</td>
+</tr>
+<tr>
+<td>AI加速</td>
+<td>真武V900、J900</td>
+<td>芯片代际与时间路线</td>
+<td>V900计划2027Q1；J900图示2028Q3</td>
+<td>图33、35、A01</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>倚天720/730/750</td>
+<td>多核、自研核与CPU—加速器互联路线</td>
+<td>720/730图示2027Q3；750日期未披露</td>
+<td>图41—42、A01</td>
+</tr>
+<tr>
+<td>服务器</td>
+<td>新一代磐久</td>
+<td>V900与交换、网卡、存储控制协同</td>
+<td>图示2027Q1计划，非现网完整规格</td>
+<td>图37—38</td>
+</tr>
+<tr>
+<td>网络</td>
+<td>ICN千卡域、HPN8.0 Pro</td>
+<td>Scale-up与Scale-out架构演进</td>
+<td>架构/规模主张；不能视为对应规模已装机</td>
+<td>图34、45、A01</td>
+</tr>
+<tr>
+<td>存储</td>
+<td>新一代CPFS</td>
+<td>训练数据供给及容量、性能、成本优化</td>
+<td>正式发布主张；缺统一实测条件</td>
+<td>图45、A01</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td>Tair KVCache及管理组件</td>
+<td>Agent推理数据路径受重视</td>
+<td>开源项目已在会前存在，不能算首次发明</td>
+<td>A13</td>
+</tr>
+<tr>
+<td>AI平台</td>
+<td>PAI Agentic RL</td>
+<td>训练、推理、环境与样本协同</td>
+<td>案例能力；完整RSI平台不能由案例证明</td>
+<td>图44—46、A01</td>
+</tr>
+<tr>
+<td>Agent平台</td>
+<td>AgentCore</td>
+<td>企业Agent构建、运行与治理</td>
+<td>官方文档显示9月18日起计费</td>
+<td>图48—49、A11</td>
+</tr>
+<tr>
+<td>Agent执行</td>
+<td>Agent Sandbox</td>
+<td>隔离、状态恢复及多接入方式</td>
+<td>有文档；不同版本和地域状态不同</td>
+<td>A12、A19</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>Agent Context、OpenLake</td>
+<td>上下文、记忆与多模态数据整合</td>
+<td>官方发布；收益为厂商场景主张</td>
+<td>A01</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>ApsaraLakebase</td>
+<td>Agent数据空间方向</td>
+<td>检索到报道，完整一手说明仍待核</td>
+<td>L01</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>Agent Security Center、身份治理</td>
+<td>Agent全生命周期安全</td>
+<td>发布/截图可确认，覆盖边界待产品核验</td>
+<td>图49、A01</td>
+</tr>
+<tr>
+<td>通算/OS/边缘</td>
+<td>ECS年度新品、Agentic OS、ESA</td>
+<td>弹性计算、运行底座及边缘AI方向</td>
+<td>部分只取得议程/预告，逐项GA待核</td>
+<td>A10、A14—A16</td>
+</tr>
+<tr>
+<td>国际AI服务</td>
+<td>Smart Studio/Fusion/Video</td>
+<td>MaaS经营、多模型协作、视频Agent</td>
+<td>9月23日官方发布</td>
+<td>A02</td>
+</tr>
+<tr>
+<td>全球化</td>
+<td>新云地域与既有区域扩容</td>
+<td>未来12个月建设计划</td>
+<td>规划，非当天全部开服</td>
+<td>A02</td>
+</tr>
+</tbody></table></div>
+<h3>1.2 必须修正的历史理解</h3>
+<p>M890、AL128、SAIL并非9月才首次出现：5月公告已有芯片和系统信息，7月WAIC已有SAIL开源披露。<a class="cite" href="#source-A06">[A06]</a><a class="cite" href="#source-A07">[A07]</a> AgentCore计费开始时间早于大会；Alibaba Cloud Linux 4也在会前已有4.0.6版本。<a class="cite" href="#source-A10">[A10]</a><a class="cite" href="#source-A11">[A11]</a> 因而，本次的新增价值主要在于后续代际、系统集成及Agent产品组合，不能把全部在台上出现的产品都计入“本届新产品”。</p>
+<p>官方弹性计算议程同时写到第十代实例发布和g9i/g9ae案例；本报告不把后两者直接改名为第十代。产品目录、演示案例和真正新规格仍需分别核对。<a class="cite" href="#source-A16">[A16]</a></p>
+</section><section class="chapter" id="chapter-2"><h2>2 总体布局：模型、运行环境与数据形成业务闭环</h2><div class="stack"><div><b>任务与业务入口</b><span>企业应用 / 开发 / 内容创作 / 手机Agent</span></div><i>↓ 业务反馈与模型调用 ↑</i><div><b>模型 · 运行 · 上下文</b><span>Qwen / AgentCore / Sandbox / Agent Context / OpenLake</span></div><i>↓ 调度与数据访问 ↑</i><div><b>云计算与系统软件</b><span>PAI / 灵骏 / ACK、ACS / SAIL / CPFS / HPN</span></div><i>↓ 软硬件协同 ↑</i><div><b>芯片、互联与数据中心</b><span>真武 / 倚天 / ICN / 磐久 / 供电与冷却</span></div></div><p class="caption">分析示意：按职责分层，实际调用和数据流并非严格串行。</p><p>阿里在官方发布中用Model、Harness、Context组织Agentic Cloud。可分别理解为：模型负责生成与推理；运行与治理层负责把推理变成可靠执行；数据与记忆层负责让任务拥有业务上下文。<a class="cite" href="#source-A01">[A01]</a></p>
+<p><strong>业务与技术关系：企业/终端任务 → Qwen及多模型服务 → Agent运行与治理 → Context与数据平台 → 计算、网络和存储 → 真武/倚天/互联芯片与数据中心。</strong></p>
+<p>这是一张按职责组织的阅读图，实际数据流包含多方向调用，不能理解为严格串行执行。</p>
+<p><strong>【分析】这一组合的竞争含义，是阿里希望同时掌握任务入口、执行平台及底层资源。</strong> 模型可以带来开发者，平台把模型变成可用服务，资源使用又为底层芯片和基础设施提供优化反馈。如果这些环节能共享工作负载信息，阿里可以围绕自身模型和业务持续优化系统；代价则是需要同时承担更多层研发、运营与兼容责任。</p>
+<p>华为同期发布围绕昇腾、鲲鹏、灵衢和记忆存储组织AI基础设施，华为云又提供MaaS和企业Agent平台。<a class="cite" href="#source-H03">[H03]</a><a class="cite" href="#source-H05">[H05]</a> 两者的业务重心有差异，但产品覆盖存在明显交集，不能简化为“阿里做应用、华为做硬件”。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>观察维度</th>
+<th>阿里已披露的侧重</th>
+<th>华为已披露的侧重</th>
+<th>本报告判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>需求牵引</td>
+<td>Qwen、云业务及企业/消费场景</td>
+<td>多模型、行业客户及算力基础设施</td>
+<td>自有模型优化与多模型承载各有价值，需分场景</td>
+</tr>
+<tr>
+<td>系统组织</td>
+<td>自研芯片与自营云产品结合</td>
+<td>芯片、互联、整机、伙伴及云服务</td>
+<td>比较应同时考虑供给方式和客户使用方式</td>
+</tr>
+<tr>
+<td>客户关系</td>
+<td>算力服务、模型与Agent服务</td>
+<td>硬件/系统、云平台与行业方案</td>
+<td>相同客户可能在不同层同时发生竞争与合作</td>
+</tr>
+<tr>
+<td>规模目标</td>
+<td>2032年20GW</td>
+<td>百万卡架构方向</td>
+<td>功率与卡数不是同一单位，不能对除</td>
+</tr>
+</tbody></table></div>
+<p>20GW仅用于理解长期建设方向。未披露IT负荷定义、PUE、自建租赁结构、地域和阶段容量，不推导芯片数量、市场金额或华为机会金额。规模收益也受利用率、折旧和电力交付约束，容量目标本身不能证明盈利改善。</p>
+</section><section class="chapter" id="chapter-3"><h2>3 模型与Agent：计算需求从一次回答变成持续任务</h2><h3>3.1 能力上限与单位使用效率同时推进</h3>
+<p>原图显示Qwen3.8-Max采用2.4T总参数、95B激活参数，Flash/Plus/27B侧重效率。MoE总参数大并不意味着每个Token都计算全部参数，但模型权重存储和专家调度仍占用资源。图10的激活参数1/3、训练FLOPs1/9、输入价格1/4、1M预填充吞吐8.6倍，分母和任务不同，不能相乘得出统一的成本改善。</p>
+<p>Qwen4处于训练阶段；图像3.1的正式发布时间被官方稿限定在今年晚些时候。对外展示能力、可调用API和广泛商用应分别记录。<a class="cite" href="#source-A01">[A01]</a> 音频与同传产品增加实时性要求，世界模型的持续交互则增加状态与记忆压力。本文没有对模型排行榜、胜率和跨厂商质量作独立测评。</p>
+<p><button class="picture" aria-label="放大原图10"><img src="assets/apsara-2026-customer-release-reading/image10.webp" alt="图10｜五种效率指标具有不同分母，不能连乘成为总体降本。" loading="lazy"><span>原图 10 · 点击放大</span></button></p>
+<p><em>图10｜五种效率指标具有不同分母，不能连乘成为总体降本。</em></p>
+<h3>3.2 上层变化如何传导到硬件</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>工作负载</th>
+<th>更可能出现的瓶颈</th>
+<th>主要相关资源</th>
+<th>对比较方法的要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大规模预训练</td>
+<td>通信、数据读取、故障中断</td>
+<td>加速卡、Scale-up/out、CPFS、Checkpoint</td>
+<td>看有效训练进度、MFU和故障损失</td>
+</tr>
+<tr>
+<td>Agentic RL</td>
+<td>Rollout与训练节奏失配、环境启动</td>
+<td>CPU环境池、推理资源、队列和存储</td>
+<td>看端到端迭代时长，不能只看训练卡吞吐</td>
+</tr>
+<tr>
+<td>长上下文推理</td>
+<td>预填充、KV容量及搬运</td>
+<td>显存、主机内存、KV缓存、网络</td>
+<td>同时报TTFT、TPOT、并发和命中率</td>
+</tr>
+<tr>
+<td>多模态创作</td>
+<td>数据量、编解码、序列长度</td>
+<td>加速器、CPU、对象/文件存储</td>
+<td>固定质量、分辨率和时长后比较</td>
+</tr>
+<tr>
+<td>工具型Agent</td>
+<td>CPU执行、外部等待、任务状态</td>
+<td>通算、沙箱、数据库和调度</td>
+<td>看完成率、完成时间和成功任务成本</td>
+</tr>
+</tbody></table></div>
+<h3>3.3 自我改进：实验进展与通用能力分开</h3>
+<p>原图46把完整RSI作为后续方向；新取得的官方稿则披露了模型自动迭代实验。因此，应更新为“已有受控实验进展，通用自主持续进化能力及平台商用仍未证实”，而不是笼统写“完全没有实现”。<a class="cite" href="#source-A01">[A01]</a> 原图08的EDA案例对象是总线模块，面积改善不等于整颗芯片成本下降，也不能证明工程师或EDA工具被替代。</p>
+<p><strong>【分析】产品与解决方案层面的结论：每次任务可能交替使用模型推理、CPU工具、数据访问与再次推理，资源需求呈混合和脉冲特征。增加加速卡不是所有瓶颈的解法。</strong></p>
+<h3>3.4 模型竞争与模型适配是不同关系</h3>
+<p>阿里拥有自有Qwen模型及云服务入口，华为官方同时强调盘古、第三方模型与多模型算力生态。<a class="cite" href="#source-A01">[A01]</a><a class="cite" href="#source-H01">[H01]</a><a class="cite" href="#source-H05">[H05]</a> 因此，不能把模型层简化为Qwen与盘古的单一榜单比较：还应看模型是否开放、能在哪些硬件部署、通过谁的MaaS收费，以及企业应用绑定哪套平台。</p>
+<p>【分析】Qwen生态扩大会提高其模型服务的竞争力，也可能增加其他兼容基础设施上的部署需求；两种结果可以并存。具体是否形成华为算力需求，取决于对应版本许可证、模型适配、性能及客户部署选择。本轮未取得Qwen与盘古在同一任务、成本、时延和质量条件下的完整测试，不输出基础模型质量排名。</p>
+</section><section class="chapter" id="chapter-4"><h2>4 真武与昇腾：当前产品化与下一代能力分别比较</h2><h3>4.1 真武各代的事实底座</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>代际</th>
+<th align="right">显存</th>
+<th align="right">片间带宽</th>
+<th>原图时间</th>
+<th>当前证据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>810E</td>
+<td align="right">96GB</td>
+<td align="right">700GB/s</td>
+<td>2024Q2</td>
+<td>历史代际</td>
+</tr>
+<tr>
+<td>M890</td>
+<td align="right">144GB</td>
+<td align="right">800GB/s</td>
+<td>2026Q2</td>
+<td>正式云产品、SDK与部署文档</td>
+</tr>
+<tr>
+<td>V900</td>
+<td align="right">216GB</td>
+<td align="right">1200GB/s</td>
+<td>2027Q1</td>
+<td>已公布规格和上市计划，非现货</td>
+</tr>
+<tr>
+<td>J900</td>
+<td align="right">未披露</td>
+<td align="right">未披露</td>
+<td>2028Q3</td>
+<td>远期路线</td>
+</tr>
+</tbody></table></div>
+<p>来源：用户图33、35；M890及V900分别由<a class="cite" href="#source-A06">[A06]</a><a class="cite" href="#source-A01">[A01]</a>补充核验。M890到V900的显存、片间带宽均增加50%，这是参数变化率，不能写成实际业务吞吐提升50%。官方稿把V900“三倍性能”的前代基线明确为M890，但未提供足够复现实验的精度、模型和功耗条件；应保留为厂商主张。</p>
+<p><button class="picture" aria-label="放大原图33"><img src="assets/apsara-2026-customer-release-reading/image33.webp" alt="图33｜真武芯片代际。M890现有服务与V900/J900路线分别阅读。" loading="lazy"><span>原图 33 · 点击放大</span></button></p>
+<p><em>图33｜真武芯片代际。M890现有服务与V900/J900路线分别阅读。</em>
+<button class="picture" aria-label="放大原图35"><img src="assets/apsara-2026-customer-release-reading/image35.webp" alt="图35｜V900的1200GB/s是片间互联，不是显存带宽。" loading="lazy"><span>原图 35 · 点击放大</span></button></p>
+<p><em>图35｜V900的1200GB/s是片间互联，不是显存带宽。</em></p>
+<h3>4.2 M890的产品化意味着什么</h3>
+<p>GP9A官网列明M890P、64卡/8节点最小售卖单元、每卡144GB显存；合计9216GB显存与18.4TB主机内存是不同资源，不能相加成等效显存。地域列明乌兰察布，中卫仍为规划。<a class="cite" href="#source-A03">[A03]</a> ACK文档给出设备插件、拓扑感知调度和ICN域检查流程。<a class="cite" href="#source-A04">[A04]</a></p>
+<p>这足以否定“真武还只有发布会、没有工具链和云入口”的说法；也不能因此认定库存充分、所有模型无修改迁移，或全部生产场景已成熟。产品页面的兼容宣传仍须由具体版本和算子验证。</p>
+<h3>4.3 V900与昇腾960的差异</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>真武V900</th>
+<th>昇腾960DT</th>
+<th>昇腾960PR</th>
+<th>应如何理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计划时间</td>
+<td>2027Q1量产/商业发布</td>
+<td>2027Q1就绪</td>
+<td>2027Q3就绪</td>
+<td>时间用词不完全相同，不代表整机同时普遍供货</td>
+</tr>
+<tr>
+<td>FP8</td>
+<td>支持；绝对算力未获正式规格</td>
+<td>路线图2 PFLOPS</td>
+<td>路线图2 PFLOPS</td>
+<td>无法计算V900相对算力比例</td>
+</tr>
+<tr>
+<td>FP4</td>
+<td>支持；绝对算力未获正式规格</td>
+<td>路线图4 PFLOPS</td>
+<td>路线图8 PFLOPS</td>
+<td>格式、稀疏/稠密和质量约束仍需统一</td>
+</tr>
+<tr>
+<td>显存容量</td>
+<td>216GB</td>
+<td>路线图288GB</td>
+<td>路线图192GB</td>
+<td>容量不等于带宽，也不直接决定业务性能</td>
+</tr>
+<tr>
+<td>显存带宽</td>
+<td>本轮未取得</td>
+<td>路线图9.6TB/s</td>
+<td>路线图2.4TB/s</td>
+<td>不能用V900的1.2TB/s填入此栏</td>
+</tr>
+<tr>
+<td>片间互联</td>
+<td>1.2TB/s</td>
+<td>路线图2.2TB/s</td>
+<td>路线图2.2TB/s</td>
+<td>单/双向、端口聚合口径需规格书复核</td>
+</tr>
+<tr>
+<td>软件/系统</td>
+<td>SAIL、PCCL、ICN及磐久</td>
+<td>CANN、灵衢及对应超节点</td>
+<td>CANN、灵衢及对应系统</td>
+<td>软件与系统适配是独立比较项</td>
+</tr>
+<tr>
+<td>功耗、价格、同模型实测</td>
+<td>未取得</td>
+<td>未取得可比数据</td>
+<td>未取得可比数据</td>
+<td>不形成每瓦/每元性能排名</td>
+</tr>
+</tbody></table></div>
+<p>V900数据来自用户原图并由A01校验；960时间来自华为官方H01。960细分参数来自前序已查看的HC2026公开演讲路线图图片H08，属于厂商原始演示图的媒体转载，证据层级低于正式规格书，全部保留“路线图”标识；本轮未取得对应完整产品规格书。</p>
+<p>**参数层面的有限结论：**按上述披露容量，960DT比V900高约33.3%；V900比960PR高12.5%。若片间带宽口径一致，2.2/1.2约为1.83倍。以上只比较公布数字，不代表训练、推理或Agent任务快相同比例。V900未公布足够的绝对算力与访存信息，现阶段不存在完整、可靠的综合排名。</p>
+<h3>4.4 从软件迁移看竞争</h3>
+<p>SAIL有正式SDK，PCCL对应通信能力，ACK把硬件拓扑传递给调度；CANN也有同期开放生态披露。<a class="cite" href="#source-A04">[A04]</a><a class="cite" href="#source-A05">[A05]</a><a class="cite" href="#source-H01">[H01]</a> 关键差异需要落到四类实际工作：标准框架能否运行；定制算子是否要重写；并行策略与通信能否调优；版本升级与故障诊断能否持续维护。</p>
+<p>【分析】阿里在自身Qwen和云负载上有模型—芯片协同条件；华为面对更多部署形态和客户环境，多模型适配与系统交付范围重要。两者都不能用“零修改”“全面兼容”等宣传代替适配清单。</p>
+</section><section class="chapter" id="chapter-5"><h2>5 倚天与通用计算：核数、单核性能和互联是三条轴</h2><h3>5.1 路线表与需求分化</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>产品</th>
+<th>核心/线程信息</th>
+<th>内存与I/O</th>
+<th>图示同频单核整数性能</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>倚天710</td>
+<td>128核</td>
+<td>8通道DDR、96 PCIe lanes</td>
+<td>1.0×基准</td>
+<td>既有代际</td>
+</tr>
+<tr>
+<td>倚天720</td>
+<td>192核</td>
+<td>12通道DDR、96 PCIe lanes</td>
+<td>1.1×</td>
+<td>2027Q3</td>
+</tr>
+<tr>
+<td>倚天730</td>
+<td>32自研核、SMT2</td>
+<td>8通道DDR、128 PCIe lanes</td>
+<td>1.25—1.4×</td>
+<td>2027Q3</td>
+</tr>
+<tr>
+<td>倚天750</td>
+<td>第二代自研核，核数未披露</td>
+<td>ICNLink与真武互联</td>
+<td>只给提升方向</td>
+<td>未披露</td>
+</tr>
+</tbody></table></div>
+<p>数据来自图42；710历史由A08校验。图中性能口径为每GHz指标，不能替代实际频率、整机吞吐或功耗测量。</p>
+<p><button class="picture" aria-label="放大原图41"><img src="assets/apsara-2026-customer-release-reading/image41.webp" alt="图41｜Head Node与Agentic Rack的通算需求分化。" loading="lazy"><span>原图 41 · 点击放大</span></button></p>
+<p><em>图41｜Head Node与Agentic Rack的通算需求分化。</em>
+<button class="picture" aria-label="放大原图42"><img src="assets/apsara-2026-customer-release-reading/image42.webp" alt="图42｜倚天720/730为2027Q3计划；750日期未披露。" loading="lazy"><span>原图 42 · 点击放大</span></button></p>
+<p><em>图42｜倚天720/730为2027Q3计划；750日期未披露。</em></p>
+<p>Head Node侧重请求处理、调度、低延迟和数据喂给；Agentic Rack侧重大量工具进程、沙箱并发、隔离和运行成本。720增加核数和内存通道，730强调自研核及I/O，符合负载分化方向，但截图没有把两者严格绑定为唯一场景。</p>
+<h3>5.2 与鲲鹏的可比边界</h3>
+<p>华为2025路线披露鲲鹏950的96核/192线程、192核/384线程版本及超节点方向；2026年9月又发布鲲鹏超节点升级。<a class="cite" href="#source-H07">[H07]</a><a class="cite" href="#source-H02">[H02]</a> 前者是历史芯片路线，后者是系统能力，不能拼成一个未经核验的整机BOM。因缺乏同编译器、频率、内存配置和功耗条件，本报告不判定倚天与鲲鹏单核/整机性能胜负。</p>
+<p>【分析】通算竞争的重点有两处：一是高密沙箱的单位成功任务成本；二是CPU—加速器之间能否减少搬运和等待。ICNLink路线使CPU选型更可能与加速器架构耦合；但未披露其接入规范，不能据此认定第三方CPU已被排除。</p>
+</section><section class="chapter" id="chapter-6"><h2>6 磐久与超节点：看拓扑、工程和有效产出</h2><h3>6.1 四种规模不能混用</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>数字</th>
+<th>对应对象</th>
+<th>能说明什么</th>
+<th>不能说明什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>64卡</td>
+<td>GP9A最小售卖单元/ICN64</td>
+<td>一组云资源和互联组织</td>
+<td>所有磐久机型都是64卡</td>
+</tr>
+<tr>
+<td>128加速器</td>
+<td>既有AL128整柜产品背景</td>
+<td>历史整柜组织</td>
+<td>新V900机柜沿用全部规格</td>
+</tr>
+<tr>
+<td>1024卡</td>
+<td>图34分层ICN Scale-up拓扑</td>
+<td>紧耦合互联域的扩展方向</td>
+<td>单柜装1024卡，或已规模交付</td>
+</tr>
+<tr>
+<td>50万卡</td>
+<td>大规模超节点集群架构</td>
+<td>多级网络组织能力目标</td>
+<td>50万卡在同一低延迟统一显存域</td>
+</tr>
+</tbody></table></div>
+<p>原图34、37—38与A03、A06、A18分别提供这些层次的证据。图34的32个Pod、每Pod32卡组成1024卡；不据此反推机柜数量、端口数和交换芯片BOM。</p>
+<p><button class="picture" aria-label="放大原图34"><img src="assets/apsara-2026-customer-release-reading/image34.webp" alt="图34｜8、64、1024卡是互联拓扑层次，不等于机柜容量。" loading="lazy"><span>原图 34 · 点击放大</span></button></p>
+<p><em>图34｜8、64、1024卡是互联拓扑层次，不等于机柜容量。</em>
+<button class="picture" aria-label="放大原图37"><img src="assets/apsara-2026-customer-release-reading/image37.webp" alt="图37｜新磐久服务器展示，计划2027Q1。" loading="lazy"><span>原图 37 · 点击放大</span></button></p>
+<p><em>图37｜新磐久服务器展示，计划2027Q1。</em></p>
+<h3>6.2 多类芯片共同决定系统</h3>
+<p>V900负责计算，ICN Switch承接紧耦合互联，磐脉是网络连接环节，镇岳属于SSD控制环节。它们所处层次不同：镇岳不是HBM，ICN交换也不等于普通以太网交换。新机型展示说明阿里掌握更多系统部件，但不代表全部器件自制或供应链完全封闭。</p>
+<p>历史AL128资料中的350kW供电、500kW散热设计不能直接写成2027年新磐久的功耗。规划中的新柜仍缺实际配置、效率、部署条件、维修方式和价格。<a class="cite" href="#source-A18">[A18]</a></p>
+<h3>6.3 与昇腾960系统比较</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>阿里本次材料</th>
+<th>华为同期材料</th>
+<th>可形成的判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scale-up</td>
+<td>图示1024卡ICN域</td>
+<td>960超节点最大4096卡</td>
+<td>华为披露更大域；域大小不等于应用效率</td>
+</tr>
+<tr>
+<td>Scale-out</td>
+<td>50万卡集群方向</td>
+<td>51.2万卡，进一步到百万卡拓扑</td>
+<td>都属架构能力，应另查实际运行规模</td>
+</tr>
+<tr>
+<td>总算力</td>
+<td>新磐久完整数字不足</td>
+<td>8E FP8、16E FP4官方规格</td>
+<td>不能以缺失值计算优劣</td>
+</tr>
+<tr>
+<td>互联</td>
+<td>ICN/ICN Switch</td>
+<td>灵衢、Hi-ONE NPO</td>
+<td>协议、光电工程和开放接口是实质差异</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>新磐久图示2027Q1</td>
+<td>官方另文称NPO 960系统测试中</td>
+<td>均不能写成当前大规模交付</td>
+</tr>
+<tr>
+<td>软硬件组织</td>
+<td>与SAIL、PAI、云实例结合</td>
+<td>与CANN、鲲鹏、记忆存储协同</td>
+<td>双方均在扩大系统协同范围</td>
+</tr>
+</tbody></table></div>
+<p>华为规格来自H02，测试状态来自H06。两项是互补信息：产品已经发布，并不等于全部规格均已完成量产交付。</p>
+<h3>6.4 系统效率比卡数更接近价值</h3>
+<p>可用一个分析关系理解：<strong>有效训练产出≈理论算力×计算利用率×有效运行时间</strong>。它不是厂商标准公式，而是提醒读者把通信等待、数据供给、故障和排队纳入判断。</p>
+<p>推理系统则同时受质量、首Token延迟、逐Token延迟和并发约束。大Scale-up域可能减少模型切分通信，也可能提高工程复杂性与故障影响范围；结果取决于拓扑、路由、软件和容错设计。统一编址只说明访问方式，不意味着远端显存与本地HBM等速。</p>
+<p><strong>TCO范围应包含设备或租用成本、网络存储、供电冷却、迁移调优、运维、闲置和失败任务。</strong> 未取得完整数据前，不输出两家系统的确定性成本排名，也不把不同层的“降本百分比”简单相加。</p>
+</section><section class="chapter" id="chapter-7"><h2>7 网络与光互联：先区分四张网络，再讨论竞争</h2><h3>7.1 网络分层决定供应边界</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>层次</th>
+<th>阿里材料中的对象</th>
+<th>服务什么通信</th>
+<th>与华为比较什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scale-up</td>
+<td>ICN、ICN Switch、千卡拓扑</td>
+<td>紧耦合加速器及远端资源访问</td>
+<td>协议语义、拓扑、有效带宽、时延与故障隔离</td>
+</tr>
+<tr>
+<td>Scale-out</td>
+<td>HPN8.0/Pro、灵骏集群</td>
+<td>节点/超节点间训练与推理通信</td>
+<td>大规模路由、拥塞、负载均衡、恢复与作业效率</td>
+</tr>
+<tr>
+<td>通用DCN</td>
+<td>云资源、业务与存储网络</td>
+<td>数据中心多租户及业务流量</td>
+<td>交换、自动化、可观测和开放接口</td>
+</tr>
+<tr>
+<td>DCI</td>
+<td>跨园区/地域网络</td>
+<td>资源连接、同步和灾备</td>
+<td>距离、容量、可用性、时延与运营成本</td>
+</tr>
+</tbody></table></div>
+<p>新磐久包含智能网卡，不意味着普通DCN和DCI的需求消失；ICN覆盖Scale-up，也不意味着可以直接替代所有以太网络。反过来，具备高速以太网端口不等于能接入ICN语义域。</p>
+<h3>7.2 HPN的重要口径修正</h3>
+<p>GP9A产品页写HPN8.0支持12万卡集群；本届官方稿对HPN8.0 Pro写的是超过13万个800G网络端口。<a class="cite" href="#source-A03">[A03]</a><a class="cite" href="#source-A01">[A01]</a> <strong>“卡”和“端口”不是同一统计对象</strong>，一张卡可能有多接口，一套系统也包含交换和冗余结构。因此，旧分析中的“13万卡/800G”应改为“13万以上800G端口的网络架构主张”。</p>
+<p>13万个端口×800Gb/s约为104Pb/s，仅能解释发布中的百Pb/s量级；这是端口速率的算术聚合，不是可用业务吞吐，更不是网络双截带宽的证明。发布中的故障影响比例也缺少统一业务分母，不能直接变成作业损失率。</p>
+<p><button class="picture" aria-label="放大原图45"><img src="assets/apsara-2026-customer-release-reading/image45.webp" alt="图45｜AI Native Cloud架构；网络13万统计对象以官方正文的端口口径校正。" loading="lazy"><span>原图 45 · 点击放大</span></button></p>
+<p><em>图45｜AI Native Cloud架构；网络13万统计对象以官方正文的端口口径校正。</em></p>
+<h3>7.3 与华为光电互联的差异</h3>
+<p>华为同期披露柜内、跨柜和集群三级互联，跨柜设备176个1.6T端口、约280T容量，以及UBG设备的大扇出方向。<a class="cite" href="#source-H03">[H03]</a> 这表明华为的比较点包含总线语义、光电工程和集群互联，并不限于交换芯片速率。</p>
+<p>【分析】华为的公开系统规格在光互联组织上更具体；阿里的强项证据则在自营云网络与计算交付结合。不能从“华为发布NPO”推断阿里没有光互联，也不能把此前研究中的NPO、OCS探索自动升级为本届阿里已量产产品。阿里本届CPO/OCS具体型号、标准接口和规模部署证据尚未取得。</p>
+<p>**对阿里需求的影响：**网络需求可能从通用带宽扩容转向业务可预测性、故障期间可用带宽、训练作业恢复及数据访问效率。外部参与需区分兼容标准接口的设备层、阿里自研协议域与整体云网络控制层；本报告未取得供应商名单或份额数据。</p>
+</section><section class="chapter" id="chapter-8"><h2>8 存储与数据基础设施：训练供给、推理缓存和Agent状态分开</h2><h3>8.1 CPFS首先解决训练数据供给</h3>
+<p>原图45宣称CPFS容量5倍、性能10倍、TCO下降69%；官方稿补充百TB/s级吞吐和亿级IOPS方向。<a class="cite" href="#source-A01">[A01]</a> 这些属于厂商发布，缺少旧版本规格、读写比例、文件大小、客户端规模、元数据压力和计价基础，不作为所有工作负载的统一收益。</p>
+<p>【分析】CPFS的价值不只在峰值带宽：读取训练数据、加载权重、写入Checkpoint、故障后恢复都可能影响加速卡有效工作时间。若存储更快但网络或数据预处理仍堵塞，整体训练增益可能明显低于存储层增益。因此，华为对应AI训练存储应按完整数据路径对比，不能拿单设备带宽与云服务聚合带宽比较。</p>
+<h3>8.2 三类“记忆”不能混为一谈</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>典型内容</th>
+<th>主要要求</th>
+<th>对应比较对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>训练与模型数据</td>
+<td>数据集、权重、Checkpoint</td>
+<td>高吞吐、完整性、并发及恢复</td>
+<td>CPFS与同场景AI文件/数据湖存储</td>
+</tr>
+<tr>
+<td>推理KV Cache</td>
+<td>Attention中间状态</td>
+<td>命中率、访问时延、带宽、介质寿命</td>
+<td>KVCacheStore、缓存管理与M900等</td>
+</tr>
+<tr>
+<td>Agent长期状态/知识</td>
+<td>文件、任务结果、记忆、上下文</td>
+<td>持久化、检索、权限和一致性</td>
+<td>Agent Context、数据库及语义数据平台</td>
+</tr>
+</tbody></table></div>
+<p>长期业务记忆不等于模型KV Cache；向量数据库不是全部KV缓存系统；CPFS也不等于Agent数据平台。</p>
+<h3>8.3 阿里KVCacheStore与华为M900：功能交集较清晰</h3>
+<p>阿里官方文档将KVCacheStore定位于推理缓存存储，提供KV接口、亲和算力部署、独立扩容与灵骏裸金属挂载；列有单客户端40GB/s、系统最高100PiB等规格。<a class="cite" href="#source-A23">[A23]</a> 这些是规格上限，不能相乘后声称生产性能。</p>
+<p>华为M900面向超节点提供PB级共享KV空间，借助灵衢连接与分层缓存调度；其产品价值也围绕减少推理重复计算和扩大上下文承载。<a class="cite" href="#source-H04">[H04]</a> <strong>双方竞争交集成立，但产品层次并不完全相同：阿里提供云上缓存存储服务及软件管理，华为同时披露记忆存储系统与互联协同。</strong></p>
+<p>Tair KVCache Manager在官方开源仓库中承担元数据管理、缓存查询与容量管理，并由连接器对接推理引擎。<a class="cite" href="#source-A13">[A13]</a> 它不能被直接等同为整套存储设备，软件开源也不能证明硬件后端可任意无代价替换。</p>
+<h3>8.4 对华为存储比较的实际含义</h3>
+<p>应按“数据准备→训练读取→Checkpoint→推理缓存→Agent状态”分别比较。评价指标包括成功训练时间、首Token延迟、缓存复用、数据新鲜度和有效容量成本；TCO还应考虑重复拷贝、缓存空间、闪存耐久与网络。当前资料不足以对OceanStor各系列与阿里各服务给出统一性能排名。</p>
+</section><section class="chapter" id="chapter-9"><h2>9 数据库与数据平台：价值从保存数据向提供可用上下文延伸</h2><h3>9.1 已确认的增量</h3>
+<p>Agent Context把实时上下文与长期记忆作为服务对象；OpenLake强调多种数据形态与多引擎共用数据底座。<a class="cite" href="#source-A01">[A01]</a> 两者分工不同：前者靠近Agent“取什么上下文”，后者靠近数据如何存放、治理和处理。</p>
+<p>【分析】如果企业把权限、数据更新、检索与Agent执行连接起来，迁移成本不只来自模型API。数据管道、身份关系、查询方式和任务记忆也需要重建。因此，数据库竞争正在同时发生在数据引擎效率与Agent数据服务层。</p>
+<h3>9.2 ApsaraLakebase保留待核，不用报道填满规格</h3>
+<p>本轮定位到以ApsaraLakebase为主题的报道，但未取得足以核对其完整架构、性能、时间与商业状态的一手材料。报道对“本届首秀”与会前亮相的说法也存在差异。<a class="cite" href="#source-L01">[L01]</a> 本报告把它纳入发布线索和资料缺口，不将报道中的客户规模、分支速度或存储介质设计作为已核实事实。</p>
+<h3>9.3 与华为比较的正确层次</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>层次</th>
+<th>需要比较的能力</th>
+<th>当前可作判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库引擎</td>
+<td>事务、查询、向量/全文检索、弹性</td>
+<td>需要具体数据库型号和同负载测试，尚无统一排名</td>
+</tr>
+<tr>
+<td>数据工程</td>
+<td>湖仓、流处理、多模态、治理</td>
+<td>阿里本届把统一数据底座与Agent连接作为明确方向</td>
+</tr>
+<tr>
+<td>上下文服务</td>
+<td>记忆、检索、权限继承、更新</td>
+<td>与企业Agent平台共同决定效果，不能只比较向量检索吞吐</td>
+</tr>
+<tr>
+<td>Agent平台</td>
+<td>工具连接、身份、执行与观测</td>
+<td>华为AgentArts与阿里AgentCore存在企业平台交集</td>
+</tr>
+</tbody></table></div>
+<p>【分析】对阿里客户需求而言，数据服务自研增强不等于底层存储、内存和网络需求减少，但会让外部设备更受上层软件数据路径约束。能否提供标准协议、可预测时延和运维接口，可能比孤立峰值指标更关键；这是技术推导，非客户正式采购要求。</p>
+</section><section class="chapter" id="chapter-10"><h2>10 云平台、OS、企业Agent与安全：运行环境成为产品</h2><h3>10.1 模型生产端：PAI把训练、推理和环境组织起来</h3>
+<p>原图46展示Rollout、异步缓冲、样本队列、训练与权重回传。与单向预训练相比，Agentic RL需要在环境执行和参数更新之间反复循环。图中的5天、4.5万Token/s、120万环境、200TB Trace分别对应不同指标，未给定模型、卡数和环境定义，不用于跨厂商性能排名。</p>
+<p><button class="picture" aria-label="放大原图46"><img src="assets/apsara-2026-customer-release-reading/image46.webp" alt="图46｜Agentic RL过程需要环境、推理、样本与训练协同。" loading="lazy"><span>原图 46 · 点击放大</span></button></p>
+<p><em>图46｜Agentic RL过程需要环境、推理、样本与训练协同。</em></p>
+<p>【分析】这使调度器需要处理不同资源的生产与消费速率。训练卡等待样本、Rollout等待环境、环境等待工具，都可能降低总体效率。平台比较应看稳定迭代速度和故障后恢复，不能只看环境启动数量。</p>
+<h3>10.2 企业运行端：AgentCore与Sandbox分工</h3>
+<p>AgentCore管理构建、运行与治理，沙箱提供代码、浏览器、桌面等隔离执行环境。官方文档列出休眠恢复、Checkpoint、克隆和Kubernetes/E2B接入。<a class="cite" href="#source-A12">[A12]</a> AgentCore从9月18日起计费，说明有商品化入口，但不证明所有功能、地域和SLA完全一致。<a class="cite" href="#source-A11">[A11]</a></p>
+<p>旧容器入口文档仍有公测和每分钟1.5万个沙箱的口径，新产品概述强调百万级并发。<a class="cite" href="#source-A19">[A19]</a><a class="cite" href="#source-A12">[A12]</a> <strong>创建速率、同时存活数量、休眠恢复时间是三种指标</strong>；版本、接入方式及地域也不同，不能把这些数字并列为一套已验收规格。</p>
+<p><button class="picture" aria-label="放大原图48"><img src="assets/apsara-2026-customer-release-reading/image48.webp" alt="图48｜企业Agent运行基础设施、构建与治理三层。" loading="lazy"><span>原图 48 · 点击放大</span></button></p>
+<p><em>图48｜企业Agent运行基础设施、构建与治理三层。</em>
+<button class="picture" aria-label="放大原图49"><img src="assets/apsara-2026-customer-release-reading/image49.webp" alt="图49｜身份和AgentCore案例指标为厂商主张。" loading="lazy"><span>原图 49 · 点击放大</span></button></p>
+<p><em>图49｜身份和AgentCore案例指标为厂商主张。</em></p>
+<p>原图49的身份源、云产品互通与TCO改善，说明阿里希望把Agent纳入企业权限和运营体系，但实际节省需依赖业务样本。自动运行时长不等于业务正确率，失败重试次数也不能当作任务成功数量。</p>
+<h3>10.3 与华为云Agentic Infra/AgentArts的直接交集</h3>
+<p>华为9月18日公告覆盖Agentic Infra、MaaS、AgentArts及openJiuwen，并给出950集群服务国内9月30日、海外11月30日商用计划。<a class="cite" href="#source-H05">[H05]</a> 发布稿使用“上线”措辞，但具体商用日期仍在未来，本报告以明确日期限制当前可用性判断。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>环节</th>
+<th>阿里侧</th>
+<th>华为侧</th>
+<th>竞争关注点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型使用</td>
+<td>Qwen与Model Studio等</td>
+<td>Agentic MaaS、多模型服务</td>
+<td>模型质量、地域、价格、治理</td>
+</tr>
+<tr>
+<td>企业Agent</td>
+<td>AgentCore</td>
+<td>AgentArts/openJiuwen</td>
+<td>工具、长任务、协作、观测及迁移</td>
+</tr>
+<tr>
+<td>基础设施</td>
+<td>灵骏、PAI、ACS及沙箱</td>
+<td>昇腾/鲲鹏、云训练与记忆方案</td>
+<td>成功任务产出、恢复与资源成本</td>
+</tr>
+<tr>
+<td>数据与记忆</td>
+<td>Agent Context、OpenLake、KV体系</td>
+<td>CMS、M900及相关数据服务</td>
+<td>需分清业务记忆与推理缓存</td>
+</tr>
+</tbody></table></div>
+<p>现有证据能确认产品重叠，不能确认哪家平台覆盖所有特性或整体领先。两家客户数量和案例收益各有统计范围，不作简单相除。</p>
+<h3>10.4 操作系统、弹性计算和边缘：分论坛证据尚不完整</h3>
+<p>Linux 4官方日志显示9月15日已有4.0.6；大会OS论坛线索不能证明V4首次发布。<a class="cite" href="#source-A10">[A10]</a><a class="cite" href="#source-A15">[A15]</a> ECS论坛已定位年度产品与Agent计算议题，但正文产品规格未全部取得。<a class="cite" href="#source-A16">[A16]</a></p>
+<p>ESA官方邀约明确将AI加速、安全和Agent运行纳入边缘平台方向，属于正式议程证据；本轮未取得足以证实所有议题已完成商用的产品更新表。<a class="cite" href="#source-A14">[A14]</a> Agent Security Center已有本届官方发布，但单项防护的测试与覆盖范围仍未知。</p>
+<p>【分析】安全需要从用户身份扩展到Agent身份、工具授权、代码执行和审计。VM隔离能控制部分执行风险，不能单独保证Agent业务决策正确；控制平面、数据权限和工具连接共同决定企业可接受的运行边界。</p>
+</section><section class="chapter" id="chapter-11"><h2>11 商业化与生态：从计算资源到任务服务</h2><h3>11.1 9月23日新增的国际产品</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>产品</th>
+<th>官方定位的简述</th>
+<th>竞争分析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Smart Studio</td>
+<td>帮助客户建设具备模型API包装、计量和计费的MaaS平台</td>
+<td>阿里进入客户经营模型服务的环节，价值不只在底层算力</td>
+</tr>
+<tr>
+<td>Smart Fusion</td>
+<td>在统一入口下组织多模型协作</td>
+<td>模型选择与路由成为平台能力，可能降低单模型依赖而增加平台依赖</td>
+</tr>
+<tr>
+<td>Smart Video</td>
+<td>面向短剧和广告的视频Agent</td>
+<td>从单次生成转向内容生产流程，质量和完成成本比单模型调用量更重要</td>
+</tr>
+</tbody></table></div>
+<p>三款产品及其定位由9月23日官方发布确认。<a class="cite" href="#source-A02">[A02]</a> 本报告不把宣传的吞吐、节省或视频时长外推为所有业务的稳定结果，API定价、地域、服务等级与任务质量仍需产品页核验。</p>
+<h3>11.2 全球化与行业案例</h3>
+<p>同日公告计划未来12个月新设土耳其、芬兰、荷兰云地域，并扩展马来西亚、德国、阿联酋、法国及香港的布局；这属于建设计划。<a class="cite" href="#source-A02">[A02]</a> 同一公告列出松下信息系统、Unity中国等客户合作，用于说明应用行业的广度，不用于推导合同金额或净新增收入。</p>
+<p>【分析】全球业务使基础设施价值包含本地交付、跨地域运行和持续服务能力。单机参数优势未必足以覆盖这些要求。阿里作为全球云服务方可以把资源、模型与伙伴服务一起提供；华为的系统与云业务也需要分别评价，不能把某一地区的强弱外推到所有市场。</p>
+<h3>11.3 商业成熟度应按证据分层</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>可以证明</th>
+<th>不能证明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>发布/演示</td>
+<td>产品方向和展示能力</td>
+<td>普遍可购买、稳定生产</td>
+</tr>
+<tr>
+<td>文档/计费入口</td>
+<td>已建立使用和收费流程</td>
+<td>大规模收入、持续资源供给</td>
+</tr>
+<tr>
+<td>客户案例</td>
+<td>特定客户采用或验证</td>
+<td>所有行业均有效、案例已盈利</td>
+</tr>
+<tr>
+<td>付费与规模复用</td>
+<td>可用合同/收入等材料验证商业深度</td>
+<td>本轮未取得产品级数据</td>
+</tr>
+</tbody></table></div>
+<p>原图650+客户截至2026年6月，不能写成大会新增650家；模型下载和衍生数量也不是付费企业数。即使公司整体云收入增长，也不能直接归因于某款刚发布芯片或Agent产品。本报告不以公司估值或股价作为技术竞争力证据。</p>
+</section><section class="chapter" id="chapter-12"><h2>12 综合竞争判断：差异在控制点与交付方式，不宜给单一总分</h2><h3>12.1 全栈竞争矩阵</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>层次</th>
+<th>阿里目前最有力的证据</th>
+<th>华为目前最有力的证据</th>
+<th>综合判断与局限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI芯片</td>
+<td>M890云服务与V900路线</td>
+<td>960代际及系统路线</td>
+<td>直接竞争加强；缺V900绝对算力和同负载测试</td>
+</tr>
+<tr>
+<td>通用CPU</td>
+<td>倚天多核、自研核、ICNLink路线</td>
+<td>鲲鹏及通算超节点</td>
+<td>同时围绕Agent吞吐与内存协同，无法仅凭核数判胜负</td>
+</tr>
+<tr>
+<td>超节点</td>
+<td>ICN—磐久—云交付</td>
+<td>灵衢—NPO—昇腾/鲲鹏/记忆协同</td>
+<td>华为披露更大Scale-up域，阿里具备云服务闭环；不同优势不能直接折算</td>
+</tr>
+<tr>
+<td>网络</td>
+<td>HPN服务大规模自营云架构</td>
+<td>分层灵衢、UBG与AI DCN</td>
+<td>协议域与通用网络各自比较，不是一个交换机榜单</td>
+</tr>
+<tr>
+<td>存储</td>
+<td>CPFS与KVCacheStore等云数据服务</td>
+<td>AI数据湖、AI语义存储及M900</td>
+<td>训练供给和推理缓存均重叠，设备与服务口径需对齐</td>
+</tr>
+<tr>
+<td>软件栈</td>
+<td>SAIL/PCCL与框架/调度文档</td>
+<td>CANN及多模型生态</td>
+<td>都有实际软件基础，成熟度需要逐模型、逐版本证据</td>
+</tr>
+<tr>
+<td>Agent平台</td>
+<td>模型—运行—Context组合</td>
+<td>MaaS—AgentArts—Infra组合</td>
+<td>企业应用平台直接竞争，尚无同条件质量/成本测试</td>
+</tr>
+<tr>
+<td>业务入口</td>
+<td>Qwen、云服务、终端与伙伴方案</td>
+<td>基础设施、云与行业/终端体系</td>
+<td>差异是进入客户业务的路径和控制点，非谁只做哪一层</td>
+</tr>
+</tbody></table></div>
+<p><strong>【分析】阿里的核心竞争变化，是在同一云平台内将模型、执行、数据和自研资源连接得更紧；华为的公开变化，是通过灵衢及配套产品把多样计算与数据资源组织成系统，同时扩展云上Agent服务。</strong> 阿里的模型/云运营反馈与华为的系统/互联组织能力，是当前值得比较的两条主线，但不足以给出全场景领先结论。</p>
+<h3>12.2 时间轴</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>时间</th>
+<th>阿里侧</th>
+<th>华为侧</th>
+<th>对判断的限制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026年当前</td>
+<td>M890/GP9A、SAIL、云数据与Agent服务</td>
+<td>已有代际系统与软件；新960系统仍测试</td>
+<td>对比现网必须锁定代际和资源可用性</td>
+</tr>
+<tr>
+<td>2026年后续</td>
+<td>部分模型与分论坛产品继续发布/核验</td>
+<td>950云服务披露后续商用日期</td>
+<td>发布与真正可用可能不同步</td>
+</tr>
+<tr>
+<td>2027Q1</td>
+<td>V900、新磐久计划</td>
+<td>960DT就绪计划</td>
+<td>是芯片与系统不同口径，不视为同日大规模供货</td>
+</tr>
+<tr>
+<td>2027Q3</td>
+<td>倚天720/730路线</td>
+<td>960PR就绪计划</td>
+<td>CPU和NPU是不同类别，不作代际一一对应</td>
+</tr>
+<tr>
+<td>2028年及以后</td>
+<td>J900等路线</td>
+<td>970/980路线</td>
+<td>只作方向观察，不支持确定采购判断</td>
+</tr>
+</tbody></table></div>
+<h3>12.3 哪些证据会改变结论</h3>
+<p>V900绝对算力、功耗和HBM带宽的正式规格，会改变芯片判断；相同模型与质量门槛的测试，会改变系统效率判断；地域库存和持续运行资料，会改变交付成熟度判断；标准接口和第三方认证，会改变外部参与边界判断。产品级收入、续用与真实合同材料，才可能改变商业化深度判断。</p>
+</section><section class="chapter" id="chapter-13"><h2>13 阿里作为客户：需求增长与外部份额是两件事</h2><h3>13.1 产品需求影响矩阵</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>发布/架构变化</th>
+<th>可合理推导的需求方向</th>
+<th>涉及产品</th>
+<th>自研带来的限制</th>
+<th>尚不能确认</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大模型与Agentic RL</td>
+<td>加速计算、通算环境、存储和调度协同</td>
+<td>AI算力、CPU、网络、存储</td>
+<td>真武/倚天承接更多内部需求的可能性</td>
+<td>外采比例、项目规模</td>
+</tr>
+<tr>
+<td>新磐久与ICN域扩大</td>
+<td>高密供电冷却、互联和运维</td>
+<td>机柜、光电部件、DC设施</td>
+<td>核心协议与关键芯片控制增强</td>
+<td>第三方接入及BOM</td>
+</tr>
+<tr>
+<td>HPN与全球部署扩展</td>
+<td>网络可靠性、带宽与跨地域交付</td>
+<td>数通、DCI及服务</td>
+<td>需要匹配客户网络控制和开放接口</td>
+<td>供应商选择、份额</td>
+</tr>
+<tr>
+<td>CPFS与KV缓存</td>
+<td>高性能数据供给、分层内存和介质</td>
+<td>存储、SSD、内存、网络</td>
+<td>数据路径和管理层由客户掌握</td>
+<td>自研服务是否采用外部成套设备</td>
+</tr>
+<tr>
+<td>Agent沙箱和Context</td>
+<td>通算并发、状态恢复与持续数据访问</td>
+<td>CPU、内存、文件/数据库平台</td>
+<td>软件平台可能固化资源接入方式</td>
+<td>具体资源采购数量</td>
+</tr>
+<tr>
+<td>国际AI产品</td>
+<td>多地域容量和服务质量</td>
+<td>云基础设施、网络及运维</td>
+<td>各地域产品与合规范围不同</td>
+<td>单产品带来的净新增容量</td>
+</tr>
+</tbody></table></div>
+<p>表中需求方向属于技术分析，不等同阿里已提出的采购要求。<strong>自研覆盖增加可能压缩某些成套产品的替代空间，也可能增加配套器件、连接和工程需求；没有架构与采购资料，就不能把其中任一方向写成确定订单机会。</strong></p>
+<h3>13.2 三种开放必须分开</h3>
+<p>模型/软件开放回答开发者能否使用；协议/接口开放回答系统能否互通；采购开放回答谁有资格供货。SAIL开源不自动证明ICN互通，模型可在昇腾运行也不自动证明阿里采购昇腾。技术层面的交集与商业关系不能互相代替。</p>
+<p><strong>综合判断：阿里正在由多类设备和服务的使用者，进一步成为算力架构与Agent运行体系的定义者。华为产品与阿里的关系需要逐层评估：在某些层直接竞争，在某些层存在技术适配交集，在另一些层仍缺少采购边界证据。</strong></p>
+</section><section class="chapter" id="chapter-14"><h2>14 证据缺口、冲突与本次研究覆盖</h2><h3>14.1 重点不确定性</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>已有证据</th>
+<th>本版处理</th>
+<th>对结论的影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V900绝对算力、功耗、显存带宽</td>
+<td>原图与发布稿不完整</td>
+<td>留空</td>
+<td>不能形成芯片综合排名</td>
+</tr>
+<tr>
+<td>960细分芯片参数</td>
+<td>演讲路线图，时间有官网佐证</td>
+<td>路线图表，待正式规格书</td>
+<td>不能写成量产验收参数</td>
+</tr>
+<tr>
+<td>千卡/50万卡实装与长期运行</td>
+<td>架构发布</td>
+<td>不称已建成</td>
+<td>系统交付仍有证据缺口</td>
+</tr>
+<tr>
+<td>HPN13万统计对象</td>
+<td>官网明确网络端口</td>
+<td>修正旧稿“卡”口径</td>
+<td>禁止跨层规模排名</td>
+</tr>
+<tr>
+<td>Agent沙箱吞吐与并发差异</td>
+<td>不同入口与版本文档</td>
+<td>不合并</td>
+<td>需锁定版本、地域和计量方式</td>
+</tr>
+<tr>
+<td>ApsaraLakebase与部分数据库新品</td>
+<td>报道线索，一手材料不足</td>
+<td>待核</td>
+<td>数据库本届增量覆盖不完整</td>
+</tr>
+<tr>
+<td>OS/ECS/ESA具体新品</td>
+<td>部分只定位议程/预告</td>
+<td>不写全部商用</td>
+<td>分论坛发布需继续补证</td>
+</tr>
+<tr>
+<td>降本百分比和案例效果</td>
+<td>厂商案例，多数缺测试条件</td>
+<td>不累加、不外推</td>
+<td>无两家统一TCO排名</td>
+</tr>
+<tr>
+<td>客户数、出货与商业收益</td>
+<td>不同时间和范围口径</td>
+<td>分开统计</td>
+<td>不推导收入或份额</td>
+</tr>
+<tr>
+<td>阿里对华为采购与供应决定</td>
+<td>未取得新增正式材料</td>
+<td>不作事实结论</td>
+<td>需求影响不是订单判断</td>
+</tr>
+</tbody></table></div>
+<h3>14.2 覆盖说明</h3>
+<p>本版已纳入：用户49张原始截图的既有核读；阿里9月22日全栈与9月23日国际业务官方稿；重点芯片、云交付、缓存和Agent文档；华为9月17—19日对应发布。分论坛采用“获取全文、取得索引/预告、仅媒体线索”分层，不能以两篇综合新闻稿替代120余场分论坛的完整覆盖。</p>
+<p>未完整取得：全部分论坛演讲视频/PPT、全部产品GA与地域价格表、9月24日尚未完成的发布、两家相同工作负载实测、内部采购/合同数据。缺失项已保留在报告中，而非用推测补全。</p>
+<p>本版相对前序报告的主要实质更新：补齐全栈竞争与客户需求矩阵；增加同期华为平台、网络、存储对比；补入国际产品；纠正HPN端口口径；明确AgentCore和Linux会前状态；将RSI表述改为“受控实验进展与通用能力分开”。</p>
+</section><section class="chapter" id="chapter-15"><h2>附录A 来源台账</h2><p>以下编号对应正文引用。obtained为取得正文或原图；located为只取得索引/预告/部分材料。官网的产品主张不等于独立实测；第三方转载中的演讲原图也不等于正式产品规格书。外部资料检索日为2026年9月23日。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>来源</th>
+<th>获取状态</th>
+<th>使用边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td id="source-A01">A01</td>
+<td><a href="https://www.alibabacloud.com/en/press-room/alibaba-unveils-roadmap-on-full-stack-ai-strategy?_p_lc=1">9月22日阿里全栈AI路线发布</a></td>
+<td>obtained</td>
+<td>本届官方声明；性能与规模不是独立测试</td>
+</tr>
+<tr>
+<td id="source-A02">A02</td>
+<td><a href="https://www.alibabacloud.com/en/press-room/alibaba-cloud-expands-global-infrastructure-and-ai?_p_lc=1">9月23日国际基础设施与AI产品发布</a></td>
+<td>obtained</td>
+<td>本届官方声明；海外建设为未来计划</td>
+</tr>
+<tr>
+<td id="source-A03">A03</td>
+<td><a href="https://www.aliyun.com/product/lingjun-hypernode">GP9A正式产品与规格</a></td>
+<td>obtained</td>
+<td>云产品规格，不代表实时库存</td>
+</tr>
+<tr>
+<td id="source-A04">A04</td>
+<td><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/using-super-node-zhenwu-ppu-m890-through-network-topology-aware-scheduling">ACK M890拓扑调度文档</a></td>
+<td>obtained</td>
+<td>部署流程，不代表本轮已部署</td>
+</tr>
+<tr>
+<td id="source-A05">A05</td>
+<td><a href="https://help.aliyun.com/zh/document_detail/3030339.html">PPU SDK v2.1版本说明</a></td>
+<td>obtained</td>
+<td>硬件与版本范围不能跨代套用</td>
+</tr>
+<tr>
+<td id="source-A06">A06</td>
+<td><a href="https://home.alibabagroup.com/en-US/document-1994119844504535040">2026年5月M890与AL128公告</a></td>
+<td>obtained</td>
+<td>历史基线，非9月新发布</td>
+</tr>
+<tr>
+<td id="source-A07">A07</td>
+<td><a href="https://www.alibabagroup.com/en-US/document-2016703577908576256">2026年7月WAIC与SAIL开源</a></td>
+<td>obtained</td>
+<td>历史基线，非9月新发布</td>
+</tr>
+<tr>
+<td id="source-A08">A08</td>
+<td><a href="https://www.alibabagroup.com/en-US/document-1491124270925873152">倚天710历史首发</a></td>
+<td>obtained</td>
+<td>仅用于710，不能平移新代际</td>
+</tr>
+<tr>
+<td id="source-A09">A09</td>
+<td><a href="https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families">ECS实例规格族</a></td>
+<td>located</td>
+<td>本轮直读只取得页面外壳；不用于新实例规格结论</td>
+</tr>
+<tr>
+<td id="source-A10">A10</td>
+<td><a href="https://help.aliyun.com/zh/alinux/product-overview/alibaba-cloud-linux-4-image-release-notes">Alibaba Cloud Linux 4版本记录</a></td>
+<td>obtained</td>
+<td>会前已存在4.0.6</td>
+</tr>
+<tr>
+<td id="source-A11">A11</td>
+<td><a href="https://help.aliyun.com/zh/agentcore/agentcore-billing-activation">AgentCore计费开通公告</a></td>
+<td>obtained</td>
+<td>9月18日起计费，不等于所有功能普遍可用</td>
+</tr>
+<tr>
+<td id="source-A12">A12</td>
+<td><a href="https://help.aliyun.com/zh/agent-sandbox/product-overview/agent-sandbox-overview">Agent Sandbox新产品概述</a></td>
+<td>obtained</td>
+<td>并发与创建速率不同</td>
+</tr>
+<tr>
+<td id="source-A13">A13</td>
+<td><a href="https://github.com/alibaba/tair-kvcache">阿里Tair KVCache官方开源仓库</a></td>
+<td>obtained</td>
+<td>代码/架构证据，不等于独立性能测试</td>
+</tr>
+<tr>
+<td id="source-A14">A14</td>
+<td><a href="https://help.aliyun.com/zh/edge-security-acceleration/esa/product-overview/esa-cloud-conference-invitation">ESA云栖论坛官方邀约</a></td>
+<td>obtained</td>
+<td>取得预告全文，不证明每项已完成发布</td>
+</tr>
+<tr>
+<td id="source-A15">A15</td>
+<td><a href="https://developer.aliyun.com/article/1764944">龙蜥Agentic OS论坛预告</a></td>
+<td>located</td>
+<td>只取得简介/作者与预告，演讲正文未完整取得</td>
+</tr>
+<tr>
+<td id="source-A16">A16</td>
+<td><a href="https://yunqi.aliyun.com/2026/session?agendaId=112">ECS年度新品论坛议程</a></td>
+<td>located</td>
+<td>官方检索有完整议程；直读仅页面外壳</td>
+</tr>
+<tr>
+<td id="source-A17">A17</td>
+<td><a href="https://developer.aliyun.com/article/1764262">存储三场分论坛预告</a></td>
+<td>located</td>
+<td>只取得标题/简介；完整演讲未取得</td>
+</tr>
+<tr>
+<td id="source-A18">A18</td>
+<td><a href="https://ue.aliyun.com/news/20251021">2025年AL128架构文章</a></td>
+<td>obtained</td>
+<td>历史AL128，不给新磐久补BOM</td>
+</tr>
+<tr>
+<td id="source-A19">A19</td>
+<td><a href="https://help.aliyun.com/en/cs/user-guide/agent-sandbox/">Agent Sandbox容器入口文档</a></td>
+<td>obtained</td>
+<td>旧入口和公测口径，与新版本分开</td>
+</tr>
+<tr>
+<td id="source-A20">A20</td>
+<td><a href="https://www.alibabagroup.com/en-US/document-2027233133950140416">2026年8月集团商业化公告</a></td>
+<td>obtained</td>
+<td>企业整体背景，不能归因本届单产品</td>
+</tr>
+<tr>
+<td id="source-A21">A21</td>
+<td><a href="https://yunqi.aliyun.com/">2026大会官网目录</a></td>
+<td>obtained</td>
+<td>用于覆盖目录，不表示所有论坛已采集</td>
+</tr>
+<tr>
+<td id="source-A22">A22</td>
+<td><a href="https://yunqi.aliyun.com/2026/guide">大会日期与参会指南</a></td>
+<td>obtained</td>
+<td>大会9月22—24日</td>
+</tr>
+<tr>
+<td id="source-A23">A23</td>
+<td><a href="https://help.aliyun.com/zh/kvcachestore/product-overview/what-is-kvcachestore">KVCacheStore产品概述</a></td>
+<td>obtained</td>
+<td>规格和接口，非独立性能结果</td>
+</tr>
+<tr>
+<td id="source-H01">H01</td>
+<td><a href="https://www.huawei.com/cn/news/2026/9/hc-wang-keynote">华为2026年9月17日主旨演讲</a></td>
+<td>obtained</td>
+<td>就绪日期是路线；厂商案例非独立实测</td>
+</tr>
+<tr>
+<td id="source-H02">H02</td>
+<td><a href="https://www.huawei.com/cn/news/2026/9/hc-ascend960-supernode">昇腾960超节点发布</a></td>
+<td>obtained</td>
+<td>系统最大规格，不等于已全量商用</td>
+</tr>
+<tr>
+<td id="source-H03">H03</td>
+<td><a href="https://www.huawei.com/cn/news/2026/9/hc-lingqu-agent-ai">灵衢分层互联与Agentic架构</a></td>
+<td>obtained</td>
+<td>官方架构/规格</td>
+</tr>
+<tr>
+<td id="source-H04">H04</td>
+<td><a href="https://www.huawei.com/cn/news/2026/9/hc-ai-dc-innovation-summit">华为AI DC创新及网络存储</a></td>
+<td>obtained</td>
+<td>网络与存储系统方向</td>
+</tr>
+<tr>
+<td id="source-H05">H05</td>
+<td><a href="https://www.huawei.com/cn/news/2026/9/hc-agentic-infra-industry-ai">华为云Agentic Infra与AgentArts</a></td>
+<td>obtained</td>
+<td>明确商用计划日期与产品状态</td>
+</tr>
+<tr>
+<td id="source-H06">H06</td>
+<td><a href="https://www.huawei.com/cn/news/2026/9/new-computing-architecture-peerium">Peerium与960系统测试状态</a></td>
+<td>obtained</td>
+<td>区别发布与系统测试状态</td>
+</tr>
+<tr>
+<td id="source-H07">H07</td>
+<td><a href="https://www.huawei.com/cn/news/2025/9/hc-xu-keynote-speech">2025年鲲鹏/昇腾历史路线</a></td>
+<td>obtained</td>
+<td>历史路线，不能覆盖2026新版</td>
+</tr>
+<tr>
+<td id="source-H08">H08</td>
+<td><a href="https://pics.computerbase.de/1/2/4/9/7/1-e5e1e947587530c5/article-1280x720.05061ad4.jpg">HC2026昇腾芯片路线演讲图</a></td>
+<td>obtained（前序图片核读）</td>
+<td>厂商演示图的媒体转载；非正式规格书，本轮未重新获取原始演讲文件</td>
+</tr>
+<tr>
+<td id="source-L01">L01</td>
+<td><a href="https://xiouwang.cn/oarticle/articles/13570.html">ApsaraLakebase报道线索</a></td>
+<td>located</td>
+<td>只作找源线索，技术与客户数字未纳入确定事实</td>
+</tr>
+<tr>
+<td id="source-P01">P01</td>
+<td><a href="https://ewangwo.github.io/lff-reports/reports/apsara-2026-customer-release-reading.html#gallery">大会截图资料索引</a></td>
+<td>obtained</td>
+<td>49张独立图片；图34重复；图号非Word页码</td>
+</tr>
+<tr>
+<td id="source-P02">P02</td>
+<td><a href="https://ewangwo.github.io/lff-reports/reports/apsara-2026-customer-release-reading.html">9月22日客户发布阅读报告</a></td>
+<td>obtained</td>
+<td>继承原图事实；本版更正网络统计与产品状态</td>
+</tr>
+</tbody></table></div>
+</section><section class="chapter" id="chapter-16"><h2>附录B 原始图片索引</h2><p>图号按原始文档媒体编号，不是Word页码。原DOCX共50次图片引用、49张不同图片，图34重复引用。下方保留全部索引，正文选取关键架构和路线图解读。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>图号</th>
+<th>内容定位</th>
+<th>竞争合作分析用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>AI云承载机器智能</td>
+<td>总体定位</td>
+</tr>
+<tr>
+<td>02</td>
+<td>2032年20GW</td>
+<td>建设需求与采购边界</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Chatbot→Reasoning→Agent与Token增长</td>
+<td>负载变化假设</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Qwen能力上限与性价比双线</td>
+<td>型号与成本分层</td>
+</tr>
+<tr>
+<td>05</td>
+<td>自主编程与复杂软件工程</td>
+<td>工具链、沙箱需求</td>
+</tr>
+<tr>
+<td>06</td>
+<td>高价值真实任务与专家能力</td>
+<td>从评测到业务验收</td>
+</tr>
+<tr>
+<td>07</td>
+<td>同主题的更多任务案例</td>
+<td>不能当独立性能证明</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Qwen辅助EDA总线模块设计</td>
+<td>芯模协同，但不是整芯片自动设计证明</td>
+</tr>
+<tr>
+<td>09</td>
+<td>生产、结构、模态、Scaling路线</td>
+<td>模型需求全景</td>
+</tr>
+<tr>
+<td>10</td>
+<td>架构效率数字</td>
+<td>拆解价格、算力和吞吐指标</td>
+</tr>
+<tr>
+<td>11</td>
+<td>视觉理解、探索与生成</td>
+<td>多模态输入输出负载</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Qwen3.8-Omni与Agent边界</td>
+<td>实时音视频与工具执行</td>
+</tr>
+<tr>
+<td>13</td>
+<td>路线图再次强调Scaling</td>
+<td>与图09合并理解</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Qwen参数演进与未来路线</td>
+<td>MoE内存和通信需求</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Qwen4系列Coming Soon</td>
+<td>明确待发布状态</td>
+</tr>
+<tr>
+<td>16</td>
+<td>下载、衍生、开源数量</td>
+<td>生态影响与分发能力</td>
+</tr>
+<tr>
+<td>17</td>
+<td>多模态融合、生成体验、生产设施</td>
+<td>应用形式变化</td>
+</tr>
+<tr>
+<td>18</td>
+<td>生成质量、叙事与实时交互</td>
+<td>视频成本和低时延需求</td>
+</tr>
+<tr>
+<td>19</td>
+<td>多模态市场统计与预测</td>
+<td>仅作需求背景，未复核原研究</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Qwen-Image、Wan/Happy Horse、Happy Shrimp、Happy Oyster</td>
+<td>模态产品组合</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Qwen-Image-3.1商业图像生成</td>
+<td>电商生产链与合格图片成本</td>
+</tr>
+<tr>
+<td>22</td>
+<td>人像编辑展示</td>
+<td>质量及一致性验收</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Happy Shrimp 1.1音乐生成</td>
+<td>音频内容生产负载</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Happy Oyster 2.0 Preview世界模型</td>
+<td>预览状态，连续交互与记忆需求</td>
+</tr>
+<tr>
+<td>25</td>
+<td>视频生成走向统一创作</td>
+<td>从模型调用到工作流</td>
+</tr>
+<tr>
+<td>26</td>
+<td>长时、可控、完整叙事</td>
+<td>不能只测短视频峰值吞吐</td>
+</tr>
+<tr>
+<td>27</td>
+<td>平头哥演讲人页</td>
+<td>章节定位，不产生性能事实</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Agentic算力范式转移</td>
+<td>芯片部分主线</td>
+</tr>
+<tr>
+<td>29</td>
+<td>推理优先、多步编排、系统协同</td>
+<td>核心对标方法</td>
+</tr>
+<tr>
+<td>30</td>
+<td>M890 GP9A已服务</td>
+<td>商业化成熟度线索</td>
+</tr>
+<tr>
+<td>31</td>
+<td>SAIL核心组件开源</td>
+<td>软件迁移与生态竞争</td>
+</tr>
+<tr>
+<td>32</td>
+<td>650+客户，截至2026年6月</td>
+<td>外部行业竞争范围</td>
+</tr>
+<tr>
+<td>33</td>
+<td>810E/M890/V900/J900路线图</td>
+<td>代际与供货窗口</td>
+</tr>
+<tr>
+<td>34</td>
+<td>8/64/1024卡互联</td>
+<td>网络竞争边界；正文重复一次</td>
+</tr>
+<tr>
+<td>35</td>
+<td>V900芯片规格</td>
+<td>未来代际参数</td>
+</tr>
+<tr>
+<td>36</td>
+<td>千卡互联重复展示</td>
+<td>与图34合并，不重复计发布</td>
+</tr>
+<tr>
+<td>37</td>
+<td>新磐久现场图与2027Q1</td>
+<td>计划上市时间</td>
+</tr>
+<tr>
+<td>38</td>
+<td>V900及配套芯片近图</td>
+<td>多芯片协同与BOM边界</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Agent使CPU回到关键路径</td>
+<td>CPU需求回升机制</td>
+</tr>
+<tr>
+<td>40</td>
+<td>CPU同主题另一截图</td>
+<td>与图39合并理解</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Head Node与Agentic Rack</td>
+<td>鲲鹏最重要的负载拆分</td>
+</tr>
+<tr>
+<td>42</td>
+<td>倚天710/720/730/750</td>
+<td>CPU直接竞争与时间窗口</td>
+</tr>
+<tr>
+<td>43</td>
+<td>企业Agent四支柱</td>
+<td>模型之外的平台能力</td>
+</tr>
+<tr>
+<td>44</td>
+<td>生产模型四类挑战</td>
+<td>模型、后训练、环境与集群需求</td>
+</tr>
+<tr>
+<td>45</td>
+<td>AI Native Cloud与50万卡架构</td>
+<td>网络存储系统竞争，注意规划边界</td>
+</tr>
+<tr>
+<td>46</td>
+<td>预训练→Agentic RL→未来RSI</td>
+<td>CPU、存储、网络混合负载</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Agent规模化挑战</td>
+<td>从智能展示到可靠生产</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Agent Native Cloud三层结构</td>
+<td>平台接入、治理与基础设施协同</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Agent Identity与AgentCore</td>
+<td>企业工作流及持续使用粘性</td>
+</tr>
+</tbody></table></div>
+</section><section class="chapter" id="chapter-17"><h2>附录C 关键术语</h2><div class="table-scroll" tabindex="0" role="region" aria-label="数据表，可横向滚动"><table>
+<thead>
+<tr>
+<th>术语</th>
+<th>本报告中的含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scale-up</td>
+<td>将多个处理器放入紧耦合互联域，强调通信效率和资源协同</td>
+</tr>
+<tr>
+<td>Scale-out</td>
+<td>将节点/超节点组成更大集群，强调网络与分布式扩展</td>
+</tr>
+<tr>
+<td>MFU</td>
+<td>模型实际计算对理论峰值算力的利用程度，必须结合模型和计算口径</td>
+</tr>
+<tr>
+<td>TTFT / TPOT</td>
+<td>首Token时间 / 后续每Token时间，不能互相替代</td>
+</tr>
+<tr>
+<td>KV Cache</td>
+<td>注意力计算的中间缓存，与Agent长期业务记忆不同</td>
+</tr>
+<tr>
+<td>Harness</td>
+<td>让模型执行任务的工具、状态、流程、权限和评测运行体系</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>执行当前任务所需的信息、历史与业务数据</td>
+</tr>
+<tr>
+<td>NPO</td>
+<td>光引擎靠近芯片封装的光互联形态，不等于所有光互联技术</td>
+</tr>
+<tr>
+<td>GA / Preview</td>
+<td>正式可用 / 预览，均须核对地域、版本和服务条款</td>
+</tr>
+</tbody></table></div>
+</section><section class="chapter" id="chapter-18"><h2>版本与使用说明</h2><p>本报告依据截至2026年9月23日可取得的公开发布、产品文档及大会截图，分析阿里的产品能力、竞争关系与客户需求。大会9月24日内容尚未覆盖。厂商主张、未来路线和分析判断分别标注；参数比较不替代同条件测试，客户需求分析不代表采购或合同结论。</p>
+<p>本版为完整分析阅读版，保留<a href="https://ewangwo.github.io/lff-reports/reports/apsara-2026-customer-release-reading.html#gallery">9月22日客户发布报告与49张大会截图</a>供交叉核读。公开来源见附录A，图片索引见附录B。未包含销售行动策略。</p>
+</section><footer>公开资料研究版 · 完整正文与11张关键原图 · 49张大会截图见资料索引。</footer></main></div><dialog aria-label="原图放大查看"><button id="close">关闭 ×</button><img alt=""><p></p></dialog><script>
+const dialog=document.querySelector('dialog');document.querySelectorAll('.picture').forEach(b=>b.addEventListener('click',()=>{const im=b.querySelector('img');dialog.querySelector('img').src=im.src;dialog.querySelector('img').alt=im.alt;dialog.querySelector('p').textContent=im.alt;dialog.showModal()}));document.querySelector('#close').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});document.querySelector('.mobile-nav').onchange=e=>{if(e.target.value)document.getElementById(e.target.value).scrollIntoView()};window.addEventListener('scroll',()=>{const p=document.getElementById('progress');p.style.width=((window.innerWidth-(window.innerWidth>1000?250:window.innerWidth>720?210:0))*window.scrollY/Math.max(1,document.documentElement.scrollHeight-window.innerHeight))+'px'},{passive:true});const obs=new IntersectionObserver(entries=>{entries.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.hash==='#'+x.target.id))}})},{rootMargin:'-5% 0px -75% 0px'});document.querySelectorAll('.chapter').forEach(s=>obs.observe(s));
+</script></body></html>
