@@ -1,0 +1,1020 @@
+{
+  "version": "2.0",
+  "updated": "2026-09-24",
+  "source_scope": "9月23—24日为主；9月22日补充",
+  "selected_photos": 138,
+  "main_period_photos": 131,
+  "topic_count": 52,
+  "topics": [
+    {
+      "id": "G01",
+      "title": "9月22日模型发布与芯片布局补充",
+      "photo_ids": [
+        "YQ-P003",
+        "YQ-P004",
+        "YQ-P005",
+        "YQ-P006"
+      ],
+      "chapters": [
+        2,
+        3
+      ],
+      "facts": [
+        "Qwen3.8-Max、Qwen3.8-Flash-Next及全栈芯片布局的直播截图。"
+      ],
+      "analysis": "与网页模型章节相互印证，本轮主要增量仍在系统、网络、存储及交付形态。",
+      "boundary": "仅作9月22日补充；界面遮挡、低清数字不作为新增规格。",
+      "evidence_status": "直播截图"
+    },
+    {
+      "id": "G02",
+      "title": "磐久产品演进及AL128实物",
+      "photo_ids": [
+        "YQ-P011",
+        "YQ-P012",
+        "YQ-P065"
+      ],
+      "chapters": [
+        6
+      ],
+      "facts": [
+        "AL128机柜实物包含CPU、GPU与供电模组；演进截图同时出现AL144路线。"
+      ],
+      "analysis": "保留AL128历史代际，新增AL144时采用并列演进关系。",
+      "boundary": "不把AL128实物、AL144路线图和真武V900规格拼成一台已交付系统。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G03",
+      "title": "参会场景与议题背景",
+      "photo_ids": [
+        "YQ-P020",
+        "YQ-P021",
+        "YQ-P022",
+        "YQ-P047",
+        "YQ-P048"
+      ],
+      "chapters": [
+        1
+      ],
+      "facts": [
+        "主题为AI Native磐久超节点服务器与硬件工程创新；另有会场及参会背景图片。"
+      ],
+      "analysis": "用于说明材料来源与拍摄上下文。",
+      "boundary": "不用于技术参数；登记与会场照片不进入产品图片正文。",
+      "evidence_status": "场景照片"
+    },
+    {
+      "id": "G04",
+      "title": "AI负载的四个变化信号",
+      "photo_ids": [
+        "YQ-P023"
+      ],
+      "chapters": [
+        2,
+        5,
+        6,
+        8
+      ],
+      "facts": [
+        "演讲将模型规模、推理需求、KV Cache压力与Agentic AI列为基础设施变化的驱动因素。"
+      ],
+      "analysis": "串联通算、算力、网络和内存，支撑网页关于CPU重新进入Agent关键路径的判断。",
+      "boundary": "为演讲者的负载判断；小字模糊处不逐字引用。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G05",
+      "title": "AL144超节点：能力、结构与扩展",
+      "photo_ids": [
+        "YQ-P024",
+        "YQ-P025",
+        "YQ-P026",
+        "YQ-P027",
+        "YQ-P028",
+        "YQ-P068",
+        "YQ-P069",
+        "YQ-P070",
+        "YQ-P071",
+        "YQ-P078",
+        "YQ-P079",
+        "YQ-P157"
+      ],
+      "chapters": [
+        1,
+        2,
+        6,
+        12,
+        13
+      ],
+      "facts": [
+        "单柜一级Scale-Up域最大144卡；并柜288；二级光互连扩展最大10368，均为展示的设计能力。",
+        "演讲页列单柜650kW、GPU TBP 3500W、柜内正交铜互连、跨柜光扩展及Pb/s级单柜Scale-Up带宽。",
+        "结构页展示Side Car、800V供电、全液冷、UAM计算模组与微通道冷板；开放架构主张兼容产业计算和互连芯片。"
+      ],
+      "analysis": "竞争比较单位应由单卡扩展到计算模组—柜内互联—跨柜光连接—供电散热—维护；阿里客户需求需要增加高功率机柜与系统部件维度。",
+      "boundary": "650kW为平台展示规格，3500W为GPU TBP支持口径，不是真武V900实测功耗；最大10368不代表已部署；未确认具体芯片配置及正式交付日。图中2x基线不清，不能由144/128推得翻倍。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G06",
+      "title": "AL64分布式SNPO光互连超节点",
+      "photo_ids": [
+        "YQ-P029",
+        "YQ-P030",
+        "YQ-P031",
+        "YQ-P032",
+        "YQ-P067"
+      ],
+      "chapters": [
+        6,
+        7,
+        12
+      ],
+      "facts": [
+        "8卡单元、单柜AL64；CPU机头、xPU机尾和51.2T ALink SNPO Switch三部分解耦。",
+        "CPU侧展示AEC连接，xPU侧为SNPO光Scale-Up；演讲给出8→64→1024扩展路径。",
+        "8卡正交GPU架构、免下架维护、UAM模组代际升级。"
+      ],
+      "analysis": "阿里展示了高密度机柜与分布式光互连两类组织方法；不能只按AL128单一路线理解磐久。",
+      "boundary": "AL64的1024扩展、ICN1024和AL144的10368分别描述，不能认定为同一产品或同一代际。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G07",
+      "title": "CXL内存扩展与PolarDB内存池超节点",
+      "photo_ids": [
+        "YQ-P033",
+        "YQ-P034",
+        "YQ-P035",
+        "YQ-P073"
+      ],
+      "chapters": [
+        6,
+        8,
+        9,
+        13
+      ],
+      "facts": [
+        "CXL 3.1内存池及冷热分层；热KV放在HBM、较冷数据向CXL DDR层扩展。",
+        "GPU/CPU经CXL交换共享内存池；现场同时展示PolarDB Memory Pooling Supernode。",
+        "JBOM 2.0强调DDR4/DDR5支持及维护能力。"
+      ],
+      "analysis": "KV缓存竞争从存储服务向内存池、交换和服务器拓扑延伸；数据库也开始进入同一内存资源组织体系。",
+      "boundary": "兼容性、延迟收益和实际容量需正式规格或测试确认；不要把所有KV产品写成CXL实现。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G08",
+      "title": "Agentic AI CPU服务器",
+      "photo_ids": [
+        "YQ-P036",
+        "YQ-P037"
+      ],
+      "chapters": [
+        5,
+        6,
+        10,
+        13
+      ],
+      "facts": [
+        "演讲给出单柜288 CPU、1U 8 CPU。",
+        "800V HVDC集中供电、正交架构、全液冷和资源池化；以长上下文、多工具调用、频繁状态交互说明需求。"
+      ],
+      "analysis": "CPU从传统通算配套升级为Agent执行底座；需要独立讨论CPU、内存、I/O和网络的组合。",
+      "boundary": "288是CPU数量口径，不能写成288核；照片未确定CPU型号，不能直接绑定倚天720/730。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G09",
+      "title": "开放架构与部件生态",
+      "photo_ids": [
+        "YQ-P038",
+        "YQ-P039"
+      ],
+      "chapters": [
+        6,
+        7,
+        12,
+        13
+      ],
+      "facts": [
+        "展示SNPO、UAM计算模组、液冷接口及微通道冷板、800V HVDC等部件和规范方向。"
+      ],
+      "analysis": "合作视角能确认的是部件和接口层存在生态组织；竞争视角则是阿里对整柜架构和关键接口的掌控增强。",
+      "boundary": "开放架构表述不等于第三方供应商已入围、采购份额开放或华为获得供货资格。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G10",
+      "title": "SNPO光互联：定义、器件与交付节奏",
+      "photo_ids": [
+        "YQ-P040",
+        "YQ-P041",
+        "YQ-P042",
+        "YQ-P043",
+        "YQ-P044",
+        "YQ-P045",
+        "YQ-P046"
+      ],
+      "chapters": [
+        6,
+        7,
+        14
+      ],
+      "facts": [
+        "SNPO定义为Scale Up Near Package Optics；报告将其放在板上近封装光学路线中。",
+        "3.2T规格页列单模DR32与多模VR32：单模0.2—500m、功耗≤26W；多模0.2—30m、≤10W；同时列6.4T/12.8T演进形态。",
+        "9月23日演讲时间表明确：2026 Q4产品量产、2027 H1批量交付。"
+      ],
+      "analysis": "现有网页不宜继续以缺少阿里光互联细节来建立双方披露差异；应增加SNPO工程方案、模块维护及路线图。",
+      "boundary": "时间表是未来计划；不能写成9月已批量交付，也不能把NPO/SNPO改称CPO或OCS。不同规格参数不能跨型号混用。",
+      "evidence_status": "演讲规格与未来计划"
+    },
+    {
+      "id": "G11",
+      "title": "国产102.4T NPO交换机",
+      "photo_ids": [
+        "YQ-P013",
+        "YQ-P140"
+      ],
+      "chapters": [
+        7,
+        12,
+        14
+      ],
+      "facts": [
+        "展板列10RU、102.4T单向总带宽、256×400G MPO、国产25.6T交换芯片。",
+        "支持NPO/UPO交叉互联、ELS外置激光源、盲插光连接及交换模组与光交叉模组独立维护。"
+      ],
+      "analysis": "光互联材料由概念线索提升为展品和规格证据；可与SNPO分开呈现，避免混淆模块路线和整机产品。",
+      "boundary": "同一展板另一处出现256个QSFP112 400GE表述，与MPO连接形式需核对；3.2万GPU为组网能力主张，不是部署量。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G12",
+      "title": "102.4T UPO及液冷交换机",
+      "photo_ids": [
+        "YQ-P072",
+        "YQ-P074",
+        "YQ-P075"
+      ],
+      "chapters": [
+        7
+      ],
+      "facts": [
+        "现场展示硅光芯片、6.4T UPO模块，以及64×1.6T的102.4T UPO/液冷交换机形态。"
+      ],
+      "analysis": "同为102.4T总带宽不代表接口、结构与产品相同；网页宜单列NPO和UPO实物。",
+      "boundary": "不能把64×1.6T与256×400G合写成同一机型；展品不证明大规模在网。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G13",
+      "title": "光模块、光传送与国产交换器件",
+      "photo_ids": [
+        "YQ-P076",
+        "YQ-P077",
+        "YQ-P141",
+        "YQ-P142",
+        "YQ-P143"
+      ],
+      "chapters": [
+        7,
+        13
+      ],
+      "facts": [
+        "展示1.6T OSFP、C+L单波1.6T传送、国产25.6T交换机、800G OSFP112 2×DR4，以及ETH+ Scale-Out/Scale-Up融合方向。",
+        "ETH+展板列400/800G及SAI、SONiC软件接口。"
+      ],
+      "analysis": "网络竞争需要拆成交换芯片、交换机、光模块、传送和软件接口，不能用单一带宽概括。",
+      "boundary": "各展品归属和供应链角色应分别标明；不能由“国产”推断每颗芯片均为阿里自研。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G14",
+      "title": "800G GNPU及配套模块",
+      "photo_ids": [
+        "YQ-P055"
+      ],
+      "chapters": [
+        7
+      ],
+      "facts": [
+        "展示800G GNPU、PROT及CMU芯片/模块。"
+      ],
+      "analysis": "扩充网页对网络卸载硬件形态的认识。",
+      "boundary": "铭牌不足以确认完整功能、性能及与磐脉/PPU的对应关系；不推定型号互为替代。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G15",
+      "title": "全栈芯片组织",
+      "photo_ids": [
+        "YQ-P049",
+        "YQ-P098",
+        "YQ-P099"
+      ],
+      "chapters": [
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "facts": [
+        "真武、倚天、磐脉、ICN Switch、镇岳被组织为计算、网络与存储的全栈布局。"
+      ],
+      "analysis": "可作全栈总图的现场证据，展示系统协同方向。",
+      "boundary": "产品并列展示不证明所有能力已在同一集群同时运行。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G16",
+      "title": "磐脉920 SmartNIC",
+      "photo_ids": [
+        "YQ-P050",
+        "YQ-P108"
+      ],
+      "chapters": [
+        7
+      ],
+      "facts": [
+        "铭牌列400Gbps、400Mpps、32×PCIe 5.0及112G PAM4。"
+      ],
+      "analysis": "网络处理和PCIe接口是系统竞争的独立一层，不宜并入V900芯片算力。",
+      "boundary": "峰值转发和链路速率不是应用吞吐；不推导具体外部供应替换比例。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G17",
+      "title": "镇岳510与SSD生态",
+      "photo_ids": [
+        "YQ-P051",
+        "YQ-P109",
+        "YQ-P110"
+      ],
+      "chapters": [
+        8,
+        13
+      ],
+      "facts": [
+        "展板列截至2026年6月出货100万+，以及阿里存储产品与SSD伙伴生态。",
+        "现场有AliFlash、Memblaze、DERA等联合产品展示。"
+      ],
+      "analysis": "自研SSD主控和外部SSD伙伴可以共存，帮助把自研边界与部件合作边界分开。",
+      "boundary": "出货统计截至6月，不是本届新增订单；不能由伙伴展品推出收入或份额。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G18",
+      "title": "SAIL软件栈",
+      "photo_ids": [
+        "YQ-P100",
+        "YQ-P101"
+      ],
+      "chapters": [
+        4,
+        10
+      ],
+      "facts": [
+        "现场展示SAIL软件栈及“正式开源”表述。"
+      ],
+      "analysis": "真武竞争力需连同软件工具、模型框架与算子适配评价。",
+      "boundary": "展板不能证明所有模型零成本迁移，也不能仅凭拍摄日期定义首次开源日期。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G19",
+      "title": "真武M890与V900规格复核",
+      "photo_ids": [
+        "YQ-P102",
+        "YQ-P103",
+        "YQ-P104"
+      ],
+      "chapters": [
+        4,
+        12
+      ],
+      "facts": [
+        "M890：144GB显存、800GB/s C2C；V900：216GB显存、1200GB/s C2C；展示FP8/FP4。"
+      ],
+      "analysis": "增强网页关键参数的现场来源，但本轮没有补齐V900与昇腾960同条件性能比较所需的信息。",
+      "boundary": "C2C带宽不等于HBM带宽；仍缺V900完整绝对算力、功耗、售价及同模型测试。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G20",
+      "title": "倚天710实物及应用效果",
+      "photo_ids": [
+        "YQ-P105",
+        "YQ-P106",
+        "YQ-P107"
+      ],
+      "chapters": [
+        5
+      ],
+      "facts": [
+        "铭牌给出128核、2.75GHz、8通道DDR5、96路PCIe 5.0、Armv9及250W TDP。",
+        "另有不同工作负载的性价比或性能收益宣传。"
+      ],
+      "analysis": "710提供已展示代际的基线；720与730继续按各自路线和时间表分析。",
+      "boundary": "以上规格不得移植至720/730；不同应用百分比与比较基线不可合并。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G21",
+      "title": "真武与Kimi联合优化",
+      "photo_ids": [
+        "YQ-P052",
+        "YQ-P053",
+        "YQ-P111",
+        "YQ-P112"
+      ],
+      "chapters": [
+        4,
+        10,
+        12
+      ],
+      "facts": [
+        "展板描述M890承载Kimi真实线上流量、64卡ICN以及Mooncake/Triton/MoonEP等适配。",
+        "展示KDA、MLA、MoE和通信层优化收益，比较基线各不相同。"
+      ],
+      "analysis": "证明厂商披露已涉及模型结构、内核、通信和在线服务全链条，网页应从“有产品文档”深化到分场景工程案例。",
+      "boundary": "这是现场厂商案例，未独立验证；M890案例不能外推为V900实绩，各算子倍率不能当成整模型倍率。",
+      "evidence_status": "厂商客户案例"
+    },
+    {
+      "id": "G22",
+      "title": "真武与小鹏",
+      "photo_ids": [
+        "YQ-P054",
+        "YQ-P113"
+      ],
+      "chapters": [
+        4,
+        12
+      ],
+      "facts": [
+        "展板主张多个业务线启用真武、性能提升70%、故障下降50%。"
+      ],
+      "analysis": "增加车企AI负载案例，提示竞争范围超出阿里内部。",
+      "boundary": "未取得完整配置、样本期和客户原始测试；不推导全部算力供应份额。",
+      "evidence_status": "厂商客户案例"
+    },
+    {
+      "id": "G23",
+      "title": "真武与小红书",
+      "photo_ids": [
+        "YQ-P114"
+      ],
+      "chapters": [
+        4,
+        12
+      ],
+      "facts": [
+        "内容安全17个月、内容标注14个月的运行表述；整机性能提升60%—80%及特定搜索模型适配工作量。"
+      ],
+      "analysis": "比单次PoC更接近持续业务运行的厂商证据。",
+      "boundary": "时间长度为展板口径；不能当作本届刚签约，也不能推定V900已运行相同时间。",
+      "evidence_status": "厂商客户案例"
+    },
+    {
+      "id": "G24",
+      "title": "真武与证券行业",
+      "photo_ids": [
+        "YQ-P115"
+      ],
+      "chapters": [
+        4,
+        12
+      ],
+      "facts": [
+        "匿名证券案例展示810E APG、工作流自动化和处理时效改善。"
+      ],
+      "analysis": "补充本地行业方案与工作流能力。",
+      "boundary": "不猜测客户身份；配置、收益保留为案例主张。",
+      "evidence_status": "厂商客户案例"
+    },
+    {
+      "id": "G25",
+      "title": "真武与蚂蚁风控",
+      "photo_ids": [
+        "YQ-P116"
+      ],
+      "chapters": [
+        4,
+        6,
+        12
+      ],
+      "facts": [
+        "展板列通用训练成功率93%+、归一化利用率85%+、算力成本约为业界主流GPU的1/3。",
+        "同时写有“生产集群规模破万”，并描述训练托管、断点重训、故障自愈与MoE+GRPO运行。"
+      ],
+      "analysis": "增加生产系统成熟度和运维层证据，不能只围绕单卡规格讨论真武。",
+      "boundary": "“规模破万”未在该图明确单位；不能擅自写成一万个V900，也不能当作AL144或ICN单一Scale-Up域规模。成本基线未充分披露。",
+      "evidence_status": "厂商客户案例"
+    },
+    {
+      "id": "G26",
+      "title": "真武与美的",
+      "photo_ids": [
+        "YQ-P117"
+      ],
+      "chapters": [
+        4,
+        12
+      ],
+      "facts": [
+        "展板描述千卡训练、百卡推理及测试通过与单机对照收益。"
+      ],
+      "analysis": "提供制造业训练/推理两类负载线索。",
+      "boundary": "配置与测试集合限定收益，不作通用性能排名或大会新增采购量。",
+      "evidence_status": "厂商客户案例"
+    },
+    {
+      "id": "G27",
+      "title": "全球模型推理接入",
+      "photo_ids": [
+        "YQ-P080"
+      ],
+      "chapters": [
+        11
+      ],
+      "facts": [
+        "展示北京、香港、东京、弗吉尼亚、法兰克福、新加坡六处接入及Global/Local部署选项。"
+      ],
+      "analysis": "全球竞争还包括入口、路由和部署选择。",
+      "boundary": "六个接入点不等于本次新增六个地域；不能据此保证所有数据驻留与合规属性。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G28",
+      "title": "面向硬件的Agent Studio",
+      "photo_ids": [
+        "YQ-P081",
+        "YQ-P082"
+      ],
+      "chapters": [
+        10,
+        11,
+        12
+      ],
+      "facts": [
+        "展示Agent Studio for Hardware：从对话设计、开发到适配，覆盖30+芯片平台及RTOS/Linux/Android/iOS，提供API/SDK/固件形态。"
+      ],
+      "analysis": "阿里将模型和Agent工具链向设备开发延伸，是终端生态与平台入口维度的竞争。",
+      "boundary": "平台覆盖属于厂商展示，不能等同于30家量产客户或实际装机量。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G29",
+      "title": "PAI-EAS、InferX及推理优化链",
+      "photo_ids": [
+        "YQ-P083",
+        "YQ-P084",
+        "YQ-P085",
+        "YQ-P086",
+        "YQ-P087",
+        "YQ-P088",
+        "YQ-P089",
+        "YQ-P094"
+      ],
+      "chapters": [
+        8,
+        10,
+        12
+      ],
+      "facts": [
+        "InferX基于PAI-EAS，组织部署、请求调度、推理引擎、容器调度和基础设施五层。",
+        "展示前缀/会话感知路由、PD分离、投机解码、PPU通信与Attention处理、FlashKV三级缓存和CacheFS模型预热。",
+        "某基础模型企业案例：输入吞吐7.5倍，平均TTFT由29.2秒降到5.4秒，缓存命中约11%到约95%，验证1M上下文。"
+      ],
+      "analysis": "竞争分析要加入路由、缓存复用、冷启动和调度协同对有效算力的影响；芯片性能不是全部收益来源。",
+      "boundary": "厂商A/B案例，未独立实测；eRDMA P99<10微秒不是端到端TTFT；模型预热缓存与KV缓存要分开。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G30",
+      "title": "PAI训练、调度与智能运维",
+      "photo_ids": [
+        "YQ-P090",
+        "YQ-P095",
+        "YQ-P096",
+        "YQ-P128",
+        "YQ-P129"
+      ],
+      "chapters": [
+        10,
+        12
+      ],
+      "facts": [
+        "DLC与EAS双引擎、统一异构调度；另列任务规模、资源利用和MoE MFU等运营口径。",
+        "PAI Agentic材料展示CLI/Agent优化及故障定位、自愈能力。"
+      ],
+      "analysis": "从训练到推理再到运维的统一平台，是阿里系统竞争的另一条证据。",
+      "boundary": "90%资源利用率、80% MFU和故障自愈率分母不同，不相乘、不合并为统一“算力利用率”。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G31",
+      "title": "灵骏REIN与Scale-Up展示",
+      "photo_ids": [
+        "YQ-P066",
+        "YQ-P091"
+      ],
+      "chapters": [
+        6,
+        10
+      ],
+      "facts": [
+        "展品出现1024超节点与REIN运行时，材料展示64到1024及跨机房/地域组织。"
+      ],
+      "analysis": "补充运行时与基础设施对应关系，保留现有ICN/灵骏路线。",
+      "boundary": "本轮不把现场1024标识自动认定为AL144同一系统。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G32",
+      "title": "Agent Sandbox完整运行指标",
+      "photo_ids": [
+        "YQ-P092"
+      ],
+      "chapters": [
+        10,
+        14
+      ],
+      "facts": [
+        "展板：单Region支持百万级Sandbox、每分钟创建10万。",
+        "冷启动P99<180ms，限定官方预置或自定义模板预热后；热启动P99<20ms，限定沙箱实例池预热后；深休眠唤醒P99<600ms。",
+        "Agent Serving典型场景TCO最大降低70%。"
+      ],
+      "analysis": "补齐从并发规模到创建速率、启动延迟和状态恢复的运行指标。",
+      "boundary": "冷/热启动条件必须保留；旧版1.5万/分钟若引用须标版本，不可直接视为错误；TCO最大值不是全场景承诺。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G33",
+      "title": "paiRL与Agent训练环境",
+      "photo_ids": [
+        "YQ-P093"
+      ],
+      "chapters": [
+        10
+      ],
+      "facts": [
+        "展示分离式训练、部分Rollout、多轮交互及Agent Service框架、环境和基准覆盖。"
+      ],
+      "analysis": "后训练竞争从训练引擎延伸到环境编排和评测工具。",
+      "boundary": "吞吐倍率须对应模型、环境与基线，不能与其他厂商训练宣传数字直接比较。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G34",
+      "title": "Agentic网络服务",
+      "photo_ids": [
+        "YQ-P097",
+        "YQ-P124"
+      ],
+      "chapters": [
+        7,
+        10
+      ],
+      "facts": [
+        "CEN、PrivateLink、负载均衡、全球加速、Egress Proxy及ENS/ESA等能力以Skills/MCP/CLI等接口组织。"
+      ],
+      "analysis": "网络既是集群互联，也是Agent调用的服务对象；网页应将两层分开。",
+      "boundary": "有接口展示不等于所有产品权限和自动化执行默认开放。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G35",
+      "title": "AI KnowledgeWave与企业知识处理",
+      "photo_ids": [
+        "YQ-P118"
+      ],
+      "chapters": [
+        9,
+        10
+      ],
+      "facts": [
+        "展示多格式文档解析、多路检索与企业知识问答链路。"
+      ],
+      "analysis": "补充模型服务进入企业数据处理的路径。",
+      "boundary": "格式数量或检索策略数量不直接代表回答准确性；照片不足以比较检索质量。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G36",
+      "title": "AI Stack本地软硬一体交付",
+      "photo_ids": [
+        "YQ-P119",
+        "YQ-P120"
+      ],
+      "chapters": [
+        2,
+        4,
+        10,
+        12,
+        13
+      ],
+      "facts": [
+        "AI Stack展示本地部署：16卡真武810E、8卡真武M890，支持向集群扩展及对接飞天企业版。",
+        "软件包括基于vLLM/SGLang优化的AsLLM，展示模型预装、工具集成及云边一体。"
+      ],
+      "analysis": "阿里的竞争范围包含本地一体机与企业部署；现有以云服务为主的对比应补齐该交付形态。",
+      "boundary": "这是产品形态证据；未确认全部型号销售地域、交期、价格、服务责任及实际装机规模。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G37",
+      "title": "企业云与OpenTrek",
+      "photo_ids": [
+        "YQ-P121",
+        "YQ-P122",
+        "YQ-P123"
+      ],
+      "chapters": [
+        10,
+        12
+      ],
+      "facts": [
+        "企业云材料与OpenTrek展示运行、网关、运维和HiMarket等模块，以及与AI Stack等部署环境的关联。"
+      ],
+      "analysis": "增加企业内部Agent运行和治理的平台维度。",
+      "boundary": "OpenTrek、AgentCore、AI Stack是不同层的命名，不能未经文档核对就写成同一SKU或同一功能集合。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G38",
+      "title": "OSS AI安全",
+      "photo_ids": [
+        "YQ-P125"
+      ],
+      "chapters": [
+        8,
+        10
+      ],
+      "facts": [
+        "展示敏感内容、恶意内容等识别与治理方向。"
+      ],
+      "analysis": "数据安全成为Agent数据底座的一部分。",
+      "boundary": "宣传准确率只对应厂商数据集与测试条件，不作全量内容识别保证。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G39",
+      "title": "KVCacheStore与Kimi收益",
+      "photo_ids": [
+        "YQ-P126",
+        "YQ-P127"
+      ],
+      "chapters": [
+        8,
+        12
+      ],
+      "facts": [
+        "KV接口连接推理框架，位于HBM/DRAM之外的G3.5存储层，强调存算亲和、解耦和服务化。",
+        "展示百PiB级容量方向、数十TB/s、亿级IOPS、亚毫秒延迟；案例标注来源为月之暗面Kimi。",
+        "Kimi案例缓存时间窗口提升900%、TTFT降低54%。"
+      ],
+      "analysis": "网页由单一服务规格扩展为KV分层与实际业务主张；说明存储能改变有效推理成本。",
+      "boundary": "容量、吞吐、IOPS上限不能任意相乘；900%与54%属于特定案例，不是所有模型收益。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G40",
+      "title": "Skills Hub及受控执行",
+      "photo_ids": [
+        "YQ-P130"
+      ],
+      "chapters": [
+        10
+      ],
+      "facts": [
+        "Skills Hub/A2A与运维技能示例，展示高风险操作HITL人工参与。"
+      ],
+      "analysis": "Agent工具化需要权限、确认和审计控制，产品能力不只在自动执行。",
+      "boundary": "演示不证明全部高风险路径都得到外部安全审计。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G41",
+      "title": "ApsaraLakebase现场架构",
+      "photo_ids": [
+        "YQ-P131"
+      ],
+      "chapters": [
+        1,
+        9,
+        14
+      ],
+      "facts": [
+        "接口含SQL/NoSQL/Table API及Context/NLP；计算层含Ray、Daft及模型算子。",
+        "展示向量/全文/时序/图/KV等能力、LakeCache/EMP缓存和元数据层。",
+        "底层包括OSS上的多模态及开放表格式，与PolarStore行列/半结构化数据。"
+      ],
+      "analysis": "原网页第9.2节“完整一手说明待核”应调整为已取得现场架构证据；它把数据空间、计算和Agent接口放在同一组织下。",
+      "boundary": "只能升级架构证据；GA时间、地域、价格、SLA、分支速度与客户规模仍未确认。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G42",
+      "title": "OpenLake数据湖与开放生态",
+      "photo_ids": [
+        "YQ-P132",
+        "YQ-P133"
+      ],
+      "chapters": [
+        9
+      ],
+      "facts": [
+        "展示DataLake、VectorLake、AILake，联通DataWorks及MaxCompute/Hologres/Flink/PAI/StarRocks/Spark等计算引擎。",
+        "Data Lake Formation包括OmniCatalog、权限和元数据等能力。"
+      ],
+      "analysis": "应把OpenLake的开放湖底座、Lakebase的数据与计算服务、Context的Agent使用接口区分。",
+      "boundary": "开放格式或多引擎接入不自动代表任意跨厂商组合已认证。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G43",
+      "title": "高密度JBOD及冷热存储",
+      "photo_ids": [
+        "YQ-P134",
+        "YQ-P135"
+      ],
+      "chapters": [
+        8,
+        13
+      ],
+      "facts": [
+        "120盘位HDD JBOD、SSD/HDD分层及SMR等展示。"
+      ],
+      "analysis": "AI存储仍有容量和冷数据层，不能只讨论HBM与高速SSD。",
+      "boundary": "动态功耗和性价比改善是展板主张，不得写成整个数据中心PUE或单位Token统一收益。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G44",
+      "title": "EBOF高性能缓存服务器",
+      "photo_ids": [
+        "YQ-P136"
+      ],
+      "chapters": [
+        8,
+        13
+      ],
+      "facts": [
+        "展示高密度QLC缓存服务器、TB级吞吐方向、PB级扩展、双端口SSD及多路径冗余。"
+      ],
+      "analysis": "补齐KV缓存从软件接口到闪存设备的物理形态。",
+      "boundary": "照片小字和反光影响精确时延核读，暂不录入微秒数字；实际测试边界待规格书。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G45",
+      "title": "CXL JBOM内存扩展节点",
+      "photo_ids": [
+        "YQ-P137"
+      ],
+      "chapters": [
+        6,
+        8
+      ],
+      "facts": [
+        "铭牌列144根DDR内存模组、在线维护、多路径及控制器/链路故障容错。",
+        "展示面向KV的G2.5内存层及CXL交换组织。"
+      ],
+      "analysis": "与G3.5 KVCacheStore区分，建立HBM—DDR/CXL内存池—SSD缓存—共享存储层次。",
+      "boundary": "144是DDR模组数，不是GPU或CPU数；未确认与各GPU平台互操作及实际带宽。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G46",
+      "title": "Tair KVCache动态分级缓存",
+      "photo_ids": [
+        "YQ-P150"
+      ],
+      "chapters": [
+        8,
+        9
+      ],
+      "facts": [
+        "KVCache Manager包含全局元数据、推理仿真、成本评估与智能规划；缓存池覆盖HBM/DRAM/RDMA内存池/SSD。",
+        "展板在特定基准下列吞吐提升139%、TTFT降低72%、存储成本降低75%。"
+      ],
+      "analysis": "Tair与KVCacheStore、FlashKV、CXL池解决同类问题的不同层面，需比较职责与接口，不能合并成一个产品。",
+      "boundary": "基准配置不完整且画面右侧截断，综合成本数字不录入；不可叠加不同缓存产品的收益百分比。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G47",
+      "title": "Scale-Across光传送",
+      "photo_ids": [
+        "YQ-P138",
+        "YQ-P139"
+      ],
+      "chapters": [
+        7
+      ],
+      "facts": [
+        "展示全频谱FST、空芯光纤HCF、IP与光层协同，以及Echo光纤感知方向。"
+      ],
+      "analysis": "网络章节应分Scale-Up、Scale-Out和Scale-Across，讨论不同距离与故障域。",
+      "boundary": "空芯光纤、光传送、光感知不等同OCS；照片没有补齐阿里OCS量产证据。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G48",
+      "title": "数据中心能源与GW BYOP",
+      "photo_ids": [
+        "YQ-P144",
+        "YQ-P145"
+      ],
+      "chapters": [
+        6,
+        13
+      ],
+      "facts": [
+        "现场展示高功率AI数据中心、多能源自供电BYOP、CUBE 5和数字化能源管理。"
+      ],
+      "analysis": "AL144功率密度提高，使供配电、液冷与能源组织进入系统约束。",
+      "boundary": "展示屏数字可能为演示；PUE与绿电比例统计周期需核实，不推导当前实耗电、已建GW容量或真实订单。",
+      "evidence_status": "现场展示／厂商主张"
+    },
+    {
+      "id": "G49",
+      "title": "NVIDIA网络展品",
+      "photo_ids": [
+        "YQ-P146",
+        "YQ-P147",
+        "YQ-P148",
+        "YQ-P149"
+      ],
+      "chapters": [
+        7,
+        12
+      ],
+      "facts": [
+        "NVIDIA Spectrum-6 CPO及Spectrum-4以太网产品展示。"
+      ],
+      "analysis": "证明大会生态含第三方先进网络产品，不能算作阿里自研技术发布。",
+      "boundary": "不能用该CPO展品填补阿里自研CPO/OCS证据缺口，也不证明阿里采购该产品。",
+      "evidence_status": "第三方展品"
+    },
+    {
+      "id": "G50",
+      "title": "NVIDIA DGX Spark",
+      "photo_ids": [
+        "YQ-P151",
+        "YQ-P152",
+        "YQ-P153"
+      ],
+      "chapters": [
+        12
+      ],
+      "facts": [
+        "DGX Spark产品及技术规格展示。"
+      ],
+      "analysis": "可进入生态附录，不宜扩写阿里自研算力正文。",
+      "boundary": "品牌归属NVIDIA；参展不等于阿里采用或联合交付。",
+      "evidence_status": "第三方展品"
+    },
+    {
+      "id": "G51",
+      "title": "AMD生态展品",
+      "photo_ids": [
+        "YQ-P056",
+        "YQ-P057",
+        "YQ-P154"
+      ],
+      "chapters": [
+        12
+      ],
+      "facts": [
+        "AMD芯片实物展示。"
+      ],
+      "analysis": "补充大会生态广度。",
+      "boundary": "不据此认定阿里新增采购、部署数量或与真武的具体替代关系。",
+      "evidence_status": "第三方展品"
+    },
+    {
+      "id": "G52",
+      "title": "锐捷400G交换机展品",
+      "photo_ids": [
+        "YQ-P155",
+        "YQ-P156"
+      ],
+      "chapters": [
+        7,
+        13
+      ],
+      "facts": [
+        "展示128口400G RG-S6990-128QC2XS及64口400G RG-S6981-64QC2VS。"
+      ],
+      "analysis": "表明交换设备生态存在外部产品供给；可用于区分自主技术域与商用设备层。",
+      "boundary": "不能把参展设备自动列为阿里在网设备或已获订单供应商。",
+      "evidence_status": "第三方展品"
+    }
+  ]
+}
